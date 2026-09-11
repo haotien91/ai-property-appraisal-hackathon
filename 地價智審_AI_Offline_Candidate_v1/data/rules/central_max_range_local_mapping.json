@@ -1,0 +1,20 @@
+[
+  {
+    "local_rule_file": "data/rules/regional_rules.json",
+    "local_land_use_type": "商業用地",
+    "table_type": "regional",
+    "mapping_status": "UNMAPPED",
+    "mapped_central_land_use_type": null,
+    "mapped_central_subgrade": null,
+    "notes": "中央「影響地價區域因素評價基準表」商業用地部分分為高度／中度／普通／村里鄰商業用地四種子級別；本專案regional_rules.json並未記錄地方基準明細表對應中央表哪一子級別，且無官方文件說明此對應關係，不得自行猜測。需人工確認（例如向主辦方/地政局確認決賽區段實際套用之子級別）後才可標記為MAPPED並填入mapped_central_subgrade。"
+  },
+  {
+    "local_rule_file": "data/rules/individual_rules.json",
+    "local_land_use_type": "商業用地",
+    "table_type": "individual",
+    "mapping_status": "UNMAPPED",
+    "mapped_central_land_use_type": null,
+    "mapped_central_subgrade": null,
+    "notes": "中央「影響地價個別因素評價基準表」商業用地欄位本身無子級別分欄（不像區域因素表），理論上對應關係較無歧義；但本輪僅負責中央表本身之數位化與模型/驗證器建立，尚未正式確認並執行地方individual_rules.json與此欄位之交叉比對，故仍標記為UNMAPPED，避免在未執行實際比對前就宣稱已確認對應關係。"
+  }
+]

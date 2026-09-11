@@ -1,0 +1,41 @@
+# .gitignore — 地價智審 AI
+#
+# 目的：避免正式AWS憑證/密鑰於Phase 7B實際部署過程中被誤commit。
+# 本檔案本身不涉及業務邏輯，僅為Repository衛生措施。
+
+# --- 環境變數 / 憑證（核心目的） ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+aws_credentials
+credentials.json
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+.coverage
+htmlcov/
+
+# --- SAM / Lambda build 產物 ---
+.aws-sam/
+
+# --- OS 暫存檔 ---
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------
+# 明確不忽略（避免誤ignore正式Source/Config/測試/Mock資料）：
+#   .env.example（見上方!規則）
+#   data/rules/*.json, data/golden/*, data/demo_errors/*
+#   frontend/mock/*.json
+#   infra/template.yaml, infra/statemachine/*.json
+#   tests/**, docs/**
+# ---------------------------------------------------------------

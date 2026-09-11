@@ -1,0 +1,5 @@
+rule_id_prefix,from_grade_code,to_grade_code,adjustment_pct
+REG-ZONING_INSIDE_OUTSIDE,1,1,0
+REG-ZONING_INSIDE_OUTSIDE,1,5,20
+REG-ZONING_INSIDE_OUTSIDE,5,1,-20
+REG-ZONING_INSIDE_OUTSIDE,5,5,0

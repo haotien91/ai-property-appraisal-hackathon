@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "description": "Phase 6 依存關係圖，供 DependencyImpactAnalyzer 使用。以 regex pattern 比對 field_id（而非逐一列舉47項因素），因所有區域因素收斂至同一組表4欄位、所有個別因素亦然，pattern-based設計避免與factor數量成正比的重複資料。對應 docs/phase2/form_dependency.md 之依存鏈。",
+  "rules": [
+    {
+      "rule_id": "DEP-01",
+      "upstream_pattern": "^(?P<factor>.+)_adjustment_pct_(?P<cid>.+)$",
+      "downstream_template": ["region_adjustment_rate_{cid}", "trial_price_{cid}", "base_parcel_comparison_price"],
+      "description": "任一區域因素修正百分比錯誤 -> 區域因素調整百分率(表4,承接表5-2) -> 試算價格 -> 最終比準地比較價格",
+      "source": "docs/phase2/form_dependency.md; 作業手冊 p.48「(4)」"
+    },
+    {
+      "rule_id": "DEP-02",
+      "upstream_pattern": "^(?P<factor>.+)_differential_rate_(?P<cid>.+)$",
+      "downstream_template": ["individual_adjustment_total_{cid}", "trial_price_{cid}", "adjustment_abs_sum_{cid}", "base_parcel_comparison_price"],
+      "description": "任一個別因素差異率錯誤 -> 個別因素調整合計 -> 試算價格 -> 調整百分率絕對值加總 -> 最終比準地比較價格",
+      "source": "docs/phase2/form_dependency.md; 查估書表範本.pdf 表4"
+    },
+    {
+      "rule_id": "DEP-03",
+      "upstream_pattern": "^region_adjustment_rate_(?P<cid>.+)$",
+      "downstream_template": ["trial_price_{cid}", "adjustment_abs_sum_{cid}", "base_parcel_comparison_price"],
+      "description": "區域因素調整百分率(表4)錯誤 -> 試算價格 -> 調整百分率絕對值加總 -> 最終比準地比較價格；此欄位亦為Cross-form一致性核心檢查點",
+      "source": "docs/phase2/form_dependency.md REQ-023"
+    },
+    {
+      "rule_id": "DEP-04",
+      "upstream_pattern": "^individual_adjustment_total_(?P<cid>.+)$",
+      "downstream_template": ["trial_price_{cid}", "adjustment_abs_sum_{cid}", "base_parcel_comparison_price"],
+      "description": "個別因素調整合計錯誤 -> 試算價格 -> 調整百分率絕對值加總 -> 最終比準地比較價格",
+      "source": "docs/phase2/calculation_dependency.md"
+    },
+    {
+      "rule_id": "DEP-05",
+      "upstream_pattern": "^adjusted_price_(?P<cid>.+)$",
+      "downstream_template": ["trial_price_{cid}", "base_parcel_comparison_price"],
+      "description": "調整至估價基準日單價錯誤 -> 試算價格 -> 最終比準地比較價格；此步驟須全程保留完整精度（見docs/phase2/calculation_dependency.md段落9獨立驗算）",
+      "source": "docs/phase2/calculation_dependency.md 段落6, 9"
+    },
+    {
+      "rule_id": "DEP-06",
+      "upstream_pattern": "^trial_price_(?P<cid>.+)$",
+      "downstream_template": ["base_parcel_comparison_price"],
+      "description": "試算價格錯誤 -> 最終比準地比較價格（若僅1筆比較標的且權重100%，直接等於最終價格）",
+      "source": "docs/phase2/calculation_dependency.md 段落10"
+    },
+    {
+      "rule_id": "DEP-07",
+      "upstream_pattern": "^comparable_weight_(?P<cid>.+)$",
+      "downstream_template": ["base_parcel_comparison_price"],
+      "description": "比較標的權重錯誤 -> 最終比準地比較價格加權平均結果錯誤",
+      "source": "作業手冊 p.52-53"
+    }
+  ]
+}

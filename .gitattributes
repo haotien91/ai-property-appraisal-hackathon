@@ -1,0 +1,2 @@
+# Preserve the complete cadastral snapshot through Git LFS.
+**/data/cadastral_dataset_cache.sqlite3 filter=lfs diff=lfs merge=lfs -text

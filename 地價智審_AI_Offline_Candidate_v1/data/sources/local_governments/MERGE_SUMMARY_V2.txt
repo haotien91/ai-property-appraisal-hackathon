@@ -1,0 +1,14 @@
+local_governments + 補充資料2 merge summary
+==========================================
+New files added: 5
+Byte-identical duplicates skipped: 1
+
+Added files:
+- Taipei City: taipei_shilin_shuangxi_land_expropriation_market_value_appraisal_report_2023.pdf [OFFICIAL_FILLED_EXAMPLE]
+- New Taipei City: new_taipei_land_appraisal_qa_excerpt_from_moi_manual_2013.pdf [OFFICIAL_MANUAL]
+- Taipei City: taipei_land_appraisal_operation_fee_standard_2025.pdf [OFFICIAL_REGULATION]
+- Taipei City: taipei_land_law_monthly_2012_07_appraisal_forms_and_criteria_notice.pdf [OFFICIAL_REGULATION]
+- Taipei City: taipei_land_value_review_committee_meeting_103_2024.pdf [OFFICIAL_CASE_ATTACHMENT]
+
+Deduplicated:
+- 17_#U65b0#U5317#U5e02#U571f#U5730#U5fb5#U6536#U88dc#U511f#U5e02#U50f9#U67e5#U4f30#U66f8#U8868#U88fd#U4f5c#U624b#U518a11#U7ae0(#U63d0#U6848#U8868#U7bc4#U4f8b).pdf -> existing new_taipei/manuals/new_taipei_land_appraisal_form_manual_chapter_11_proposal_example.pdf

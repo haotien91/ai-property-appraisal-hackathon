@@ -1,0 +1,2 @@
+rule_id_prefix,version,city,district,land_use_type,category,factor,value_type,unit,direction,effective_date,source_document,source_page,source_note
+REG-ZONING_INSIDE_OUTSIDE,1.0,新北市,金山區,商業用地,土地使用管制(1),都市計畫（內、外）,boolean,,positive,1140901,評價基準明細表範例.pdf,p.1,以都市計畫內外來制定其優劣；優=都市計畫內，劣=都市計畫外

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Minimal fixture derived from NLSC's own CadasMapPosition (CAD_001)
+technical-manual documented response example (Phase API-2.2R2 live audit,
+docs/phase9/official_parcel_coordinate_audit.md S7):
+  repX=120.683552 repY=24.142313 ldX=120.683471 ldY=24.142235
+  rtX=120.683633 rtY=24.142389
+This is NOT a copy of the manual itself, only the numeric response
+example needed to unit-test parse_cadas_map_position_response() without a
+real credential. Root element name is not documented; "CadasMapPosition"
+is a placeholder tag name for this fixture only (the parser reads repX/
+repY/ldX/ldY/rtX/rtY as direct children of whatever the root is, and does
+not depend on the root tag's name).
+-->
+<CadasMapPosition>
+    <repX>120.683552</repX>
+    <repY>24.142313</repY>
+    <ldX>120.683471</ldX>
+    <ldY>24.142235</ldY>
+    <rtX>120.683633</rtX>
+    <rtY>24.142389</rtY>
+</CadasMapPosition>

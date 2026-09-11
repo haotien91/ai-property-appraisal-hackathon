@@ -1,0 +1,9 @@
+{
+  "case_no": "1140901-99-001",
+  "document_id": "LOCAL-MOCK-GOLDEN-DOCUMENT",
+  "confirmed_count": 0,
+  "skipped_count": 0,
+  "skipped": [],
+  "local_mock": true,
+  "local_mock_notice": "此為 LOCAL/MOCK 回應，確認結果不會實際寫入任何後端儲存（未呼叫真實 AWS Lambda/S3）。confirmed_count 會在畫面上依實際送出的確認筆數即時顯示，此檔案本身僅為固定樣板。"
+}

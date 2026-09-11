@@ -1,0 +1,10 @@
+# Dependencies for scripts/sync_*.py dataset ETL jobs only -- these run as
+# manually-triggered maintenance jobs, never inside the Lambda request path,
+# so they are kept out of backend/requirements.txt (the Lambda deployment
+# package) to avoid unnecessary bundle size.
+#
+# shapely itself IS a request-path dependency (see providers/
+# ntpc_zoning_provider.py's point-in-polygon query) and belongs in
+# backend/requirements.txt instead; it is not repeated here.
+pyshp>=3.0
+pyproj>=3.6

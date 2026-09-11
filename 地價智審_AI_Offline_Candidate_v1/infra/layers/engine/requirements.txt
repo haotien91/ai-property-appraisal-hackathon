@@ -1,0 +1,7 @@
+# Single source of truth: backend/requirements.txt. This file
+# intentionally contains NO duplicated dependency declarations -- pip's
+# native `-r <path>` inclusion means a version bump only ever happens in
+# ONE place; there is no second copy that could silently drift out of
+# sync. See backend/requirements.txt for the actual pinned versions and
+# the boto3-exclusion rationale.
+-r ../../../backend/requirements.txt

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Hypothetical "malformed/incomplete success" fixture: well-formed XML with
+the bounding-box fields present but repX/repY absent. NLSC's public
+documentation has no published example of this case (Phase API-2.2R2
+audit: only a SUCCESS example is documented). This fixture exists to
+unit-test this codebase's own defensive fallback (parse_cadas_map_
+position_response treats missing repX/repY as NOT_FOUND, never a crash),
+not to assert this is NLSC's actual documented behavior.
+-->
+<CadasMapPosition>
+    <ldX>120.683471</ldX>
+    <ldY>24.142235</ldY>
+    <rtX>120.683633</rtX>
+    <rtY>24.142389</rtY>
+</CadasMapPosition>
