@@ -20,6 +20,123 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <style>
+        .pdf-preview-card {
+            padding: 24px;
+        }
+
+        .pdf-switcher {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .pdf-switch-btn {
+            width: 100%;
+            min-height: 52px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .035);
+            color: #d8d8df;
+            font-weight: 700;
+            transition: .2s ease;
+        }
+
+        .pdf-switch-btn:hover {
+            border-color: rgba(255, 20, 127, .65);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .pdf-switch-btn.active {
+            color: #fff;
+            background: rgba(255, 20, 127, .16);
+            border-color: var(--ai-accent);
+            box-shadow: 0 0 0 1px rgba(255, 20, 127, .18) inset;
+        }
+
+        .pdf-viewer-shell {
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 12px;
+            background: #202024;
+        }
+
+        .pdf-viewer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 13px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+            background: rgba(255, 255, 255, .03);
+        }
+
+        .pdf-viewer-title {
+            margin: 0;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .pdf-viewer-frame {
+            display: block;
+            width: 100%;
+            height: 760px;
+            border: 0;
+            background: #fff;
+        }
+
+        .pdf-download-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .pdf-download-grid .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            white-space: normal;
+            line-height: 1.35;
+        }
+
+        .pdf-fallback-note {
+            display: none;
+            margin-top: 14px;
+            padding: 10px 12px;
+            border: 1px solid rgba(255, 176, 32, .3);
+            border-radius: 8px;
+            background: rgba(255, 176, 32, .08);
+            color: #ffb020;
+            font-size: .9rem;
+            text-align: left;
+        }
+
+        @media (max-width: 991.98px) {
+            .pdf-switcher,
+            .pdf-download-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pdf-viewer-frame {
+                height: 620px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .pdf-preview-card {
+                padding: 16px;
+            }
+
+            .pdf-viewer-frame {
+                height: 520px;
+            }
+        }
+    </style>
+
     <!-- Loaded early (before body scripts) so Api/APP_CONFIG exist before any page-specific inline script runs -->
     <script src="js/config.js"></script>
     <script src="js/api.js"></script>
@@ -53,14 +170,42 @@
     </div>
 <section class="app-shell"><div class="container"><div class="app-stepper"><a href="case.html" class="done" data-preserve-case><span class="step-num">1</span>案件列表</a><a href="case-new.html" class="done" data-preserve-case><span class="step-num">2</span>建立案件</a><a href="data.html" class="done" data-preserve-case><span class="step-num">3</span>資料收集</a><a href="analysis.html" class="done" data-preserve-case><span class="step-num">4</span>因素分析</a><a href="form-fill.html" class="done" data-preserve-case><span class="step-num">5</span>書表填寫</a><a href="pdf-preview.html" class="active" data-preserve-case><span class="step-num">6</span>PDF預覽</a><a href="document-review.html" class="" data-preserve-case><span class="step-num"><i class="fa-solid fa-file-import"></i></span>文件上傳（選用）</a><a href="review.html" class="" data-preserve-case><span class="step-num">7</span>智慧審查</a><a href="result.html" class="" data-preserve-case><span class="step-num">8</span>案件結果</a></div>
 <h2 class="section-title" style="font-size:1.8rem;">PDF 預覽</h2>
-<p class="section-text mb-4">GET /api/cases/{id}/pdf —— 官方查估書表範本.pdf 非標準PDF無法直填，採 Fallback Reproduction（見 docs/phase5/pdf_output_spec.md）。</p>
+<p class="section-text mb-4">預覽本案件產出的三張核心查估書表，並可分別下載各表 PDF。</p>
 <div id="loadingState" class="state-loading"><div class="spinner-border"></div></div>
 <div id="content" style="display:none;">
-  <div class="app-card text-center">
-    <i class="fa-solid fa-file-pdf fa-3x mb-3" style="color:var(--ai-accent);"></i>
-    <p id="fallbackNotice" class="section-text"></p>
-    <div id="pageCounts" class="section-text mb-3"></div>
-    <div id="downloadLinks" class="d-flex flex-wrap justify-content-center gap-2"></div>
+  <div class="app-card pdf-preview-card">
+    <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+      <div>
+        <div class="d-flex align-items-center gap-2 mb-1">
+          <i class="fa-solid fa-file-pdf fa-2x" style="color:var(--ai-accent);"></i>
+          <h4 class="mb-0 text-light">查估書表預覽</h4>
+        </div>
+        <p id="fallbackNotice" class="section-text mb-0"></p>
+      </div>
+      <div id="pageCounts" class="section-text text-end"></div>
+    </div>
+
+    <div id="previewTabs" class="pdf-switcher" aria-label="切換查估書表預覽"></div>
+
+    <div class="pdf-viewer-shell">
+      <div class="pdf-viewer-header">
+        <p id="activeFormTitle" class="pdf-viewer-title">地價區段勘查表</p>
+        <a id="openCurrentPdf" class="btn btn-ai-outline btn-sm" target="_blank" rel="noopener">
+          <i class="fa-solid fa-up-right-from-square me-1"></i>另開 PDF
+        </a>
+      </div>
+      <iframe id="pdfViewer" class="pdf-viewer-frame" title="查估書表 PDF 預覽"></iframe>
+    </div>
+
+    <div id="combinedFallbackNote" class="pdf-fallback-note">
+      <i class="fa-solid fa-circle-info me-2"></i>
+      目前 Mock 資料中的「影響地價區域因素分析明細表」與「比較法調查估價表」仍共用既有整合 PDF；此頁已支援三份獨立 PDF，後續只要 API / Mock 各自提供兩份 URL，就會自動切換成真正分開的預覽與下載。
+    </div>
+
+    <div class="mt-4 mb-2">
+      <h5 class="text-light mb-3"><i class="fa-solid fa-download me-2" style="color:var(--ai-accent);"></i>下載書表</h5>
+      <div id="downloadLinks" class="pdf-download-grid"></div>
+    </div>
   </div>
   <a href="review.html" class="btn btn-ai-outline mt-3" data-preserve-case><i class="fa-solid fa-arrow-right me-2"></i>執行智慧審查</a>
 </div>
@@ -71,18 +216,140 @@
         document.getElementById('loadingState').innerHTML = '<div class="state-error">缺少案號（case_no），請從案件列表或建立案件重新進入。</div>';
         return;
     }
+
+    const FORM_DEFS = [
+        { key: 'table1', label: '地價區段勘查表', shortLabel: '表1', icon: 'fa-map-location-dot' },
+        { key: 'table5_2', label: '影響地價區域因素分析明細表', shortLabel: '表5-2', icon: 'fa-table-list' },
+        { key: 'table4', label: '比較法調查估價表', shortLabel: '表4', icon: 'fa-calculator' },
+    ];
+
+    function cleanFormName(value) {
+        return String(value || '').replace(/\s/g, '').replace(/[（）()]/g, '').toLowerCase();
+    }
+
+    function withPdfViewerOptions(url) {
+        if (!url) return '';
+        return `${url}${url.includes('#') ? '&' : '#'}toolbar=1&navpanes=0&view=FitH`;
+    }
+
     try {
         const d = await Api.getPdf(caseNo);
-        document.getElementById('loadingState').style.display='none';
-        document.getElementById('content').style.display='block';
-        document.getElementById('fallbackNotice').textContent = d.fallback_mode ? ('系統產出報表：' + d.fallback_reason) : 'PDF已就緒';
-        document.getElementById('pageCounts').textContent = d.forms_included ? d.forms_included.map(f=>`${f}：${(d.page_count||{})[f]||'-'}頁`).join('　') : '';
-        const links = (d.pdf_urls && d.pdf_urls.length) ? d.pdf_urls : (d.pdf_url ? [{form: '查估書表', url: d.pdf_url}] : []);
-        document.getElementById('downloadLinks').innerHTML = links.length
-          ? links.map(l => `<a href="${l.url}" target="_blank" class="btn btn-ai-primary"><i class="fa-solid fa-download me-2"></i>下載 ${l.form}</a>`).join('')
-          : '<span class="section-text">PDF尚未產生</span>';
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('fallbackNotice').textContent = d.fallback_mode
+            ? '系統產出報表：' + d.fallback_reason
+            : '三張核心查估書表已就緒。';
+
+        const rawLinks = (d.pdf_urls && d.pdf_urls.length)
+            ? d.pdf_urls
+            : (d.pdf_url ? [{ form: '查估書表', url: d.pdf_url }] : []);
+
+        const exactTable1 = rawLinks.find(x => {
+            const n = cleanFormName(x.form);
+            return n === '表1' || n.includes('地價區段勘查表');
+        });
+        const exactTable5 = rawLinks.find(x => {
+            const n = cleanFormName(x.form);
+            return (n === '表5-2' || n.includes('影響地價區域因素分析明細表')) && !n.includes('表4');
+        });
+        const exactTable4 = rawLinks.find(x => {
+            const n = cleanFormName(x.form);
+            return (n === '表4' || n.includes('比較法調查估價表')) && !n.includes('表5-2');
+        });
+        const combined45 = rawLinks.find(x => {
+            const n = cleanFormName(x.form);
+            return n.includes('表4') && n.includes('表5-2');
+        });
+
+        const forms = {
+            table1: {
+                ...FORM_DEFS[0],
+                url: exactTable1 ? exactTable1.url : null,
+                fallbackCombined: false,
+            },
+            table5_2: {
+                ...FORM_DEFS[1],
+                url: exactTable5 ? exactTable5.url : (combined45 ? combined45.url : null),
+                fallbackCombined: !exactTable5 && !!combined45,
+            },
+            table4: {
+                ...FORM_DEFS[2],
+                url: exactTable4 ? exactTable4.url : (combined45 ? combined45.url : null),
+                fallbackCombined: !exactTable4 && !!combined45,
+            },
+        };
+
+        const hasCombinedFallback = forms.table5_2.fallbackCombined || forms.table4.fallbackCombined;
+        document.getElementById('combinedFallbackNote').style.display = hasCombinedFallback ? 'block' : 'none';
+
+        const pageCount = d.page_count || {};
+        const countParts = [];
+        if (pageCount['表1']) countParts.push(`表1：${pageCount['表1']}頁`);
+        if (pageCount['表5-2']) countParts.push(`表5-2：${pageCount['表5-2']}頁`);
+        if (pageCount['表4']) countParts.push(`表4：${pageCount['表4']}頁`);
+        if (!pageCount['表5-2'] && !pageCount['表4'] && pageCount['表4+表5-2']) {
+            countParts.push(`表4＋表5-2：${pageCount['表4+表5-2']}頁`);
+        }
+        document.getElementById('pageCounts').textContent = countParts.join('　');
+
+        const tabs = document.getElementById('previewTabs');
+        tabs.innerHTML = FORM_DEFS.map((def, index) => {
+            const f = forms[def.key];
+            const disabled = !f.url;
+            return `<button type="button" class="pdf-switch-btn${index === 0 ? ' active' : ''}" data-form-key="${def.key}" ${disabled ? 'disabled' : ''}>
+                <i class="fa-solid ${def.icon} me-2"></i>${def.label}
+            </button>`;
+        }).join('');
+
+        const downloads = document.getElementById('downloadLinks');
+        downloads.innerHTML = FORM_DEFS.map(def => {
+            const f = forms[def.key];
+            if (!f.url) {
+                return `<button type="button" class="btn btn-ai-primary" disabled>
+                    <i class="fa-solid fa-download me-2"></i>下載${def.label}
+                </button>`;
+            }
+            const fallbackTitle = f.fallbackCombined ? '目前 Mock 模式會下載表4＋表5-2整合 PDF' : `下載${def.label}`;
+            return `<a href="${f.url}" class="btn btn-ai-primary" target="_blank" rel="noopener" title="${fallbackTitle}">
+                <i class="fa-solid fa-download me-2"></i>下載${def.label}
+            </a>`;
+        }).join('');
+
+        function selectForm(key) {
+            const form = forms[key];
+            if (!form || !form.url) return;
+
+            document.querySelectorAll('.pdf-switch-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.formKey === key);
+            });
+
+            document.getElementById('activeFormTitle').textContent = form.label;
+            document.getElementById('pdfViewer').src = withPdfViewerOptions(form.url);
+            document.getElementById('openCurrentPdf').href = form.url;
+        }
+
+        tabs.addEventListener('click', (event) => {
+            const btn = event.target.closest('[data-form-key]');
+            if (!btn || btn.disabled) return;
+            selectForm(btn.dataset.formKey);
+        });
+
+        // 預設顯示第一張：表1 地價區段勘查表；若表1不存在才退到第一個可用PDF。
+        const initialKey = forms.table1.url
+            ? 'table1'
+            : FORM_DEFS.find(def => forms[def.key].url)?.key;
+
+        if (initialKey) {
+            selectForm(initialKey);
+        } else {
+            document.getElementById('pdfViewer').replaceWith(Object.assign(document.createElement('div'), {
+                className: 'state-error p-5',
+                textContent: 'PDF尚未產生',
+            }));
+            document.getElementById('openCurrentPdf').style.display = 'none';
+        }
     } catch (e) {
-        document.getElementById('loadingState').innerHTML = '<div class="state-error">'+((e&&e.error&&e.error.message)||'PDF尚未產生')+'</div>';
+        document.getElementById('loadingState').innerHTML = '<div class="state-error">' + ((e && e.error && e.error.message) || 'PDF尚未產生') + '</div>';
     }
 })();
 </script>
@@ -119,6 +386,6 @@
         document.getElementById('modeIndicator').textContent = (window.APP_CONFIG || {}).MODE || 'unknown';
         CaseContext.applyCaseQueryToLinks();
     </script>
-    
+
 </body>
 </html>
