@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-
 <head>
     <meta charset="utf-8">
-    <title>建立新案件｜地價智審 AI</title>
+    <title>建立案件｜地價智審 AI</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="地價智審 AI, 不動產估價, AI 審查" name="keywords">
     <meta content="AI 輔助不動產估價案件審查系統" name="description">
@@ -20,7 +19,181 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- Loaded early (before body scripts) so Api/APP_CONFIG exist before any page-specific inline script runs -->
+    <style>
+        .case-create-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .case-panel {
+            height: 100%;
+            border: 1px solid var(--ai-border);
+            border-radius: 12px;
+            background: var(--ai-panel);
+            padding: 24px;
+        }
+
+        .panel-kicker {
+            color: var(--ai-accent);
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .panel-title {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .upload-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-height: 118px;
+            padding: 18px;
+            margin-top: 16px;
+            border: 1px dashed rgba(255,255,255,.22);
+            border-radius: 10px;
+            background: rgba(255,255,255,.025);
+            transition: .2s ease;
+        }
+
+        .upload-box:hover,
+        .upload-box.has-file {
+            border-color: var(--ai-accent);
+            background: rgba(255,10,120,.06);
+        }
+
+        .upload-icon {
+            flex: 0 0 48px;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--ai-accent);
+            background: var(--ai-accent-soft);
+            font-size: 1.15rem;
+        }
+
+        .upload-copy {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .upload-copy strong {
+            display: block;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .upload-copy span {
+            display: block;
+            color: var(--ai-muted);
+            font-size: .9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .upload-box input[type="file"] {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .extraction-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 42px;
+            margin-bottom: 18px;
+            padding: 10px 12px;
+            border: 1px solid var(--ai-border);
+            border-radius: 8px;
+            color: var(--ai-muted);
+            background: rgba(255,255,255,.025);
+            font-size: .9rem;
+        }
+
+        .extraction-status.ready {
+            color: #35c46a;
+            border-color: rgba(53,196,106,.35);
+            background: rgba(53,196,106,.07);
+        }
+
+        .extraction-status.loading {
+            color: #ffb020;
+            border-color: rgba(255,176,32,.3);
+            background: rgba(255,176,32,.06);
+        }
+
+        .form-control[readonly] {
+            background: #f2f2f3;
+        }
+
+        .case-submit-wrap {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 22px;
+        }
+
+        .case-submit-wrap .btn {
+            min-width: 220px;
+        }
+
+        .flow-hint {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .flow-hint-item {
+            padding: 12px;
+            border: 1px solid var(--ai-border);
+            border-radius: 8px;
+            background: rgba(255,255,255,.02);
+            color: var(--ai-muted);
+            font-size: .86rem;
+            text-align: center;
+        }
+
+        .flow-hint-item i {
+            color: var(--ai-accent);
+            margin-right: 6px;
+        }
+
+        @media (max-width: 991.98px) {
+            .case-create-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .case-panel {
+                padding: 18px;
+            }
+
+            .flow-hint {
+                grid-template-columns: 1fr;
+            }
+
+            .case-submit-wrap .btn {
+                width: 100%;
+            }
+        }
+    </style>
+
     <script src="js/config.js"></script>
     <script src="js/api.js"></script>
     <script src="js/case-context.js"></script>
@@ -30,9 +203,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
             <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h2 class="mb-0 text-primary">
-                    <i class="fa-solid fa-landmark me-2"></i>地價智審 AI
-                </h2>
+                <h2 class="mb-0 text-primary"><i class="fa-solid fa-landmark me-2"></i>地價智審 AI</h2>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -40,8 +211,8 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link">首頁</a>
-                    <a href="case.html" class="nav-item nav-link ">案件列表</a>
-                    <a href="review.html" class="nav-item nav-link ">智慧審查</a>
+                    <a href="case-new.html" class="nav-item nav-link active">建立案件</a>
+                    <a href="result.html" class="nav-item nav-link" data-preserve-case>案件結果</a>
                 </div>
                 <div class="d-none d-lg-flex">
                     <a class="btn btn-outline-primary border-2" href="case-new.html">
@@ -51,45 +222,99 @@
             </div>
         </nav>
     </div>
-<section class="app-shell"><div class="container"><div class="app-stepper"><a href="case.html" class="done" data-preserve-case><span class="step-num">1</span>案件列表</a><a href="case-new.html" class="active" data-preserve-case><span class="step-num">2</span>建立案件</a><a href="data.html" class="" data-preserve-case><span class="step-num">3</span>資料收集</a><a href="analysis.html" class="" data-preserve-case><span class="step-num">4</span>因素分析</a><a href="form-fill.html" class="" data-preserve-case><span class="step-num">5</span>書表填寫</a><a href="pdf-preview.html" class="" data-preserve-case><span class="step-num">6</span>PDF預覽</a><a href="document-review.html" class="" data-preserve-case><span class="step-num"><i class="fa-solid fa-file-import"></i></span>文件上傳（選用）</a><a href="review.html" class="" data-preserve-case><span class="step-num">7</span>智慧審查</a><a href="result.html" class="" data-preserve-case><span class="step-num">8</span>案件結果</a></div>
-<h2 class="section-title" style="font-size:1.8rem;">建立新案件</h2>
-<p class="section-text mb-4">對應 POST /api/cases。決賽當日區段編號/範圍通常已預填（見 docs/phase1/official_requirements.md 第9節）。</p>
-<div class="app-card">
-  <form id="newCaseForm">
-    <div class="row g-3">
-      <div class="col-md-6"><label class="form-label text-light">案號</label><input class="form-control" name="case_no" value="1140901-99-001" required></div>
-      <div class="col-md-6"><label class="form-label text-light">區段編號</label><input class="form-control" name="segment_code" value="P002-00" required></div>
-      <div class="col-md-6"><label class="form-label text-light">行政區</label><input class="form-control" name="district" value="金山區" required></div>
-      <div class="col-md-6"><label class="form-label text-light">用地類別</label><input class="form-control" name="land_use_type" value="商業用地" required></div>
-      <div class="col-12"><label class="form-label text-light">區段範圍</label><textarea class="form-control" name="segment_scope" rows="2"></textarea></div>
-    </div>
-    <div class="alert alert-warning mt-3" style="background:rgba(255,176,32,.1);border-color:rgba(255,176,32,.3);color:#ffb020;display:none;" id="mockNotice">
-      <i class="fa-solid fa-circle-info me-2"></i>目前為 Mock Mode，將導向既有 Golden Case 示範資料，不會實際建立新案件。
-    </div>
-    <button type="submit" class="btn btn-ai-primary mt-4"><i class="fa-solid fa-check me-2"></i>建立案件</button>
-  </form>
-  <div id="createResult" class="mt-3"></div>
-</div>
-<script>
-if ((window.APP_CONFIG||{}).MODE === 'mock') document.getElementById('mockNotice').style.display = 'block';
-document.getElementById('newCaseForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const fd = new FormData(e.target);
-    const payload = Object.fromEntries(fd.entries());
-    const resultDiv = document.getElementById('createResult');
-    resultDiv.innerHTML = '<div class="state-loading"><div class="spinner-border"></div></div>';
-    try {
-        const created = await Api.createCase(payload);
-        CaseContext.setCurrentCaseNo(created.case_no);
-        const nextHref = CaseContext.withCaseQuery('data.html', created.case_no);
-        resultDiv.innerHTML = `<div class="alert" style="background:rgba(53,196,106,.1);border:1px solid rgba(53,196,106,.3);color:#35c46a;">
-            案件已建立：${created.case_no}　<a href="${nextHref}" class="btn btn-ai-outline btn-sm ms-2">前往資料收集</a></div>`;
-    } catch (err) {
-        resultDiv.innerHTML = `<div class="state-error">${(err&&err.error&&err.error.message)||'建立失敗'}</div>`;
-    }
-});
-</script>
-</div></section>
+
+    <section class="app-shell">
+        <div class="container">
+            <div class="app-stepper">
+                <a href="case-new.html" class="active" data-preserve-case><span class="step-num">1</span>建立案件</a>
+                <a href="pdf-preview.html" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="result.html" data-preserve-case><span class="step-num">3</span>案件結果</a>
+            </div>
+
+            <h2 class="section-title" style="font-size:1.8rem;">建立案件</h2>
+            <p class="section-text mb-4">上傳比賽方提供的查估書表與評價基準明細表。系統擷取案件基本資料後，確認即可送往後端完成後續計算與產表。</p>
+
+            <form id="newCaseForm">
+                <div class="case-create-grid">
+                    <section class="case-panel">
+                        <div class="panel-kicker">Step 1 · Documents</div>
+                        <h3 class="panel-title">上傳比賽文件</h3>
+                        <p class="section-text mb-0">請上傳同一案件對應的兩份 PDF。正式版將由後端文件理解流程擷取欄位與評價規則。</p>
+
+                        <label class="upload-box" id="appraisalUploadBox">
+                            <span class="upload-icon"><i class="fa-solid fa-file-pdf"></i></span>
+                            <span class="upload-copy">
+                                <strong>查估書表</strong>
+                                <span id="appraisalFileName">點擊或拖曳上傳 PDF</span>
+                            </span>
+                            <input id="appraisalFile" name="appraisal_file" type="file" accept="application/pdf,.pdf" required>
+                        </label>
+
+                        <label class="upload-box" id="criteriaUploadBox">
+                            <span class="upload-icon"><i class="fa-solid fa-table-list"></i></span>
+                            <span class="upload-copy">
+                                <strong>評價基準明細表</strong>
+                                <span id="criteriaFileName">點擊或拖曳上傳 PDF</span>
+                            </span>
+                            <input id="criteriaFile" name="criteria_file" type="file" accept="application/pdf,.pdf" required>
+                        </label>
+
+                        <div class="flow-hint">
+                            <div class="flow-hint-item"><i class="fa-solid fa-file-import"></i>文件擷取</div>
+                            <div class="flow-hint-item"><i class="fa-solid fa-gears"></i>規則與計算</div>
+                            <div class="flow-hint-item"><i class="fa-solid fa-file-circle-check"></i>產出三張表</div>
+                        </div>
+
+                        <div class="alert alert-warning mt-3 mb-0" style="background:rgba(255,176,32,.1);border-color:rgba(255,176,32,.3);color:#ffb020;display:none;" id="mockNotice">
+                            <i class="fa-solid fa-circle-info me-2"></i>目前為 Mock Mode：上傳後會以 Golden Case 模擬文件擷取與後續分析，尚未真的把 PDF 傳給後端。
+                        </div>
+                    </section>
+
+                    <section class="case-panel">
+                        <div class="panel-kicker">Step 2 · Extracted Metadata</div>
+                        <h3 class="panel-title">自動擷取案件資訊</h3>
+                        <p class="section-text">以下資訊應從查估書表自動擷取。擷取完成後可人工確認或修正，再送往後端。</p>
+
+                        <div id="extractionStatus" class="extraction-status">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>等待上傳兩份文件</span>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-light">案號</label>
+                                <input id="caseNo" class="form-control" name="case_no" placeholder="自動擷取" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">區段編號</label>
+                                <input id="segmentCode" class="form-control" name="segment_code" placeholder="自動擷取" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">行政區</label>
+                                <input id="district" class="form-control" name="district" placeholder="自動擷取" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">用地類別</label>
+                                <input id="landUseType" class="form-control" name="land_use_type" placeholder="自動擷取" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-light">區段範圍</label>
+                                <textarea id="segmentScope" class="form-control" name="segment_scope" rows="4" placeholder="自動擷取查估書表中的區段範圍"></textarea>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="case-submit-wrap">
+                    <button id="submitCaseBtn" type="submit" class="btn btn-ai-primary" disabled>
+                        <i class="fa-solid fa-wand-magic-sparkles me-2"></i>建立案件並開始分析
+                    </button>
+                </div>
+                <div id="createResult" class="mt-3"></div>
+            </form>
+        </div>
+    </section>
+
     <footer class="container-fluid bg-dark text-light footer py-5">
         <div class="container text-center py-4">
             <a href="index.html" class="text-decoration-none">
@@ -97,17 +322,10 @@ document.getElementById('newCaseForm').addEventListener('submit', async (e) => {
             </a>
             <p class="footer-copy mb-2">2026 新北市 AI 智慧城市黑客松｜AI 輔助不動產估價案件審查</p>
             <p class="footer-copy mb-3">AI 文件理解 × 評價規則引擎 × 數值重算 × 跨表勾稽 × 人工覆核</p>
-            <p class="mb-0 small">
-                Designed By <a class="border-bottom" href="https://htmlcodex.com" target="_blank" rel="noopener">HTML Codex</a>.
-                Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a>.
-            </p>
         </div>
     </footer>
 
-    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top">
-        <i class="bi bi-arrow-up"></i>
-    </a>
-
+    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -115,13 +333,123 @@ document.getElementById('newCaseForm').addEventListener('submit', async (e) => {
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/owlcarousel/assets/owl.carousel.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="js/main.js"></script>
+
     <script>
-        document.getElementById('modeIndicator').textContent = (window.APP_CONFIG || {}).MODE || 'unknown';
+        const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
+        document.getElementById('modeIndicator').textContent = mode;
         CaseContext.applyCaseQueryToLinks();
+        if (mode === 'mock') document.getElementById('mockNotice').style.display = 'block';
+
+        const appraisalFile = document.getElementById('appraisalFile');
+        const criteriaFile = document.getElementById('criteriaFile');
+        const submitBtn = document.getElementById('submitCaseBtn');
+        const extractionStatus = document.getElementById('extractionStatus');
+
+        function setUploadState(input, boxId, fileNameId) {
+            const box = document.getElementById(boxId);
+            const name = document.getElementById(fileNameId);
+            if (input.files && input.files[0]) {
+                box.classList.add('has-file');
+                name.textContent = input.files[0].name;
+            } else {
+                box.classList.remove('has-file');
+                name.textContent = '點擊或拖曳上傳 PDF';
+            }
+        }
+
+        function applyExtractedMetadata(data) {
+            document.getElementById('caseNo').value = data.case_no || '';
+            document.getElementById('segmentCode').value = data.segment_code || '';
+            document.getElementById('district').value = data.district || '';
+            document.getElementById('landUseType').value = data.land_use_type || '';
+            document.getElementById('segmentScope').value = data.segment_scope || '';
+            extractionStatus.className = 'extraction-status ready';
+            extractionStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i><span>案件資訊已擷取，請確認內容後送出</span>';
+            submitBtn.disabled = false;
+        }
+
+        async function extractWhenReady() {
+            setUploadState(appraisalFile, 'appraisalUploadBox', 'appraisalFileName');
+            setUploadState(criteriaFile, 'criteriaUploadBox', 'criteriaFileName');
+
+            if (!(appraisalFile.files[0] && criteriaFile.files[0])) {
+                extractionStatus.className = 'extraction-status';
+                extractionStatus.innerHTML = '<i class="fa-solid fa-circle-info"></i><span>等待上傳兩份文件</span>';
+                submitBtn.disabled = true;
+                return;
+            }
+
+            extractionStatus.className = 'extraction-status loading';
+            extractionStatus.innerHTML = '<span class="spinner-border spinner-border-sm"></span><span>正在擷取查估書表案件資訊...</span>';
+            submitBtn.disabled = true;
+
+            try {
+                if (typeof Api.extractCaseMetadata === 'function') {
+                    const extracted = await Api.extractCaseMetadata(appraisalFile.files[0], criteriaFile.files[0]);
+                    applyExtractedMetadata(extracted);
+                    return;
+                }
+
+                if (mode === 'mock') {
+                    await new Promise(resolve => setTimeout(resolve, 650));
+                    applyExtractedMetadata({
+                        case_no: '1140901-99-001',
+                        segment_code: 'P002-00',
+                        district: '金山區',
+                        land_use_type: '商業用地',
+                        segment_scope: 'Mock Golden Case：正式版將從查估書表自動擷取此欄位。'
+                    });
+                    return;
+                }
+
+                extractionStatus.className = 'extraction-status';
+                extractionStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i><span>文件擷取 API 尚未串接，請先由後端提供 extractCaseMetadata。</span>';
+            } catch (error) {
+                extractionStatus.className = 'extraction-status';
+                extractionStatus.innerHTML = '<i class="fa-solid fa-circle-xmark"></i><span>文件擷取失敗，請重新上傳或稍後再試。</span>';
+            }
+        }
+
+        appraisalFile.addEventListener('change', extractWhenReady);
+        criteriaFile.addEventListener('change', extractWhenReady);
+
+        document.getElementById('newCaseForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const resultDiv = document.getElementById('createResult');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>後端分析與產表中...';
+            resultDiv.innerHTML = '';
+
+            const payload = {
+                case_no: document.getElementById('caseNo').value.trim(),
+                segment_code: document.getElementById('segmentCode').value.trim(),
+                district: document.getElementById('district').value.trim(),
+                land_use_type: document.getElementById('landUseType').value.trim(),
+                segment_scope: document.getElementById('segmentScope').value.trim(),
+            };
+
+            try {
+                let created;
+                if (typeof Api.createCaseWithDocuments === 'function') {
+                    created = await Api.createCaseWithDocuments(payload, appraisalFile.files[0], criteriaFile.files[0]);
+                } else {
+                    created = await Api.createCase(payload);
+                }
+
+                CaseContext.setCurrentCaseNo(created.case_no || payload.case_no);
+                const target = CaseContext.withCaseQuery('pdf-preview.html', created.case_no || payload.case_no);
+
+                if (mode === 'mock') await new Promise(resolve => setTimeout(resolve, 750));
+                window.location.href = target;
+            } catch (error) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles me-2"></i>建立案件並開始分析';
+                resultDiv.innerHTML = `<div class="state-error">${(error && error.error && error.error.message) || '建立案件失敗'}</div>`;
+            }
+        });
     </script>
-    
 </body>
 </html>
