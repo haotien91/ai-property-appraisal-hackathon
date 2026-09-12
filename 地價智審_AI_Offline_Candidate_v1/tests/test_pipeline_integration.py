@@ -73,3 +73,20 @@ def test_claude_json_fence_and_prose_rejection():
     assert P._parse_bedrock_response({'content':[{'type':'text','text':'```json\n'+json.dumps(raw)+'\n```'}]})==raw
     with pytest.raises(ValueError):
         P._parse_bedrock_response({'content':[{'type':'text','text':'extra prose '+json.dumps(raw)}]})
+
+
+def test_generation_step_marks_ready_only_after_publication(monkeypatch):
+    import competition_orchestrator as orchestration
+    import competition_segments
+    import generate_artifacts
+    monkeypatch.setattr(competition_segments,'get_segment_map',lambda _:object())
+    publish=Mock(side_effect=[RuntimeError('upload failed'),{'status':'imported','pdf_complete':True}])
+    monkeypatch.setattr(generate_artifacts,'generate_and_publish',publish)
+    advance=Mock();monkeypatch.setattr(orchestration.competition_state,'advance',advance)
+    runner=object.__new__(orchestration.CompetitionOrchestrator);runner.case_no='TEST'
+    with pytest.raises(RuntimeError):runner.generate_pdf()
+    advance.assert_not_called()
+    result=runner.generate_pdf()
+    assert result['artifacts']['pdf_complete']
+    assert publish.call_args_list[0]==publish.call_args_list[1]
+    advance.assert_called_once()

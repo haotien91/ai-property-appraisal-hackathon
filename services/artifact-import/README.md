@@ -178,76 +178,53 @@ python3 services/artifact-import/preview_server.py --port 8002 --profile hackath
 
 無 computer use 驗證：`node services/artifact-import/tests/test_frontend_adapter.cjs` 檢查資料映射、分開 PDF、缺件與 scope。另需對實際 UI 做人工排版驗收。
 
-## 接新版文件 pipeline 的合併 PDF
+## 生成完成後自動存入案件庫
 
-新版 `/api/cases/{id}/export/bundle` ZIP 除了 JSON、Excel、PDF，另附 `artifact-pages.json`。
-PDF 檔名 `official_6_page.pdf` 暫保留相容性，實際頁數由 manifest 決定，不保證六頁。
-`/api/cases/{id}/pdf` 回應也會提供 `artifact_pages` 與正確的 `official_pdf_page_count`。
+使用者不需要 ZIP 或手動搬檔案。`CompetitionOrchestrator.generate_pdf()` 的多區段分支
+會呼叫 `generate_artifacts.generate_and_publish()`，以同一份 bundle 產生 PDF/JSON，再完成匯入。
+上傳失敗會中止，不標記 PDF_READY。
 
-先解壓到自己的工作目錄，再準備三類 PDF（survey 仍是一份多頁 PDF）：
+部署時配置 `ARTIFACT_API_ENDPOINT`、`PDF_BUCKET_NAME`、`CASES_TABLE_NAME`。
+新增的 `GenerateAndPublishFunction` 是背景 worker，未開公開 HTTP 路由，未部署。
+PDF container 已包含共用上傳模組與 pypdf/simplejson。Docker build context 現在是 repository root。
 
-```bash
-python3 services/artifact-import/prepare_pipeline_delivery.py \
-  --bundle /path/to/case_data.json \
-  --pdf /path/to/official_6_page.pdf \
-  --page-map /path/to/artifact-pages.json \
-  --output /path/to/delivery
+後端直接呼叫：
+
+```python
+from generate_artifacts import generate_and_publish
+
+result = generate_and_publish(
+    producer_case_no, generation_id,  # generation_id: 此次生成的 UUID，重試必須沿用
+    case_id=library_case_uuid, group_id=library_group_uuid,
+)
 ```
 
-確認輸出後，沿用現有上傳 API client。`case-id` / `group-id` 是案件庫 UUID，**不是 producer case_no**。
+呼叫 `run_full_pipeline()` 時也可傳 generation_id、artifact_case_id、artifact_group_id。
+請將 generation_id 保存在原工作佇列/任務紀錄；物件內會記住自動生成的 ID，但跨程序重試必須明確傳入。
+未提供目的 UUID 時，會用 producer case_no 建立並重用一個案件與預設組別；多組須明確指定 UUID。
+原本不含 segment map 的舊 Golden Case renderer 保留既有行為，不走新資料交付契約。
 
-```bash
-python3 services/artifact-import/client.py \
-  --endpoint https://zyte6qrr2k.execute-api.us-west-2.amazonaws.com \
-  --bundle /path/to/delivery/bundle.json \
-  --pdf-manifest /path/to/delivery/pdf-manifest.json \
-  --case-id YOUR_CASE_UUID --group-id YOUR_GROUP_UUID \
-  --idempotency-key YOUR_STABLE_JOB_UUID \
-  --result /path/to/delivery/import-result.json
-```
+生成結果會先以不可覆寫的 S3 snapshot 保存，重試重新使用相同 PDF/JSON，不會重新計算。
+snapshot 包含 JSON、PDF base64 與頁碼對照，僅供後端恢復使用；正式案件庫仍以獨立 PDF/JSON 存放。
+更新上游資料後應使用新 generation_id，產生同組的新版本。
 
-本機可另加 `--profile hackathon`；AWS 上使用 execution role，不帶 profile。
-上傳重試必須重用同一批輸出與 idempotency key，不要重新生成不同 generated_at 的 JSON。
-`prepare_pipeline_delivery.prepare()` 可直接從 Python 匯入；它只切檔與驗證，不會上傳。
-不要把含授權資訊的 presigned URL 寫入日誌。
-
-這次整合沒有自動替隊友的執行角色配置 IAM，也沒有部署其 pipeline。
-執行角色仍須能呼叫匯入 API；不同角色的 workspace 隔離需沿用既有部署規格確認。
-
-## 直接匯入生成包（本機 UI / 後端共用）
-
-啟動 preview_server.py 後，`index.html?data=live` 的「建立案件」現在會開啟
-`artifact-new.html`。填入案件、組別名稱並選取新版 export ZIP，即可在背景匯入。
-完成後回案件庫讀取三類 PDF。這個入口接收**已生成檔案**，不執行原始資料 OCR 或估價生成。
-舊 ZIP 缺少 artifact-pages.json 時會拒絕，不能猜測 PDF 頁碼。
-
-後端生成完成後也可以直接呼叫：
+若隊友已有 PDF 與 JSON bytes，不需要重新生成，可直接：
 
 ```python
 from client import Client
 from deliver_generated import deliver_generated
 
 result = deliver_generated(
-    Client(endpoint), zip_bytes, idempotency_key=job_uuid,
-    case_id=existing_case_uuid, group_id=existing_group_uuid,
+    Client(endpoint), json_bytes, merged_pdf_bytes, pages, generation_id,
+    case_id=case_uuid, group_id=group_uuid,
 )
 ```
 
-將 `services/artifact-import` 納入 Python module path，安裝 requirements.txt 與 boto3。
-沒有現成 UUID 時省略 case_id/group_id，API 會建立新案件與組別；不按案號或名稱自動合併。
-只提供 case_id 會在該案件新增組別。同一組補上 PDF 必須建立新 run，不能修改已完成的 JSON-only run。
-`case_name/group_name` 僅命名本次新建的容器，不會改名既有容器。
+`pages` 使用 export.page_layout 的輸出。共用 helper 驗證頁碼、切成三類 PDF、上傳並 complete。
+輸入無效時不開始匯入。AWS 使用 execution role，不傳 access key；本機測試才用 profile。
 
-命令列也可執行 `deliver_generated.py --zip FILE --endpoint URL --idempotency-key JOB_UUID`
-（本機可加 `--profile hackathon`）。成功回傳 case_id/group_id/run_id/status/pdf_complete。
-請以同一份生成 ZIP 與同一 job key 重試；不要重新生成不同內容後重用同一 key。
+**部署界線：** 現有 artifact API 按呼叫角色隔離 workspace。新的 Lambda 執行角色不能假設與
+目前 WSParticipantRole 案件庫共用資料；正式部署前必須統一應用後端的讀寫角色/工作區設定。
+本次未更改現有 AWS，也未把原始文件上傳頁串至部署完成的 generation worker。
 
-本機服務新增 `POST /artifact-api/deliver`（application/zip）及 `GET /artifact-api/jobs/{key}`。
-它只監聽 localhost，POST 檢查同源 Origin，背景同時最多兩件；不是公開部署用的登入/授權 API。
-作業進度存在本機記憶體，重啟後可使用同一檔案、名稱重試，AWS idempotency 仍保留。
-現有 `/artifact-api/v1/*` 代理仍限原本 GET 白名單，不開放任意寫入路由。
-
-驗證：20 個 artifact tests、7 個 pipeline integration tests 通過；其中生成 ZIP → 拆 PDF →
-API 驗證 → 匯入 → 重試不重複的測試使用 moto 模擬 S3/DynamoDB。
-本機 HTTP 頁面與真實 AWS 案件讀取皆 200，無效 ZIP 失敗、跨站 POST 為 403。
-本次未將示範生成包寫入真實 AWS，也未部署隊友 pipeline。
+驗證包括 moto 下完整 PDF/JSON 匯入、重試不重複、生成 snapshot 重用，以及上傳失敗不標記完成。

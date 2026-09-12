@@ -12,7 +12,7 @@ RUN dnf install -y \
         google-noto-sans-cjk-ttc-fonts \
     && dnf clean all
 
-COPY backend/requirements-pdf.txt ${LAMBDA_TASK_ROOT}/requirements.txt
+COPY 地價智審_AI_Offline_Candidate_v1/backend/requirements-pdf.txt ${LAMBDA_TASK_ROOT}/requirements.txt
 RUN pip install -r ${LAMBDA_TASK_ROOT}/requirements.txt --target ${LAMBDA_TASK_ROOT}
 
 # 共用引擎程式碼（與EngineLayer內容相同，Container Image路徑無法掛載zip Layer，
@@ -29,14 +29,14 @@ RUN pip install -r ${LAMBDA_TASK_ROOT}/requirements.txt --target ${LAMBDA_TASK_R
 # runtime_paths.py's matching fix (adds these same 2 directories to
 # sys.path for the Container Image branch, previously only `pdf` was
 # added there).
-COPY domain ${LAMBDA_TASK_ROOT}/domain
-COPY engine ${LAMBDA_TASK_ROOT}/engine
-COPY providers ${LAMBDA_TASK_ROOT}/providers
-COPY pdf ${LAMBDA_TASK_ROOT}/pdf
-COPY data ${LAMBDA_TASK_ROOT}/data
-COPY schemas ${LAMBDA_TASK_ROOT}/schemas
-COPY export ${LAMBDA_TASK_ROOT}/export
-COPY backend/handlers ${LAMBDA_TASK_ROOT}/
+COPY 地價智審_AI_Offline_Candidate_v1/domain ${LAMBDA_TASK_ROOT}/domain
+COPY 地價智審_AI_Offline_Candidate_v1/engine ${LAMBDA_TASK_ROOT}/engine
+COPY 地價智審_AI_Offline_Candidate_v1/providers ${LAMBDA_TASK_ROOT}/providers
+COPY 地價智審_AI_Offline_Candidate_v1/pdf ${LAMBDA_TASK_ROOT}/pdf
+COPY 地價智審_AI_Offline_Candidate_v1/data ${LAMBDA_TASK_ROOT}/data
+COPY 地價智審_AI_Offline_Candidate_v1/schemas ${LAMBDA_TASK_ROOT}/schemas
+COPY 地價智審_AI_Offline_Candidate_v1/export ${LAMBDA_TASK_ROOT}/export
+COPY 地價智審_AI_Offline_Candidate_v1/backend/handlers ${LAMBDA_TASK_ROOT}/
 
 # SUPPLEMENTAL-JSON-EXCEL-EXPORT-H1: this SAME image is reused (via each
 # function's own ImageConfig.Command override in infra/template.yaml, NOT
@@ -44,4 +44,5 @@ COPY backend/handlers ${LAMBDA_TASK_ROOT}/
 # GetExportBundleFunction -- openpyxl is added here for their Excel export
 # path; export/ is COPYed above for the same reason. This CMD remains
 # PdfFunction's own default entrypoint.
+COPY services/artifact-import/client.py services/artifact-import/deliver_generated.py services/artifact-import/prepare_pipeline_delivery.py services/artifact-import/splitter.py ${LAMBDA_TASK_ROOT}/artifact_import/
 CMD ["pdf_handler.get_pdf"]

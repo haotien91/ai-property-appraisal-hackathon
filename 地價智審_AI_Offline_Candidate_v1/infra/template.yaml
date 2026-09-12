@@ -138,6 +138,31 @@ Globals:
     Tracing: Active   # AWS X-Ray，呼應docs/phase7/aws_services.md之Monitoring節
 
 Resources:
+  GenerateAndPublishFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Timeout: 900
+      MemorySize: 2048
+      ImageConfig:
+        Command: ["generate_artifacts.handler"]
+      Environment:
+        Variables:
+          CASES_TABLE_NAME: !Ref CasesTable
+          PDF_BUCKET_NAME: !Ref PdfBucket
+          ARTIFACT_API_ENDPOINT: https://zyte6qrr2k.execute-api.us-west-2.amazonaws.com
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - S3CrudPolicy: { BucketName: !Ref PdfBucket }
+        - Statement:
+            - Effect: Allow
+              Action: execute-api:Invoke
+              Resource: !Sub 'arn:aws:execute-api:us-west-2:${AWS::AccountId}:zyte6qrr2k/*/*/v1/*'
+    Metadata:
+      DockerTag: generate-publish
+      DockerContext: ../../
+      Dockerfile: 地價智審_AI_Offline_Candidate_v1/backend/docker/pdf.Dockerfile
+
 
   # ---------------------------------------------------------------
   # Lambda Layers：EngineLayer（共用domain/engine/providers/schemas/
@@ -244,8 +269,8 @@ Resources:
           Properties: { Path: '/api/cases/{id}/pdf', Method: get, RestApiId: !Ref ApiGateway }
     Metadata:
       DockerTag: pdf-latest
-      DockerContext: ../
-      Dockerfile: backend/docker/pdf.Dockerfile
+      DockerContext: ../../
+      Dockerfile: 地價智審_AI_Offline_Candidate_v1/backend/docker/pdf.Dockerfile
 
   # SUPPLEMENTAL-JSON-EXCEL-EXPORT-H1 Task 16/17: three NEW, additive
   # Supplemental Export routes -- GET /api/cases/{id}/pdf (PdfFunction
@@ -279,8 +304,8 @@ Resources:
           Properties: { Path: '/api/cases/{id}/export/json', Method: get, RestApiId: !Ref ApiGateway }
     Metadata:
       DockerTag: pdf-latest
-      DockerContext: ../
-      Dockerfile: backend/docker/pdf.Dockerfile
+      DockerContext: ../../
+      Dockerfile: 地價智審_AI_Offline_Candidate_v1/backend/docker/pdf.Dockerfile
 
   GetExportExcelFunction:
     Type: AWS::Serverless::Function
@@ -305,8 +330,8 @@ Resources:
           Properties: { Path: '/api/cases/{id}/export/excel', Method: get, RestApiId: !Ref ApiGateway }
     Metadata:
       DockerTag: pdf-latest
-      DockerContext: ../
-      Dockerfile: backend/docker/pdf.Dockerfile
+      DockerContext: ../../
+      Dockerfile: 地價智審_AI_Offline_Candidate_v1/backend/docker/pdf.Dockerfile
 
   GetExportBundleFunction:
     Type: AWS::Serverless::Function
@@ -331,8 +356,8 @@ Resources:
           Properties: { Path: '/api/cases/{id}/export/bundle', Method: get, RestApiId: !Ref ApiGateway }
     Metadata:
       DockerTag: pdf-latest
-      DockerContext: ../
-      Dockerfile: backend/docker/pdf.Dockerfile
+      DockerContext: ../../
+      Dockerfile: 地價智審_AI_Offline_Candidate_v1/backend/docker/pdf.Dockerfile
 
   ListCasesFunction:
     Type: AWS::Serverless::Function

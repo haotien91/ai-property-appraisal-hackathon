@@ -1,7 +1,6 @@
 import io
 import json
 import unittest
-import zipfile
 from unittest.mock import patch, Mock
 from moto import mock_aws
 from pypdf import PdfWriter
@@ -11,21 +10,15 @@ from splitter import encode
 from deliver_generated import deliver_generated
 
 
-def package(include_map=True):
+def generated_files():
     pdf=io.BytesIO();writer=PdfWriter()
     for _ in range(4): writer.add_blank_page(width=100,height=200)
     writer.write(pdf)
-    out=io.BytesIO()
-    with zipfile.ZipFile(out,'w') as z:
-        z.writestr('case_TEST_data.json',encode(fixture()))
-        z.writestr('official_6_page.pdf',pdf.getvalue())
-        if include_map:
-            z.writestr('artifact-pages.json',json.dumps([
-                {'kind':'survey','segment_code':'OTHER','page_start':1,'page_end':1},
-                {'kind':'survey','segment_code':'BASE','page_start':2,'page_end':2},
-                {'kind':'regional_factors','page_start':3,'page_end':3},
-                {'kind':'comparison','page_start':4,'page_end':4}]))
-    return out.getvalue()
+    pages=[{'kind':'survey','segment_code':'OTHER','page_start':1,'page_end':1},
+           {'kind':'survey','segment_code':'BASE','page_start':2,'page_end':2},
+           {'kind':'regional_factors','page_start':3,'page_end':3},
+           {'kind':'comparison','page_start':4,'page_end':4}]
+    return encode(fixture()),pdf.getvalue(),pages
 
 
 @mock_aws
@@ -55,8 +48,8 @@ class GeneratedDeliveryTests(unittest.TestCase):
             context=Mock();context.__enter__=Mock(return_value=response);context.__exit__=Mock(return_value=False)
             return context
         with patch('deliver_generated.urllib.request.urlopen',side_effect=upload) as put:
-            first=deliver_generated(Client(),package(),'same-job',case_name='測試案件',group_name='第一組')
-            second=deliver_generated(Client(),package(),'same-job',case_name='測試案件',group_name='第一組')
+            first=deliver_generated(Client(),*generated_files(),'same-job',case_name='測試案件',group_name='第一組')
+            second=deliver_generated(Client(),*generated_files(),'same-job',case_name='測試案件',group_name='第一組')
         self.assertEqual(first,second)
         self.assertTrue(first['pdf_complete'])
         self.assertEqual(put.call_count,4)
@@ -66,6 +59,31 @@ class GeneratedDeliveryTests(unittest.TestCase):
 
     def test_missing_manifest_never_starts_import(self):
         client=Mock()
-        with self.assertRaisesRegex(ValueError,'新版生成 ZIP'):
-            deliver_generated(client,package(False),'same-job')
+        bundle,pdf,_=generated_files()
+        with self.assertRaises(ValueError):
+            deliver_generated(client,bundle,pdf,[],'same-job')
         client.call.assert_not_called()
+
+    def test_worker_reuses_snapshot_after_upload_failure(self):
+        import sys,os,base64
+        from pathlib import Path
+        root=Path(__file__).resolve().parents[3]/'地價智審_AI_Offline_Candidate_v1'
+        sys.path.insert(0,str(root/'backend/handlers'));sys.path.insert(0,str(root))
+        import generate_artifacts as worker
+        os.environ['PDF_BUCKET_NAME']=self.app.BUCKET
+        os.environ['ARTIFACT_API_ENDPOINT']='https://example.invalid'
+        bundle,pdf,pages=generated_files()
+        snapshot={'bundle':bundle.decode(),'pdf':base64.b64encode(pdf).decode(),'pages':pages,
+                  'case_id':None,'group_id':None}
+        client=Mock()
+        client.call.side_effect=lambda method,path,body,key: ({'case_id':'case'} if path=='/v1/cases' else {'group_id':'group'})
+        with patch.object(worker,'_render_snapshot',return_value=snapshot) as render, \
+             patch.object(worker,'Client',return_value=client), \
+             patch.object(worker,'deliver_generated',side_effect=[RuntimeError('offline'),{'status':'imported','pdf_complete':True}]) as delivery:
+            job='22222222-2222-4222-8222-222222222222'
+            with self.assertRaises(RuntimeError):worker.generate_and_publish('TEST',job)
+            result=worker.generate_and_publish('TEST',job)
+            self.assertTrue(result['pdf_complete'])
+            self.assertEqual(render.call_count,1)
+            self.assertEqual(delivery.call_args_list[0],delivery.call_args_list[1])
+            with self.assertRaises(ValueError):worker.generate_and_publish('TEST',job,case_id='33333333-3333-4333-8333-333333333333')

@@ -194,22 +194,23 @@ class CompetitionOrchestrator:
         )
         return body
 
-    def generate_pdf(self) -> dict:
-        # Deliberately imported HERE, not at module top level: in the real
-        # deployment PdfFunction runs in its OWN Container Image (see
-        # infra/template.yaml / runtime_paths.py's module docstring),
-        # separately from every other Zip function this orchestrator calls
-        # in-process -- a caller that never reaches this step should not
-        # be forced to import weasyprint (and its native Cairo/Pango
-        # dependency, unavailable on this Windows dev host -- STEP5 §12)
-        # just because it imported CompetitionOrchestrator.
-        import pdf_handler
-        resp = pdf_handler.get_pdf(_event(self.case_no), None)
-        if resp["statusCode"] >= 300:
-            self._fail("generate_pdf", resp)
-        body = json.loads(resp["body"])
+    def generate_pdf(self, generation_id=None, case_id=None, group_id=None) -> dict:
+        import competition_segments
+        if competition_segments.get_segment_map(self.case_no) is None:
+            # Preserve the legacy Golden Case renderer; the current delivery schema is segment-scoped.
+            import pdf_handler
+            resp=pdf_handler.get_pdf(_event(self.case_no),None)
+            if resp['statusCode'] >= 300: self._fail('generate_pdf',resp)
+            competition_state.advance(self.case_no, CompetitionLifecycleStage.PDF_READY, pdf_status="READY")
+            return json.loads(resp['body'])
+        from generate_artifacts import generate_and_publish
+        import uuid
+        if generation_id is None:
+            if not hasattr(self, '_generation_id'): self._generation_id=str(uuid.uuid4())
+            generation_id=self._generation_id
+        result=generate_and_publish(self.case_no,generation_id,case_id=case_id,group_id=group_id)
         competition_state.advance(self.case_no, CompetitionLifecycleStage.PDF_READY, pdf_status="READY")
-        return body
+        return {'generation_id':generation_id,'artifacts':result}
 
     # ------------------------------------------------------------------
     # Full pipeline convenience (STEP5 §5's named sequence). Every step is
@@ -224,6 +225,7 @@ class CompetitionOrchestrator:
         evaluation_standard_document_id: str = None, evaluation_standard_package_id: str = None,
         confirm_rule: bool = False, confirmed_by: str = "competition_orchestrator",
         run_review: bool = True, run_pdf: bool = True,
+        generation_id: str = None, artifact_case_id: str = None, artifact_group_id: str = None,
     ) -> dict:
         trace = {}
         if appraisal_document_id is not None:
@@ -244,5 +246,5 @@ class CompetitionOrchestrator:
         if run_review:
             trace["review"] = self.review()
         if run_pdf:
-            trace["pdf"] = self.generate_pdf()
+            trace["pdf"] = self.generate_pdf(generation_id, artifact_case_id, artifact_group_id)
         return trace
