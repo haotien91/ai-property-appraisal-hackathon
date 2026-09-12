@@ -59,7 +59,6 @@
                     <div id="cl-divider" class="cl-divider" role="separator" aria-label="調整地圖與案件列表寬度" aria-orientation="vertical" aria-controls="cl-map-panel cl-shelf-panel" aria-valuemin="22" aria-valuemax="60" aria-valuenow="32" tabindex="0" hidden></div>
                     <div class="cl-shelf-panel" id="cl-shelf-panel" hidden><button type="button" id="cl-back" class="cl-text-button">關閉案件列表 ×</button>
                         <div class="cl-shelf-heading"><div><h3 id="cl-district-title" tabindex="-1"></h3><p id="cl-district-count"></p></div></div>
-                        <div class="cl-filters" role="group" aria-label="案件狀態"><button type="button" class="cl-filter active" data-filter="all" aria-pressed="true">全部案件</button><button type="button" class="cl-filter" data-filter="review" aria-pressed="false">待覆核</button><button type="button" class="cl-filter" data-filter="done" aria-pressed="false">已完成</button><button type="button" class="cl-filter" data-filter="processing" aria-pressed="false">處理中</button></div>
                         <div id="cl-books" class="cl-books"></div>
                         <p id="cl-results-message" class="visually-hidden" role="status" aria-live="polite"></p>
 
@@ -71,11 +70,12 @@
     </section>
     <dialog id="cl-dialog" class="cl-dialog" aria-labelledby="cl-detail-title">
         <div class="cl-dialog-top"><span id="cl-detail-district"></span><button id="cl-close" type="button" class="cl-close" aria-label="關閉案件">×</button></div>
-        <div class="cl-eyebrow">CASE DOSSIER / 案件摘要</div>
         <div id="cl-title-area"><h2 id="cl-detail-title"></h2><button type="button" id="cl-edit-name" class="cl-text-button">✎ 修改案件名稱</button></div>
         <form id="cl-rename-form" class="cl-rename" hidden><label for="cl-name-input">案件顯示名稱（最多 60 字）</label><input id="cl-name-input" maxlength="60" autocomplete="off" aria-describedby="cl-name-error"><p id="cl-name-error" class="cl-error" role="alert"></p><div class="cl-rename-actions"><button type="submit" class="cl-add">儲存名稱</button><button type="button" id="cl-cancel-name" class="cl-text-button">取消</button></div></form>
-        <dl id="cl-detail-meta"></dl><h3>案件內的書表</h3><div id="cl-detail-files"></div>
-        <p class="cl-dialog-note">示範資料。文件內容與比對結果尚未串接。</p>
+        <dl id="cl-detail-meta"></dl>
+        <div class="cl-group-heading"><h3>估價組別</h3><span id="cl-group-count"></span></div>
+        <div id="cl-detail-groups" class="cl-groups"></div>
+        <p class="cl-dialog-note">示範資料，文件尚未串接。</p>
 
     </dialog>
     <div id="cl-toast" class="cl-toast" role="status" hidden></div>

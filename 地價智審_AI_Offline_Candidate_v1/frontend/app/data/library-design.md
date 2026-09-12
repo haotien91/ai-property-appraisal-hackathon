@@ -11,3 +11,5 @@ Tokens: #111113 background, #1c1c1f surface, #343437 border, #e41779 accent, Not
 Thumbnail: img/case-thumbnails/sample-form.png is rendered from frontend/mock/pdf/表1_Golden_Case.pdf. Shared sample only, explicitly labeled 範例預覽; not the document of each demo case. Replace with case-specific thumbnail assets when database integration is ready.
 
 Cases are demonstration data. District boundary provenance is in ntpc-map-source.md.
+
+Information model: district → case → group. A case may contain multiple groups; each group consumes 2 input files and produces the 3 linked appraisal forms. The shelf card shows the group count, while the case drawer exposes each group and its outputs.
