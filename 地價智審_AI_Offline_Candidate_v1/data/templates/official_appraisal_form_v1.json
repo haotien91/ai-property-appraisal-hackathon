@@ -1,0 +1,3484 @@
+{
+  "template_id": "NTPC_APPRAISAL_2026_V1",
+  "template_version": "v1",
+  "source_pdf_relpath": "data/sources/competition/查估書表範本.pdf",
+  "source_pdf_sha256": "2e6c16ebac75dce1a12515454237c825f0b688c1788b816ae48a50c637f67bb5",
+  "clean_template_relpath": "data/templates/official_appraisal_form_v1.pdf",
+  "clean_template_sha256": "7403879008f2d07f0559c2f9f9795e452080e95127e1a0bdf8098e1052758f03",
+  "pages": {
+    "table1": 0,
+    "table5_2": 1,
+    "table4": 2
+  },
+  "page_sizes_pt": {
+    "0": [
+      595.2,
+      841.68
+    ],
+    "1": [
+      595.2,
+      841.68
+    ],
+    "2": [
+      841.68,
+      595.2
+    ]
+  },
+  "font": {
+    "family": "Noto Sans TC",
+    "license": "SIL Open Font License 1.1 (redistributable)",
+    "lambda_candidates": [
+      "/usr/share/fonts/google-noto-cjk/NotoSansCJK-Regular.ttc",
+      "/usr/share/fonts/google-noto-vf/NotoSansTC%5Bwght%5D.ttf"
+    ],
+    "windows_dev_candidate": "C:\\Windows\\Fonts\\NotoSansTC-VF.ttf",
+    "note": "Never bundled in this repo -- resolved from the runtime environment's already-installed system font (same convention as pdf/pdf_renderer.py's WeasyPrint path, which relies on backend/docker/pdf.Dockerfile's `dnf install google-noto-sans-cjk-ttc-fonts`). See docs/pdf/OFFICIAL_TEMPLATE_SURVEY.md for the full inventory."
+  },
+  "overflow_policy": {
+    "default_font_size": 7.2,
+    "min_font_size": 4.2,
+    "shrink_step": 0.3,
+    "strategy": [
+      "shrink_to_min_font_size",
+      "wrap_within_bbox_height",
+      "FIELD_OVERFLOW_MANUAL_REVIEW"
+    ]
+  },
+  "checkbox_glyphs": {
+    "unchecked": "○",
+    "checked": "●",
+    "unchecked_square": "□"
+  },
+  "not_applicable_marker": "－",
+  "table1": {
+    "fields": {
+      "regional_zoning_inside_outside": {
+        "bbox": [
+          152.66,
+          105.23,
+          182.54,
+          111.11
+        ],
+        "kind": "text"
+      },
+      "regional_land_use_zone": {
+        "bbox": [
+          152.66,
+          119.87,
+          188.54,
+          125.75
+        ],
+        "kind": "text"
+      },
+      "regional_construction_prohibited": {
+        "bbox": [
+          152.66,
+          163.79,
+          158.54,
+          169.67
+        ],
+        "kind": "text"
+      },
+      "regional_construction_restricted": {
+        "bbox": [
+          152.66,
+          185.78,
+          158.54,
+          191.66
+        ],
+        "kind": "text"
+      },
+      "regional_avg_road_width": {
+        "bbox": [
+          151.57,
+          222.38,
+          163.0,
+          228.26
+        ],
+        "kind": "text"
+      },
+      "regional_road_development": {
+        "bbox": [
+          185.06,
+          371.68,
+          214.94,
+          377.56
+        ],
+        "kind": "text"
+      },
+      "regional_drainage_quality": {
+        "bbox": [
+          185.06,
+          430.24,
+          238.94,
+          436.12
+        ],
+        "kind": "text"
+      },
+      "regional_terrain": {
+        "bbox": [
+          185.06,
+          444.88,
+          220.94,
+          450.76
+        ],
+        "kind": "text"
+      },
+      "regional_customer_traffic": {
+        "bbox": [
+          372.43,
+          583.87,
+          408.31,
+          589.75
+        ],
+        "kind": "text"
+      },
+      "regional_shop_contiguity": {
+        "bbox": [
+          372.43,
+          601.39,
+          417.25,
+          607.27
+        ],
+        "kind": "text"
+      },
+      "regional_building_coverage_ratio": {
+        "bbox": [
+          152.66,
+          133.5,
+          175,
+          140.39
+        ],
+        "kind": "text"
+      },
+      "regional_floor_area_ratio": {
+        "bbox": [
+          152.66,
+          148.15,
+          178,
+          155.03
+        ],
+        "kind": "text"
+      },
+      "regional_department_store_proximity": {
+        "bbox": [
+          372.43,
+          506.71,
+          468.38,
+          512.59
+        ],
+        "kind": "checkbox_distance",
+        "label_template": "○本區段內　○本區段外(距　　M)"
+      },
+      "regional_financial_institution_proximity": {
+        "bbox": [
+          372.43,
+          535.99,
+          468.22,
+          541.87
+        ],
+        "kind": "checkbox_distance",
+        "label_template": "○本區段內　○本區段外(距　　M)"
+      },
+      "regional_entertainment_proximity": {
+        "bbox": [
+          372.43,
+          553.51,
+          468.38,
+          559.39
+        ],
+        "kind": "checkbox_distance",
+        "label_template": "○本區段內　○本區段外(距　　M)"
+      },
+      "regional_exhibition_hotel_proximity": {
+        "bbox": [
+          372.43,
+          571.03,
+          468.38,
+          576.91
+        ],
+        "kind": "checkbox_distance",
+        "label_template": "○本區段內　○本區段外(距　　M)"
+      },
+      "regional_interchange_proximity": {
+        "bbox": [
+          156.39,
+          313.1,
+          231.27,
+          318.98
+        ],
+        "kind": "checkbox_distance",
+        "label_template": "○本區段內　○本區段外(距　　M)"
+      },
+      "regional_tourism_proximity": {
+        "bbox": [
+          357.07,
+          123.11,
+          456.02,
+          128.99
+        ],
+        "kind": "checkbox_distance",
+        "label_template": "○本區段內　○本區段外(距　　M)"
+      },
+      "regional_parking_convenience": {
+        "bbox": [
+          357.07,
+          152.39,
+          456.02,
+          158.27
+        ],
+        "kind": "checkbox_distance",
+        "label_template": "○本區段內　○本區段外(距　　M)"
+      },
+      "road_name": {
+        "bbox": [
+          146.9,
+          207.74,
+          210,
+          213.62
+        ],
+        "kind": "text"
+      },
+      "regional_main_road_width": {
+        "bbox": [
+          241.1,
+          207.74,
+          300,
+          213.62
+        ],
+        "kind": "text_with_unit",
+        "unit": "M"
+      },
+      "segment_code": {
+        "bbox": [
+          141.4,
+          87.7,
+          185,
+          96.0
+        ],
+        "kind": "text"
+      },
+      "segment_scope": {
+        "bbox": [
+          279.6,
+          83.7,
+          553.1,
+          100.1
+        ],
+        "kind": "text_wrap"
+      },
+      "city_district": {
+        "bbox": [
+          36.1,
+          70.8,
+          130,
+          79.1
+        ],
+        "kind": "text"
+      },
+      "substation": {
+        "kind": "utility_facility_evidence",
+        "name_bbox": [
+          372.43,
+          258.98,
+          437.0,
+          264.86
+        ],
+        "checkbox_bbox": [
+          440.0,
+          258.98,
+          510.0,
+          264.86
+        ],
+        "name_has_prefix_label": false
+      },
+      "gas_tank": {
+        "kind": "utility_facility_evidence",
+        "name_bbox": [
+          372.43,
+          289.94,
+          437.0,
+          295.82
+        ],
+        "checkbox_bbox": [
+          440.0,
+          289.94,
+          510.0,
+          295.82
+        ],
+        "name_has_prefix_label": false
+      },
+      "cemetery": {
+        "kind": "funeral_facility_evidence",
+        "circle_bbox": [
+          330.91,
+          313.34,
+          336.79,
+          319.22
+        ],
+        "name_bbox": [
+          372.43,
+          313.34,
+          437.0,
+          319.22
+        ],
+        "checkbox_bbox": [
+          440.0,
+          313.34,
+          510.0,
+          319.22
+        ],
+        "name_has_prefix_label": false
+      },
+      "funeral_home": {
+        "kind": "funeral_facility_evidence",
+        "circle_bbox": [
+          330.91,
+          327.98,
+          336.79,
+          333.86
+        ],
+        "name_bbox": [
+          391.0,
+          327.98,
+          437.0,
+          333.86
+        ],
+        "checkbox_bbox": [
+          440.0,
+          327.98,
+          510.0,
+          333.86
+        ],
+        "name_has_prefix_label": true
+      },
+      "crematorium": {
+        "kind": "funeral_facility_evidence",
+        "circle_bbox": [
+          330.91,
+          342.64,
+          336.79,
+          348.52
+        ],
+        "name_bbox": [
+          391.0,
+          342.64,
+          437.0,
+          348.52
+        ],
+        "checkbox_bbox": [
+          440.0,
+          342.64,
+          510.0,
+          348.52
+        ],
+        "name_has_prefix_label": true
+      },
+      "columbarium": {
+        "kind": "funeral_facility_evidence",
+        "circle_bbox": [
+          330.91,
+          357.28,
+          336.79,
+          363.16
+        ],
+        "name_bbox": [
+          391.0,
+          357.28,
+          437.0,
+          363.16
+        ],
+        "checkbox_bbox": [
+          440.0,
+          357.28,
+          510.0,
+          363.16
+        ],
+        "name_has_prefix_label": true
+      },
+      "major_station_hsr": {
+        "kind": "major_station_evidence",
+        "circle_bbox": [
+          99.38,
+          237.26,
+          105.26,
+          243.14
+        ],
+        "name_bbox": [
+          105.38,
+          237.26,
+          153.0,
+          243.14
+        ],
+        "checkbox_bbox": [
+          155.68,
+          237.26,
+          256.0,
+          243.14
+        ],
+        "default_label": "無高鐵站"
+      },
+      "major_station_tra": {
+        "kind": "major_station_evidence",
+        "circle_bbox": [
+          99.38,
+          251.9,
+          105.26,
+          257.78
+        ],
+        "name_bbox": [
+          105.38,
+          251.9,
+          153.0,
+          257.78
+        ],
+        "checkbox_bbox": [
+          155.68,
+          251.9,
+          256.0,
+          257.78
+        ],
+        "default_label": "無火車站"
+      },
+      "major_station_mrt": {
+        "kind": "major_station_evidence",
+        "circle_bbox": [
+          99.38,
+          281.18,
+          105.26,
+          287.06
+        ],
+        "name_bbox": [
+          105.38,
+          281.18,
+          153.0,
+          287.06
+        ],
+        "checkbox_bbox": [
+          155.68,
+          281.18,
+          256.0,
+          287.06
+        ],
+        "default_label": "無捷運站"
+      }
+    }
+  },
+  "table5_2": {
+    "row_count": 28,
+    "fields": {
+      "regional_zoning_inside_outside": {
+        "factor": "都市計畫（內、外）",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            124.72,
+            218.77,
+            134.22
+          ],
+          "grade_text_bbox": [
+            237.77,
+            124.72,
+            257.77,
+            134.22
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              124.72,
+              272.77,
+              134.22
+            ],
+            "grade_text_bbox": [
+              294.41,
+              124.72,
+              314.41,
+              134.22
+            ],
+            "pct_bbox": [
+              322.99,
+              124.72,
+              342.99,
+              134.22
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              124.72,
+              364.35,
+              134.22
+            ],
+            "grade_text_bbox": [
+              385.99,
+              124.72,
+              405.99,
+              134.22
+            ],
+            "pct_bbox": [
+              414.57,
+              124.72,
+              434.57,
+              134.22
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              124.72,
+              455.93,
+              134.22
+            ],
+            "grade_text_bbox": [
+              477.57,
+              124.72,
+              497.57,
+              134.22
+            ],
+            "pct_bbox": [
+              506.15,
+              124.72,
+              526.15,
+              134.22
+            ]
+          }
+        ]
+      },
+      "regional_land_use_zone": {
+        "factor": "使用分區(使用地類別)",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            136.48,
+            218.77,
+            145.98
+          ],
+          "grade_text_bbox": [
+            237.77,
+            136.48,
+            257.77,
+            145.98
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              136.48,
+              272.77,
+              145.98
+            ],
+            "grade_text_bbox": [
+              294.41,
+              136.48,
+              314.41,
+              145.98
+            ],
+            "pct_bbox": [
+              322.99,
+              136.48,
+              342.99,
+              145.98
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              136.48,
+              364.35,
+              145.98
+            ],
+            "grade_text_bbox": [
+              385.99,
+              136.48,
+              405.99,
+              145.98
+            ],
+            "pct_bbox": [
+              414.57,
+              136.48,
+              434.57,
+              145.98
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              136.48,
+              455.93,
+              145.98
+            ],
+            "grade_text_bbox": [
+              477.57,
+              136.48,
+              497.57,
+              145.98
+            ],
+            "pct_bbox": [
+              506.15,
+              136.48,
+              526.15,
+              145.98
+            ]
+          }
+        ]
+      },
+      "regional_building_coverage_ratio": {
+        "factor": "建蔽率",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            148.24,
+            218.77,
+            157.74
+          ],
+          "grade_text_bbox": [
+            237.77,
+            148.24,
+            257.77,
+            157.74
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              148.24,
+              272.77,
+              157.74
+            ],
+            "grade_text_bbox": [
+              294.41,
+              148.24,
+              314.41,
+              157.74
+            ],
+            "pct_bbox": [
+              322.99,
+              148.24,
+              342.99,
+              157.74
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              148.24,
+              364.35,
+              157.74
+            ],
+            "grade_text_bbox": [
+              385.99,
+              148.24,
+              405.99,
+              157.74
+            ],
+            "pct_bbox": [
+              414.57,
+              148.24,
+              434.57,
+              157.74
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              148.24,
+              455.93,
+              157.74
+            ],
+            "grade_text_bbox": [
+              477.57,
+              148.24,
+              497.57,
+              157.74
+            ],
+            "pct_bbox": [
+              506.15,
+              148.24,
+              526.15,
+              157.74
+            ]
+          }
+        ]
+      },
+      "regional_floor_area_ratio": {
+        "factor": "容積率",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            160.0,
+            218.77,
+            169.5
+          ],
+          "grade_text_bbox": [
+            237.77,
+            160.0,
+            257.77,
+            169.5
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              160.0,
+              272.77,
+              169.5
+            ],
+            "grade_text_bbox": [
+              294.41,
+              160.0,
+              314.41,
+              169.5
+            ],
+            "pct_bbox": [
+              322.99,
+              160.0,
+              342.99,
+              169.5
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              160.0,
+              364.35,
+              169.5
+            ],
+            "grade_text_bbox": [
+              385.99,
+              160.0,
+              405.99,
+              169.5
+            ],
+            "pct_bbox": [
+              414.57,
+              160.0,
+              434.57,
+              169.5
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              160.0,
+              455.93,
+              169.5
+            ],
+            "grade_text_bbox": [
+              477.57,
+              160.0,
+              497.57,
+              169.5
+            ],
+            "pct_bbox": [
+              506.15,
+              160.0,
+              526.15,
+              169.5
+            ]
+          }
+        ]
+      },
+      "regional_construction_prohibited": {
+        "factor": "有無禁止建築",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            171.79,
+            218.77,
+            181.29
+          ],
+          "grade_text_bbox": [
+            237.77,
+            171.79,
+            257.77,
+            181.29
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              171.79,
+              272.77,
+              181.29
+            ],
+            "grade_text_bbox": [
+              294.41,
+              171.79,
+              314.41,
+              181.29
+            ],
+            "pct_bbox": [
+              322.99,
+              171.79,
+              342.99,
+              181.29
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              171.79,
+              364.35,
+              181.29
+            ],
+            "grade_text_bbox": [
+              385.99,
+              171.79,
+              405.99,
+              181.29
+            ],
+            "pct_bbox": [
+              414.57,
+              171.79,
+              434.57,
+              181.29
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              171.79,
+              455.93,
+              181.29
+            ],
+            "grade_text_bbox": [
+              477.57,
+              171.79,
+              497.57,
+              181.29
+            ],
+            "pct_bbox": [
+              506.15,
+              171.79,
+              526.15,
+              181.29
+            ]
+          }
+        ]
+      },
+      "regional_construction_restricted": {
+        "factor": "有無限制建築（整體開發、面積限制、高度限制……等）",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            182.83,
+            218.77,
+            192.33
+          ],
+          "grade_text_bbox": [
+            237.77,
+            182.83,
+            257.77,
+            192.33
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              182.83,
+              272.77,
+              192.33
+            ],
+            "grade_text_bbox": [
+              294.41,
+              182.83,
+              314.41,
+              192.33
+            ],
+            "pct_bbox": [
+              322.99,
+              182.83,
+              342.99,
+              192.33
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              182.83,
+              364.35,
+              192.33
+            ],
+            "grade_text_bbox": [
+              385.99,
+              182.83,
+              405.99,
+              192.33
+            ],
+            "pct_bbox": [
+              414.57,
+              182.83,
+              434.57,
+              192.33
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              182.83,
+              455.93,
+              192.33
+            ],
+            "grade_text_bbox": [
+              477.57,
+              182.83,
+              497.57,
+              192.33
+            ],
+            "pct_bbox": [
+              506.15,
+              182.83,
+              526.15,
+              192.33
+            ]
+          }
+        ]
+      },
+      "regional_main_road_width": {
+        "factor": "主要道路寬度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            215.47,
+            218.77,
+            224.97
+          ],
+          "grade_text_bbox": [
+            237.77,
+            215.47,
+            257.77,
+            224.97
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              215.47,
+              272.77,
+              224.97
+            ],
+            "grade_text_bbox": [
+              294.41,
+              215.47,
+              314.41,
+              224.97
+            ],
+            "pct_bbox": [
+              322.99,
+              215.47,
+              342.99,
+              224.97
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              215.47,
+              364.35,
+              224.97
+            ],
+            "grade_text_bbox": [
+              385.99,
+              215.47,
+              405.99,
+              224.97
+            ],
+            "pct_bbox": [
+              414.57,
+              215.47,
+              434.57,
+              224.97
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              215.47,
+              455.93,
+              224.97
+            ],
+            "grade_text_bbox": [
+              477.57,
+              215.47,
+              497.57,
+              224.97
+            ],
+            "pct_bbox": [
+              506.15,
+              215.47,
+              526.15,
+              224.97
+            ]
+          }
+        ]
+      },
+      "regional_avg_road_width": {
+        "factor": "區段內道路平均寬度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            227.23,
+            218.77,
+            236.73
+          ],
+          "grade_text_bbox": [
+            237.77,
+            227.23,
+            257.77,
+            236.73
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              227.23,
+              272.77,
+              236.73
+            ],
+            "grade_text_bbox": [
+              294.41,
+              227.23,
+              314.41,
+              236.73
+            ],
+            "pct_bbox": [
+              322.99,
+              227.23,
+              342.99,
+              236.73
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              227.23,
+              364.35,
+              236.73
+            ],
+            "grade_text_bbox": [
+              385.99,
+              227.23,
+              405.99,
+              236.73
+            ],
+            "pct_bbox": [
+              414.57,
+              227.23,
+              434.57,
+              236.73
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              227.23,
+              455.93,
+              236.73
+            ],
+            "grade_text_bbox": [
+              477.57,
+              227.23,
+              497.57,
+              236.73
+            ],
+            "pct_bbox": [
+              506.15,
+              227.23,
+              526.15,
+              236.73
+            ]
+          }
+        ]
+      },
+      "regional_major_station_proximity": {
+        "factor": "接近大型車站之程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            238.99,
+            218.77,
+            248.49
+          ],
+          "grade_text_bbox": [
+            237.77,
+            238.99,
+            257.77,
+            248.49
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              238.99,
+              272.77,
+              248.49
+            ],
+            "grade_text_bbox": [
+              294.41,
+              238.99,
+              314.41,
+              248.49
+            ],
+            "pct_bbox": [
+              322.99,
+              238.99,
+              342.99,
+              248.49
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              238.99,
+              364.35,
+              248.49
+            ],
+            "grade_text_bbox": [
+              385.99,
+              238.99,
+              405.99,
+              248.49
+            ],
+            "pct_bbox": [
+              414.57,
+              238.99,
+              434.57,
+              248.49
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              238.99,
+              455.93,
+              248.49
+            ],
+            "grade_text_bbox": [
+              477.57,
+              238.99,
+              497.57,
+              248.49
+            ],
+            "pct_bbox": [
+              506.15,
+              238.99,
+              526.15,
+              248.49
+            ]
+          }
+        ]
+      },
+      "regional_bus_stop_proximity": {
+        "factor": "站牌之接近程度或密集程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            250.75,
+            218.77,
+            260.25
+          ],
+          "grade_text_bbox": [
+            237.77,
+            250.75,
+            257.77,
+            260.25
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              250.75,
+              272.77,
+              260.25
+            ],
+            "grade_text_bbox": [
+              294.41,
+              250.75,
+              314.41,
+              260.25
+            ],
+            "pct_bbox": [
+              322.99,
+              250.75,
+              342.99,
+              260.25
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              250.75,
+              364.35,
+              260.25
+            ],
+            "grade_text_bbox": [
+              385.99,
+              250.75,
+              405.99,
+              260.25
+            ],
+            "pct_bbox": [
+              414.57,
+              250.75,
+              434.57,
+              260.25
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              250.75,
+              455.93,
+              260.25
+            ],
+            "grade_text_bbox": [
+              477.57,
+              250.75,
+              497.57,
+              260.25
+            ],
+            "pct_bbox": [
+              506.15,
+              250.75,
+              526.15,
+              260.25
+            ]
+          }
+        ]
+      },
+      "regional_interchange_proximity": {
+        "factor": "交流道之有無及接近交流道之程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            261.79,
+            218.77,
+            271.29
+          ],
+          "grade_text_bbox": [
+            237.77,
+            261.79,
+            257.77,
+            271.29
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              261.79,
+              272.77,
+              271.29
+            ],
+            "grade_text_bbox": [
+              294.41,
+              261.79,
+              314.41,
+              271.29
+            ],
+            "pct_bbox": [
+              322.99,
+              261.79,
+              342.99,
+              271.29
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              261.79,
+              364.35,
+              271.29
+            ],
+            "grade_text_bbox": [
+              385.99,
+              261.79,
+              405.99,
+              271.29
+            ],
+            "pct_bbox": [
+              414.57,
+              261.79,
+              434.57,
+              271.29
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              261.79,
+              455.93,
+              271.29
+            ],
+            "grade_text_bbox": [
+              477.57,
+              261.79,
+              497.57,
+              271.29
+            ],
+            "pct_bbox": [
+              506.15,
+              261.79,
+              526.15,
+              271.29
+            ]
+          }
+        ]
+      },
+      "regional_road_development": {
+        "factor": "區段內道路規劃及闢建程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            282.67,
+            218.77,
+            292.17
+          ],
+          "grade_text_bbox": [
+            237.77,
+            282.67,
+            257.77,
+            292.17
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              282.67,
+              272.77,
+              292.17
+            ],
+            "grade_text_bbox": [
+              294.41,
+              282.67,
+              314.41,
+              292.17
+            ],
+            "pct_bbox": [
+              322.99,
+              282.67,
+              342.99,
+              292.17
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              282.67,
+              364.35,
+              292.17
+            ],
+            "grade_text_bbox": [
+              385.99,
+              282.67,
+              405.99,
+              292.17
+            ],
+            "pct_bbox": [
+              414.57,
+              282.67,
+              434.57,
+              292.17
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              282.67,
+              455.93,
+              292.17
+            ],
+            "grade_text_bbox": [
+              477.57,
+              282.67,
+              497.57,
+              292.17
+            ],
+            "pct_bbox": [
+              506.15,
+              282.67,
+              526.15,
+              292.17
+            ]
+          }
+        ]
+      },
+      "regional_drainage_quality": {
+        "factor": "排水之良否",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            306.19,
+            218.77,
+            315.69
+          ],
+          "grade_text_bbox": [
+            237.77,
+            306.19,
+            257.77,
+            315.69
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              306.19,
+              272.77,
+              315.69
+            ],
+            "grade_text_bbox": [
+              294.41,
+              306.19,
+              314.41,
+              315.69
+            ],
+            "pct_bbox": [
+              322.99,
+              306.19,
+              342.99,
+              315.69
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              306.19,
+              364.35,
+              315.69
+            ],
+            "grade_text_bbox": [
+              385.99,
+              306.19,
+              405.99,
+              315.69
+            ],
+            "pct_bbox": [
+              414.57,
+              306.19,
+              434.57,
+              315.69
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              306.19,
+              455.93,
+              315.69
+            ],
+            "grade_text_bbox": [
+              477.57,
+              306.19,
+              497.57,
+              315.69
+            ],
+            "pct_bbox": [
+              506.15,
+              306.19,
+              526.15,
+              315.69
+            ]
+          }
+        ]
+      },
+      "regional_terrain": {
+        "factor": "地勢",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            317.95,
+            218.77,
+            327.45
+          ],
+          "grade_text_bbox": [
+            237.77,
+            317.95,
+            257.77,
+            327.45
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              317.95,
+              272.77,
+              327.45
+            ],
+            "grade_text_bbox": [
+              294.41,
+              317.95,
+              314.41,
+              327.45
+            ],
+            "pct_bbox": [
+              322.99,
+              317.95,
+              342.99,
+              327.45
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              317.95,
+              364.35,
+              327.45
+            ],
+            "grade_text_bbox": [
+              385.99,
+              317.95,
+              405.99,
+              327.45
+            ],
+            "pct_bbox": [
+              414.57,
+              317.95,
+              434.57,
+              327.45
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              317.95,
+              455.93,
+              327.45
+            ],
+            "grade_text_bbox": [
+              477.57,
+              317.95,
+              497.57,
+              327.45
+            ],
+            "pct_bbox": [
+              506.15,
+              317.95,
+              526.15,
+              327.45
+            ]
+          }
+        ]
+      },
+      "regional_market_proximity": {
+        "factor": "接近市場之程度（傳統市場、超級市場、超大型購物中心）",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            340.77,
+            218.77,
+            350.27
+          ],
+          "grade_text_bbox": [
+            237.77,
+            340.77,
+            257.77,
+            350.27
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              340.77,
+              272.77,
+              350.27
+            ],
+            "grade_text_bbox": [
+              294.41,
+              340.77,
+              314.41,
+              350.27
+            ],
+            "pct_bbox": [
+              322.99,
+              340.77,
+              342.99,
+              350.27
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              340.77,
+              364.35,
+              350.27
+            ],
+            "grade_text_bbox": [
+              385.99,
+              340.77,
+              405.99,
+              350.27
+            ],
+            "pct_bbox": [
+              414.57,
+              340.77,
+              434.57,
+              350.27
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              340.77,
+              455.93,
+              350.27
+            ],
+            "grade_text_bbox": [
+              477.57,
+              340.77,
+              497.57,
+              350.27
+            ],
+            "pct_bbox": [
+              506.15,
+              340.77,
+              526.15,
+              350.27
+            ]
+          }
+        ]
+      },
+      "regional_park_proximity": {
+        "factor": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            360.93,
+            218.77,
+            370.43
+          ],
+          "grade_text_bbox": [
+            237.77,
+            360.93,
+            257.77,
+            370.43
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              360.93,
+              272.77,
+              370.43
+            ],
+            "grade_text_bbox": [
+              294.41,
+              360.93,
+              314.41,
+              370.43
+            ],
+            "pct_bbox": [
+              322.99,
+              360.93,
+              342.99,
+              370.43
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              360.93,
+              364.35,
+              370.43
+            ],
+            "grade_text_bbox": [
+              385.99,
+              360.93,
+              405.99,
+              370.43
+            ],
+            "pct_bbox": [
+              414.57,
+              360.93,
+              434.57,
+              370.43
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              360.93,
+              455.93,
+              370.43
+            ],
+            "grade_text_bbox": [
+              477.57,
+              360.93,
+              497.57,
+              370.43
+            ],
+            "pct_bbox": [
+              506.15,
+              360.93,
+              526.15,
+              370.43
+            ]
+          }
+        ]
+      },
+      "regional_tourism_proximity": {
+        "factor": "接近觀光遊憩設施之程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            381.81,
+            218.77,
+            391.31
+          ],
+          "grade_text_bbox": [
+            237.77,
+            381.81,
+            257.77,
+            391.31
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              381.81,
+              272.77,
+              391.31
+            ],
+            "grade_text_bbox": [
+              294.41,
+              381.81,
+              314.41,
+              391.31
+            ],
+            "pct_bbox": [
+              322.99,
+              381.81,
+              342.99,
+              391.31
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              381.81,
+              364.35,
+              391.31
+            ],
+            "grade_text_bbox": [
+              385.99,
+              381.81,
+              405.99,
+              391.31
+            ],
+            "pct_bbox": [
+              414.57,
+              381.81,
+              434.57,
+              391.31
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              381.81,
+              455.93,
+              391.31
+            ],
+            "grade_text_bbox": [
+              477.57,
+              381.81,
+              497.57,
+              391.31
+            ],
+            "pct_bbox": [
+              506.15,
+              381.81,
+              526.15,
+              391.31
+            ]
+          }
+        ]
+      },
+      "regional_parking_convenience": {
+        "factor": "停車場地之便利程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            393.57,
+            218.77,
+            403.07
+          ],
+          "grade_text_bbox": [
+            237.77,
+            393.57,
+            257.77,
+            403.07
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              393.57,
+              272.77,
+              403.07
+            ],
+            "grade_text_bbox": [
+              294.41,
+              393.57,
+              314.41,
+              403.07
+            ],
+            "pct_bbox": [
+              322.99,
+              393.57,
+              342.99,
+              403.07
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              393.57,
+              364.35,
+              403.07
+            ],
+            "grade_text_bbox": [
+              385.99,
+              393.57,
+              405.99,
+              403.07
+            ],
+            "pct_bbox": [
+              414.57,
+              393.57,
+              434.57,
+              403.07
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              393.57,
+              455.93,
+              403.07
+            ],
+            "grade_text_bbox": [
+              477.57,
+              393.57,
+              497.57,
+              403.07
+            ],
+            "pct_bbox": [
+              506.15,
+              393.57,
+              526.15,
+              403.07
+            ]
+          }
+        ]
+      },
+      "regional_utility_facility_proximity": {
+        "factor": "電業設施及公用氣體燃料設施之有無及接近程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            416.37,
+            218.77,
+            425.87
+          ],
+          "grade_text_bbox": [
+            237.77,
+            416.37,
+            257.77,
+            425.87
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              416.37,
+              272.77,
+              425.87
+            ],
+            "grade_text_bbox": [
+              294.41,
+              416.37,
+              314.41,
+              425.87
+            ],
+            "pct_bbox": [
+              322.99,
+              416.37,
+              342.99,
+              425.87
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              416.37,
+              364.35,
+              425.87
+            ],
+            "grade_text_bbox": [
+              385.99,
+              416.37,
+              405.99,
+              425.87
+            ],
+            "pct_bbox": [
+              414.57,
+              416.37,
+              434.57,
+              425.87
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              416.37,
+              455.93,
+              425.87
+            ],
+            "grade_text_bbox": [
+              477.57,
+              416.37,
+              497.57,
+              425.87
+            ],
+            "pct_bbox": [
+              506.15,
+              416.37,
+              526.15,
+              425.87
+            ]
+          }
+        ]
+      },
+      "regional_funeral_facility_proximity": {
+        "factor": "殯葬設施之有無及接近程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            437.25,
+            218.77,
+            446.75
+          ],
+          "grade_text_bbox": [
+            237.77,
+            437.25,
+            257.77,
+            446.75
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              437.25,
+              272.77,
+              446.75
+            ],
+            "grade_text_bbox": [
+              294.41,
+              437.25,
+              314.41,
+              446.75
+            ],
+            "pct_bbox": [
+              322.99,
+              437.25,
+              342.99,
+              446.75
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              437.25,
+              364.35,
+              446.75
+            ],
+            "grade_text_bbox": [
+              385.99,
+              437.25,
+              405.99,
+              446.75
+            ],
+            "pct_bbox": [
+              414.57,
+              437.25,
+              434.57,
+              446.75
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              437.25,
+              455.93,
+              446.75
+            ],
+            "grade_text_bbox": [
+              477.57,
+              437.25,
+              497.57,
+              446.75
+            ],
+            "pct_bbox": [
+              506.15,
+              437.25,
+              526.15,
+              446.75
+            ]
+          }
+        ]
+      },
+      "regional_waste_facility_proximity": {
+        "factor": "廢棄物處理設施之有無及接近程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            448.29,
+            218.77,
+            457.79
+          ],
+          "grade_text_bbox": [
+            237.77,
+            448.29,
+            257.77,
+            457.79
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              448.29,
+              272.77,
+              457.79
+            ],
+            "grade_text_bbox": [
+              294.41,
+              448.29,
+              314.41,
+              457.79
+            ],
+            "pct_bbox": [
+              322.99,
+              448.29,
+              342.99,
+              457.79
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              448.29,
+              364.35,
+              457.79
+            ],
+            "grade_text_bbox": [
+              385.99,
+              448.29,
+              405.99,
+              457.79
+            ],
+            "pct_bbox": [
+              414.57,
+              448.29,
+              434.57,
+              457.79
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              448.29,
+              455.93,
+              457.79
+            ],
+            "grade_text_bbox": [
+              477.57,
+              448.29,
+              497.57,
+              457.79
+            ],
+            "pct_bbox": [
+              506.15,
+              448.29,
+              526.15,
+              457.79
+            ]
+          }
+        ]
+      },
+      "regional_pollution_proximity": {
+        "factor": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            480.57,
+            218.77,
+            490.07
+          ],
+          "grade_text_bbox": [
+            237.77,
+            480.57,
+            257.77,
+            490.07
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              480.57,
+              272.77,
+              490.07
+            ],
+            "grade_text_bbox": [
+              294.41,
+              480.57,
+              314.41,
+              490.07
+            ],
+            "pct_bbox": [
+              322.99,
+              480.57,
+              342.99,
+              490.07
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              480.57,
+              364.35,
+              490.07
+            ],
+            "grade_text_bbox": [
+              385.99,
+              480.57,
+              405.99,
+              490.07
+            ],
+            "pct_bbox": [
+              414.57,
+              480.57,
+              434.57,
+              490.07
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              480.57,
+              455.93,
+              490.07
+            ],
+            "grade_text_bbox": [
+              477.57,
+              480.57,
+              497.57,
+              490.07
+            ],
+            "pct_bbox": [
+              506.15,
+              480.57,
+              526.15,
+              490.07
+            ]
+          }
+        ]
+      },
+      "regional_department_store_proximity": {
+        "factor": "百貨公司之有無、數量、接近程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            522.84,
+            218.77,
+            532.34
+          ],
+          "grade_text_bbox": [
+            237.77,
+            522.84,
+            257.77,
+            532.34
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              522.84,
+              272.77,
+              532.34
+            ],
+            "grade_text_bbox": [
+              294.41,
+              522.84,
+              314.41,
+              532.34
+            ],
+            "pct_bbox": [
+              322.99,
+              522.84,
+              342.99,
+              532.34
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              522.84,
+              364.35,
+              532.34
+            ],
+            "grade_text_bbox": [
+              385.99,
+              522.84,
+              405.99,
+              532.34
+            ],
+            "pct_bbox": [
+              414.57,
+              522.84,
+              434.57,
+              532.34
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              522.84,
+              455.93,
+              532.34
+            ],
+            "grade_text_bbox": [
+              477.57,
+              522.84,
+              497.57,
+              532.34
+            ],
+            "pct_bbox": [
+              506.15,
+              522.84,
+              526.15,
+              532.34
+            ]
+          }
+        ]
+      },
+      "regional_financial_institution_proximity": {
+        "factor": "金融機構之有無、數量、接近程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            543.0,
+            218.77,
+            552.5
+          ],
+          "grade_text_bbox": [
+            237.77,
+            543.0,
+            257.77,
+            552.5
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              543.0,
+              272.77,
+              552.5
+            ],
+            "grade_text_bbox": [
+              294.41,
+              543.0,
+              314.41,
+              552.5
+            ],
+            "pct_bbox": [
+              322.99,
+              543.0,
+              342.99,
+              552.5
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              543.0,
+              364.35,
+              552.5
+            ],
+            "grade_text_bbox": [
+              385.99,
+              543.0,
+              405.99,
+              552.5
+            ],
+            "pct_bbox": [
+              414.57,
+              543.0,
+              434.57,
+              552.5
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              543.0,
+              455.93,
+              552.5
+            ],
+            "grade_text_bbox": [
+              477.57,
+              543.0,
+              497.57,
+              552.5
+            ],
+            "pct_bbox": [
+              506.15,
+              543.0,
+              526.15,
+              552.5
+            ]
+          }
+        ]
+      },
+      "regional_entertainment_proximity": {
+        "factor": "娛樂設施之有無、數量、接近程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            563.16,
+            218.77,
+            572.66
+          ],
+          "grade_text_bbox": [
+            237.77,
+            563.16,
+            257.77,
+            572.66
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              563.16,
+              272.77,
+              572.66
+            ],
+            "grade_text_bbox": [
+              294.41,
+              563.16,
+              314.41,
+              572.66
+            ],
+            "pct_bbox": [
+              322.99,
+              563.16,
+              342.99,
+              572.66
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              563.16,
+              364.35,
+              572.66
+            ],
+            "grade_text_bbox": [
+              385.99,
+              563.16,
+              405.99,
+              572.66
+            ],
+            "pct_bbox": [
+              414.57,
+              563.16,
+              434.57,
+              572.66
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              563.16,
+              455.93,
+              572.66
+            ],
+            "grade_text_bbox": [
+              477.57,
+              563.16,
+              497.57,
+              572.66
+            ],
+            "pct_bbox": [
+              506.15,
+              563.16,
+              526.15,
+              572.66
+            ]
+          }
+        ]
+      },
+      "regional_exhibition_hotel_proximity": {
+        "factor": "大型展示中心或觀光飯店之有無、數量、接近程度",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            583.32,
+            218.77,
+            592.82
+          ],
+          "grade_text_bbox": [
+            237.77,
+            583.32,
+            257.77,
+            592.82
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              583.32,
+              272.77,
+              592.82
+            ],
+            "grade_text_bbox": [
+              294.41,
+              583.32,
+              314.41,
+              592.82
+            ],
+            "pct_bbox": [
+              322.99,
+              583.32,
+              342.99,
+              592.82
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              583.32,
+              364.35,
+              592.82
+            ],
+            "grade_text_bbox": [
+              385.99,
+              583.32,
+              405.99,
+              592.82
+            ],
+            "pct_bbox": [
+              414.57,
+              583.32,
+              434.57,
+              592.82
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              583.32,
+              455.93,
+              592.82
+            ],
+            "grade_text_bbox": [
+              477.57,
+              583.32,
+              497.57,
+              592.82
+            ],
+            "pct_bbox": [
+              506.15,
+              583.32,
+              526.15,
+              592.82
+            ]
+          }
+        ]
+      },
+      "regional_customer_traffic": {
+        "factor": "顧客通行量之多寡",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            604.2,
+            218.77,
+            613.7
+          ],
+          "grade_text_bbox": [
+            237.77,
+            604.2,
+            257.77,
+            613.7
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              604.2,
+              272.77,
+              613.7
+            ],
+            "grade_text_bbox": [
+              294.41,
+              604.2,
+              314.41,
+              613.7
+            ],
+            "pct_bbox": [
+              322.99,
+              604.2,
+              342.99,
+              613.7
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              604.2,
+              364.35,
+              613.7
+            ],
+            "grade_text_bbox": [
+              385.99,
+              604.2,
+              405.99,
+              613.7
+            ],
+            "pct_bbox": [
+              414.57,
+              604.2,
+              434.57,
+              613.7
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              604.2,
+              455.93,
+              613.7
+            ],
+            "grade_text_bbox": [
+              477.57,
+              604.2,
+              497.57,
+              613.7
+            ],
+            "pct_bbox": [
+              506.15,
+              604.2,
+              526.15,
+              613.7
+            ]
+          }
+        ]
+      },
+      "regional_shop_contiguity": {
+        "factor": "店舖之毗連狀態",
+        "base": {
+          "grade_code_bbox": [
+            213.77,
+            615.96,
+            218.77,
+            625.46
+          ],
+          "grade_text_bbox": [
+            237.77,
+            615.96,
+            257.77,
+            625.46
+          ]
+        },
+        "comparables": [
+          {
+            "grade_code_bbox": [
+              267.77,
+              615.96,
+              272.77,
+              625.46
+            ],
+            "grade_text_bbox": [
+              294.41,
+              615.96,
+              314.41,
+              625.46
+            ],
+            "pct_bbox": [
+              322.99,
+              615.96,
+              342.99,
+              625.46
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              359.35,
+              615.96,
+              364.35,
+              625.46
+            ],
+            "grade_text_bbox": [
+              385.99,
+              615.96,
+              405.99,
+              625.46
+            ],
+            "pct_bbox": [
+              414.57,
+              615.96,
+              434.57,
+              625.46
+            ]
+          },
+          {
+            "grade_code_bbox": [
+              450.93,
+              615.96,
+              455.93,
+              625.46
+            ],
+            "grade_text_bbox": [
+              477.57,
+              615.96,
+              497.57,
+              625.46
+            ],
+            "pct_bbox": [
+              506.15,
+              615.96,
+              526.15,
+              625.46
+            ]
+          }
+        ]
+      },
+      "case_no": {
+        "bbox": [
+          85.78,
+          75.2,
+          140.59,
+          83.96
+        ],
+        "kind": "header_text"
+      }
+    }
+  },
+  "table4": {
+    "fields": {
+      "base_parcel_id": {
+        "bbox": [
+          205,
+          68,
+          300,
+          78
+        ],
+        "kind": "text"
+      },
+      "comparable_parcel_id": {
+        "bbox": [
+          346,
+          68,
+          441,
+          78
+        ],
+        "kind": "text"
+      },
+      "individual_land_shape[base]": {
+        "bbox": [
+          205,
+          159,
+          300,
+          169
+        ],
+        "kind": "text"
+      },
+      "individual_land_shape[comp]": {
+        "bbox": [
+          346,
+          159,
+          441,
+          169
+        ],
+        "kind": "text"
+      },
+      "individual_street_frontage[base]": {
+        "bbox": [
+          205,
+          171,
+          300,
+          181
+        ],
+        "kind": "text"
+      },
+      "individual_street_frontage[comp]": {
+        "bbox": [
+          346,
+          171,
+          441,
+          181
+        ],
+        "kind": "text"
+      },
+      "individual_land_terrain[base]": {
+        "bbox": [
+          205,
+          183,
+          300,
+          194
+        ],
+        "kind": "text"
+      },
+      "individual_land_terrain[comp]": {
+        "bbox": [
+          346,
+          183,
+          441,
+          194
+        ],
+        "kind": "text"
+      },
+      "individual_road_type[base]": {
+        "bbox": [
+          205,
+          195,
+          300,
+          206
+        ],
+        "kind": "text"
+      },
+      "individual_road_type[comp]": {
+        "bbox": [
+          346,
+          195,
+          441,
+          206
+        ],
+        "kind": "text"
+      },
+      "individual_frontage_road_width.road_name[base]": {
+        "bbox": [
+          205,
+          208,
+          268,
+          219
+        ],
+        "kind": "text"
+      },
+      "individual_frontage_road_width.road_name[comp]": {
+        "bbox": [
+          346,
+          208,
+          396,
+          219
+        ],
+        "kind": "text"
+      },
+      "individual_school_proximity.name[base]": {
+        "bbox": [
+          205,
+          221,
+          268,
+          232
+        ],
+        "kind": "text"
+      },
+      "individual_school_proximity.name[comp]": {
+        "bbox": [
+          346,
+          221,
+          396,
+          232
+        ],
+        "kind": "text"
+      },
+      "individual_market_proximity.name[base]": {
+        "bbox": [
+          205,
+          234,
+          268,
+          245
+        ],
+        "kind": "text"
+      },
+      "individual_market_proximity.name[comp]": {
+        "bbox": [
+          346,
+          234,
+          396,
+          245
+        ],
+        "kind": "text"
+      },
+      "individual_park_proximity.name[base]": {
+        "bbox": [
+          205,
+          247,
+          268,
+          258
+        ],
+        "kind": "text"
+      },
+      "individual_park_proximity.name[comp]": {
+        "bbox": [
+          340,
+          247,
+          396,
+          258
+        ],
+        "kind": "text"
+      },
+      "individual_station_proximity.name[base]": {
+        "bbox": [
+          205,
+          260,
+          268,
+          271
+        ],
+        "kind": "text"
+      },
+      "individual_station_proximity.name[comp]": {
+        "bbox": [
+          340,
+          260,
+          396,
+          271
+        ],
+        "kind": "text"
+      },
+      "individual_commercial_district_proximity.name[base]": {
+        "bbox": [
+          205,
+          273,
+          268,
+          284
+        ],
+        "kind": "text"
+      },
+      "individual_commercial_district_proximity.name[comp]": {
+        "bbox": [
+          346,
+          273,
+          396,
+          284
+        ],
+        "kind": "text"
+      },
+      "individual_nuisance_facility.name[base]": {
+        "bbox": [
+          205,
+          286,
+          268,
+          297
+        ],
+        "kind": "text"
+      },
+      "individual_nuisance_facility.name[comp]": {
+        "bbox": [
+          340,
+          286,
+          396,
+          297
+        ],
+        "kind": "text"
+      },
+      "individual_parking_convenience[base]": {
+        "bbox": [
+          205,
+          299,
+          285,
+          310
+        ],
+        "kind": "text"
+      },
+      "individual_parking_convenience[comp]": {
+        "bbox": [
+          346,
+          299,
+          415,
+          310
+        ],
+        "kind": "text"
+      },
+      "individual_zoning_designation[base]": {
+        "bbox": [
+          205,
+          312,
+          290,
+          323
+        ],
+        "kind": "text"
+      },
+      "individual_zoning_designation[comp]": {
+        "bbox": [
+          346,
+          312,
+          415,
+          323
+        ],
+        "kind": "text"
+      },
+      "case_no": {
+        "bbox": [
+          697.68,
+          33.21,
+          745.68,
+          40.89
+        ],
+        "kind": "text"
+      },
+      "form_fill_date": {
+        "bbox": [
+          105.26,
+          540.57,
+          174.38,
+          548.25
+        ],
+        "kind": "text"
+      },
+      "table4_remarks_comparable": {
+        "bbox": [
+          189,
+          423,
+          777,
+          477
+        ],
+        "kind": "text"
+      },
+      "table4_remarks_case": {
+        "bbox": [
+          189,
+          483,
+          777,
+          523
+        ],
+        "kind": "text"
+      },
+      "appraisal_base_date": {
+        "bbox": [
+          542.86,
+          32.13,
+          570.94,
+          41.01
+        ],
+        "kind": "text"
+      },
+      "individual_building_coverage_ratio[base]": {
+        "bbox": [
+          247.13,
+          326.56,
+          257.87,
+          333.64
+        ],
+        "kind": "raw",
+        "side": "base"
+      },
+      "individual_building_coverage_ratio[comp]": {
+        "bbox": [
+          374.35,
+          326.56,
+          385.09,
+          333.64
+        ],
+        "kind": "raw",
+        "side": "comp"
+      },
+      "individual_floor_area_ratio[base]": {
+        "bbox": [
+          245.33,
+          338.08,
+          259.67,
+          345.16
+        ],
+        "kind": "raw",
+        "side": "base"
+      },
+      "individual_floor_area_ratio[comp]": {
+        "bbox": [
+          372.55,
+          338.08,
+          386.89,
+          345.16
+        ],
+        "kind": "raw",
+        "side": "comp"
+      },
+      "individual_construction_restriction[base]": {
+        "bbox": [
+          248.93,
+          349.6,
+          300,
+          356.68
+        ],
+        "kind": "raw",
+        "side": "base"
+      },
+      "individual_construction_restriction[comp]": {
+        "bbox": [
+          376.15,
+          349.6,
+          425,
+          356.68
+        ],
+        "kind": "raw",
+        "side": "comp"
+      },
+      "individual_land_area[base]": {
+        "bbox": [
+          242.45,
+          124.15,
+          263.34,
+          133.19
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_land_area[comp]": {
+        "bbox": [
+          369.19,
+          123.19,
+          390.08,
+          132.23
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_land_width[base]": {
+        "bbox": [
+          250.13,
+          135.31,
+          254.87,
+          144.35
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_land_width[comp]": {
+        "bbox": [
+          377.35,
+          135.31,
+          382.09,
+          144.35
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_land_depth[base]": {
+        "bbox": [
+          248.33,
+          147.43,
+          256.67,
+          156.47
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_land_depth[comp]": {
+        "bbox": [
+          375.55,
+          147.43,
+          383.89,
+          156.47
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_frontage_road_width[base]": {
+        "bbox": [
+          271.13,
+          209.02,
+          279.47,
+          218.06
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_frontage_road_width[comp]": {
+        "bbox": [
+          400.99,
+          209.02,
+          405.73,
+          218.06
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_school_proximity[base]": {
+        "bbox": [
+          269.33,
+          222.1,
+          281.27,
+          231.14
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_school_proximity[comp]": {
+        "bbox": [
+          397.39,
+          222.1,
+          409.33,
+          231.14
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_market_proximity[base]": {
+        "bbox": [
+          271.13,
+          235.18,
+          279.47,
+          244.22
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_market_proximity[comp]": {
+        "bbox": [
+          399.19,
+          235.18,
+          407.53,
+          244.22
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_park_proximity[base]": {
+        "bbox": [
+          269.33,
+          248.26,
+          281.27,
+          257.3
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_park_proximity[comp]": {
+        "bbox": [
+          397.39,
+          248.26,
+          409.33,
+          257.3
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_station_proximity[base]": {
+        "bbox": [
+          271.13,
+          261.34,
+          279.47,
+          270.38
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_station_proximity[comp]": {
+        "bbox": [
+          397.39,
+          261.34,
+          409.33,
+          270.38
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_commercial_district_proximity[base]": {
+        "bbox": [
+          272.93,
+          274.42,
+          277.67,
+          283.46
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_commercial_district_proximity[comp]": {
+        "bbox": [
+          400.99,
+          274.42,
+          405.73,
+          283.46
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_nuisance_facility[base]": {
+        "bbox": [
+          269.33,
+          287.5,
+          281.27,
+          296.54
+        ],
+        "kind": "raw",
+        "side": "base",
+        "omit_unit": true
+      },
+      "individual_nuisance_facility[comp]": {
+        "bbox": [
+          399.19,
+          287.5,
+          407.53,
+          296.54
+        ],
+        "kind": "raw",
+        "side": "comp",
+        "omit_unit": true
+      },
+      "individual_frontage_road_width.diff_rate": {
+        "bbox": [
+          451.03,
+          208.62,
+          469.49,
+          218.12
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_frontage_road_width_differential_rate_{cid}"
+      },
+      "individual_school_proximity.diff_rate": {
+        "bbox": [
+          451.03,
+          221.7,
+          469.49,
+          231.2
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_school_proximity_differential_rate_{cid}"
+      },
+      "individual_market_proximity.diff_rate": {
+        "bbox": [
+          451.03,
+          234.78,
+          469.49,
+          244.28
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_market_proximity_differential_rate_{cid}"
+      },
+      "individual_park_proximity.diff_rate": {
+        "bbox": [
+          451.03,
+          247.86,
+          469.49,
+          257.36
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_park_proximity_differential_rate_{cid}"
+      },
+      "individual_station_proximity.diff_rate": {
+        "bbox": [
+          451.03,
+          260.94,
+          469.49,
+          270.44
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_station_proximity_differential_rate_{cid}"
+      },
+      "individual_commercial_district_proximity.diff_rate": {
+        "bbox": [
+          451.03,
+          274.02,
+          469.49,
+          283.52
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_commercial_district_proximity_differential_rate_{cid}"
+      },
+      "individual_nuisance_facility.diff_rate": {
+        "bbox": [
+          451.03,
+          287.1,
+          469.49,
+          296.6
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_nuisance_facility_differential_rate_{cid}"
+      },
+      "individual_parking_convenience.diff_rate": {
+        "bbox": [
+          451.03,
+          300.18,
+          469.49,
+          309.68
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_parking_convenience_differential_rate_{cid}"
+      },
+      "individual_zoning_designation.diff_rate": {
+        "bbox": [
+          451.03,
+          312.92,
+          469.49,
+          322.42
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_zoning_designation_differential_rate_{cid}"
+      },
+      "individual_building_coverage_ratio.diff_rate": {
+        "bbox": [
+          451.03,
+          324.44,
+          469.49,
+          333.94
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_building_coverage_ratio_differential_rate_{cid}"
+      },
+      "individual_floor_area_ratio.diff_rate": {
+        "bbox": [
+          451.03,
+          335.96,
+          469.49,
+          345.46
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_floor_area_ratio_differential_rate_{cid}"
+      },
+      "individual_construction_restriction.diff_rate": {
+        "bbox": [
+          451.03,
+          347.48,
+          469.49,
+          356.98
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_construction_restriction_differential_rate_{cid}"
+      },
+      "region_adjustment_rate": {
+        "bbox": [
+          451.03,
+          112.5,
+          469.49,
+          121.31
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "region_adjustment_rate_{cid}"
+      },
+      "trial_price": {
+        "bbox": [
+          356.11,
+          396.9,
+          430.0,
+          405.76
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "trial_price_{cid}"
+      },
+      "comparable_weight": {
+        "bbox": [
+          436.51,
+          396.9,
+          453.21,
+          405.76
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "comparable_weight_{cid}"
+      },
+      "base_parcel_comparison_price": {
+        "bbox": [
+          536.26,
+          410.1,
+          559.54,
+          418.96
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "base_parcel_comparison_price"
+      },
+      "adjusted_price": {
+        "bbox": [
+          382.03,
+          102.3,
+          410,
+          111.23
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "adjusted_price_{cid}"
+      },
+      "land_normal_price": {
+        "bbox": [
+          382.03,
+          81.7,
+          410,
+          90.59
+        ],
+        "kind": "case_field",
+        "case_attr": "comparable_land_normal_price"
+      },
+      "price_date_adjustment_rate": {
+        "bbox": [
+          450.24,
+          91.6,
+          470,
+          100.52
+        ],
+        "kind": "case_field",
+        "case_attr": "comparable_price_date_adjustment_rate"
+      },
+      "comparable_transaction_date": {
+        "bbox": [
+          366.19,
+          92.87,
+          393.07,
+          101.11
+        ],
+        "kind": "case_field",
+        "case_attr": "comparable_transaction_date"
+      },
+      "individual_adjustment_total": {
+        "bbox": [
+          356.71,
+          371.3,
+          405,
+          380.2
+        ],
+        "kind": "form_completion_field",
+        "source_field_id_template": "individual_adjustment_total_{cid}"
+      }
+    }
+  }
+}

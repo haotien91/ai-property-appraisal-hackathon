@@ -59,10 +59,11 @@ from case_reconstruction import (  # noqa: E402
     extract_plan_identification, extract_submitted_main_road_width, extract_road_width_evidence,
 )
 
-from rule_engine import RuleEngine  # noqa: E402
 from audit_engine import AuditEngine, SubmittedFormData  # noqa: E402
 from extraction_to_submitted_form import build_submitted_form_from_extraction  # noqa: E402
 from domain.models import ExtractedField, HumanConfirmationRecord  # noqa: E402
+from rule_engine_factory import build_rule_engine_for_case, RuleProfileNotReadyError  # noqa: E402
+from case_rule_repository import CaseRulePackageInvalidError  # noqa: E402
 
 DOCUMENT_BUCKET = os.environ.get("DOCUMENT_BUCKET_NAME", "ai-valuation-documents")
 
@@ -74,15 +75,6 @@ def _s3_client():
     if _s3 is None:
         _s3 = boto3.client("s3")
     return _s3
-
-
-def _rule_engine():
-    data_dir = runtime_paths.data_dir()
-    with open(os.path.join(data_dir, "rules", "regional_rules.json"), encoding="utf-8") as f:
-        reg = json.load(f)["rules"]
-    with open(os.path.join(data_dir, "rules", "individual_rules.json"), encoding="utf-8") as f:
-        ind = json.load(f)["rules"]
-    return RuleEngine(reg + ind)
 
 
 def _grade_code_for_text(rule_engine, city, district, land_use_type, factor, grade_text, rule_set):
@@ -128,6 +120,16 @@ def build_submitted_from_form_completion(
     submitted = SubmittedFormData(case_no=case_no)
     factor_by_field_id = {fi.field_id: fi.factor for fi in (regional_base or [])}
 
+    # STEP5 §10: case identity -- the FORM_COMPLETION record's OWN stamped
+    # case_no (written by FormCompletionEngine at complete_form time), kept
+    # separate from `case_no` above (the function argument, review-time
+    # identity used only to construct this SubmittedFormData object) so
+    # AuditEngine.review() compares two independently-timed reads, not one
+    # value duplicated into two fields.
+    submitted.submitted_case_no = form_completion.get("case_no")
+
+    table5_2_cids, table4_cids = set(), set()
+
     for f in form_completion.get("fields", []):
         field_id = f["field_id"]
 
@@ -153,12 +155,38 @@ def build_submitted_from_form_completion(
             # 表4's own field -- independent identity from 表5-2's field below.
             cid = field_id[len("region_adjustment_rate_"):]
             submitted.submitted_totals[f"region_adjustment_rate_{cid}"] = f.get("final_value")
+            table4_cids.add(cid)
 
         elif field_id.startswith("regional_total_adjustment_"):
             # 表5-2's own field -- independent identity, previously did not
             # exist at all as a distinct stored record (Phase 8A fix).
             cid = field_id[len("regional_total_adjustment_"):]
             submitted.submitted_totals[f"regional_total_{cid}"] = f.get("final_value")
+            table5_2_cids.add(cid)
+
+        elif field_id.startswith("trial_price_") and field_id != "trial_price_gap_check":
+            cid = field_id[len("trial_price_"):]
+            submitted.submitted_trial_prices[cid] = f.get("final_value")
+
+        elif field_id.startswith("comparable_weight_"):
+            cid = field_id[len("comparable_weight_"):]
+            submitted.submitted_comparable_weights[cid] = f.get("final_value")
+
+        elif field_id == "base_parcel_comparison_price":
+            # `calculation` is FormCompletionEngine's own stored
+            # "{raw_result} -> 四捨五入(REQ-022) -> {rounded_result}" string
+            # (see form_completion_engine.py::complete_base_parcel_
+            # comparison_price) -- the RAW half is read back here so the
+            # subtotal check below compares against unrounded components,
+            # never re-deriving rounding logic itself.
+            calc = f.get("calculation")
+            if calc and " -> " in calc:
+                submitted.submitted_base_parcel_comparison_price_raw = calc.split(" -> ", 1)[0].strip()
+
+    if table5_2_cids:
+        submitted.submitted_comparable_ids_table5_2 = ",".join(sorted(table5_2_cids))
+    if table4_cids:
+        submitted.submitted_comparable_ids_table4 = ",".join(sorted(table4_cids))
 
     return submitted
 
@@ -232,7 +260,14 @@ def review(event, context):
         except Exception as e:
             return error_response(400, "VALIDATION_ERROR", f"案件資料格式錯誤：{e}")
 
-        rule_engine = _rule_engine()
+        try:
+            rule_engine, rule_resolution = build_rule_engine_for_case(
+                case_no, rule_profile_id=meta.get("rule_profile_id"),
+            )
+        except RuleProfileNotReadyError as e:
+            return error_response(409, "RULE_PROFILE_NOT_READY", str(e))
+        except CaseRulePackageInvalidError as e:
+            return error_response(409, "CASE_RULE_INVALID", f"{e}. MANUAL_REVIEW_REQUIRED")
 
         if submission_source == "DOCUMENT":
             # DOCUMENT mode: submitted 表5-2 grades/codes/totals AND the 4
@@ -294,5 +329,14 @@ def review(event, context):
         result_json["submission_source"] = submission_source
         if document_id:
             result_json["document_id"] = document_id
+        # AuditEngine itself is untouched -- rule_source_type is attached
+        # here, purely from each issue's already-populated rule_id, same
+        # non-invasive pattern as analyze.py/complete_form.py.
+        for issue in result_json.get("issues", []):
+            trace = rule_resolution.trace_by_rule_id.get(issue.get("rule_id"))
+            issue["rule_source_type"] = trace.rule_source_type.value if trace else None
+        result_json["rule_resolution_status"] = rule_resolution.resolution_status
+        result_json["rule_package_id"] = rule_resolution.package_id
+        result_json["rule_resolution_warnings"] = rule_resolution.warnings
         case_store.put_record(case_no, "REVIEW_RESULT", result_json)
         return response(200, result_json)

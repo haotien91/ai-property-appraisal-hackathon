@@ -25,6 +25,7 @@
   const storageKey = 'ntpc-case-library-names-v1';
   let saved = {};
   try { const value=JSON.parse(localStorage.getItem(storageKey)||'{}'); if(value && typeof value==='object' && !Array.isArray(value)) saved=value; } catch (_) { /* Storage may be disabled. */ }
+  const isProduction = !window.ArtifactLibraryAPI && window.APP_CONFIG?.MODE === 'production';
   let cases=demoCases.map(c=>({...c,name:typeof saved[c.id]==='string' && saved[c.id].trim() ? saved[c.id].slice(0,60) : c.name}));
   if(window.ArtifactLibraryAPI){
     root.querySelector('.cl-add')?.setAttribute('hidden','');
@@ -32,6 +33,35 @@
     try { cases=await window.ArtifactLibraryAPI.listCases(); }
     catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message+' 請重新整理重試。';root.prepend(note);cases=[];}
     const footer=document.querySelector('.cl-minimal-footer');if(footer)footer.querySelector('span')?.replaceChildren(document.createTextNode('· AWS 資料'));
+  }
+  /** Maps one real backend case meta onto this library's display shape.
+   *  P001-00/P002-00/P003-00/P004-00 are NOT four separate cases -- they are
+   *  one case's comparison group (base + 3 comparables), so a case's segments
+   *  collapse into a single group entry, never four case cards. */
+  function fromBackendCase(meta) {
+    const caseNo = meta.case_no || meta.caseNo || '';
+    const segMap = meta.segments || {};
+    const segCodes = Object.keys(segMap).length ? Object.keys(segMap) : (meta.segment_code ? [meta.segment_code] : []);
+    return {
+      id: caseNo,
+      district: meta.district || '',
+      name: meta.segment_scope || caseNo,
+      number: caseNo,
+      groups: [{
+        id: '01',
+        name: meta.segment_scope || '比較群組',
+        section: segCodes[0] || '',
+        sections: segCodes,
+        landUse: meta.land_use_type || '',
+        inputs: segCodes.length,
+      }],
+    };
+  }
+
+  if(isProduction){
+    cases=[];
+    try { const d=await Api.listCases();cases=(d.cases||[]).map(fromBackendCase); }
+    catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent='無法讀取案件，請重新整理重試。';root.prepend(note);}
   }
   let selected='', query='', active=null, opener=null, toastTimer;
   const $=id=>document.getElementById(id);
@@ -100,6 +130,7 @@
   $('cl-search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render();});
   function enterGroup(groupId){
     if($('cl-dialog').open)$('cl-dialog').close();
+    if(isProduction){ window.CaseContext.setCurrentCaseNo(active.number); location.href='pdf-preview.html?case='+encodeURIComponent(active.number); return; }
     window.GroupWorkspace.open(active,groupId,()=>{(root.querySelector(`[data-case="${active.id}"]`)||opener)?.focus({preventScroll:true});});
   }
   function openCase(id,button){active=cases.find(c=>c.id===id);opener=button;if(active.groups.length===1){enterGroup(active.groups[0].id);return;}renderDetail();$('cl-dialog').showModal();}
@@ -159,4 +190,5 @@
   window.addEventListener('blur',endDrag);
   setSplit(32);
   render();
+
 })();

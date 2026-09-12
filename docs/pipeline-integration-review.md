@@ -2,7 +2,19 @@
 
 檢查日期：2026-09-13。目標 `basic/document-processing-pipeline`，commit `4aef92edf19aa03bfa75f11e9a980b7158e23e55`；目前主工作分支 `feat/artifact-db`，HEAD `d9001ec`。
 
-結論：可延續此分支的多區段模型與匯出模型，但目前不可視為可直接合併、部署的完整流程。本次僅檢查，未變更 AWS 或覆蓋現有前端。
+初次檢查結論：新版內容可沿用，但有整合與部署缺口。以下保留初始發現；修正狀態見本節。
+
+## 整合修正狀態
+
+- 分支 `codex/pipeline-integration`；先以 b50c7de 保存本機增量，再連接隊友分支 ancestry。保留 root services/infra、參考資料與新版前端；不產生第二套 artifact API 副本。
+- 修正 Lambda 容器 data 路徑；新增 regression test。
+- PDF 表3從實際比較順序與基準區段產生，不再使用固定編號。比較欄超過三個時，同一類 PDF 續頁；Excel 續工作表。儲存 JSON 的 comparison_index 不變，只有頁內視覺欄位重排。
+- ZIP 附 artifact-pages.json，PDF endpoint 回傳頁碼與實際頁數。prepare_pipeline_delivery.py 驗證完整性及頁碼重疊，產生三類 PDF 和現有 client 可用的 manifest。
+- Claude provider 改為 Converse，保留 schema/人工確認閘門；無法連線記錄 PROVIDER_UNAVAILABLE，不用 mock 替代。實際 AWS Sonnet 4.6 呼叫回傳 OK；已涵蓋 JSON code fence 與禁止輸出欄位檢查。這證明本機透過既有角色可呼叫，並不表示新 pipeline 已部署。
+- 前端 data=live 保留現有 artifact 工作區；隊友 production 模式從其 API 載入案件後，導向其真實 PDF 頁面，避免將真實案件開成 mock 預覽。
+- 已通過 66 個 targeted backend tests、18 個 artifact API tests、frontend adapter test 與 JS syntax checks。
+- 已用新編號、兩個區段生成四頁 PDF，檢查三種書表圖片，並成功轉成上傳 manifest。
+- 未部署隊友 pipeline、未更改現有 AWS 資源，未跑完整 GIS/LFS 資料流程。上傳工具已可供接線，producer job 自動呼叫與正式 execution role 權限仍需部署時設定。
 
 ## 補充：內容繼承與 Git 歷史
 

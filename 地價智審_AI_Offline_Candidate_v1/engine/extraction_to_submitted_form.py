@@ -36,8 +36,18 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from domain.models import (  # noqa: E402
     ExtractedField, HumanConfirmationRecord, ExtractionRole, ExtractionSubjectRole,
 )
-from engine.audit_engine import SubmittedFormData  # noqa: E402
-from engine.human_confirmation import resolve_confirmed_values  # noqa: E402
+# SHULIN-COMPETITION-RULE-PACK-A2-FINAL-GATE-1 Task 2 fix: bare imports, not
+# "engine.xxx" -- review.py (this module's only real production caller)
+# imports both THIS module and audit_engine itself bare (`from audit_engine
+# import AuditEngine, SubmittedFormData`, `from extraction_to_submitted_form
+# import build_submitted_form_from_extraction`). A qualified import here
+# would silently construct a SECOND, DIFFERENT SubmittedFormData class
+# under the "engine.audit_engine" module identity -- the same dual-module-
+# identity hazard fixed in engine/form_completion_engine.py's own import
+# block (see that file's comment for the full mechanism). Verified via
+# tests/test_duplicate_engine_module_identity.py.
+from audit_engine import SubmittedFormData  # noqa: E402
+from human_confirmation import resolve_confirmed_values  # noqa: E402
 
 # extraction field_id -> SubmittedFormData attribute name, for VALUE-role
 # (extraction_subject_role=NONE) fields -- 表1/表4's flat single-value

@@ -29,13 +29,31 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css?v=landing-7" rel="stylesheet">
 
-    <link href="css/case-library.css" rel="stylesheet">
-    <link href="css/group-workspace.css" rel="stylesheet">
+    <link href="css/case-library.css?v=map-legend-11" rel="stylesheet">
+    <link href="css/group-workspace.css?v=landing-7" rel="stylesheet">
 
     <style>
-        body{background:#0b0b0d;font-family:"Noto Sans TC",sans-serif}
+ body{
+    background:
+        linear-gradient(rgba(11,11,13,.82), rgba(11,11,13,.90)),
+        url('img/BACKGROUND.jpg') center center / cover no-repeat fixed !important;
+    font-family:"Noto Sans TC",sans-serif;
+}
+
+/* 讓上層容器透明,避免蓋住 body 背景圖 */
+.case-library,
+.case-library .container,
+.cl-workspace,
+.cl-main,
+.cl-map-panel{
+    background: transparent !important;
+}
+/* Empty districts have no SVG fill at all; only borders and labels remain. */
+.cl-map{background:none!important;filter:none!important}
+.cl-district:not(.has-cases):not(.selected){fill:none!important;fill-opacity:0;pointer-events:all}
+.cl-legend-swatch:not(.cl-legend-has-cases){background:transparent}
         .navbar{position:relative;background:#0b0b0d;border-bottom:1px solid #ffffff12}
         .navbar-brand h2{font-size:25px;margin:0}.navbar .navbar-nav .nav-link{padding:20px 0}
     </style>
@@ -48,14 +66,19 @@
                 <div class="cl-toolbar"><button type="button" class="cl-brand" id="cl-home" aria-label="地價智審 AI，返回地圖"><i class="fa-solid fa-landmark" aria-hidden="true"></i><span>地價智審 <b>AI</b></span></button>
                     <label class="cl-search" for="cl-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="1.5"/><path d="m15 15 5 5" stroke="currentColor" stroke-width="1.5"/></svg><input id="cl-search" type="search" placeholder="搜尋全市案名、案號或區段" aria-label="搜尋全市案件"></label>
                     <select id="cl-district-select" class="cl-select" aria-label="選擇行政區"></select>
-                    <a class="cl-add" href="case-new.html">＋ 建立案件</a>
+                    <a class="cl-add" href="case-new.html?ui=file-list-13">＋ 建立案件</a>
                 </div>
                 <div class="cl-main">
                     <div class="cl-intro" id="cl-intro">
                         <h1>選擇<br><span>行政區</span></h1>
-                        <p>開啟案件，查看書表與計算依據。</p>
+                        <p>快速調閱查估書表、比較法估價與計算依據。</p>
+                        <p style="margin-top:16px">👉 點選右側地圖，或使用上方搜尋</p>
                     </div>
                     <div class="cl-map-panel" id="cl-map-panel">
+                        <aside class="cl-map-legend" aria-label="地圖顏色說明">
+                            <span><i class="cl-legend-swatch cl-legend-has-cases" aria-hidden="true"></i>過去有案件</span>
+                            <span><i class="cl-legend-swatch" aria-hidden="true"></i>尚無案件</span>
+                        </aside>
                         <svg id="cl-map" class="cl-map" viewBox="14 14 580 560" role="group" aria-label="新北市行政區地圖，可用鍵盤或上方選單選擇行政區"></svg>
 
 
@@ -98,6 +121,12 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!-- TEAM-PROJECT-MERGE-M1: config/api/case-context must load BEFORE
+         case-library.js, which reads the real backend case list
+         (Api.listCases()) in production mode instead of hardcoded demo data. -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/case-context.js"></script>
     <script src="data/ntpc-districts.js"></script>
     <script src="js/artifact-adapter.js?v=20260913-labels-3"></script>
     <script src="js/group-workspace.js?v=20260913-labels-3"></script>

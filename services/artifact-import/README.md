@@ -177,3 +177,39 @@ python3 services/artifact-import/preview_server.py --port 8002 --profile hackath
 尚未實作：PDF 首頁 thumbnail、公開部署所需登入／session、跨 IAM role 共用、真實模式建立／改名 UI、harness 對話。真實模式暫停示範聊天與本機改名，避免誤以為已送到 backend。
 
 無 computer use 驗證：`node services/artifact-import/tests/test_frontend_adapter.cjs` 檢查資料映射、分開 PDF、缺件與 scope。另需對實際 UI 做人工排版驗收。
+
+## 接新版文件 pipeline 的合併 PDF
+
+新版 `/api/cases/{id}/export/bundle` ZIP 除了 JSON、Excel、PDF，另附 `artifact-pages.json`。
+PDF 檔名 `official_6_page.pdf` 暫保留相容性，實際頁數由 manifest 決定，不保證六頁。
+`/api/cases/{id}/pdf` 回應也會提供 `artifact_pages` 與正確的 `official_pdf_page_count`。
+
+先解壓到自己的工作目錄，再準備三類 PDF（survey 仍是一份多頁 PDF）：
+
+```bash
+python3 services/artifact-import/prepare_pipeline_delivery.py \
+  --bundle /path/to/case_data.json \
+  --pdf /path/to/official_6_page.pdf \
+  --page-map /path/to/artifact-pages.json \
+  --output /path/to/delivery
+```
+
+確認輸出後，沿用現有上傳 API client。`case-id` / `group-id` 是案件庫 UUID，**不是 producer case_no**。
+
+```bash
+python3 services/artifact-import/client.py \
+  --endpoint https://zyte6qrr2k.execute-api.us-west-2.amazonaws.com \
+  --bundle /path/to/delivery/bundle.json \
+  --pdf-manifest /path/to/delivery/pdf-manifest.json \
+  --case-id YOUR_CASE_UUID --group-id YOUR_GROUP_UUID \
+  --idempotency-key YOUR_STABLE_JOB_UUID \
+  --result /path/to/delivery/import-result.json
+```
+
+本機可另加 `--profile hackathon`；AWS 上使用 execution role，不帶 profile。
+上傳重試必須重用同一批輸出與 idempotency key，不要重新生成不同 generated_at 的 JSON。
+`prepare_pipeline_delivery.prepare()` 可直接從 Python 匯入；它只切檔與驗證，不會上傳。
+不要把含授權資訊的 presigned URL 寫入日誌。
+
+這次整合沒有自動替隊友的執行角色配置 IAM，也沒有部署其 pipeline。
+執行角色仍須能呼叫匯入 API；不同角色的 workspace 隔離需沿用既有部署規格確認。

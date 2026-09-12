@@ -32,6 +32,14 @@
   async function getJson(url) {
     const res = await fetch(url);
     if (!res.ok) {
+      // FACILITY-REVIEW-UI-1: prefer the backend's OWN error_response()
+      // body (error.code/message, e.g. "FACTORS_NOT_FOUND") when present
+      // -- purely additive, existing callers that only read a generic
+      // CASE_NOT_FOUND/INTERNAL_ERROR fallback are unaffected when the
+      // response body isn't JSON or carries no error.code.
+      let backendError = null;
+      try { backendError = await res.json(); } catch (e) { /* not JSON, fall through to generic */ }
+      if (backendError && backendError.error && backendError.error.code) throw backendError;
       throw apiError(
         res.status === 404 ? "CASE_NOT_FOUND" : "INTERNAL_ERROR",
         `請求失敗：${url} (HTTP ${res.status})`
@@ -109,10 +117,108 @@
       return res.json();
     },
 
-    /** GET /api/cases/{id}/pdf */
+    /** GET /api/cases/{id}/pdf -- raw backend response, carries BOTH the
+     * Official PDF (official_pdf_url/official_pdf_status) and the Audit
+     * PDF(s) (audit_pdf_url/pdf_urls) in one payload (see backend/handlers/
+     * pdf_handler.py). Prefer getOfficialPdf()/getAuditPdf() below for any
+     * new caller -- kept here unchanged for backward compatibility. */
     async getPdf(caseNo) {
       if (cfg.MODE === "mock") return getJson(mockUrl("pdf_result"));
       return getJson(prodUrl(`/api/cases/${encodeURIComponent(caseNo)}/pdf`));
+    },
+
+    /**
+     * FRONTEND-OFFICIAL-PDF-WIRING-1 Task 10: explicit, non-ambiguous
+     * accessor for ONLY the Official（正式版型查估書表）PDF -- overlaid onto
+     * the real 查估書表範本.pdf by pdf/official_pdf_renderer.py, gated to
+     * ACTIVE_CONFIRMED_SELECTION facility rows only (FACILITY-CONFIRMATION-
+     * GATE-1 / FACILITY-STALE-CONFIRMATION-GATE-1). Never returns an Audit
+     * PDF under a different name -- `pdf_url` is null when generation
+     * failed (see `status`), the caller must NOT substitute audit_pdf_url
+     * in that case (Task 15).
+     */
+    async getOfficialPdf(caseNo) {
+      const d = await Api.getPdf(caseNo);
+      return {
+        pdf_url: d.official_pdf_url || null,
+        status: d.official_pdf_status || (d.official_pdf_url ? "READY" : "OFFICIAL_PDF_GENERATION_FAILED"),
+        title: (d.forms && d.forms.official_form && d.forms.official_form.title) || "官方查估書表格式（表1+表5-2+表4）",
+        generated_at: d.generated_at,
+      };
+    },
+
+    /**
+     * Task 10: explicit accessor for ONLY the Audit／系統審查報告 PDF(s)
+     * (Fallback Reproduction -- 表1 + 表4+表5-2，含 Rule/Formula/Source/
+     * provenance 追溯資訊). Unaffected by whether the Official PDF above
+     * succeeded or failed.
+     */
+    async getAuditPdf(caseNo) {
+      const d = await Api.getPdf(caseNo);
+      return {
+        pdf_url: d.audit_pdf_url || d.pdf_url || null,
+        pdf_urls: d.pdf_urls || [],
+        forms_included: d.forms_included || [],
+        page_count: d.page_count || {},
+        fallback_mode: d.fallback_mode,
+        fallback_reason: d.fallback_reason,
+        generated_at: d.generated_at,
+      };
+    },
+
+    /**
+     * FRONTEND-UNIFIED-EXPORT-WIRING-F2 Task 4: GET /api/cases/{id}/export/json
+     * -- backend_handlers/export_handler.py::get_export_json() returns the
+     * CaseExportBundle JSON INLINE (not a presigned URL) since it is small
+     * enough for a direct response; this method returns the parsed object
+     * plus the raw text (so callers can offer a byte-identical download
+     * without re-serializing anything client-side -- Task 12: frontend
+     * never recomputes/reshapes backend output).
+     */
+    async getExportJson(caseNo) {
+      if (cfg.MODE === "mock") {
+        // frontend/mock/export_json_result.json is a REAL CaseExportBundle
+        // JSON (produced by the exact same export/bundle_builder.py +
+        // json_exporter.py the real backend calls, just precomputed to a
+        // static file -- same established pattern as pdf_result.json).
+        const res = await fetch(mockUrl("export_json_result"));
+        const text = await res.text();
+        return { text, data: JSON.parse(text) };
+      }
+      const url = prodUrl(`/api/cases/${encodeURIComponent(caseNo)}/export/json`);
+      const res = await fetch(url);
+      const text = await res.text();
+      if (!res.ok) {
+        let backendError = null;
+        try { backendError = JSON.parse(text); } catch (e) { /* not JSON */ }
+        if (backendError && backendError.error && backendError.error.code) throw backendError;
+        throw apiError(res.status === 404 ? "CASE_NOT_FOUND" : "INTERNAL_ERROR", `JSON 匯出失敗 (HTTP ${res.status})`);
+      }
+      return { text, data: JSON.parse(text) };
+    },
+
+    /**
+     * Task 5: GET /api/cases/{id}/export/excel -- returns a presigned S3 URL
+     * (excel_zip_url) to a zip of the 6 Excel files (export_handler.py::
+     * get_export_excel(), never rebuilt/unzipped client-side).
+     */
+    async getExportExcel(caseNo) {
+      if (cfg.MODE === "mock") {
+        return getJson(mockUrl("export_excel_result"));
+      }
+      return getJson(prodUrl(`/api/cases/${encodeURIComponent(caseNo)}/export/excel`));
+    },
+
+    /**
+     * Task 6: GET /api/cases/{id}/export/bundle -- returns a presigned S3 URL
+     * (bundle_zip_url) to the complete ZIP (JSON + 6 Excel + Official PDF,
+     * export_handler.py::get_export_bundle(), reusing E1's renderer as-is).
+     */
+    async getExportBundle(caseNo) {
+      if (cfg.MODE === "mock") {
+        return getJson(mockUrl("export_bundle_result"));
+      }
+      return getJson(prodUrl(`/api/cases/${encodeURIComponent(caseNo)}/export/bundle`));
     },
 
     /**
@@ -239,7 +345,85 @@
       if (!res.ok) throw apiError("VALIDATION_ERROR", "人工確認送出失敗");
       return res.json();
     },
+
+    /**
+     * GET /api/cases/{id}/facility-candidates
+     * FACILITY-CONFIRMATION-GATE-1／FACILITY-REVIEW-UI-1：utility(2)/
+     * funeral(4)/major_station(2) 共8個 subtype 之 candidate + 確認狀態。
+     * 呼叫本方法會在 Backend 端刷新 candidate 快照（不影響 status/
+     * confirmed_selection，那兩者只由 confirm/reject 變更 —— 見
+     * facility_confirmation_repository.py）。
+     */
+    async getFacilityCandidates(caseNo) {
+      if (cfg.MODE === "mock") {
+        // LOCAL/MOCK：本檔案由 scripts/build_facility_candidates_mock.py
+        // 對真實 MockSpecialFacilityProvider 資料實際執行 confirm()/
+        // reject()/get_or_refresh_candidates() 產生（含一筆真實
+        // stale=True 記錄），非手工杜撰之示範數字。
+        console.warn("[api.js] Mock Mode：getFacilityCandidates 回傳 LOCAL/MOCK 既有確認狀態快照，未呼叫真實 API。");
+        return getJson(mockUrl("facility_candidates"));
+      }
+      return getJson(prodUrl(`/api/cases/${encodeURIComponent(caseNo)}/facility-candidates`));
+    },
+
+    /**
+     * POST /api/cases/{id}/facility-candidates/{subtype}/confirm
+     * Mock Mode 不支援真的改變後端狀態（沒有可寫入的後端）——回傳明確
+     * 錯誤而非假裝成功，呼叫端必須誠實顯示「Mock Mode 無法確認」。
+     */
+    async confirmFacilityCandidate(caseNo, subtype, confirmedBy) {
+      if (cfg.MODE === "mock") {
+        throw apiError("MOCK_MODE_NOT_SUPPORTED", "LOCAL/MOCK 展示模式無法送出真實確認（沒有可寫入的後端）。請切換至 Production 模式並連接真實 API。");
+      }
+      const res = await fetch(
+        prodUrl(`/api/cases/${encodeURIComponent(caseNo)}/facility-candidates/${encodeURIComponent(subtype)}/confirm`),
+        { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ confirmed_by: confirmedBy }) }
+      );
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw apiError((body && body.error && body.error.code) || "VALIDATION_ERROR", (body && body.error && body.error.message) || "確認失敗");
+      }
+      return res.json();
+    },
+
+    /** POST /api/cases/{id}/facility-candidates/{subtype}/reject */
+    async rejectFacilityCandidate(caseNo, subtype, rejectedBy, reviewerNote) {
+      if (cfg.MODE === "mock") {
+        throw apiError("MOCK_MODE_NOT_SUPPORTED", "LOCAL/MOCK 展示模式無法送出真實不採用決定（沒有可寫入的後端）。請切換至 Production 模式並連接真實 API。");
+      }
+      const res = await fetch(
+        prodUrl(`/api/cases/${encodeURIComponent(caseNo)}/facility-candidates/${encodeURIComponent(subtype)}/reject`),
+        { method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ rejected_by: rejectedBy, reviewer_note: reviewerNote || undefined }) }
+      );
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw apiError((body && body.error && body.error.code) || "VALIDATION_ERROR", (body && body.error && body.error.message) || "不採用送出失敗");
+      }
+      return res.json();
+    },
   };
 
   global.Api = Api;
+
+  /**
+   * FRONTEND-UNIFIED-EXPORT-WIRING-F2 Task 11: minimal shared download
+   * helper -- JSON export returns its content inline (no S3 URL), so a
+   * real client-side Blob download is the only way to save it; Excel/
+   * Bundle already have a presigned URL and just need a plain
+   * <a download> (see result.html), so this helper is JSON-only on
+   * purpose (kept small, not a generic "download anything" abstraction).
+   */
+  function downloadTextAsFile(text, filename, mimeType) {
+    const blob = new Blob([text], { type: mimeType || "application/octet-stream" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  global.downloadTextAsFile = downloadTextAsFile;
 })(window);

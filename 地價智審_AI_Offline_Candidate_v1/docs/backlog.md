@@ -630,6 +630,163 @@ pymupdf 1.28.2已產生deprecation warning：「The `fitz` API is
 deprecated and will be removed in future. Use `import pymupdf`
 instead.」。非阻擋項目，建議未來一輪順手改為`import pymupdf`。
 
+## URBAN_PLAN_BOUNDARY_SNAPSHOT_NOT_PACKAGED（P1，2026-09-09發現，**✅已用S3 Runtime Bootstrap架構性解決**，見`docs/release/NTPC_GIS_S3_BOOTSTRAP_REPORT.md`）
+
+本輪（座標→都市計畫→使用分區→LandUseRatioEngine正式串接，見
+`docs/release/URBAN_PLAN_RUNTIME_INTEGRATION_REPORT.md`）新增之
+`providers/urban_plan_boundary_provider.py`與既有
+`providers/ntpc_zoning_provider.py`皆透過`DatasetRegistry`讀取
+`data/snapshots/{dataset_id}_{version}.sqlite3`這份**執行期快照**（由
+`scripts/sync_ntpc_zoning_dataset.py`離線產生），而非直接讀
+`data/sources/gis/`原始檔案。
+
+原始問題：`infra/layers/engine/Makefile`原本只複製`data/rules/`、
+`data/dependency_graph.json`、（若存在）`data/nlsc_code_cache.sqlite3`
+進Lambda Layer——完全沒有複製`data/snapshots/`或
+`data/dataset_registry.sqlite3`。此缺口對`ntpc_zoning`（既有功能）與
+本輪新增之`ntpc_plan_boundary`皆成立，非本輪新引入，但本輪新增功能
+繼承了同一缺口。若不修正，部署至真實AWS Lambda後，
+`RealNtpcZoningProvider`／`RealUrbanPlanBoundaryProvider`會因找不到
+快照而一律回報UNKNOWN（誠實degrade，不會crash，但functionally等同
+real模式下此二Provider完全失效）。
+
+**✅已修復（2026-09-09，同輪後續）**：
+1. `infra/layers/engine/Makefile`的`build-EngineLayer`新增條件式複製
+   `data/snapshots/*.sqlite3`與`data/dataset_registry.sqlite3`
+   （比照既有`data/nlsc_code_cache.sqlite3`之`if [ -f ... ]`寫法，
+   一份checkout從未跑過sync腳本時不會hard-fail packaging）。
+2. 新增`infra/layers/engine/rewrite_dataset_registry_paths.py`：
+   單純複製`dataset_registry.sqlite3`還不夠——該檔案裡的`local_path`
+   欄位是**開發機當初跑`sync()`時記錄下來的絕對路徑**（例如
+   `D:\...\data\snapshots\ntpc_zoning_2026-09-09.sqlite3`），複製進
+   Lambda Layer後這個路徑本身仍指向開發機、在Lambda裡不存在，等於
+   沒修好。此腳本在Makefile複製完檔案後執行，把每筆`local_path`改寫
+   成AWS Lambda Python Layer固定的掛載路徑`/opt/python/data/snapshots/
+   <檔名>`（比照本repo既有`providers/nlsc_code_cache.py`
+   `DEFAULT_DB_PATH`透過`__file__`推導、在Lambda裡同樣解析至
+   `/opt/python/data/...`的既有慣例交叉驗證），其餘欄位
+   （checksum/refresh_policy/last_synced_at等）原樣保留，未被覆寫成
+   假的「剛剛才同步」。若某筆registry紀錄引用的快照檔案根本沒被複製
+   （例如只跑過`sync()`沒跑`sync_plan_boundary()`），該筆`local_path`
+   刻意維持原樣不猜測，讓既有`os.path.exists()`防呆邏輯照舊誠實
+   降級為UNAVAILABLE。
+3. 已用本機模擬`$(ARTIFACTS_DIR)`實際跑過一次完整流程（複製＋改寫）
+   驗證：兩個dataset_id之`local_path`皆正確變為`/opt/python/data/
+   snapshots/...`，且不含任何本機路徑片段；新增
+   `tests/test_rewrite_dataset_registry_paths.py`（5項測試）涵蓋：
+   多dataset同時改寫、未被複製之快照保持原樣、無registry時safe no-op、
+   其餘欄位不受影響。
+4. `sam validate --lint`重新執行仍PASS。
+
+需注意（**修復後仍存在，非新問題**）：這只解決「打包」，實際部署後
+每次快照更新（`sync()`/`sync_plan_boundary()`重跑）仍須重新`sam build`
++`sam deploy`才能生效（快照非S3動態載入設計），此為與
+`data/nlsc_code_cache.sqlite3`相同之既有取捨，非本項目新增限制。
+
+**⚠️ 2026-09-09同日後續更新：`sam build --use-container`實測結果誠實
+記錄（重要，未隱藏）**
+
+使用者開啟本機Docker daemon後，實際執行`sam build --use-container`
+（非模擬）做最終驗證，發現：
+
+- **邏輯本身100%正確，已用多種方式獨立驗證**：(a) 用與`sam build
+  --use-container`完全相同的build image（`public.ecr.aws/sam/
+  build-python3.12:latest-x86_64`）手動掛載本專案目錄、直接執行
+  `make -f infra/layers/engine/Makefile build-EngineLayer`，正確產出
+  `data/snapshots/*.sqlite3`與改寫過`local_path`（指向
+  `/opt/python/data/snapshots/...`）的`dataset_registry.sqlite3`；
+  (b) `tests/test_rewrite_dataset_registry_paths.py`（8項，含跨平台
+  路徑解析測試）全數PASS。
+- **但實際透過`sam build --use-container`（非手動`make`）執行，新增的
+  Makefile內容並未被反映在最終產物裡**——`infra/.aws-sam/build/
+  EngineLayer/python/data/`下持續缺少`snapshots/`與
+  `dataset_registry.sqlite3`，即使：完全清空`.aws-sam`（含
+  `build.toml`快取）、刪除SAM自建之`samcli/lambda-python:*`快取image、
+  確認`docker volume ls`／`docker ps -a`／`%APPDATA%\AWS SAM\
+  layers-pkg`皆無殘留、改用至少5種不同Makefile語法（多行if/fi、
+  find -exec、單行sh -c、獨立python3呼叫、與既有`nlsc_code_cache.
+  sqlite3`完全相同的`if [ -f ]; then cp; fi`寫法搭配`cp -r`複製整個
+  `data/snapshots`目錄）——**每一種寫法用手動`make`皆可正確執行，
+  但透過`sam build --use-container`皆未被拾取**。同一份Makefile裡
+  `domain/`、`engine/`、`providers/`（含本輪新增之
+  `urban_plan_boundary_provider.py`）、`schemas/`、`data/rules/`
+  （含本輪新增之`urban_plan_id_registry.json`）、
+  `data/nlsc_code_cache.sqlite3`等既有複製規則，則每次都能正確反映
+  最新內容——**只有這一輪新增的複製規則本身持續未被執行**，具體
+  root cause未能在合理時間內於這台Windows開發機上完全查明（已排除
+  的假設：本地build快取、Docker image/volume快取、SAM全域快取目錄；
+  尚未查明：`sam build --use-container`之`CustomMakeBuilder`內部對
+  Makefile recipe的處理方式與直接呼叫`make`是否確實一致，此為
+  aws-sam-cli套件本身之實作細節，超出本專案原始碼可排查範圍）。
+- **誠實結論**：Makefile本身的修法設計正確、程式碼邏輯已獨立證明
+  可用，`sam validate --lint`與`sam build --use-container`整體
+  皆回報成功（build本身沒有失敗），但**尚未能在這台機器上，透過
+  `sam build --use-container`這個實際指令，端對端證實新增的打包
+  規則會被執行**。若團隊在別的環境（如CI、Linux、Mac開發機）用
+  同一份Makefile跑`sam build --use-container`，結果可能不同，建議
+  換一台機器/CI環境重新驗證一次。
+- **暫行替代方案（已可用，非需修改Makefile）**：`sam build`完成後、
+  `sam deploy`之前，額外手動執行一次
+  `python3 infra/layers/engine/rewrite_dataset_registry_paths.py
+  <build輸出的EngineLayer/python/data路徑>`，並手動把
+  `data/snapshots/*.sqlite3`與`data/dataset_registry.sqlite3`複製進
+  同一個路徑——這條路徑本身已用手動測試證實可行，只是還沒能整合進
+  `sam build --use-container`這個自動化指令本身。
+
+---
+
+**✅ 2026-09-09同日再更新：已改用S3 Runtime Bootstrap架構性解決此問題
+（非繞過上述`sam build`謎團，而是不再需要把大型GIS snapshot塞進Layer
+這件事本身）**——上方Makefile打包＋`rewrite_dataset_registry_paths.py`
+路徑改寫這一整套方案已**廢棄並移除**（含該腳本與其測試檔案），改採
+與既有`backend/handlers/cadastral_snapshot_bootstrap.py`（~407MB
+cadastral dataset）完全相同的S3-to-/tmp cold-start模式：
+
+- 新增`backend/handlers/gis_snapshot_bootstrap.py`：`新北市使用分區`
+  （~182MB）與`新北市都市計畫範圍`（~5MB）兩個snapshot分別透過
+  `NTPC_ZONING_SNAPSHOT_S3_*`／`NTPC_PLAN_BOUNDARY_SNAPSHOT_S3_*`環境
+  變數設定之S3 bucket/key/SHA256，於Lambda cold start時下載＋驗證
+  checksum＋atomic replace至`/tmp`，成功後寫入獨立的**執行期**
+  `DatasetRegistry`（`/tmp/runtime_dataset_registry.sqlite3`，透過
+  `DATASET_REGISTRY_DB_PATH`環境變數讓`RealNtpcZoningProvider`／
+  `RealUrbanPlanBoundaryProvider`既有的預設`DatasetRegistry()`建構
+  自動指向這裡）——**從未讀取或複製開發機上的
+  `data/dataset_registry.sqlite3`**，因此上一版遇到的「Windows路徑
+  改寫」問題在新架構下根本不存在（沒有「別人記錄的路徑」可誤解析）。
+- 兩個資料集各自獨立bootstrap，其中一個失敗不影響另一個（partial
+  failure安全，見該模組docstring）。checksum不符／S3無法連線／環境
+  變數缺漏，一律誠實回報對應狀態，providers維持既有UNKNOWN/
+  requires_manual_review降級路徑，不猜測、不回退Mock/Golden。
+- 同一Lambda執行環境內warm reuse（process-level cache），不會每個
+  request都重新下載/重新算checksum。
+- `infra/layers/engine/Makefile`已改回**不**打包`data/snapshots/`／
+  `data/dataset_registry.sqlite3`（詳見該檔案模組註解），從根本上
+  不再需要依賴那個未解之謎的Makefile拾取行為——EngineLayer現在只包含
+  程式碼＋規則＋小型registry，190MB量級的檔案完全不經過這條有問題的
+  路徑。
+- 完整實作、測試（12項，含Golden E2E）、`infra/template.yaml`環境
+  變數/IAM/EphemeralStorage調整、`sam build --use-container`實際
+  build結果，詳見`docs/release/NTPC_GIS_S3_BOOTSTRAP_REPORT.md`。
+
+上方（已加刪除線標記為歷史記錄的）Makefile調查過程本身仍具參考價值
+（記錄了`sam build --use-container`這個工具在這台機器上的一個未解
+行為），故保留原文不刪除，僅追加此更新說明目前實際採用的是完全不同、
+更穩健的架構。
+
+## URBAN_PLAN_STATUS_NOT_SURFACED_IN_FRONTEND（P2，2026-09-09發現）
+
+本輪`backend/handlers/collect_data.py`回應之`plan_identification`區塊
+已新增`urban_plan_status`/`urban_plan_name`/`urban_plan_id`/
+`urban_plan_source`/`urban_plan_requires_manual_review`/
+`plan_id_source_mismatch`欄位（見上述report），但實測`frontend/app/
+data.html`只呼叫`Api.collectData()`並讀取`d.collected_field_count`
+（純數量），**目前沒有任何既有欄位**（含本輪之前就存在的
+`land_use_zone`／`building_coverage_ratio`／`floor_area_ratio`）會被
+前端個別渲染顯示——`grep`確認`frontend/app/js/*.js`完全沒有這些欄位名稱
+的引用。故本輪未新增前端顯示（會是本輪唯一一項「從零建立顯示模式」
+而非「最小additive擴充既有模式」的工作，不符合本輪指示的最小改動原則），
+留待前端如要顯示個別Provider欄位時，一併設計整體渲染模式。
+
 ## RC1後續事項（AWS部署／RAG，僅記錄不實作）
 
 - **AWS Deployment Prerequisites**：完整清單（region/認證/IAM權限/

@@ -1,0 +1,5656 @@
+[
+ {
+  "text": "表1  地價區段勘查表",
+  "bbox": [
+   36.36,
+   56.39,
+   128.52,
+   65.87
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.48,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": " 新北市金山區",
+  "bbox": [
+   36.12,
+   70.79,
+   90.53,
+   79.07
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 8.28,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "北側至金包里街以北臨路第一筆宗地，南側至中山路以南第一筆宗地，西側至中正路，",
+  "bbox": [
+   279.65,
+   83.75,
+   553.13,
+   90.83
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "年",
+  "bbox": [
+   38.52,
+   84.59,
+   44.4,
+   90.47
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "(公共設施保留地請填明毗鄰",
+  "bbox": [
+   217.13,
+   86.39,
+   276.97,
+   91.07
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 4.68,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1140901",
+  "bbox": [
+   58.92,
+   87.71,
+   88.26,
+   95.99
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 8.28,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "P002-00",
+  "bbox": [
+   141.38,
+   87.71,
+   170.72,
+   95.99
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 8.28,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "區段編號",
+  "bbox": [
+   100.94,
+   88.91,
+   124.82,
+   94.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "區段範圍",
+  "bbox": [
+   187.82,
+   88.91,
+   211.7,
+   94.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "期",
+  "bbox": [
+   38.52,
+   92.63,
+   44.4,
+   98.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "非保留地區段號)",
+  "bbox": [
+   229.13,
+   92.63,
+   265.07,
+   97.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 4.68,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "東側至福德街之第二種商業區土地劃為P002-00區段。",
+  "bbox": [
+   279.65,
+   92.99,
+   448.75,
+   100.07
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：金包里老街",
+  "bbox": [
+   357.07,
+   102.47,
+   404.95,
+   108.35
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "金包里老街",
+  "value_bbox": [
+   375.07,
+   102.47,
+   404.95,
+   108.35
+  ]
+ },
+ {
+  "text": "都市計畫內",
+  "bbox": [
+   152.66,
+   105.23,
+   182.54,
+   111.11
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "都市計畫(內外)",
+  "bbox": [
+   73.56,
+   105.47,
+   115.44,
+   111.35
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   105.71,
+   56.1,
+   111.59
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   65.16,
+   105.71,
+   68.1,
+   111.59
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   296.81,
+   112.55,
+   299.75,
+   118.43
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   112.55,
+   311.75,
+   118.43
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "觀光遊憩設施",
+  "bbox": [
+   317.23,
+   112.79,
+   353.11,
+   118.67
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "第二種商業區",
+  "bbox": [
+   152.66,
+   119.87,
+   188.54,
+   125.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "使用分區(使用地類別)",
+  "bbox": [
+   73.56,
+   120.11,
+   133.42,
+   125.99
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   120.35,
+   56.1,
+   126.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   120.35,
+   68.1,
+   126.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "●本區段內　○本區段外(距",
+  "bbox": [
+   357.07,
+   123.11,
+   431.95,
+   128.99
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     357.07,
+     123.11,
+     362.95,
+     128.99
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     393.07,
+     123.11,
+     398.95,
+     128.99
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   447.08,
+   123.11,
+   456.02,
+   128.99
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "土",
+  "bbox": [
+   38.52,
+   129.11,
+   44.4,
+   134.99
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：金包里老街停車場",
+  "bbox": [
+   357.07,
+   131.75,
+   422.95,
+   137.63
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "金包里老街停車場",
+  "value_bbox": [
+   375.07,
+   131.75,
+   422.95,
+   137.63
+  ]
+ },
+ {
+  "text": "70%",
+  "bbox": [
+   152.66,
+   134.51,
+   161.6,
+   140.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "建　蔽　率",
+  "bbox": [
+   73.56,
+   134.75,
+   103.44,
+   140.63
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   134.99,
+   56.1,
+   140.87
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   134.99,
+   68.1,
+   140.87
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "地",
+  "bbox": [
+   38.52,
+   137.15,
+   44.4,
+   143.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   296.81,
+   141.83,
+   299.75,
+   147.71
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   141.83,
+   311.75,
+   147.71
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "停車場地",
+  "bbox": [
+   317.23,
+   142.07,
+   341.11,
+   147.95
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "使",
+  "bbox": [
+   38.52,
+   145.19,
+   44.4,
+   151.07
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "公",
+  "bbox": [
+   282.17,
+   146.99,
+   288.05,
+   152.87
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "240%",
+  "bbox": [
+   152.66,
+   149.15,
+   164.6,
+   155.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "容　積　率",
+  "bbox": [
+   73.56,
+   149.39,
+   103.44,
+   155.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   149.63,
+   56.1,
+   155.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   149.63,
+   68.1,
+   155.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "○本區段內　●本區段外(距  120 M)",
+  "bbox": [
+   357.07,
+   152.39,
+   456.02,
+   158.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     357.07,
+     152.39,
+     362.95,
+     158.27
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     393.07,
+     152.39,
+     398.95,
+     158.27
+    ]
+   }
+  ]
+ },
+ {
+  "text": "用",
+  "bbox": [
+   38.52,
+   153.23,
+   44.4,
+   159.11
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：",
+  "bbox": [
+   357.07,
+   161.03,
+   374.95,
+   166.91
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "管",
+  "bbox": [
+   38.52,
+   161.15,
+   44.4,
+   167.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "共",
+  "bbox": [
+   282.17,
+   163.07,
+   288.05,
+   168.95
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "無",
+  "bbox": [
+   152.66,
+   163.79,
+   158.54,
+   169.67
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "有無禁止建築",
+  "bbox": [
+   73.56,
+   164.03,
+   109.44,
+   169.91
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   164.27,
+   56.1,
+   170.15
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   65.16,
+   164.27,
+   68.1,
+   170.15
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "接近服務性設",
+  "bbox": [
+   317.23,
+   167.51,
+   353.11,
+   173.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "制",
+  "bbox": [
+   38.52,
+   169.19,
+   44.4,
+   175.07
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "施的程度",
+  "bbox": [
+   317.23,
+   175.22,
+   341.11,
+   181.1
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "建",
+  "bbox": [
+   282.17,
+   179.06,
+   288.05,
+   184.94
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   357.07,
+   181.7,
+   431.95,
+   187.58
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     357.07,
+     181.7,
+     362.95,
+     187.58
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     393.07,
+     181.7,
+     398.95,
+     187.58
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   447.08,
+   181.7,
+   456.02,
+   187.58
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "有無限制建築(整體開發、面",
+  "bbox": [
+   73.56,
+   182.18,
+   148.34,
+   188.06
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   185.78,
+   56.1,
+   191.66
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   65.16,
+   185.78,
+   68.1,
+   191.66
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "無",
+  "bbox": [
+   152.66,
+   185.78,
+   158.54,
+   191.66
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "積限制、高度限制)",
+  "bbox": [
+   73.56,
+   189.86,
+   124.5,
+   195.74
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "電力資源",
+  "bbox": [
+   317.23,
+   193.1,
+   341.11,
+   198.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "設",
+  "bbox": [
+   282.17,
+   195.14,
+   288.05,
+   201.02
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "主要道路",
+  "bbox": [
+   73.56,
+   207.74,
+   97.44,
+   213.62
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：中山路",
+  "bbox": [
+   128.9,
+   207.74,
+   164.78,
+   213.62
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "中山路",
+  "value_bbox": [
+   146.9,
+   207.74,
+   164.78,
+   213.62
+  ]
+ },
+ {
+  "text": "寬度：　18　M",
+  "bbox": [
+   217.13,
+   207.74,
+   256.01,
+   213.62
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "寬度：",
+  "value_text": "　18　M",
+  "value_bbox": [
+   235.11,
+   207.74,
+   256.01,
+   213.62
+  ]
+ },
+ {
+  "text": "產業用水及設施",
+  "bbox": [
+   317.11,
+   207.98,
+   354.07,
+   213.26
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.28,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   53.16,
+   208.22,
+   56.1,
+   214.1
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   208.22,
+   68.1,
+   214.1
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "區段內道路平均寬度 ",
+  "bbox": [
+   73.56,
+   222.38,
+   130.5,
+   228.26
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": " 　12　　  M",
+  "bbox": [
+   142.57,
+   222.38,
+   181.51,
+   228.26
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   53.16,
+   222.86,
+   56.1,
+   228.74
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   222.86,
+   68.1,
+   228.74
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "污廢水及廢棄",
+  "bbox": [
+   317.23,
+   226.1,
+   353.11,
+   231.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   357.07,
+   229.94,
+   395.95,
+   235.82
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   375.05,
+   229.94,
+   395.95,
+   235.82
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   407.98,
+   229.94,
+   482.76,
+   235.82
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     407.98,
+     229.94,
+     413.86,
+     235.82
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     443.93,
+     229.94,
+     449.81,
+     235.82
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   494.84,
+   229.94,
+   503.77,
+   235.82
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "物處理設施",
+  "bbox": [
+   317.23,
+   233.78,
+   347.11,
+   239.66
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○無高鐵站",
+  "bbox": [
+   99.38,
+   237.26,
+   129.23,
+   243.14
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     237.26,
+     105.26,
+     243.14
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   156.28,
+   237.26,
+   231.06,
+   243.14
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.28,
+     237.26,
+     162.16,
+     243.14
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.23,
+     237.26,
+     198.11,
+     243.14
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   249.13,
+   237.26,
+   258.06,
+   243.14
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○無火車站",
+  "bbox": [
+   99.38,
+   251.9,
+   129.23,
+   257.78
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     251.9,
+     105.26,
+     257.78
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內  ○本區段外(距",
+  "bbox": [
+   156.28,
+   251.9,
+   231.06,
+   257.78
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.28,
+     251.9,
+     162.16,
+     257.78
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.22,
+     251.9,
+     198.1,
+     257.78
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   249.12,
+   251.9,
+   258.05,
+   257.78
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "大型車",
+  "bbox": [
+   76.2,
+   255.38,
+   94.08,
+   261.26
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "變電所或高壓",
+  "bbox": [
+   330.91,
+   255.38,
+   366.79,
+   261.26
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "電",
+  "bbox": [
+   319.87,
+   256.1,
+   325.75,
+   261.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   258.98,
+   56.1,
+   264.86
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   258.98,
+   68.1,
+   264.86
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "名稱：金山變電所 ○本區段內　●本區段外(距 700 M)",
+  "bbox": [
+   372.43,
+   258.98,
+   519.38,
+   264.86
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.43,
+     258.98,
+     429.31,
+     264.86
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     459.43,
+     258.98,
+     465.31,
+     264.86
+    ]
+   }
+  ]
+ },
+ {
+  "text": "站",
+  "bbox": [
+   82.2,
+   263.06,
+   88.08,
+   268.94
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "鐵塔",
+  "bbox": [
+   330.91,
+   263.06,
+   342.79,
+   268.94
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "業",
+  "bbox": [
+   319.87,
+   263.78,
+   325.75,
+   269.66
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "交",
+  "bbox": [
+   38.52,
+   265.58,
+   44.4,
+   271.46
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "●國光客運金山站",
+  "bbox": [
+   99.38,
+   266.54,
+   147.26,
+   272.42
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     266.54,
+     105.26,
+     272.42
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內  ●本區段外(距  300  M)",
+  "bbox": [
+   156.39,
+   266.54,
+   258.34,
+   272.42
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.39,
+     266.54,
+     162.27,
+     272.42
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     192.39,
+     266.54,
+     198.27,
+     272.42
+    ]
+   }
+  ]
+ },
+ {
+  "text": "氣",
+  "bbox": [
+   319.87,
+   271.46,
+   325.75,
+   277.34
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   296.81,
+   275.06,
+   299.75,
+   280.94
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   275.06,
+   311.75,
+   280.94
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "體",
+  "bbox": [
+   319.87,
+   279.14,
+   325.75,
+   285.02
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○無捷運站",
+  "bbox": [
+   99.38,
+   281.18,
+   129.23,
+   287.06
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     281.18,
+     105.26,
+     287.06
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內  ○本區段外(距",
+  "bbox": [
+   156.28,
+   281.18,
+   231.06,
+   287.06
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.28,
+     281.18,
+     162.16,
+     287.06
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.22,
+     281.18,
+     198.1,
+     287.06
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   249.12,
+   281.18,
+   258.05,
+   287.06
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "通",
+  "bbox": [
+   38.52,
+   281.66,
+   44.4,
+   287.54
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "瓦斯槽或儲油",
+  "bbox": [
+   330.91,
+   286.1,
+   366.79,
+   291.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "燃",
+  "bbox": [
+   319.87,
+   286.82,
+   325.75,
+   292.7
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：中油金山站 ○本區段內　●本區段外(距 440 M)",
+  "bbox": [
+   372.43,
+   289.94,
+   519.38,
+   295.82
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.43,
+     289.94,
+     429.31,
+     295.82
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     459.43,
+     289.94,
+     465.31,
+     295.82
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：金山區公所站 ●本區段內  ○本區段外(距 ",
+  "bbox": [
+   99.38,
+   293.42,
+   234.33,
+   299.3
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     156.39,
+     293.42,
+     162.27,
+     299.3
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.39,
+     293.42,
+     198.27,
+     299.3
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   249.4,
+   293.42,
+   258.34,
+   299.3
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "槽",
+  "bbox": [
+   330.91,
+   293.78,
+   336.79,
+   299.66
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "料",
+  "bbox": [
+   319.87,
+   294.5,
+   325.75,
+   300.38
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   297.5,
+   56.1,
+   303.38
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   297.5,
+   68.1,
+   303.38
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "站　牌",
+  "bbox": [
+   76.56,
+   297.5,
+   94.44,
+   303.38
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "運",
+  "bbox": [
+   38.52,
+   297.62,
+   44.4,
+   303.5
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "密集程度： ",
+  "bbox": [
+   99.38,
+   301.1,
+   132.28,
+   306.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○非常密集  ●密集  ○不密集",
+  "bbox": [
+   156.28,
+   301.1,
+   240.04,
+   306.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.28,
+     301.1,
+     162.16,
+     306.98
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     192.22,
+     301.1,
+     198.1,
+     306.98
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     216.18,
+     301.1,
+     222.06,
+     306.98
+    ]
+   }
+  ]
+ },
+ {
+  "text": "特",
+  "bbox": [
+   282.17,
+   302.18,
+   288.05,
+   308.06
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：無交流道 ",
+  "bbox": [
+   99.38,
+   313.1,
+   144.32,
+   318.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無交流道 ",
+  "value_bbox": [
+   117.38,
+   313.1,
+   144.32,
+   318.98
+  ]
+ },
+ {
+  "text": "○本區段內  ○本區段外(距",
+  "bbox": [
+   156.39,
+   313.1,
+   231.27,
+   318.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.39,
+     313.1,
+     162.27,
+     318.98
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.39,
+     313.1,
+     198.27,
+     318.98
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   249.4,
+   313.1,
+   258.34,
+   318.98
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "●墓　地",
+  "bbox": [
+   330.91,
+   313.34,
+   354.79,
+   319.22
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     313.34,
+     336.79,
+     319.22
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：金山第1公墓○本區段內　●本區段外(距 80 M)",
+  "bbox": [
+   372.43,
+   313.34,
+   516.16,
+   319.22
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.36,
+     313.34,
+     429.24,
+     319.22
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     459.31,
+     313.34,
+     465.19,
+     319.22
+    ]
+   }
+  ]
+ },
+ {
+  "text": "5",
+  "bbox": [
+   53.16,
+   313.58,
+   56.1,
+   319.46
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   313.58,
+   68.1,
+   319.46
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "交流道",
+  "bbox": [
+   76.56,
+   313.58,
+   94.44,
+   319.46
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "輸",
+  "bbox": [
+   38.52,
+   313.7,
+   44.4,
+   319.58
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "殊",
+  "bbox": [
+   282.17,
+   318.26,
+   288.05,
+   324.14
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "接近聚落程度",
+  "bbox": [
+   73.56,
+   327.74,
+   109.44,
+   333.62
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○殯儀館",
+  "bbox": [
+   330.91,
+   327.98,
+   354.79,
+   333.86
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     327.98,
+     336.79,
+     333.86
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   327.98,
+   411.31,
+   333.86
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   327.98,
+   411.31,
+   333.86
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   327.98,
+   498.12,
+   333.86
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     327.98,
+     429.22,
+     333.86
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     327.98,
+     465.17,
+     333.86
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   327.98,
+   519.13,
+   333.86
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "殯",
+  "bbox": [
+   319.87,
+   331.46,
+   325.75,
+   337.34
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "設",
+  "bbox": [
+   282.17,
+   334.22,
+   288.05,
+   340.1
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   296.81,
+   335.06,
+   299.75,
+   340.94
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   335.06,
+   311.75,
+   340.94
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "葬",
+  "bbox": [
+   319.87,
+   339.16,
+   325.75,
+   345.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "接近運銷中心程度",
+  "bbox": [
+   73.56,
+   342.4,
+   121.44,
+   348.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○火葬場",
+  "bbox": [
+   330.91,
+   342.64,
+   354.79,
+   348.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     342.64,
+     336.79,
+     348.52
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   342.64,
+   411.31,
+   348.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   342.64,
+   411.31,
+   348.52
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   342.64,
+   498.12,
+   348.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     342.64,
+     429.22,
+     348.52
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     342.64,
+     465.17,
+     348.52
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   342.64,
+   519.13,
+   348.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "施",
+  "bbox": [
+   282.17,
+   350.32,
+   288.05,
+   356.2
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "接近消費市場程度",
+  "bbox": [
+   73.56,
+   357.04,
+   121.44,
+   362.92
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "●納骨塔",
+  "bbox": [
+   330.91,
+   357.28,
+   354.79,
+   363.16
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     357.28,
+     336.79,
+     363.16
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：金山區公所福緣納骨堂 ",
+  "bbox": [
+   372.43,
+   357.28,
+   453.37,
+   363.16
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "金山區公所福緣納骨堂 ",
+  "value_bbox": [
+   390.43,
+   357.28,
+   453.37,
+   363.16
+  ]
+ },
+ {
+  "text": "○本區段內　●本區段外(距 750 M)",
+  "bbox": [
+   459.43,
+   357.28,
+   555.38,
+   363.16
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.43,
+     357.28,
+     465.31,
+     363.16
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     495.43,
+     357.28,
+     501.31,
+     363.16
+    ]
+   }
+  ]
+ },
+ {
+  "text": "廢",
+  "bbox": [
+   319.87,
+   371.2,
+   325.75,
+   377.08
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "區段內道路規劃及闢建程度",
+  "bbox": [
+   73.56,
+   371.68,
+   145.44,
+   377.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "已完全開發",
+  "bbox": [
+   185.06,
+   371.68,
+   214.94,
+   377.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○污水處理場",
+  "bbox": [
+   330.91,
+   371.92,
+   366.79,
+   377.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     371.92,
+     336.79,
+     377.8
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   371.92,
+   411.31,
+   377.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   371.92,
+   411.31,
+   377.8
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   371.92,
+   498.12,
+   377.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     371.92,
+     429.22,
+     377.8
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     371.92,
+     465.17,
+     377.8
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   371.92,
+   519.13,
+   377.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   372.16,
+   56.1,
+   378.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   372.16,
+   68.1,
+   378.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "棄",
+  "bbox": [
+   319.87,
+   378.88,
+   325.75,
+   384.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○垃圾場或掩",
+  "bbox": [
+   330.91,
+   382.72,
+   366.79,
+   388.6
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     382.72,
+     336.79,
+     388.6
+    ]
+   }
+  ]
+ },
+ {
+  "text": "日　照",
+  "bbox": [
+   73.56,
+   386.32,
+   91.44,
+   392.2
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   296.81,
+   386.32,
+   299.75,
+   392.2
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   386.32,
+   311.75,
+   392.2
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "物",
+  "bbox": [
+   319.87,
+   386.56,
+   325.75,
+   392.44
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   386.56,
+   411.31,
+   392.44
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   386.56,
+   411.31,
+   392.44
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   386.56,
+   498.12,
+   392.44
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     386.56,
+     429.22,
+     392.44
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     386.56,
+     465.17,
+     392.44
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   386.56,
+   519.13,
+   392.44
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "埋場",
+  "bbox": [
+   330.91,
+   390.4,
+   342.79,
+   396.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "處",
+  "bbox": [
+   319.87,
+   394.24,
+   325.75,
+   400.12
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "景　觀",
+  "bbox": [
+   73.56,
+   400.96,
+   91.44,
+   406.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○焚化爐",
+  "bbox": [
+   330.91,
+   401.2,
+   354.79,
+   407.08
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     401.2,
+     336.79,
+     407.08
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   401.2,
+   411.31,
+   407.08
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   401.2,
+   411.31,
+   407.08
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   401.2,
+   498.12,
+   407.08
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     401.2,
+     429.22,
+     407.08
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     401.2,
+     465.17,
+     407.08
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   401.2,
+   519.13,
+   407.08
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "理",
+  "bbox": [
+   319.87,
+   401.92,
+   325.75,
+   407.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "傾　斜　度",
+  "bbox": [
+   73.56,
+   415.6,
+   103.44,
+   421.48
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○水污染",
+  "bbox": [
+   317.23,
+   415.6,
+   341.11,
+   421.48
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     415.6,
+     323.11,
+     421.48
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   415.84,
+   411.31,
+   421.72
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   415.84,
+   411.31,
+   421.72
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   415.84,
+   498.12,
+   421.72
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     415.84,
+     429.22,
+     421.72
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     415.84,
+     465.17,
+     421.72
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   415.84,
+   519.13,
+   421.72
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "自",
+  "bbox": [
+   38.52,
+   418.12,
+   44.4,
+   424.0
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "然",
+  "bbox": [
+   38.52,
+   426.16,
+   44.4,
+   432.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "有排水系統不易淹水",
+  "bbox": [
+   185.06,
+   430.24,
+   238.94,
+   436.12
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○噪音污染",
+  "bbox": [
+   317.23,
+   430.24,
+   347.11,
+   436.12
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     430.24,
+     323.11,
+     436.12
+    ]
+   }
+  ]
+ },
+ {
+  "text": "保　（排）　水　之　良　否",
+  "bbox": [
+   73.56,
+   430.48,
+   151.44,
+   436.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   430.48,
+   411.31,
+   436.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   430.48,
+   411.31,
+   436.36
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   430.48,
+   498.12,
+   436.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     430.48,
+     429.22,
+     436.36
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     430.48,
+     465.17,
+     436.36
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   430.48,
+   519.13,
+   436.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   53.16,
+   430.72,
+   56.1,
+   436.6
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   430.72,
+   68.1,
+   436.6
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "環",
+  "bbox": [
+   282.17,
+   432.76,
+   288.05,
+   438.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "條",
+  "bbox": [
+   38.52,
+   434.2,
+   44.4,
+   440.08
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "境",
+  "bbox": [
+   282.17,
+   440.8,
+   288.05,
+   446.68
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "件",
+  "bbox": [
+   38.52,
+   442.24,
+   44.4,
+   448.12
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "地　勢",
+  "bbox": [
+   73.56,
+   444.88,
+   91.44,
+   450.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "該區地勢平坦",
+  "bbox": [
+   185.06,
+   444.88,
+   220.94,
+   450.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   296.81,
+   444.88,
+   299.75,
+   450.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   444.88,
+   311.75,
+   450.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "○廢氣污染",
+  "bbox": [
+   317.23,
+   444.88,
+   347.11,
+   450.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     444.88,
+     323.11,
+     450.76
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   445.12,
+   411.31,
+   451.0
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   445.12,
+   411.31,
+   451.0
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   445.12,
+   498.12,
+   451.0
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     445.12,
+     429.22,
+     451.0
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     445.12,
+     465.17,
+     451.0
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   445.12,
+   519.13,
+   451.0
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   445.36,
+   56.1,
+   451.24
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   445.36,
+   68.1,
+   451.24
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "污",
+  "bbox": [
+   282.17,
+   448.84,
+   288.05,
+   454.72
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "染",
+  "bbox": [
+   282.17,
+   456.88,
+   288.05,
+   462.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "風　勢",
+  "bbox": [
+   73.56,
+   459.52,
+   91.44,
+   465.4
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○廢棄物污染",
+  "bbox": [
+   317.23,
+   459.52,
+   353.11,
+   465.4
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     459.52,
+     323.11,
+     465.4
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   459.76,
+   411.31,
+   465.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   459.76,
+   411.31,
+   465.64
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   459.76,
+   498.12,
+   465.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     459.76,
+     429.22,
+     465.64
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     459.76,
+     465.17,
+     465.64
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   459.76,
+   519.13,
+   465.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "土　質",
+  "bbox": [
+   73.56,
+   474.16,
+   91.44,
+   480.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○其他污染",
+  "bbox": [
+   317.23,
+   474.16,
+   347.11,
+   480.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     474.16,
+     323.11,
+     480.04
+    ]
+   }
+  ]
+ },
+ {
+  "text": "名稱：無  　 ",
+  "bbox": [
+   372.43,
+   474.4,
+   411.31,
+   480.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無  　 ",
+  "value_bbox": [
+   390.41,
+   474.4,
+   411.31,
+   480.28
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   423.34,
+   474.4,
+   498.12,
+   480.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     474.4,
+     429.22,
+     480.28
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     474.4,
+     465.17,
+     480.28
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   510.2,
+   474.4,
+   519.13,
+   480.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：無　　  　　 ",
+  "bbox": [
+   372.43,
+   486.04,
+   429.29,
+   491.92
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無　　  　　 ",
+  "value_bbox": [
+   390.41,
+   486.04,
+   429.29,
+   491.92
+  ]
+ },
+ {
+  "text": " 　  數量:",
+  "bbox": [
+   435.33,
+   486.04,
+   465.22,
+   491.92
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "建築基",
+  "bbox": [
+   76.2,
+   492.52,
+   94.08,
+   498.4
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "□整平或填挖基地　□開挖水溝　□水土保持　□鋪築道路",
+  "bbox": [
+   99.38,
+   492.52,
+   255.26,
+   498.4
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     99.38,
+     492.52,
+     105.26,
+     498.4
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     153.38,
+     492.52,
+     159.26,
+     498.4
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     189.38,
+     492.52,
+     195.26,
+     498.4
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     225.38,
+     492.52,
+     231.26,
+     498.4
+    ]
+   }
+  ]
+ },
+ {
+  "text": "5",
+  "bbox": [
+   296.81,
+   496.12,
+   299.75,
+   502.0
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   496.12,
+   311.75,
+   502.0
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "百貨公司",
+  "bbox": [
+   317.23,
+   496.36,
+   341.11,
+   502.24
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "土",
+  "bbox": [
+   38.52,
+   498.64,
+   44.4,
+   504.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "地改良",
+  "bbox": [
+   76.2,
+   500.2,
+   94.08,
+   506.08
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "□埋設管道　　　　□修築駁嵌　□其他＿＿＿＿＿＿",
+  "bbox": [
+   99.38,
+   500.2,
+   243.26,
+   506.08
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     99.38,
+     500.2,
+     105.26,
+     506.08
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     153.38,
+     500.2,
+     159.26,
+     506.08
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     189.38,
+     500.2,
+     195.26,
+     506.08
+    ]
+   }
+  ]
+ },
+ {
+  "text": "地",
+  "bbox": [
+   38.52,
+   506.71,
+   44.4,
+   512.59
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   372.43,
+   506.71,
+   447.31,
+   512.59
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     372.43,
+     506.71,
+     378.31,
+     512.59
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     408.43,
+     506.71,
+     414.31,
+     512.59
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   459.44,
+   506.71,
+   468.38,
+   512.59
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "改",
+  "bbox": [
+   38.52,
+   514.75,
+   44.4,
+   520.63
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：新北市金山地區農會  數量:1",
+  "bbox": [
+   372.43,
+   515.35,
+   468.37,
+   521.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "新北市金山地區農會  數量:1",
+  "value_bbox": [
+   390.43,
+   515.35,
+   468.37,
+   521.23
+  ]
+ },
+ {
+  "text": "□耕地整理　□水土保持  □土壤改良  □修築農路  □灌溉",
+  "bbox": [
+   99.38,
+   517.99,
+   261.27,
+   523.87
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     99.38,
+     517.99,
+     105.26,
+     523.87
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     135.38,
+     517.99,
+     141.26,
+     523.87
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     171.39,
+     517.99,
+     177.27,
+     523.87
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     207.39,
+     517.99,
+     213.27,
+     523.87
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     243.39,
+     517.99,
+     249.27,
+     523.87
+    ]
+   }
+  ]
+ },
+ {
+  "text": "工",
+  "bbox": [
+   282.17,
+   521.71,
+   288.05,
+   527.59
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "良",
+  "bbox": [
+   38.52,
+   522.79,
+   44.4,
+   528.67
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "農地改良",
+  "bbox": [
+   73.56,
+   525.43,
+   97.44,
+   531.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   296.81,
+   525.43,
+   299.75,
+   531.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   525.43,
+   311.75,
+   531.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "□排水",
+  "bbox": [
+   99.38,
+   525.67,
+   117.25,
+   531.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     99.38,
+     525.67,
+     105.26,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "text": "□防風",
+  "bbox": [
+   135.32,
+   525.67,
+   153.18,
+   531.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     135.32,
+     525.67,
+     141.2,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "text": "□防砂",
+  "bbox": [
+   171.25,
+   525.67,
+   189.11,
+   531.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     171.25,
+     525.67,
+     177.13,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "text": "□堤防",
+  "bbox": [
+   207.18,
+   525.67,
+   225.05,
+   531.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     207.18,
+     525.67,
+     213.06,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "text": "□其他＿＿",
+  "bbox": [
+   243.11,
+   525.67,
+   272.96,
+   531.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     243.11,
+     525.67,
+     248.99,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "text": "金融機構",
+  "bbox": [
+   317.23,
+   525.67,
+   341.11,
+   531.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "＿＿＿＿＿",
+  "bbox": [
+   99.38,
+   533.35,
+   129.26,
+   539.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○本區段內  ●本區段外(距 210 M)",
+  "bbox": [
+   372.43,
+   535.99,
+   468.22,
+   541.87
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     372.43,
+     535.99,
+     378.31,
+     541.87
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     408.37,
+     535.99,
+     414.25,
+     541.87
+    ]
+   }
+  ]
+ },
+ {
+  "text": "商",
+  "bbox": [
+   282.17,
+   537.79,
+   288.05,
+   543.67
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○　　　國小　　",
+  "bbox": [
+   99.38,
+   544.63,
+   147.26,
+   550.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     544.63,
+     105.26,
+     550.51
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   168.39,
+   544.63,
+   243.27,
+   550.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     544.63,
+     174.27,
+     550.51
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     544.63,
+     210.27,
+     550.51
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   255.4,
+   544.63,
+   264.34,
+   550.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：無　　  　　 ",
+  "bbox": [
+   372.43,
+   544.63,
+   429.29,
+   550.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "無　　  　　 ",
+  "value_bbox": [
+   390.41,
+   544.63,
+   429.29,
+   550.51
+  ]
+ },
+ {
+  "text": " 　  數量:",
+  "bbox": [
+   435.33,
+   544.63,
+   465.22,
+   550.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "娛樂設施",
+  "bbox": [
+   317.23,
+   549.07,
+   341.11,
+   554.95
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   296.81,
+   549.31,
+   299.75,
+   555.19
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   549.31,
+   311.75,
+   555.19
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   372.43,
+   553.51,
+   447.31,
+   559.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     372.43,
+     553.51,
+     378.31,
+     559.39
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     408.43,
+     553.51,
+     414.31,
+     559.39
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   459.44,
+   553.51,
+   468.38,
+   559.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "活",
+  "bbox": [
+   282.17,
+   553.75,
+   288.05,
+   559.63
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○　　　國中　　",
+  "bbox": [
+   99.38,
+   559.27,
+   147.26,
+   565.15
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     559.27,
+     105.26,
+     565.15
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   168.39,
+   559.27,
+   243.27,
+   565.15
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     559.27,
+     174.27,
+     565.15
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     559.27,
+     210.27,
+     565.15
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   255.4,
+   559.27,
+   264.34,
+   565.15
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "名稱：新北北海溫泉洲際酒店 數量:1",
+  "bbox": [
+   372.43,
+   562.15,
+   471.37,
+   568.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "名稱：",
+  "value_text": "新北北海溫泉洲際酒店 數量:1",
+  "value_bbox": [
+   390.43,
+   562.15,
+   471.37,
+   568.03
+  ]
+ },
+ {
+  "text": "大型展示中心或觀",
+  "bbox": [
+   317.23,
+   562.75,
+   365.11,
+   568.63
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "學　校",
+  "bbox": [
+   76.56,
+   566.35,
+   94.44,
+   572.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   296.81,
+   566.83,
+   299.75,
+   572.71
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   566.83,
+   311.75,
+   572.71
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "動",
+  "bbox": [
+   282.17,
+   569.83,
+   288.05,
+   575.71
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "光飯店",
+  "bbox": [
+   317.23,
+   570.43,
+   335.11,
+   576.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○本區段內　●本區段外(距 850 M)",
+  "bbox": [
+   372.43,
+   571.03,
+   468.38,
+   576.91
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     372.43,
+     571.03,
+     378.31,
+     576.91
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     408.43,
+     571.03,
+     414.31,
+     576.91
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○　　　高中　　",
+  "bbox": [
+   99.38,
+   573.91,
+   147.26,
+   579.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     573.91,
+     105.26,
+     579.79
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   168.39,
+   573.91,
+   243.27,
+   579.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     573.91,
+     174.27,
+     579.79
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     573.91,
+     210.27,
+     579.79
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   255.4,
+   573.91,
+   264.34,
+   579.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "顧客之通行量",
+  "bbox": [
+   317.23,
+   583.87,
+   353.11,
+   589.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "顧客通行量多",
+  "bbox": [
+   372.43,
+   583.87,
+   408.31,
+   589.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   296.81,
+   584.35,
+   299.75,
+   590.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   584.35,
+   311.75,
+   590.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "○　　　大專院校",
+  "bbox": [
+   99.38,
+   588.67,
+   147.26,
+   594.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     588.67,
+     105.26,
+     594.55
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內　○本區段外(距",
+  "bbox": [
+   168.39,
+   588.67,
+   243.27,
+   594.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     588.67,
+     174.27,
+     594.55
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     588.67,
+     210.27,
+     594.55
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   255.4,
+   588.67,
+   264.34,
+   594.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "公",
+  "bbox": [
+   38.52,
+   589.51,
+   44.4,
+   595.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "●　　　金山區第一零售傳統市場 ●本區段內 ○本區段外(距",
+  "bbox": [
+   99.38,
+   597.19,
+   264.27,
+   603.07
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     597.19,
+     105.26,
+     603.07
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     192.38,
+     597.19,
+     198.26,
+     603.07
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     225.39,
+     597.19,
+     231.27,
+     603.07
+    ]
+   }
+  ]
+ },
+ {
+  "text": "店鋪之毗連狀態",
+  "bbox": [
+   317.23,
+   601.39,
+   359.11,
+   607.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "90%以上作為店舖",
+  "bbox": [
+   372.43,
+   601.39,
+   417.25,
+   607.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   296.81,
+   601.87,
+   299.75,
+   607.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   308.81,
+   601.87,
+   311.75,
+   607.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "共",
+  "bbox": [
+   38.52,
+   605.59,
+   44.4,
+   611.47
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "M)",
+  "bbox": [
+   99.38,
+   608.23,
+   105.32,
+   614.11
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   613.51,
+   56.1,
+   619.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   613.51,
+   68.1,
+   619.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "市　場",
+  "bbox": [
+   76.56,
+   613.51,
+   94.44,
+   619.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "其他影",
+  "bbox": [
+   282.17,
+   618.67,
+   300.05,
+   624.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○　　　超級市場",
+  "bbox": [
+   99.38,
+   619.27,
+   147.26,
+   625.15
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     619.27,
+     105.26,
+     625.15
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內  ○本區段外(距",
+  "bbox": [
+   168.39,
+   619.27,
+   243.28,
+   625.15
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     619.27,
+     174.27,
+     625.15
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     619.27,
+     210.27,
+     625.15
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   255.4,
+   619.27,
+   264.34,
+   625.15
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "建",
+  "bbox": [
+   38.52,
+   621.55,
+   44.4,
+   627.43
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "響因素",
+  "bbox": [
+   282.17,
+   626.35,
+   300.05,
+   632.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○　　　超大型購物中心 ○本區段內  ○本區段外(距",
+  "bbox": [
+   99.38,
+   630.43,
+   243.27,
+   636.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     630.43,
+     105.26,
+     636.31
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     630.43,
+     174.27,
+     636.31
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     630.43,
+     210.27,
+     636.31
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   255.39,
+   630.43,
+   264.34,
+   636.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "設",
+  "bbox": [
+   38.52,
+   637.63,
+   44.4,
+   643.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "●　　　中山溫泉里鄰公園",
+  "bbox": [
+   99.38,
+   638.95,
+   171.26,
+   644.83
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     638.95,
+     105.26,
+     644.83
+    ]
+   }
+  ]
+ },
+ {
+  "text": "●本區段內  ○本區段外(距",
+  "bbox": [
+   186.39,
+   638.95,
+   261.27,
+   644.83
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     186.39,
+     638.95,
+     192.27,
+     644.83
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     222.39,
+     638.95,
+     228.27,
+     644.83
+    ]
+   }
+  ]
+ },
+ {
+  "text": "95%",
+  "bbox": [
+   372.55,
+   640.03,
+   383.29,
+   647.11
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "建築密度",
+  "bbox": [
+   330.91,
+   640.51,
+   354.79,
+   646.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "房屋建築現況",
+  "bbox": [
+   279.53,
+   646.51,
+   315.41,
+   652.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "連棟透天厝、公寓",
+  "bbox": [
+   372.55,
+   652.15,
+   430.03,
+   659.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "建築型態",
+  "bbox": [
+   330.91,
+   652.63,
+   354.79,
+   658.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "公　園",
+  "bbox": [
+   76.32,
+   653.23,
+   94.2,
+   659.11
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "M)",
+  "bbox": [
+   99.38,
+   653.59,
+   105.32,
+   659.47
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   53.16,
+   660.79,
+   56.1,
+   666.67
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   65.16,
+   660.79,
+   68.1,
+   666.67
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "廣  場",
+  "bbox": [
+   74.76,
+   660.91,
+   95.61,
+   666.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○商業用",
+  "bbox": [
+   330.91,
+   665.35,
+   354.77,
+   671.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     665.35,
+     336.79,
+     671.23
+    ]
+   }
+  ]
+ },
+ {
+  "text": " 　○住宅用 ",
+  "bbox": [
+   372.83,
+   665.35,
+   408.73,
+   671.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     381.82,
+     665.35,
+     387.7,
+     671.23
+    ]
+   }
+  ]
+ },
+ {
+  "text": " 　 ○工業用　 ",
+  "bbox": [
+   423.74,
+   665.35,
+   468.62,
+   671.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     435.72,
+     665.35,
+     441.6,
+     671.23
+    ]
+   }
+  ]
+ },
+ {
+  "text": "●住商混合",
+  "bbox": [
+   489.62,
+   665.35,
+   519.47,
+   671.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     489.62,
+     665.35,
+     495.5,
+     671.23
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○　　　一般公園",
+  "bbox": [
+   99.38,
+   668.37,
+   147.26,
+   674.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     668.37,
+     105.26,
+     674.25
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內  ○本區段外(距",
+  "bbox": [
+   168.39,
+   668.37,
+   243.28,
+   674.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     668.37,
+     174.27,
+     674.25
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     668.37,
+     210.27,
+     674.25
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   255.4,
+   668.37,
+   264.34,
+   674.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "徒步區",
+  "bbox": [
+   76.32,
+   668.61,
+   94.2,
+   674.49
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "土地利用現況",
+  "bbox": [
+   279.53,
+   673.05,
+   315.41,
+   678.93
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "○住工混合　",
+  "bbox": [
+   330.91,
+   673.05,
+   366.75,
+   678.93
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     673.05,
+     336.79,
+     678.93
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○農作用　",
+  "bbox": [
+   381.82,
+   673.05,
+   411.67,
+   678.93
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     381.82,
+     673.05,
+     387.7,
+     678.93
+    ]
+   }
+  ]
+ },
+ {
+  "text": " 　○漁牧用　 ",
+  "bbox": [
+   426.75,
+   673.05,
+   468.63,
+   678.93
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     435.73,
+     673.05,
+     441.61,
+     678.93
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○空地",
+  "bbox": [
+   489.63,
+   673.05,
+   507.5,
+   678.93
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     489.63,
+     673.05,
+     495.51,
+     678.93
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○公共設施",
+  "bbox": [
+   330.91,
+   680.73,
+   360.76,
+   686.61
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     680.73,
+     336.79,
+     686.61
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○其他_____",
+  "bbox": [
+   381.82,
+   680.73,
+   414.71,
+   686.61
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     381.82,
+     680.73,
+     387.7,
+     686.61
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○　　　廣場.徒步區",
+  "bbox": [
+   99.38,
+   683.13,
+   156.19,
+   689.01
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     683.13,
+     105.26,
+     689.01
+    ]
+   }
+  ]
+ },
+ {
+  "text": "○本區段內  ○本區段外(距",
+  "bbox": [
+   168.27,
+   683.13,
+   243.05,
+   689.01
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "CHECKBOX_GLYPH",
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.27,
+     683.13,
+     174.15,
+     689.01
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.22,
+     683.13,
+     210.1,
+     689.01
+    ]
+   }
+  ]
+ },
+ {
+  "text": " M)",
+  "bbox": [
+   255.13,
+   683.13,
+   264.06,
+   689.01
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 5.88,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "勘查日期：114年09月18日",
+  "bbox": [
+   36.0,
+   696.57,
+   120.27,
+   703.65
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "勘查日期：",
+  "value_text": "114年09月18日",
+  "value_bbox": [
+   73.68,
+   696.57,
+   120.27,
+   703.65
+  ]
+ },
+ {
+  "text": "承辦員：",
+  "bbox": [
+   152.78,
+   696.57,
+   181.46,
+   703.65
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "課(股)長：",
+  "bbox": [
+   279.65,
+   696.57,
+   315.49,
+   703.65
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "主任（局、處長）：",
+  "bbox": [
+   372.55,
+   696.57,
+   437.23,
+   703.65
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "不動產估價師：",
+  "bbox": [
+   372.55,
+   771.93,
+   422.83,
+   779.01
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.08,
+  "classification": "STATIC_LABEL"
+ }
+]

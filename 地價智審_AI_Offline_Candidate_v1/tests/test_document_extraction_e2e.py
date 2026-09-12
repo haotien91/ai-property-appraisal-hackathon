@@ -31,10 +31,16 @@ from domain.models import (  # noqa: E402
     FormType, FormClassificationResult, CompetitionCase, FactorInput, Evidence, SourceType,
     IssueType, CheckType, ExtractionRole, ExtractionSubjectRole,
 )
-from engine.human_confirmation import flag_low_confidence, resolve_confirmed_values  # noqa: E402
-from engine.extraction_to_submitted_form import build_submitted_form_from_extraction  # noqa: E402
-from engine.audit_engine import AuditEngine  # noqa: E402
-from engine.rule_engine import RuleEngine  # noqa: E402
+# SHULIN-COMPETITION-RULE-PACK-A2-FINAL-GATE-1 Task 2 fix: bare imports, not
+# "engine.xxx" -- matching engine/extraction_to_submitted_form.py's own
+# (now-bare) internal imports and every real production caller, so this
+# test's AuditEngine/SubmittedFormData share ONE canonical module identity
+# with the ones build_submitted_form_from_extraction() constructs
+# internally, rather than two distinct classes of the same name.
+from human_confirmation import flag_low_confidence, resolve_confirmed_values  # noqa: E402
+from extraction_to_submitted_form import build_submitted_form_from_extraction  # noqa: E402
+from audit_engine import AuditEngine  # noqa: E402
+from rule_engine import RuleEngine  # noqa: E402
 
 GOLDEN_PDF = os.path.join(REPO_ROOT, "data", "sources", "competition", "查估書表範本.pdf")
 

@@ -24,15 +24,33 @@ from decimal import Decimal
 from typing import Dict, List, Optional
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from domain.models import (  # noqa: E402
     CompetitionCase, FieldCompletion, FormCompletionResult, FieldStatus,
     PartyRole, Evidence, SourceType, GradeResult, AdjustmentResult,
     ExclusionDeterminationStatus,
 )
-from engine.grade_engine import GradeEngine, GradeEngineError  # noqa: E402
-from engine.adjustment_engine import AdjustmentEngine, AdjustmentEngineError  # noqa: E402
-from engine.calculation_engine import CalculationEngine, CalculationEngineError  # noqa: E402
-from engine.comparable_selection_engine import ComparableSelectionEngine  # noqa: E402
+# SHULIN-COMPETITION-RULE-PACK-A2-FINAL-GATE-1 Task 4 fix: these MUST be bare
+# (not "engine.xxx") imports. complete_form.py/review.py -- the only real
+# production callers of this class -- construct GradeEngine/AdjustmentEngine/
+# CalculationEngine via the SAME bare `from grade_engine import ...` style
+# (engine/ is on sys.path directly, see runtime_paths.bootstrap()). Python
+# treats "grade_engine" and "engine.grade_engine" as two DIFFERENT modules
+# with two DIFFERENT GradeEngineError classes, even though it's the same
+# source file -- so `except (GradeEngineError, AdjustmentEngineError)` below
+# was silently never matching the actual exception instances raised by a
+# GradeEngine built from the bare import, and every genuinely-missing-rule
+# individual/regional factor (e.g. Shulin's floor_area_ratio_individual,
+# which deliberately has no rule record at all) crashed complete_form.py/
+# review.py with an UNHANDLED exception instead of the intended graceful
+# FieldStatus.MANUAL_REVIEW_REQUIRED degradation -- found via a REAL
+# complete_form.py handler-path test, not a FormCompletionEngine unit test
+# (which always constructs its own GradeEngine locally and never surfaces
+# this cross-module identity mismatch).
+from grade_engine import GradeEngine, GradeEngineError  # noqa: E402
+from adjustment_engine import AdjustmentEngine, AdjustmentEngineError  # noqa: E402
+from calculation_engine import CalculationEngine, CalculationEngineError  # noqa: E402
+from comparable_selection_engine import ComparableSelectionEngine  # noqa: E402
 
 
 class FormCompletionEngine:

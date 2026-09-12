@@ -47,7 +47,19 @@ class ProviderContext:
     fallback lookup either. Until NTPC publishes a usable version of that
     dataset (or another authoritative plan-name source is found),
     `plan_id` can only come from whoever already knows which 都市計畫 a
-    case's segment falls in -- e.g. an estimator entering it by hand."""
+    case's segment falls in -- e.g. an estimator entering it by hand.
+
+    Update (2026-09-08): a coordinate CAN now automatically resolve the
+    official Chinese 都市計畫 *name* (e.g. "金山都市計畫") via
+    RealNtpcZoningProvider.query()'s `plan_name`, using a manually-derived
+    key/SDF_ID fix-up table for the corrupted dataset above (see
+    scripts/sync_ntpc_zoning_dataset.py's `load_plan_name_lookup`/
+    `load_plan_boundary_polygons`, and docs/source_inventory.md's
+    `ntpc_plan_boundary_name_lookup_patch` entry). This does NOT change the
+    paragraph above: `plan_id` here is a distinct, internal slug (e.g.
+    "jinshan") keying data/rules/plan_zone_floor_area_ratios.json, not the
+    official plan name -- resolving one does not resolve the other, and
+    `plan_id` remains exclusively human-supplied."""
 
     def __init__(self, case_no: str, city: str, district: str,
                  segment_code: str, parcel_id: Optional[str] = None,

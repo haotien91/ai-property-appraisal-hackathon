@@ -60,6 +60,11 @@ def document_env(monkeypatch, tmp_path):
         s3 = boto3.client("s3", region_name=AWS_REGION)
         s3.create_bucket(Bucket=DOCUMENT_BUCKET,
                           CreateBucketConfiguration={"LocationConstraint": AWS_REGION})
+        # STEP5 FINAL GATE Part A (docs/audit/STEP5_FINAL_GATE_REPORT.md):
+        # see tests/_aws_mock_reset.py's module docstring for the full
+        # root-cause writeup.
+        from _aws_mock_reset import reset_cached_aws_module_state
+        reset_cached_aws_module_state()
         yield
 
 

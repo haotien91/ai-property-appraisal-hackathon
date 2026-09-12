@@ -73,7 +73,7 @@
 
 .navbar .navbar-nav .nav-link {
     margin-right: 25px;
-    padding: 40px 0;
+    padding: 20px 0;
     color: var(--bs-white);
     font-size: 17px;
     text-transform: uppercase;
@@ -101,7 +101,7 @@
 
 @media (min-width: 992px) {
     .navbar.bg-dark .navbar-nav .nav-link {
-        padding: 20px 0;
+        padding: 10px 0;
     }
 
     .navbar .nav-item .dropdown-menu {
@@ -439,9 +439,49 @@
 
         .navbar {
             position: relative;
+            padding-top: 12px;
+            padding-bottom: 12px;
             z-index: 1000;
             background: rgba(8, 8, 10, 0.96);
             border-bottom: 1px solid var(--ai-border);
+        }
+
+        .navbar.position-fixed {
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        .app-navbar {
+            justify-content: center;
+            height: 76px;
+            padding: 16px 20px;
+            background: #151517;
+            border-bottom-color: #343437;
+        }
+
+        .app-navbar.position-fixed {
+            height: 60px;
+            background: #151517 !important;
+        }
+
+        .app-navbar .navbar-brand {
+            margin: 0;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #efeff0;
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .app-navbar .navbar-brand i,
+        .app-navbar .navbar-brand b {
+            color: #e41779;
+        }
+
+        @media (max-width: 1000px) {
+            .app-navbar .navbar-brand { font-size: 17px; }
         }
 
         .navbar-brand h2 {
@@ -894,8 +934,18 @@
             padding-top: 200px;
         }
 
+        body:has(.app-navbar) .app-shell {
+            padding-top: 36px;
+        }
+
+        /* Reserve space for the centered header when it leaves normal flow. */
+        body:has(.app-navbar.position-fixed) .app-shell {
+            padding-top: 112px;
+        }
+
         .app-stepper {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 32px;
@@ -1126,4 +1176,3 @@
                 padding: 20px;
             }
         }
-    

@@ -104,6 +104,7 @@ class RuleTableValidator:
             issues.extend(self._check_diagonal_zero(factor_key, group))
             issues.extend(self._check_antisymmetry(factor_key, group))
             issues.extend(self._check_bound_contiguity(factor_key, group))
+            issues.extend(self._check_range_segments(factor_key, group))
             issues.extend(self._check_grade_vocabulary_consistency(factor_key, group))
 
         return issues
@@ -269,29 +270,136 @@ class RuleTableValidator:
                     ))
         return issues
 
+    @staticmethod
+    def _record_segments(record: Dict[str, Any]):
+        """One record's own list of (lower_bound, upper_bound) numeric
+        bands -- either its `range_segments` (SHULIN-COMPETITION-RULE-
+        PACK-A2 Task 5/6/7: a grade genuinely covering 2+ DISJOINT ranges,
+        e.g. land_depth's 普通) when present and non-empty, or its own
+        single top-level (lower_bound, upper_bound) otherwise -- so every
+        other check in this class keeps working against "the record's
+        bounds" without needing to know which shape it used."""
+        segments = record.get("range_segments")
+        if segments:
+            return [(s.get("lower_bound"), s.get("upper_bound")) for s in segments]
+        return [(record.get("lower_bound"), record.get("upper_bound"))]
+
     def _check_bound_contiguity(
         self, factor_key: str, group: List[Dict[str, Any]]
     ) -> List[ValidationIssue]:
+        """Generalized (Task 5/6) to sort by actual VALUE order rather than
+        grade_code order: for every EXISTING monotonic factor grade_code
+        order already coincides with value order, so this is byte-for-byte
+        the same check for them. For a non-monotonic factor (land_depth),
+        grade_code order does NOT match value order -- sorting by value
+        instead is what lets a genuinely non-monotonic grade sequence
+        (劣→普通→優→稍優→普通→稍劣→劣, by depth) still validate as
+        contiguous with no gaps."""
         checkable = [
             r for r in group
             if r.get("value_type") in BOUND_CHECKED_VALUE_TYPES and not r.get("anomaly_flag")
         ]
         if len(checkable) < 2:
             return []
-        ordered = sorted(checkable, key=lambda r: r.get("grade_code"))
+        flat = []  # (lower, upper, grade_code)
+        for r in checkable:
+            for lb, ub in self._record_segments(r):
+                if lb is None and ub is None:
+                    continue  # unbounded sentinel band (e.g. "區段內有") -- not part of a numeric sequence
+                flat.append((lb, ub, r.get("grade_code")))
+        if len(flat) < 2:
+            return []
+        neg_inf = float("-inf")
+        ordered = sorted(flat, key=lambda t: (t[0] if t[0] is not None else neg_inf))
         issues = []
         for prev, cur in zip(ordered, ordered[1:]):
-            prev_upper = prev.get("upper_bound")
-            cur_lower = cur.get("lower_bound")
+            prev_upper = prev[1]
+            cur_lower = cur[0]
             if prev_upper is None or cur_lower is None:
                 continue
             if prev_upper != cur_lower:
                 issues.append(ValidationIssue(
                     "WARNING", factor_key, None,
-                    f"等級 {prev.get('grade_code')}→{cur.get('grade_code')} 級距銜接處"
-                    f"不連續：前者 upper_bound={prev_upper}，後者 lower_bound={cur_lower}"
+                    f"數值級距銜接處不連續：等級{prev[2]}的區段上界={prev_upper}，"
+                    f"數值上緊接的下一區段（等級{cur[2]}）下界={cur_lower}"
                     "（可能有遺漏或重疊的數值區間，亦可能為刻意設計，請確認）",
                 ))
+        return issues
+
+    @staticmethod
+    def _segments_overlap(a, b) -> bool:
+        """True only for a GENUINE overlap (shared interior), never for two
+        segments merely touching at one point (e.g. "...未滿14m" followed
+        by "14m以上...") -- that touching case is the normal, expected
+        contiguous boundary _check_bound_contiguity already validates on
+        its own terms; this check exists to catch a DIFFERENT mistake
+        (two segments whose bodies genuinely overlap, so one value could
+        match either)."""
+        a_lb, a_ub = a[0], a[1]
+        b_lb, b_ub = b[0], b[1]
+        lo = max(a_lb if a_lb is not None else float("-inf"), b_lb if b_lb is not None else float("-inf"))
+        hi = min(a_ub if a_ub is not None else float("inf"), b_ub if b_ub is not None else float("inf"))
+        return lo < hi
+
+    def _check_range_segments(
+        self, factor_key: str, group: List[Dict[str, Any]]
+    ) -> List[ValidationIssue]:
+        """Task 8: validates range_segments (and, for consistency, every
+        ordinary single-range record in the same factor group) for:
+        unreachable ranges (lower_bound >= upper_bound), exact-duplicate
+        segments, and genuine pairwise overlap. Grade-code-set consistency
+        is unaffected -- _check_matrix_square already handles that purely
+        from grade_code, independent of how many segments a grade uses."""
+        issues: List[ValidationIssue] = []
+        all_segments = []  # (lower, upper, rule_id)
+
+        for r in group:
+            segments = r.get("range_segments")
+            if not segments:
+                continue
+            for seg in segments:
+                lb, ub = seg.get("lower_bound"), seg.get("upper_bound")
+                if lb is not None and ub is not None and lb >= ub:
+                    issues.append(ValidationIssue(
+                        "ERROR", factor_key, r.get("rule_id"),
+                        f"range_segments 內一個區段的 lower_bound={lb} >= upper_bound={ub}，"
+                        "此區段永遠無法被任何數值命中（unreachable range）",
+                    ))
+                all_segments.append((lb, ub, r.get("rule_id")))
+
+        for r in group:
+            if r.get("range_segments"):
+                continue  # already folded in above
+            lb, ub = r.get("lower_bound"), r.get("upper_bound")
+            if lb is None and ub is None:
+                continue
+            if lb is not None and ub is not None and lb >= ub:
+                issues.append(ValidationIssue(
+                    "ERROR", factor_key, r.get("rule_id"),
+                    f"lower_bound={lb} >= upper_bound={ub}，此區段永遠無法被任何數值命中",
+                ))
+            all_segments.append((lb, ub, r.get("rule_id")))
+
+        seen: Dict[Any, List[Optional[str]]] = {}
+        for lb, ub, rule_id in all_segments:
+            seen.setdefault((lb, ub), []).append(rule_id)
+        for (lb, ub), rule_ids in seen.items():
+            if len(rule_ids) > 1:
+                issues.append(ValidationIssue(
+                    "ERROR", factor_key, None,
+                    f"完全相同的數值區段 (lower_bound={lb}, upper_bound={ub}) 重複出現於多筆規則：{rule_ids}",
+                ))
+
+        for i in range(len(all_segments)):
+            for j in range(i + 1, len(all_segments)):
+                if self._segments_overlap(all_segments[i], all_segments[j]):
+                    a, b = all_segments[i], all_segments[j]
+                    issues.append(ValidationIssue(
+                        "ERROR", factor_key, None,
+                        f"數值區段重疊：{a[2]}(lower={a[0]},upper={a[1]}) 與 "
+                        f"{b[2]}(lower={b[0]},upper={b[1]}) 有重疊區間，"
+                        "同一數值不應可能同時符合兩個不同規則",
+                    ))
         return issues
 
     def _check_grade_vocabulary_consistency(

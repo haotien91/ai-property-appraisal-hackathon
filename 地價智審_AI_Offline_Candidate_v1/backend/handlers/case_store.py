@@ -33,7 +33,17 @@ _dynamodb = None
 def _table():
     global _dynamodb
     if _dynamodb is None:
-        _dynamodb = boto3.resource("dynamodb")
+        # FRONTEND-UNIFIED-EXPORT-WIRING-F2: LOCAL_AWS_ENDPOINT_URL is unset
+        # in every real deployment (never referenced by infra/template.yaml),
+        # so production behavior is exactly `boto3.resource("dynamodb")` as
+        # before. It exists only so a local `sam local start-api` run can
+        # point at a standalone moto server without touching AWS SDK default
+        # credential/endpoint resolution for production.
+        local_endpoint = os.environ.get("LOCAL_AWS_ENDPOINT_URL")
+        if local_endpoint:
+            _dynamodb = boto3.resource("dynamodb", endpoint_url=local_endpoint)
+        else:
+            _dynamodb = boto3.resource("dynamodb")
     return _dynamodb.Table(TABLE_NAME)
 
 
@@ -100,6 +110,21 @@ def get_record(case_no: str, sk: str) -> Optional[Dict[str, Any]]:
     if not item:
         return None
     return {**item["data"], "_updated_at": item.get("updated_at")} if isinstance(item["data"], dict) else item["data"]
+
+
+def query_records_by_sk_prefix(case_no: str, sk_prefix: str) -> List[Dict[str, Any]]:
+    """Returns every record for one case whose SK starts with sk_prefix (e.g.
+    all "CASE_RULE_PACKAGE#<package_id>" versions for a case -- see
+    case_rule_repository.py). A Query with a begins_with SK condition, not a
+    Scan -- PK is exact, so cost stays O(items for this one case) regardless
+    of overall table size, same as every other lookup in this module."""
+    resp = _table().query(
+        KeyConditionExpression=(
+            boto3.dynamodb.conditions.Key("PK").eq(f"CASE#{case_no}")
+            & boto3.dynamodb.conditions.Key("SK").begins_with(sk_prefix)
+        ),
+    )
+    return [item["data"] for item in resp.get("Items", [])]
 
 
 # ---------------------------------------------------------------------

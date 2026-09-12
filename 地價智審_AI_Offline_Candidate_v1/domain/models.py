@@ -42,6 +42,13 @@ class SourceType(str, Enum):
     CARRIED_OVER = "承接"
     MANUAL_SIGNOFF = "人工簽核"
     GIS_MEASUREMENT = "GIS量測"
+    # COMPETITION-DOMAIN-MULTI-SEGMENT-B1 Task 4: a value the competition's
+    # own 題目.pdf already fixed for a segment (e.g. P001-00's 建蔽率=50%,
+    # 主要道路寬度=28M) -- immutable once collected. No provider/AI/OSM/NLSC
+    # value may ever overwrite a FactorInput carrying this source_type; a
+    # differing external value is stored as separate REFERENCE_EVIDENCE
+    # instead (see backend/handlers/collect_data.py's segment-scoped path).
+    COMPETITION_PROVIDED_FIXED = "競賽題目提供固定值"
 
 
 class FieldStatus(str, Enum):
@@ -428,6 +435,242 @@ class FormCompletionResult(BaseModel):
 
 
 # ---------------------------------------------------------------------------
+# TABLE51-THREE-COMPARABLE-C1: 表5-1 影響地價區域因素分析明細表.
+#
+# Generic, comparable-count-aware domain model for the base<->comparable
+# regional-factor comparison table -- explicitly preserves ONE independent
+# lineage per comparable (P001->P002, P001->P003, P001->P004 as three
+# SEPARATE Table51Comparison entries), never an averaged/merged comparable.
+# Built by engine/table51_analysis_engine.py, which reuses GradeEngine/
+# AdjustmentEngine/CalculationEngine unmodified -- no grading logic is
+# duplicated here or in that engine module; this is purely the traceable
+# output shape.
+# ---------------------------------------------------------------------------
+
+class Table51FactorResult(BaseModel):
+    """One row of 表5-1's detail table (one of the 29 regional factors) for
+    ONE base<->comparable lineage. `status`/`requires_manual_review`/
+    `reason` together express EITHER a genuine grade+adjustment (status=
+    COMPLETED) OR an honest failure to determine one (status=MANUAL_REVIEW_
+    REQUIRED) -- never a fabricated grade, never a value silently defaulted
+    to 0 for a missing factor.
+
+    TABLE51-THREE-COMPARABLE-C1-FINAL-GATE-1 Task 1/2: `*_raw_value` is
+    ALWAYS the verbatim value as originally submitted/collected (e.g. 題目
+    .pdf's own "第一種住宅區", never silently rewritten into a rule-pack
+    band label) -- `*_evaluation_value` is the SEPARATE, possibly-mapped
+    value actually fed into GradeEngine.grade_factor() when normalization
+    was needed (see engine/regional_factor_value_normalization.py), None
+    when raw_value already IS the evaluation value. `normalization_reason`/
+    `mapping_source` explain any such mapping; never applied to raw_value
+    itself. Data provenance (`*_source_type`/`*_source`) and rule
+    provenance (`rule_id`/`rule_source_document`/`rule_source_page`) are
+    kept as clearly DISTINCT fields -- never collapsed into one ambiguous
+    "source" string, so a reader can always tell "where did this NUMBER
+    come from" apart from "which regulation/rule matched it"."""
+    model_config = ConfigDict(extra="forbid")
+
+    field_id: str
+    factor_name: str
+    category: str = Field(description="e.g. '土地使用管制(1)' -- taken verbatim from the rule pack's own category field")
+    base_segment_code: str
+    comparable_segment_code: str
+
+    base_raw_value: Union[float, int, str, bool, None] = None
+    base_evaluation_value: Union[float, int, str, bool, None] = Field(
+        None, description="Only set when normalization mapped base_raw_value to a different value for grading")
+    base_source_type: Optional[str] = None
+    base_source: Optional[str] = None
+
+    comparable_raw_value: Union[float, int, str, bool, None] = None
+    comparable_evaluation_value: Union[float, int, str, bool, None] = Field(
+        None, description="Only set when normalization mapped comparable_raw_value to a different value for grading")
+    comparable_source_type: Optional[str] = None
+    comparable_source: Optional[str] = None
+
+    normalization_reason: Optional[str] = None
+    mapping_source: Optional[str] = Field(
+        None, description="Traceable to 評價基準明細表.pdf / the A1 rule-source-truth gate -- never invented here")
+
+    base_grade: Optional[str] = None
+    comparable_grade: Optional[str] = None
+    adjustment_pct: Optional[Decimal] = None
+
+    rule_id: Optional[str] = None
+    rule_source_document: Optional[str] = None
+    rule_source_page: Optional[str] = None
+
+    status: FieldStatus
+    requires_manual_review: bool = False
+    reason: Optional[str] = Field(None, description="Populated only when requires_manual_review=True")
+
+
+class Table51CategorySubtotal(BaseModel):
+    """百分比小計 for one of the 8 official categories. `subtotal_pct` is
+    None (never a partial/fabricated sum) whenever ANY member factor in
+    this category requires manual review -- OFFICIAL_BLANK_FORM_FORMULA:
+    每類別小計 = 該類別所有因素修正百分比之和（見表5-1區域因素明細表(住)
+    工作表的欄位結構與 B42 儲存格本身之文字註記，非本專案自行發明）。"""
+    model_config = ConfigDict(extra="forbid")
+
+    category: str
+    category_index: int = Field(description="1-8, matches the official form's 主要項目(N) numbering")
+    subtotal_pct: Optional[Decimal] = None
+    requires_manual_review: bool = False
+
+
+class Table51Comparison(BaseModel):
+    """One COMPLETE, INDEPENDENT base<->comparable lineage (e.g. P001-00 ->
+    P002-00) -- 29 factor_results + 8 category_subtotals + one grand
+    total_adjustment_pct. `total_adjustment_pct` is None whenever any
+    category_subtotal is None (fail-closed: a comparison with any
+    unresolved factor never reports a numeric grand total that silently
+    treats the gap as zero)."""
+    model_config = ConfigDict(extra="forbid")
+
+    comparable_segment_code: str
+    comparison_index: int = Field(description="1/2/3, matches CompetitionSegment.comparison_index")
+    factor_results: List[Table51FactorResult] = Field(default_factory=list)
+    category_subtotals: List[Table51CategorySubtotal] = Field(default_factory=list)
+    total_adjustment_pct: Optional[Decimal] = None
+    status: FieldStatus
+    requires_manual_review: bool = False
+
+
+class Table51Analysis(BaseModel):
+    """Top-level 表5-1 result for one Competition case -- base_segment_code
+    + an ORDERED list of comparisons, one per comparable segment, each a
+    fully independent lineage (never averaged together)."""
+    model_config = ConfigDict(extra="forbid")
+
+    case_id: str
+    base_segment_code: str
+    rule_profile_id: Optional[str] = None
+    comparisons: List[Table51Comparison] = Field(default_factory=list)
+
+
+# ---------------------------------------------------------------------------
+# TABLE4-THREE-COMPARABLE-D1: 表4 比較法調查估價表.
+#
+# Same design discipline as Table51Analysis: one INDEPENDENT
+# Table4Comparison per comparable segment (P001->P002, P001->P003,
+# P001->P004), never averaged/merged. Built by engine/
+# table4_analysis_engine.py, which reuses GradeEngine/AdjustmentEngine/
+# CalculationEngine/ComparableSelectionEngine unmodified -- no grading or
+# calculation logic is duplicated here or in that engine module.
+# ---------------------------------------------------------------------------
+
+class Table4FactorResult(BaseModel):
+    """One row of 表4's 20-slot 個別因素調整 section (19 standard-matrix
+    factors + 1 FAR special-policy factor) for ONE base<->comparable
+    lineage. Same provenance discipline as Table51FactorResult: raw_value
+    is NEVER mutated by normalization; data provenance (*_source_type/
+    *_source) is kept separate from rule provenance (rule_id/
+    rule_source_document/rule_source_page)."""
+    model_config = ConfigDict(extra="forbid")
+
+    field_id: str
+    factor_name: str
+    is_far_special_policy: bool = Field(
+        False, description="True only for individual_floor_area_ratio -- Shulin A2's deliberate no-rule-record special policy")
+    base_segment_code: str
+    comparable_segment_code: str
+
+    base_raw_value: Union[float, int, str, bool, None] = None
+    base_evaluation_value: Union[float, int, str, bool, None] = None
+    base_source_type: Optional[str] = None
+    base_source: Optional[str] = None
+
+    comparable_raw_value: Union[float, int, str, bool, None] = None
+    comparable_evaluation_value: Union[float, int, str, bool, None] = None
+    comparable_source_type: Optional[str] = None
+    comparable_source: Optional[str] = None
+
+    normalization_reason: Optional[str] = None
+    mapping_source: Optional[str] = None
+
+    base_grade: Optional[str] = None
+    comparable_grade: Optional[str] = None
+    adjustment_pct: Optional[Decimal] = None
+
+    rule_id: Optional[str] = None
+    rule_source_document: Optional[str] = None
+    rule_source_page: Optional[str] = None
+
+    status: FieldStatus
+    requires_manual_review: bool = False
+    reason: Optional[str] = None
+
+
+class Table4WeightStatus(str, Enum):
+    """不動產估價技術規則§27 has NO formula for combining multiple
+    comparables' trial prices into weights (see engine/comparable_
+    selection_engine.py's own module docstring, re-verified directly
+    against law.moj.gov.tw). A suggested weight is ALWAYS a disclosed,
+    named convention -- never claimed as the legally-determined value."""
+    SYSTEM_AUXILIARY_SUGGESTION = "SYSTEM_AUXILIARY_SUGGESTION"
+    HUMAN_CONFIRMED = "HUMAN_CONFIRMED"
+    MANUAL_REVIEW_REQUIRED = "MANUAL_REVIEW_REQUIRED"
+
+
+class Table4Comparison(BaseModel):
+    """One COMPLETE, INDEPENDENT base<->comparable lineage (e.g. P001-00 ->
+    P002-00). `regional_adjustment_pct` is BRIDGED from the matching
+    Table51Comparison for this SAME comparable_segment_code (never re-
+    derived independently, never averaged across comparables, never taken
+    from a different comparable's Table5-1 result) -- see
+    `regional_adjustment_source_comparison_index` for the lineage proof."""
+    model_config = ConfigDict(extra="forbid")
+
+    comparable_segment_code: str
+    comparison_index: int
+
+    # 0基本資料 / price-date-related (COMPETITION_PROVIDED_FIXED, from 題目.pdf p.6)
+    transaction_date_raw: Optional[str] = None
+    land_normal_price_raw: Optional[Decimal] = None
+    price_date_adjustment_pct_raw: Optional[Decimal] = None
+    adjusted_price_raw: Optional[Decimal] = None
+    transaction_source_type: Optional[str] = None
+    transaction_source: Optional[str] = None
+
+    # Table5-1 bridge (Task 4) -- NEVER independently recomputed here.
+    regional_adjustment_pct: Optional[Decimal] = None
+    regional_adjustment_requires_manual_review: bool = False
+    regional_adjustment_source_comparison_index: Optional[int] = None
+
+    # 個別因素調整 (Task 5/6) -- 20 slots, reusing GradeEngine/AdjustmentEngine.
+    individual_factor_results: List[Table4FactorResult] = Field(default_factory=list)
+    individual_adjustment_total_pct: Optional[Decimal] = None
+
+    # 試算價格 chain (reusing engine/calculation_engine.py unmodified).
+    trial_price: Optional[Decimal] = None
+    adjustment_abs_sum: Optional[Decimal] = None
+
+    # 權重 (Task 9) -- always a disclosed, non-statutory suggestion unless a
+    # human has explicitly confirmed one.
+    weight_pct: Optional[Decimal] = None
+    weight_status: Table4WeightStatus = Table4WeightStatus.MANUAL_REVIEW_REQUIRED
+    weight_requires_human_confirmation: bool = True
+    weight_basis: Optional[str] = Field(
+        None, description="e.g. 'SYSTEM_AUXILIARY: inverse-proportional to adjustment_abs_sum, NON_STATUTORY'")
+
+    status: FieldStatus
+    requires_manual_review: bool = False
+    reason: Optional[str] = None
+
+
+class Table4Analysis(BaseModel):
+    """Top-level 表4 result for one Competition case -- base_segment_code
+    + an ORDERED list of comparisons, one per comparable segment."""
+    model_config = ConfigDict(extra="forbid")
+
+    case_id: str
+    base_segment_code: str
+    rule_profile_id: Optional[str] = None
+    comparisons: List[Table4Comparison] = Field(default_factory=list)
+
+
+# ---------------------------------------------------------------------------
 # Phase 5: Data Acquisition Layer
 # ---------------------------------------------------------------------------
 
@@ -675,6 +918,49 @@ class ZoningQueryResult(BaseModel):
     dataset_version: Optional[str] = None
     legal_status: str = "reference_only"
     derivation_method: str = "point_in_polygon"
+    requires_manual_review: bool = False
+    notes: Optional[str] = None
+
+
+class UrbanPlanStatus(str, Enum):
+    """Every value `UrbanPlanBoundaryResult.urban_plan_status` may honestly
+    take. This is a DIFFERENT judgment from ZoningQueryResult's zone_name
+    lookup above -- see providers/urban_plan_boundary_provider.py's module
+    docstring for why the two must never be collapsed into one result."""
+    INSIDE = "INSIDE"
+    OUTSIDE = "OUTSIDE"
+    AMBIGUOUS = "AMBIGUOUS"
+    UNKNOWN = "UNKNOWN"
+    PLAN_MAPPING_UNAVAILABLE = "PLAN_MAPPING_UNAVAILABLE"
+
+
+class UrbanPlanBoundaryResult(BaseModel):
+    """Result of resolving which 新北市都市計畫 (if any) a coordinate falls
+    in, via providers/urban_plan_boundary_provider.py's point-in-polygon
+    query against the locally-cached 新北市都市計畫範圍 snapshot. Always a
+    SEPARATE evidence from ZoningQueryResult (使用分區/zone_name) -- both
+    are independently derived from the same submitted coordinate and only
+    converge at the LandUseRatioEngine.resolve_floor_area_ratio(zone_name=,
+    plan_id=) call site, never earlier.
+
+    plan_id is the canonical, stable, version-controlled identifier from
+    data/rules/urban_plan_id_registry.json (see scripts/build_urban_plan_
+    id_registry.py) -- NEVER a hash of plan_name, and NEVER plan_name
+    itself. Only meaningful (non-None) when urban_plan_status == INSIDE.
+    """
+    model_config = ConfigDict(extra="forbid")
+
+    urban_plan_status: UrbanPlanStatus
+    plan_id: Optional[str] = None
+    plan_name: Optional[str] = None
+    source_code: Optional[str] = Field(
+        None, description="來源shapefile之key/SDF_ID屬性，如'64/28'，供追溯至原始圖徵記錄"
+    )
+    source_dataset: str = "新北市都市計畫範圍"
+    source_version: Optional[str] = Field(
+        None, description="DatasetRegistry快照版本（dataset_id='ntpc_plan_boundary'）"
+    )
+    source_type: str = "OFFICIAL_OPEN_DATA_REFERENCE"
     requires_manual_review: bool = False
     notes: Optional[str] = None
 
@@ -2035,3 +2321,448 @@ class OfficialParcelCoordinateEvidence(BaseModel):
     confidence: str = Field("UNKNOWN", description="'高'/'中'/'低'/'UNKNOWN'")
     requires_manual_review: bool = True
     notes: Optional[str] = None
+
+
+# ---------------------------------------------------------------------------
+# Case-Scoped Rule Architecture (docs/audit/CASE_SCOPED_RULE_ARCHITECTURE_
+# REPORT.md). Lets one case use a confirmed, competition-day evaluation
+# standard WITHOUT mutating the static data/rules/regional_rules.json /
+# individual_rules.json baseline that every other case (including the
+# Golden Case) keeps relying on. RuleEngine/GradeEngine/AdjustmentEngine
+# themselves are untouched -- a CaseRulePackage's regional_rules/
+# individual_rules are plain rule_schema.json-shaped dicts, identical in
+# shape to what those two static files already contain, merged in by
+# engine/case_rule_resolution.py::build_rule_engine_for_case() at request
+# time rather than by inventing a second rule format or a second engine.
+# ---------------------------------------------------------------------------
+
+class RuleSourceType(str, Enum):
+    """Attached per-rule_id by build_rule_engine_for_case() (never inside
+    RuleEngine/GradeEngine themselves) so every Grade/Adjustment result can
+    be traced back to whether it came from the static baseline or a
+    human-CONFIRMED case-scoped package -- see CaseRuleResolution.trace_by_
+    rule_id below."""
+    STATIC_LOCAL = "STATIC_LOCAL"
+    CASE_IMPORTED_CONFIRMED = "CASE_IMPORTED_CONFIRMED"
+
+
+class CaseRulePackageStatus(str, Enum):
+    """DRAFT/EXTRACTED/PARTIAL/AMBIGUOUS/REJECTED can NEVER reach
+    RuleEngine -- only a package that has reached CONFIRMED via
+    CaseRuleRepository.confirm() (which itself re-runs engine.
+    rule_table_validator.RuleTableValidator and refuses to confirm if any
+    ERROR-severity issue exists) may be resolved into a live RuleEngine.
+    See CONFIRMED Gate in the case-scoped rule architecture report.
+    AMBIGUOUS (added for the Evaluation Standard Importer, see
+    docs/audit/EVALUATION_STANDARD_IMPORTER_PHASE3A_REPORT.md) marks a
+    package whose extraction could not confidently resolve a factor name
+    or matrix -- distinct from PARTIAL (some rows/scopes cleanly resolved,
+    others didn't) and EXTRACTED (fully clean, still not human-confirmed)."""
+    DRAFT = "DRAFT"
+    EXTRACTED = "EXTRACTED"
+    PARTIAL = "PARTIAL"
+    AMBIGUOUS = "AMBIGUOUS"
+    CONFIRMED = "CONFIRMED"
+    REJECTED = "REJECTED"
+
+
+class RuleFieldEdit(BaseModel):
+    """One append-only audit-log entry for a human edit to a single field
+    of a single rule record within a CaseRulePackage (docs/audit/
+    EVALUATION_STANDARD_HUMAN_CONFIRMATION_PHASE3B_REPORT.md §3). Never
+    overwritten or deleted -- CaseRulePackage.edit_history is append-only,
+    so a rule record's confirmed value can always be traced back to
+    exactly what the Importer originally extracted and who changed it."""
+    model_config = ConfigDict(extra="forbid")
+
+    rule_id: str = Field(..., description="編輯對象規則列（或'candidate:<candidate_id>'代表factor mapping類編輯）")
+    field: str = Field(..., description="被編輯的欄位名稱，例如grade_label/lower_bound/adjustment_matrix/applicability")
+    original_extracted_value: Any = None
+    confirmed_value: Any = None
+    edited: bool = True
+    confirmed_by: Optional[str] = None
+    confirmed_at: datetime
+
+
+class CaseRulePackage(BaseModel):
+    """One candidate (or confirmed) set of case-scoped evaluation-standard
+    rules, scoped to a single case_id so Case A's rules can never leak into
+    Case B's grading (see Isolation Strategy in the architecture report).
+
+    `regional_rules`/`individual_rules` are plain lists of rule_schema.json
+    -shaped dicts -- the SAME shape already used by data/rules/regional_
+    rules.json['rules'] / individual_rules.json['rules'] and already
+    produced by engine/rule_table_ingest.py::build_rules_from_csv(). This
+    is a DELIBERATE reuse, not a new rule format: RuleEngine.__init__()
+    takes exactly this shape today.
+
+    Only one CONFIRMED package may exist per case_id at a time (enforced by
+    CaseRuleRepository.confirm(), not by this model) -- confirming a
+    replacement requires first rejecting the previously-confirmed package,
+    so there is never an ambiguous "which CONFIRMED package applies" state."""
+    model_config = ConfigDict(extra="forbid")
+
+    case_id: str
+    package_id: str
+    rule_version: str = Field(..., description="人工指定之版本標籤，例如'2026-competition-day-v1'")
+
+    source_document: str = Field(..., description="來源檔名或document_id，供traceability使用")
+    source_sha256: Optional[str] = Field(None, description="來源文件SHA-256，若可取得")
+    source_type: str = Field(..., description="自由文字，例如'MANUAL_CSV_INGEST'/'HUMAN_TRANSCRIPTION'")
+
+    status: CaseRulePackageStatus = CaseRulePackageStatus.DRAFT
+
+    regional_rules: List[Dict[str, Any]] = Field(default_factory=list)
+    individual_rules: List[Dict[str, Any]] = Field(default_factory=list)
+
+    created_at: datetime
+    confirmed_at: Optional[datetime] = None
+    confirmed_by: Optional[str] = None
+    rejected_at: Optional[datetime] = None
+    rejected_by: Optional[str] = None
+    rejection_reason: Optional[str] = None
+
+    metadata: Dict[str, Any] = Field(default_factory=dict)
+    warnings: List[str] = Field(default_factory=list)
+    edit_history: List[RuleFieldEdit] = Field(default_factory=list)
+
+
+class CaseRuleTraceInfo(BaseModel):
+    """Per-rule_id provenance, produced by build_rule_engine_for_case() and
+    kept OUTSIDE RuleEngine/GradeEngine/domain.models.RuleResult (neither is
+    modified by this architecture) -- callers look this up by the rule_id
+    that RuleResult/AdjustmentResult already carry."""
+    model_config = ConfigDict(extra="forbid")
+
+    rule_source_type: RuleSourceType
+    case_id: Optional[str] = None
+    package_id: Optional[str] = None
+    source_document: Optional[str] = None
+    source_sha256: Optional[str] = None
+    rule_version: Optional[str] = None
+
+
+class CaseRuleResolution(BaseModel):
+    """Returned by build_rule_engine_for_case() alongside the RuleEngine
+    instance itself (the RuleEngine is NOT a pydantic model and is not part
+    of this object). `resolution_status` distinguishes the three cases
+    Failure Semantics requires callers to tell apart:
+      STATIC_LOCAL            -- no case package at all, or none CONFIRMED
+                                  yet (normal baseline; NOT an error)
+      CASE_IMPORTED_CONFIRMED -- a CONFIRMED package supplied at least one
+                                  scope's rules and is in effect
+      CASE_RULE_NOT_CONFIRMED -- a package exists for this case but no
+                                  version of it has ever been CONFIRMED
+                                  (static baseline still used; warning only)
+    CASE_RULE_INVALID is deliberately NOT a resolution_status value -- an
+    invalid CONFIRMED package makes build_rule_engine_for_case() raise
+    CaseRulePackageInvalidError instead of returning, so no caller can
+    mistake it for a successful resolution."""
+    model_config = ConfigDict(extra="forbid")
+
+    case_id: Optional[str] = None
+    resolution_status: str = Field(..., description="'STATIC_LOCAL' | 'CASE_IMPORTED_CONFIRMED' | 'CASE_RULE_NOT_CONFIRMED'")
+    package_id: Optional[str] = None
+    trace_by_rule_id: Dict[str, CaseRuleTraceInfo] = Field(default_factory=dict)
+    warnings: List[str] = Field(default_factory=list)
+
+
+# ---------------------------------------------------------------------------
+# AI Semantic Fallback (docs/audit/AI_SEMANTIC_FALLBACK_PHASE3C_REPORT.md).
+# Only ever ADVISORY: a SemanticRuleMappingCandidate is a proposal a human
+# reviewer sees in the Review DTO and may accept (via the SAME Phase 3B
+# CaseRuleRepository.resolve_candidate_factor_mapping()/submit_human_edits()
+# a human-typed correction would use) or ignore -- nothing in this module
+# ever writes directly into CaseRulePackage.regional_rules/individual_rules.
+# ---------------------------------------------------------------------------
+
+class SemanticRuleMappingCandidate(BaseModel):
+    """The ONLY fields a SemanticRuleMappingProvider may populate (Phase 3C
+    §2's explicit output contract). No grade/rank/adjustment_rate/price/
+    legal_conclusion field exists on this model AT ALL -- not merely
+    validated-against, structurally absent, so no code path can accidentally
+    forward one even if a provider's raw response smuggled it in before
+    validation (validate_ai_response_schema() in providers/semantic_rule_
+    mapping_provider.py runs on the RAW dict first and rejects any such
+    response outright, but this model is the second, structural line of
+    defense: there is no field here to assign it to)."""
+    model_config = ConfigDict(extra="forbid")
+
+    candidate_factor_id: Optional[str] = None
+    candidate_condition_id: Optional[str] = None
+    normalized_condition_candidate: Optional[str] = None
+    candidate_unit: Optional[str] = None
+    candidate_value_type: Optional[str] = None
+    confidence: str = Field(..., description="'HIGH' | 'MEDIUM' | 'LOW' -- affects ONLY human review priority, never auto-confirmation")
+    reason: str
+
+
+class SemanticRuleMappingResult(BaseModel):
+    """Full provenance envelope around one AI proposal attempt (§5) --
+    persisted verbatim in CaseRulePackage.metadata['ai_semantic_candidates']
+    (keyed by candidate_id), independent of and never overwritten by
+    whatever a human later decides via edit_history (Phase 3B)."""
+    model_config = ConfigDict(extra="forbid")
+
+    candidate_id: str
+    original_text: str
+    deterministic_failure_reason: List[str] = Field(default_factory=list, description="The Importer issue codes that triggered AI (UNKNOWN_FACTOR/RULE_EXTRACTION_AMBIGUOUS/...)")
+    provider: str = Field(..., description="'MOCK' | 'BEDROCK'")
+    model_id: Optional[str] = None
+    prompt_version: str
+    status: str = Field(..., description="'OK' | 'SCHEMA_INVALID' | 'SCOPE_VIOLATION' | 'PROVIDER_UNAVAILABLE'")
+    candidate: Optional[SemanticRuleMappingCandidate] = None
+    error_message: Optional[str] = None
+    created_at: datetime
+
+
+# ---------------------------------------------------------------------------
+# Competition Case State (STEP 5 §2). Tracked SEPARATELY from every stage's
+# own record (META/FACTORS/case_rule_package/FORM_COMPLETION/REVIEW_RESULT)
+# via case_store's generic put_record/get_record under SK="COMPETITION_STATE"
+# -- this module adds NO new persistence mechanism and touches no Core
+# Freeze engine; it is a pure tracking/reporting layer a
+# CompetitionOrchestrator (or any handler) updates as each real stage
+# completes, never a second source of truth for what those stages computed.
+# ---------------------------------------------------------------------------
+
+class CompetitionLifecycleStage(str, Enum):
+    """The suggested STEP5 §2 lifecycle. Strictly forward-moving under
+    normal progress (CompetitionCaseState.advance() enforces this -- see
+    backend/handlers/competition_state.py), but ANY stage may instead
+    transition straight to MANUAL_REVIEW_REQUIRED or FAILED on a blocking
+    condition -- overall_status must never claim COMPLETE/PDF_READY when a
+    blocking issue exists, per §2's explicit "不得假裝COMPLETE"."""
+    CREATED = "CREATED"
+    DOCUMENTS_UPLOADED = "DOCUMENTS_UPLOADED"
+    APPRAISAL_EXTRACTED = "APPRAISAL_EXTRACTED"
+    EVALUATION_STANDARD_EXTRACTED = "EVALUATION_STANDARD_EXTRACTED"
+    RULE_REVIEW_REQUIRED = "RULE_REVIEW_REQUIRED"
+    RULE_CONFIRMED = "RULE_CONFIRMED"
+    DATA_COLLECTED = "DATA_COLLECTED"
+    ANALYZED = "ANALYZED"
+    FORMS_COMPLETED = "FORMS_COMPLETED"
+    REVIEWED = "REVIEWED"
+    PDF_READY = "PDF_READY"
+    MANUAL_REVIEW_REQUIRED = "MANUAL_REVIEW_REQUIRED"
+    FAILED = "FAILED"
+
+
+class CompetitionCaseState(BaseModel):
+    """Everything STEP5 §2 requires a Competition Case to be able to report
+    about its own progress. Every *_status field is a free-form string
+    (not itself a new enum per field) so each stage can report whatever
+    status vocabulary that stage's OWN handler already uses today
+    (rule_resolution_status's 'STATIC_LOCAL'/'CASE_IMPORTED_CONFIRMED'/
+    'CASE_RULE_NOT_CONFIRMED', CaseRulePackageStatus's own values, etc.) --
+    this model does not invent a second status taxonomy to keep in sync
+    with those."""
+    model_config = ConfigDict(extra="forbid")
+
+    case_id: str
+
+    appraisal_document_id: Optional[str] = None
+    appraisal_extraction_status: Optional[str] = None
+
+    evaluation_standard_document_id: Optional[str] = None
+    evaluation_standard_package_id: Optional[str] = None
+    evaluation_standard_status: Optional[str] = None
+
+    case_rule_status: Optional[str] = None
+
+    collect_data_status: Optional[str] = None
+    analyze_status: Optional[str] = None
+    complete_form_status: Optional[str] = None
+    review_status: Optional[str] = None
+    pdf_status: Optional[str] = None
+
+    overall_status: CompetitionLifecycleStage = CompetitionLifecycleStage.CREATED
+    manual_review_required: bool = False
+    blocking_issues: List[str] = Field(default_factory=list)
+    updated_at: Optional[datetime] = None
+
+
+class FacilityConfirmationStatus(str, Enum):
+    """FACILITY-CONFIRMATION-GATE-1. Mirrors CaseRulePackageStatus's own
+    "only confirm()/reject() ever mutate status" discipline (see
+    backend/handlers/facility_confirmation_repository.py's CONFIRMED
+    Gate) -- a raw provider/system-recommended candidate is ALWAYS
+    PENDING until a human reviewer acts on it; no provider, collect_data,
+    or the PDF renderer may ever create a record already CONFIRMED."""
+    PENDING = "PENDING"
+    CONFIRMED = "CONFIRMED"
+    REJECTED = "REJECTED"
+
+
+class FacilityCandidate(BaseModel):
+    """One system-recommended facility candidate for an official Table1
+    facility row (utility/funeral/major_station subtypes) -- NEVER itself
+    an official selection. Derived mechanically from FACTORS' own
+    already-collected provider evidence (FACTORS.points for utility/
+    funeral, FACTORS.official_facility_evidence for major_station), never
+    re-queried or re-derived from a name string or a new guess. See
+    backend/handlers/facility_confirmation_repository.py::derive_candidates().
+
+    `selection_basis` is an honesty label, not a safety claim (TABLE1-
+    MOST-IMPACTFUL-CROSS-CUTTING-AUDIT's finding that "nearest" is not
+    verified to equal the official manual's "most impactful" facility
+    for any of these subtypes) -- NEAREST_PROVIDER_RESULT (utility/
+    funeral: the provider already collapsed to a single nearest result
+    internally, before this candidate was even derived) or
+    NEAREST_VALID_DISTANCE (major_station: selected among government
+    facility_subtype=="MRT"/"TRA" matches by smallest verified positive
+    distance_m). Never "MOST_IMPACTFUL" or "OFFICIAL_CONFIRMED" -- no
+    code path in this system is authorized to claim either."""
+    model_config = ConfigDict(extra="forbid")
+
+    facility_type: str = Field(description="'utility' / 'funeral' / 'major_station'")
+    facility_subtype: str = Field(description="substation/gas_tank/cemetery/funeral_home/crematorium/columbarium/MRT/TRA")
+    name: Optional[str] = None
+    distance_m: Optional[float] = None
+    source: Optional[str] = None
+    source_type: Optional[str] = Field(None, description="'Mock'/'API'(OSM)/'GovernmentOpenData' -- never invented, always copied verbatim from the underlying NormalizedDataPoint/FacilityMatch")
+    source_url: Optional[str] = None
+    dataset_id: Optional[str] = None
+    confidence: Optional[str] = None
+    retrieved_at: Optional[str] = None
+    provenance_notes: Optional[str] = None
+    selection_basis: str = Field(description="NEAREST_PROVIDER_RESULT | NEAREST_VALID_DISTANCE -- never MOST_IMPACTFUL or OFFICIAL_CONFIRMED")
+
+
+class FacilityConfirmationRecord(BaseModel):
+    """FACILITY-CONFIRMATION-GATE-1's CONFIRMED Gate record -- one per
+    (case_id, subtype), SK=f"FACILITY_CONFIRMATION#{subtype}" in
+    case_store.py's shared table (mirrors case_rule_repository.py's own
+    SK-family convention, a NEW/separate record family, not sharing rows
+    with CASE_RULE_PACKAGE#/CASE_RULE_CONFIRMED_POINTER).
+
+    `candidate` is the LATEST system-derived recommendation (refreshed on
+    every get_or_refresh_candidates() call); `confirmed_selection` is a
+    SEPARATE snapshot taken only at the moment confirm() was called -- a
+    later candidate refresh can update `candidate` (and set `stale=True`
+    if it now differs) without ever silently altering what was actually
+    confirmed. official_pdf_renderer.py reads ONLY confirmed_selection
+    (via a CONFIRMED-status record), never `candidate`.
+
+    `CONFIRMED` means "a reviewer accepted this candidate as usable" --
+    it is explicitly NOT a claim that the underlying source is government-
+    official data (see FacilityCandidate.source_type, which stays
+    Mock/API/GovernmentOpenData as appropriate regardless of confirmation
+    status)."""
+    model_config = ConfigDict(extra="forbid")
+
+    case_id: str
+    subtype: str
+    # COMPETITION-DOMAIN-MULTI-SEGMENT-B1 Task 6/7: EXPLICIT, OPTIONAL --
+    # None means this is a LEGACY (pre-B1) single-segment record, keyed by
+    # SK=f"FACILITY_CONFIRMATION#{subtype}" (unchanged). A non-None value
+    # means this record belongs to ONE specific segment of a multi-segment
+    # Competition case, keyed by SK=f"FACILITY_CONFIRMATION#{segment_code}#
+    # {subtype}" -- see backend/handlers/facility_confirmation_repository.py.
+    # Never inferred from case_id/subtype; always explicitly passed in.
+    segment_code: Optional[str] = None
+    status: FacilityConfirmationStatus = FacilityConfirmationStatus.PENDING
+    candidate: Optional[FacilityCandidate] = None
+    confirmed_selection: Optional[FacilityCandidate] = None
+    reviewer_note: Optional[str] = None
+    confirmed_by: Optional[str] = None
+    rejected_by: Optional[str] = None
+    stale: bool = Field(False, description="True when a freshly-derived candidate differs from confirmed_selection while status==CONFIRMED -- surfaced for human awareness, never auto-resolved")
+    created_at: str
+    updated_at: str
+
+
+# ---------------------------------------------------------------------------
+# COMPETITION-DOMAIN-MULTI-SEGMENT-B1: explicit Segment domain model.
+#
+# A single Competition Case (e.g. shulin_residential_2026's official 4-
+# parcel contract) is NOT one price segment (地價區段) shared by every
+# party -- the 比準地 (base parcel) and each of its N 比較標的 (comparables)
+# each sit in their OWN 地價區段, each independently surveyed on its own
+# 表3 地價區段勘查表. `segment_role` is ALWAYS explicit (supplied by
+# whoever defines the case's segment map, e.g. a fixture-builder script or
+# a future frontend form) -- NEVER inferred by parsing the segment_code
+# string itself (Task 1's explicit prohibition: no "P001" prefix guessing).
+# ---------------------------------------------------------------------------
+
+class SegmentRole(str, Enum):
+    BASE_SEGMENT = "BASE_SEGMENT"
+    COMPARABLE_SEGMENT_1 = "COMPARABLE_SEGMENT_1"
+    COMPARABLE_SEGMENT_2 = "COMPARABLE_SEGMENT_2"
+    COMPARABLE_SEGMENT_3 = "COMPARABLE_SEGMENT_3"
+
+
+_COMPARABLE_ROLE_BY_INDEX = {
+    1: SegmentRole.COMPARABLE_SEGMENT_1,
+    2: SegmentRole.COMPARABLE_SEGMENT_2,
+    3: SegmentRole.COMPARABLE_SEGMENT_3,
+}
+
+
+class CompetitionSegment(BaseModel):
+    """One 地價區段 (price zone) -- either the base parcel's own segment or
+    one comparable's. `parcel_ids` holds whatever 地號/宗地流水號 identifies
+    the parcel(s) surveyed within this segment (may be more than one, e.g.
+    P001-00's "新北市樹林區文林段317地號"-style single parcel, or a segment
+    covering multiple 地號) -- never conflated with segment_code itself."""
+    model_config = ConfigDict(extra="forbid")
+
+    segment_code: str
+    segment_role: SegmentRole
+    comparison_index: Optional[int] = Field(
+        None, description="1/2/3 for a COMPARABLE_SEGMENT_N; must be None for BASE_SEGMENT"
+    )
+    parcel_ids: List[str] = Field(default_factory=list)
+    district: str
+    land_use_type: str
+
+    @model_validator(mode="after")
+    def _role_matches_comparison_index(self) -> "CompetitionSegment":
+        if self.segment_role == SegmentRole.BASE_SEGMENT:
+            if self.comparison_index is not None:
+                raise ValueError("BASE_SEGMENT must not carry a comparison_index")
+        else:
+            expected = _COMPARABLE_ROLE_BY_INDEX.get(self.comparison_index)
+            if expected is None or expected != self.segment_role:
+                raise ValueError(
+                    f"segment_role={self.segment_role.value!r} does not match "
+                    f"comparison_index={self.comparison_index!r} (expected "
+                    f"{_COMPARABLE_ROLE_BY_INDEX.get(self.comparison_index)!r})"
+                )
+        return self
+
+
+class CompetitionSegmentMap(BaseModel):
+    """The explicit, whole-case segment map: one base_segment + an ordered
+    list of comparable segments. This is the ONLY source of truth for
+    "which segment_codes belong to this case and what role each plays" --
+    resolve_segment() (backend/handlers/competition_segments.py) looks up
+    strictly within ONE case's own map, so a segment_code that happens to
+    also exist in a DIFFERENT case's map can never leak across (Task 15's
+    cross-case safety falls out of case_store.py's existing PK=CASE#<id>
+    partitioning, not any extra check here)."""
+    model_config = ConfigDict(extra="forbid")
+
+    case_id: str
+    base_segment: CompetitionSegment
+    comparables: List[CompetitionSegment] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def _validate_shape(self) -> "CompetitionSegmentMap":
+        if self.base_segment.segment_role != SegmentRole.BASE_SEGMENT:
+            raise ValueError("base_segment.segment_role must be BASE_SEGMENT")
+        seen_codes = {self.base_segment.segment_code}
+        seen_indices = set()
+        for comp in self.comparables:
+            if comp.segment_role == SegmentRole.BASE_SEGMENT:
+                raise ValueError("a comparable segment must not have segment_role=BASE_SEGMENT")
+            if comp.segment_code in seen_codes:
+                raise ValueError(f"duplicate segment_code={comp.segment_code!r} within one case")
+            seen_codes.add(comp.segment_code)
+            if comp.comparison_index in seen_indices:
+                raise ValueError(f"duplicate comparison_index={comp.comparison_index!r} within one case")
+            seen_indices.add(comp.comparison_index)
+        return self
+
+    def all_segments(self) -> List[CompetitionSegment]:
+        return [self.base_segment] + list(self.comparables)

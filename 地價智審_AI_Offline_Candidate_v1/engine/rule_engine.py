@@ -204,12 +204,50 @@ class RuleEngine:
             matched_rule=matched
         )
 
+    @staticmethod
+    def _bounds_contain(value, lb, ub, lb_inc, ub_inc) -> bool:
+        """One (lower_bound, upper_bound) band test -- shared by both the
+        single-range path (rule['lower_bound']/['upper_bound']) and the
+        multi-segment path (one entry of rule['range_segments']) below, so
+        there is exactly one place this comparison is implemented."""
+        lower_ok = True
+        upper_ok = True
+        if lb is not None:
+            lower_ok = (value >= lb) if lb_inc else (value > lb)
+        if ub is not None:
+            upper_ok = (value < ub) if not ub_inc else (value <= ub)
+        return lower_ok and upper_ok
+
     def _match_numeric(self, candidates, value, factor):
+        """SHULIN-COMPETITION-RULE-PACK-A2 Task 5/6/7: a rule row MAY carry
+        an optional `range_segments` list (each item shaped exactly like a
+        single rule's own lower_bound/upper_bound/lower_inclusive/
+        upper_inclusive) instead of -- or in addition to expressing nothing
+        useful in -- its own top-level bounds, for a grade whose real-world
+        definition is genuinely two or more DISJOINT numeric ranges (e.g.
+        land_depth's 普通 = 7≤depth<14 OR 40≤depth<50). A rule with no
+        `range_segments` (every pre-existing Jinshan rule, and every
+        Shulin rule except IND-LAND_DEPTH-03/-05) is matched EXACTLY as
+        before via its own single lower_bound/upper_bound -- this is a
+        pure ADDITION, never a behavior change, for any rule that doesn't
+        set this field."""
         if not isinstance(value, (int, float)):
             raise RuleNotFoundError(
                 f"Factor {factor!r} requires a numeric value for range matching, got {type(value)}"
             )
         for rule in candidates:
+            segments = rule.get("range_segments")
+            if segments:
+                for seg in segments:
+                    if seg.get("lower_bound") is None and seg.get("upper_bound") is None:
+                        continue
+                    if self._bounds_contain(
+                        value, seg.get("lower_bound"), seg.get("upper_bound"),
+                        seg.get("lower_inclusive"), seg.get("upper_inclusive"),
+                    ):
+                        return rule
+                continue
+
             lb, ub = rule["lower_bound"], rule["upper_bound"]
             if lb is None and ub is None:
                 # Fully-unbounded band = a categorical sentinel state (e.g.
@@ -218,13 +256,7 @@ class RuleEngine:
                 # distance can never accidentally match "already inside".
                 continue
             lb_inc, ub_inc = rule["lower_inclusive"], rule["upper_inclusive"]
-            lower_ok = True
-            upper_ok = True
-            if lb is not None:
-                lower_ok = (value >= lb) if lb_inc else (value > lb)
-            if ub is not None:
-                upper_ok = (value < ub) if not ub_inc else (value <= ub)
-            if lower_ok and upper_ok:
+            if self._bounds_contain(value, lb, ub, lb_inc, ub_inc):
                 return rule
         raise RuleNotFoundError(
             f"Value {value} for factor {factor!r} did not match any band "

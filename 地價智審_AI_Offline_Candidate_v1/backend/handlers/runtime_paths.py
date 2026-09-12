@@ -83,14 +83,31 @@ def bootstrap() -> None:
     if lambda_task_root:
         # Real or sam-local-invoke-emulated Lambda. EngineLayer (if
         # attached to this function) mounts at /opt/python; PdfFunction's
-        # Container Image instead bakes pdf/ directly under
-        # LAMBDA_TASK_ROOT (see backend/docker/pdf.Dockerfile) and has no
-        # Layer at all -- both are handled the same way here, purely by
-        # checking which paths actually exist.
+        # (and now GetExportJson/Excel/BundleFunction's, FRONTEND-UNIFIED-
+        # EXPORT-WIRING-F2) Container Image instead bakes engine/pdf/
+        # providers directly under LAMBDA_TASK_ROOT (see backend/docker/
+        # pdf.Dockerfile) and has no Layer at all -- both are handled the
+        # same way here, purely by checking which paths actually exist.
+        #
+        # F2 fix: this branch previously added ONLY LAMBDA_TASK_ROOT/pdf
+        # for the Container Image case, never LAMBDA_TASK_ROOT/engine or
+        # LAMBDA_TASK_ROOT/providers -- undetected until this round's real
+        # `sam local start-api` run (a genuine Lambda cold start) produced
+        # "No module named 'rule_engine'" / "No module named
+        # 'semantic_rule_mapping_provider'" the moment pdf_handler.py's
+        # import chain reached shulin_official_pdf_handler.py ->
+        # rule_engine_factory.py. Every prior round only ever called
+        # handler functions directly in-process (bypassing a real cold
+        # start's import mechanics entirely), so this pre-existing gap
+        # was never exercised -- it would have broken the ALREADY-PASSED
+        # E1 Official PDF endpoint in a real AWS deployment too, not just
+        # F2's new export routes.
         _add_if_exists("/opt/python")
         _add_if_exists("/opt/python/engine")
         _add_if_exists("/opt/python/providers")
         _add_if_exists(os.path.join(lambda_task_root, "pdf"))
+        _add_if_exists(os.path.join(lambda_task_root, "engine"))
+        _add_if_exists(os.path.join(lambda_task_root, "providers"))
     else:
         # Local development / pytest: this file's own location IS a
         # reliable "3 levels below repo root" signal ONLY in this
@@ -121,7 +138,7 @@ def data_dir() -> str:
     back to without it."""
     lambda_task_root = os.environ.get("LAMBDA_TASK_ROOT")
     if lambda_task_root:
-        candidates = ["/opt/python/data"]
+        candidates = [os.path.join(lambda_task_root, "data"), "/opt/python/data"]
     else:
         repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         candidates = [os.path.join(repo_root, "data")]

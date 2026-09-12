@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-
 <head>
     <meta charset="utf-8">
     <title>案件結果｜地價智審 AI</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="地價智審 AI, 不動產估價, AI 審查" name="keywords">
-    <meta content="AI 輔助不動產估價案件審查系統" name="description">
+    <meta content="地價智審 AI, 案件結果, 不動產估價" name="keywords">
+    <meta content="顯示案件最終估價結果與審查摘要。" name="description">
 
     <link href="img/favicon.ico" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,9 +17,78 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css?v=20260912-brand-6" rel="stylesheet">
 
-    <!-- Loaded early (before body scripts) so Api/APP_CONFIG exist before any page-specific inline script runs -->
+    <style>
+        .result-hero {
+            padding: 34px;
+            text-align: center;
+            border: 1px solid var(--ai-border);
+            border-radius: 12px;
+            background: radial-gradient(circle at top, rgba(255,10,120,.12), transparent 44%), var(--ai-panel);
+        }
+
+        .result-meta {
+            color: var(--ai-muted);
+            font-size: .92rem;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0,1fr));
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .summary-card {
+            padding: 18px;
+            border: 1px solid var(--ai-border);
+            border-radius: 10px;
+            background: var(--ai-panel);
+            text-align: center;
+        }
+
+        .summary-card strong {
+            display: block;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .summary-card span {
+            color: var(--ai-muted);
+            font-size: .82rem;
+        }
+
+        .result-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 991.98px) {
+            .summary-grid {
+                grid-template-columns: repeat(2, minmax(0,1fr));
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .result-hero {
+                padding: 24px 16px;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+
     <script src="js/config.js"></script>
     <script src="js/api.js"></script>
     <script src="js/case-context.js"></script>
@@ -28,99 +96,200 @@
 
 <body>
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h2 class="mb-0 text-primary">
-                    <i class="fa-solid fa-landmark me-2"></i>地價智審 AI
-                </h2>
+        <nav class="navbar navbar-dark app-navbar" aria-label="網站標誌">
+            <a href="index.html" class="navbar-brand">
+                <i class="fa-solid fa-landmark" aria-hidden="true"></i><span>地價智審 <b>AI</b></span>
             </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link">首頁</a>
-                    <a href="case.html" class="nav-item nav-link ">案件列表</a>
-                    <a href="review.html" class="nav-item nav-link ">智慧審查</a>
+        </nav>
+    </div>
+
+    <section class="app-shell">
+        <div class="container">
+            <div class="app-stepper">
+                <a href="case-new.html?ui=file-list-13" class="done" data-preserve-case><span class="step-num">1</span>建立案件</a>
+                <a href="pdf-preview.html?ui=reader-16" class="done" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="result.html?ui=20260912-6" class="active" data-preserve-case><span class="step-num">3</span>案件結果</a>
+            </div>
+
+            <h2 class="section-title" style="font-size:1.8rem;">案件結果</h2>
+            <p class="section-text mb-4">顯示本案件的最終估價結果與檢核摘要。</p>
+
+            <div id="loadingState" class="state-loading"><div class="spinner-border"></div></div>
+
+            <div id="content" style="display:none;">
+                <div class="result-hero">
+                    <p class="section-text mb-1">比準地比較價格</p>
+                    <div id="finalPrice" class="field-value-final">-</div>
+                    <p id="statusLine" class="result-meta mt-2 mb-0"></p>
                 </div>
-                <div class="d-none d-lg-flex">
-                    <a class="btn btn-outline-primary border-2" href="case-new.html">
-                        <i class="fa-solid fa-plus me-1"></i> 建立案件
+
+                <div id="reviewSummary" class="summary-grid"></div>
+
+                <!-- SUPPLEMENTAL-JSON-EXCEL-EXPORT-H1 / FRONTEND-UNIFIED-EXPORT-
+                     WIRING-F2 outputs, carried into the merged teammate UI. -->
+                <div class="result-hero mt-4" id="exportSection">
+                    <h5 class="mb-3"><i class="fa-solid fa-download me-2"></i>輸出文件</h5>
+                    <p class="section-text mb-2"><strong>正式文件</strong></p>
+                    <div id="officialPdfStatus" class="section-text mb-2">尚未載入</div>
+                    <div id="officialPdfActions" class="d-flex flex-wrap justify-content-center gap-2 mb-4"></div>
+                    <p class="section-text mb-2"><strong>補充資料</strong></p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <div>
+                            <div id="jsonExportStatus" class="section-text mb-1">尚未操作</div>
+                            <button id="jsonDownloadBtn" class="btn btn-ai-outline"><i class="fa-solid fa-file-code me-2"></i>下載 JSON</button>
+                        </div>
+                        <div>
+                            <div id="excelExportStatus" class="section-text mb-1">尚未操作</div>
+                            <button id="excelDownloadBtn" class="btn btn-ai-outline"><i class="fa-solid fa-file-excel me-2"></i>下載 Excel</button>
+                        </div>
+                        <div>
+                            <div id="bundleExportStatus" class="section-text mb-1">尚未操作</div>
+                            <button id="bundleDownloadBtn" class="btn btn-ai-outline"><i class="fa-solid fa-box-archive me-2"></i>下載完整資料包</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <a href="pdf-preview.html?ui=reader-16" class="btn btn-ai-primary" data-preserve-case>
+                        <i class="fa-solid fa-file-pdf me-2"></i>返回 PDF 與 AI 問答
+                    </a>
+                    <a href="case-new.html?ui=file-list-13" class="btn btn-ai-outline">
+                        <i class="fa-solid fa-plus me-2"></i>建立新案件
                     </a>
                 </div>
             </div>
-        </nav>
-    </div>
-<section class="app-shell"><div class="container"><div class="app-stepper"><a href="case.html" class="done" data-preserve-case><span class="step-num">1</span>案件列表</a><a href="case-new.html" class="done" data-preserve-case><span class="step-num">2</span>建立案件</a><a href="data.html" class="done" data-preserve-case><span class="step-num">3</span>資料收集</a><a href="analysis.html" class="done" data-preserve-case><span class="step-num">4</span>因素分析</a><a href="form-fill.html" class="done" data-preserve-case><span class="step-num">5</span>書表填寫</a><a href="pdf-preview.html" class="done" data-preserve-case><span class="step-num">6</span>PDF預覽</a><a href="document-review.html" class="" data-preserve-case><span class="step-num"><i class="fa-solid fa-file-import"></i></span>文件上傳（選用）</a><a href="review.html" class="done" data-preserve-case><span class="step-num">7</span>智慧審查</a><a href="result.html" class="active" data-preserve-case><span class="step-num">8</span>案件結果</a></div>
-<h2 class="section-title" style="font-size:1.8rem;">案件結果</h2>
-<p class="section-text mb-4">GET /api/cases/{id}/result —— 案件最終總覽。</p>
-<div id="loadingState" class="state-loading"><div class="spinner-border"></div></div>
-<div id="content" style="display:none;">
-  <div class="app-card text-center mb-4">
-    <p class="section-text mb-1">比準地比較價格</p>
-    <div class="field-value-final" id="finalPrice">-</div>
-    <p class="section-text mt-2" id="statusLine"></p>
-  </div>
-  <div class="row g-3 mb-4" id="reviewSummary"></div>
-  <a id="pdfLink" href="pdf-preview.html" class="btn btn-ai-primary" data-preserve-case><i class="fa-solid fa-file-pdf me-2"></i>查看PDF</a>
-  <a href="case.html" class="btn btn-ai-outline ms-2"><i class="fa-solid fa-list me-2"></i>返回案件列表</a>
-</div>
-<script>
-(async () => {
-    const caseNo = CaseContext.currentCaseNo();
-    if (!caseNo) {
-        document.getElementById('loadingState').innerHTML = '<div class="state-error">缺少案號（case_no），請從案件列表或建立案件重新進入。</div>';
-        return;
-    }
-    try {
-        const d = await Api.getResult(caseNo);
-        document.getElementById('loadingState').style.display='none';
-        document.getElementById('content').style.display='block';
-        document.getElementById('finalPrice').textContent = (d.final_value && d.final_value.base_parcel_comparison_price) ?
-            Number(d.final_value.base_parcel_comparison_price).toLocaleString() + ' 元/M²' : 'N/A';
-        document.getElementById('statusLine').innerHTML = `狀態：<span class="badge-${d.status==='COMPLETED'?'passed':'manual'}">${d.status}</span>`;
-        const rs = d.review_summary || {};
-        document.getElementById('reviewSummary').innerHTML = Object.entries(rs).map(([k,v]) => `
-            <div class="col-6 col-md-2"><div class="result-card"><span class="result-count">${v}</span><span class="result-label">${k}</span></div></div>
-        `).join('');
-    } catch (e) {
-        document.getElementById('loadingState').innerHTML = '<div class="state-error">'+((e&&e.error&&e.error.message)||'尚無結果')+'</div>';
-    }
-})();
-</script>
-</div></section>
+        </div>
+    </section>
+
     <footer class="container-fluid bg-dark text-light footer py-5">
         <div class="container text-center py-4">
-            <a href="index.html" class="text-decoration-none">
-                <h2 class="footer-brand mb-3"><i class="fa-solid fa-landmark text-primary me-2"></i>地價智審 AI</h2>
-            </a>
-            <p class="footer-copy mb-2">2026 新北市 AI 智慧城市黑客松｜AI 輔助不動產估價案件審查</p>
-            <p class="footer-copy mb-3">AI 文件理解 × 評價規則引擎 × 數值重算 × 跨表勾稽 × 人工覆核</p>
-            <p class="mb-0 small">
-                Designed By <a class="border-bottom" href="https://htmlcodex.com" target="_blank" rel="noopener">HTML Codex</a>.
-                Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a>.
-            </p>
+            <a href="index.html" class="text-decoration-none"></a>
         </div>
     </footer>
-
-    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top">
-        <i class="bi bi-arrow-up"></i>
-    </a>
 
     <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="js/main.js"></script>
+
     <script>
         document.getElementById('modeIndicator').textContent = (window.APP_CONFIG || {}).MODE || 'unknown';
         CaseContext.applyCaseQueryToLinks();
+
+        (async () => {
+            const caseNo = CaseContext.currentCaseNo();
+            if (!caseNo) {
+                document.getElementById('loadingState').innerHTML = '<div class="state-error">缺少案號，請先建立案件。</div>';
+                return;
+            }
+
+            try {
+                const d = await Api.getResult(caseNo);
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+
+                document.getElementById('finalPrice').textContent =
+                    d.final_value && d.final_value.base_parcel_comparison_price
+                        ? Number(d.final_value.base_parcel_comparison_price).toLocaleString() + ' 元/M²'
+                        : 'N/A';
+
+                document.getElementById('statusLine').innerHTML =
+                    `案件 ${d.case_no || caseNo}　狀態：<span class="badge-${d.status === 'COMPLETED' ? 'passed' : 'manual'}">${d.status || 'UNKNOWN'}</span>`;
+
+                const labels = {
+                    passed: '通過',
+                    error: '錯誤',
+                    warning: '警告',
+                    missing: '缺漏',
+                    inconsistent: '不一致'
+                };
+
+                // TEAM-PROJECT-MERGE-M1: a count the backend did not report is
+                // UNKNOWN, never 0 -- showing 0 would claim "checked, found none".
+                const rs = d.review_summary || {};
+                document.getElementById('reviewSummary').innerHTML = Object.entries(labels).map(([key, label]) => `
+                    <div class="summary-card">
+                        <strong>${rs[key] ?? '—'}</strong>
+                        <span>${label}</span>
+                    </div>
+                `).join('');
+            } catch (error) {
+                document.getElementById('loadingState').innerHTML = '<div class="state-error">尚無案件結果或讀取失敗。</div>';
+            }
+
+            // Shulin segment-scoped 案件目前沒有 segment-aware review()，get_result()
+            // 對這類案件恆回傳 status=COMPLETED（REVIEW_RESULT 不存在、issues=[]），
+            // 這不是真的審查通過，絕不得顯示為「通過」。用 export/json 是否成功判斷
+            // 案件型態，並快取給下方 JSON 下載鈕重用。
+            let cachedExportJson = null;
+            try {
+                cachedExportJson = await Api.getExportJson(caseNo);
+                document.getElementById('statusLine').innerHTML =
+                    `案件 ${caseNo}　審查狀態：<span class="badge-manual">待人工複核（Shulin segment-aware review 尚未建置）</span>`;
+            } catch (e) {
+                // legacy 案件或 Mock 模式：保留既有狀態文字
+            }
+
+            try {
+                const official = await Api.getOfficialPdf(caseNo);
+                if (official.pdf_url) {
+                    document.getElementById('officialPdfStatus').innerHTML =
+                        '<span style="color:#35c46a;">可下載（' + official.title + '）</span>';
+                    document.getElementById('officialPdfActions').innerHTML =
+                        `<a href="${official.pdf_url}" target="_blank" rel="noopener" class="btn btn-ai-primary"><i class="fa-solid fa-eye me-2"></i>查看 PDF</a>` +
+                        `<a href="${official.pdf_url}" target="_blank" rel="noopener" download="official_pdf_${caseNo}.pdf" class="btn btn-ai-outline"><i class="fa-solid fa-download me-2"></i>下載 PDF</a>`;
+                } else {
+                    document.getElementById('officialPdfStatus').innerHTML = '<span style="color:#ff4268;">PDF 尚未產生</span>';
+                }
+            } catch (e) {
+                console.error('[result.html] getOfficialPdf failed:', e);
+                document.getElementById('officialPdfStatus').innerHTML = '<span style="color:#ff4268;">PDF 產生失敗</span>';
+            }
+
+            document.getElementById('jsonDownloadBtn').addEventListener('click', async () => {
+                const el = document.getElementById('jsonExportStatus');
+                el.textContent = '下載中…';
+                try {
+                    const { text } = cachedExportJson || await Api.getExportJson(caseNo);
+                    downloadTextAsFile(text, `case_${caseNo}_data.json`, 'application/json');
+                    el.innerHTML = '<span style="color:#35c46a;">成功</span>';
+                } catch (e) {
+                    console.error('[result.html] getExportJson failed:', e);
+                    el.innerHTML = '<span style="color:#ff4268;">JSON 匯出失敗</span>';
+                }
+            });
+
+            document.getElementById('excelDownloadBtn').addEventListener('click', async () => {
+                const el = document.getElementById('excelExportStatus');
+                el.textContent = '下載中…';
+                try {
+                    const d2 = await Api.getExportExcel(caseNo);
+                    const a = document.createElement('a');
+                    a.href = d2.excel_zip_url; a.target = '_blank'; a.download = `case_${caseNo}_excel.zip`;
+                    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                    el.innerHTML = '<span style="color:#35c46a;">成功</span>';
+                } catch (e) {
+                    console.error('[result.html] getExportExcel failed:', e);
+                    el.innerHTML = '<span style="color:#ff4268;">Excel 匯出失敗</span>';
+                }
+            });
+
+            document.getElementById('bundleDownloadBtn').addEventListener('click', async () => {
+                const el = document.getElementById('bundleExportStatus');
+                el.textContent = '下載中…';
+                try {
+                    const d2 = await Api.getExportBundle(caseNo);
+                    const a = document.createElement('a');
+                    a.href = d2.bundle_zip_url; a.target = '_blank'; a.download = `case_${caseNo}_export_bundle.zip`;
+                    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                    el.innerHTML = '<span style="color:#35c46a;">成功</span>';
+                } catch (e) {
+                    console.error('[result.html] getExportBundle failed:', e);
+                    el.innerHTML = '<span style="color:#ff4268;">完整資料包匯出失敗</span>';
+                }
+            });
+        })();
     </script>
-    
 </body>
 </html>

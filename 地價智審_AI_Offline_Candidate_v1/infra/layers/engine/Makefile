@@ -20,6 +20,23 @@
 # Python files never imported by production code. Copying them would
 # bloat the deployed Layer for zero runtime benefit.
 #
+# data/snapshots/*.sqlite3 (~190MB 新北市使用分區 + ~5MB 新北市都市計畫
+#範圍) + data/dataset_registry.sqlite3 are DELIBERATELY NEVER packaged
+# here (2026-09-09 URBAN_PLAN_BOUNDARY_SNAPSHOT_NOT_PACKAGED audit, see
+# docs/backlog.md): an earlier attempt to bake them into this Layer hit
+# both a real size concern (190MB alone is uncomfortably close to
+# Lambda's 250MB combined Layer+package limit) and an unresolved `sam
+# build --use-container` packaging anomaly on the dev machine that
+# investigated it. The adopted fix is backend/handlers/gis_snapshot_
+# bootstrap.py -- the SAME S3-to-/tmp-at-cold-start pattern already
+# proven for the ~407MB cadastral dataset (backend/handlers/cadastral_
+# snapshot_bootstrap.py, itself intentionally NOT packaged into this
+# Layer either). Local/offline development is unaffected: it keeps
+# reading data/snapshots/ + data/dataset_registry.sqlite3 exactly as
+# scripts/sync_ntpc_zoning_dataset.py already produces them, via
+# DatasetRegistry's own DEFAULT_DB_PATH -- nothing about that path
+# resolution goes through this Makefile at all.
+#
 # Does NOT modify domain/engine/providers themselves -- this is a pure
 # copy + pip install, no source transformation of any kind.
 

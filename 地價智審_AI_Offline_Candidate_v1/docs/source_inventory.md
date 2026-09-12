@@ -277,6 +277,74 @@
 - **legal_status**：OFFICIAL_OPEN_DATA
 - **dataset_id**：fe26e0a5-54c2-4876-bbc7-150243c048f5（item 2）
 - **notes**：schema檢查結果：CRS=EPSG:3826（.prj確認），50筆都市計畫範圍圖徵，欄位=[key, Name, Url, SDF_ID, key1, LblName]。原預期Name/LblName欄位可提供官方都市計畫名稱，供point-in-polygon座標→都市計畫自動判定使用。**未採用原因**：逐byte核對Name/LblName欄位原始資料，確認其在來源端已損毀（原始bytes內含字面上的U+FFFD替代字元序列，big5/utf-8/cp950三種編碼嘗試結果一致，證實非本系統解碼參數猜錯）。Url欄位50筆記錄全數空白，無替代連結。資料集亦無CSV/GeoJSON等替代格式。故plan_id/official_plan_name之自動判定改為必須由外部（人工）提供，見providers/base.py ProviderContext docstring之完整記錄
+  > **✅ 2026-09-08更新：Name/LblName損毀問題已找到修復對照表**（見下方
+  > `ntpc_plan_boundary_name_lookup_patch`條目）——官方靜態Shapefile匯出
+  > 本身仍是壞的（本輪已重新下載一次比對SHA256，逐位元組與上方記錄相同，
+  > 證實官方尚未修復），但透過該局自己的即時ArcGIS地圖服務找到同一份
+  > 資料的未損毀版本，key/SDF_ID數值逐筆核對一致，已建立獨立的名稱
+  > 對照表。`plan_id`/`official_plan_name`目前**仍是**由外部（人工）提供
+  > 這件事本身**未改變**（対照表尚未接回`providers/base.py`
+  > `ProviderContext`或任何production程式碼，純資料修復，非程式碼串接），
+  > 但若未來要做自動化，此對照表可以是`data/sources/gis/新北市都市計畫
+  > 範圍.zip`裡幾何座標之外的另一個輸入來源。
+  >
+  > **✅ 2026-09-08再更新：本資料集之幾何座標（`key`/`SDF_ID`屬性）已
+  > 正式接回程式碼**——`scripts/sync_ntpc_zoning_dataset.py`新增
+  > `load_plan_boundary_polygons()`，讀本地封存之本zip（不重新下載），
+  > 對每筆「新北市使用分區」多邊形之centroid做point-in-polygon空間疊合，
+  > 查出所屬都市計畫邊界後，透過下方`ntpc_plan_boundary_name_lookup_patch`
+  > 對照表換成正確名稱，回填至`zoning_polygons`表原本恆為`NULL`的
+  > `plan_name`欄位（`providers/ntpc_zoning_provider.py`
+  > `RealNtpcZoningProvider.query()`本就已能回傳`plan_name`，只是資料源
+  > 一直是空的）。**仍未改變**：`plan_id`（`data/rules/plan_zone_floor_
+  > area_ratios.json`查表用之內部代碼，如`"jinshan"`）依然是由外部
+  > （人工）提供，未與此次解析出的`plan_name`（都市計畫中文全名）建立
+  > 對應——兩者是不同概念，見`providers/base.py` `ProviderContext`
+  > docstring之補充說明。落在都市計畫範圍圖資邊界外、或centroid同時
+  > 落入多個邊界多邊形（兩資料集邊界線非完全疊合之已知現實）時，一律
+  > 誠實回報`plan_name=None`並附註記，不猜測。
+
+### 新北市都市計畫範圍_名稱對照表.json（Name/LblName修復對照表，非官方發布之衍生檔案）
+
+- **source_id**：`ntpc_plan_boundary_name_lookup_patch`
+- **issuing_agency**：本專案自建（衍生自新北市政府城鄉發展局資料，非官方直接發布之檔案）
+- **source_type**：DERIVED_PATCH_TABLE（非原始官方發布格式，是本專案對上方
+  `ntpc_plan_boundary_shapefile`損毀欄位的獨立修復對照表）
+- **local_snapshot_path**：`data/sources/gis/新北市都市計畫範圍_名稱對照表.json`
+- **原始資料來源**：新北市政府城鄉發展局「新北市城鄉資訊查詢平台」
+  （https://urban.planning.ntpc.gov.tw/）背後之即時ArcGIS Server地圖服務，
+  圖層`NTPC_Urban/NTPCUPGIS_SDE`（MapServer layer id=1，
+  `NTPCUPGIS_SDE.dbo.Uplan`）——與上方壞掉的Shapefile是**同一套官方
+  資料庫**，只是這個即時服務的Name/LblName欄位未損毀
+- **retrieved_at**：2026-09-08
+- **legal_status**：OFFICIAL_OPEN_DATA（資料本體仍是官方資料；但存取管道
+  本身非data.ntpc.gov.tw正式公告之開放API，見下方重要但書）
+- **驗證方式**：50筆記錄之key/SDF_ID數值，逐筆與已損毀shapefile之
+  同名欄位核對，完全一致（例如key=64/SDF_ID=28兩邊皆同，對應Golden
+  Case金山區之「金山都市計畫」），證實為同一份資料，非另一個不相關
+  資料集
+- **重要但書（存取方式，非資料本身）**：此ArcGIS REST服務平時需要
+  access token才能查詢（未帶token直接查詢會得到「Token Required」
+  錯誤），並非如data.ntpc.gov.tw那樣任何人皆可直接呼叫、有正式文件
+  之開放API。本次取得方式是以Playwright載入官方查詢網頁、攔截該網頁
+  本身向後端請求之臨時session token，再用該token查詢——**這是一次性
+  資料修復手段，不是可長期倚賴、可正式串接進production的穩定介面**
+  （token會過期，此存取模式亦非新北市政府對外公告之穩定服務）。若
+  未來需要長期自動化取得此資料，應正式向新北市政府城鄉發展局洽詢
+  ArcGIS服務介接授權，或請其修復官方開放資料平台上的Shapefile匯出
+  流程本身，而非長期依賴此次取得的臨時token或這種攔截手法
+- **已知資料本身之既有瑕疵（非本次修復引入，原樣保留）**：`key=999`
+  在原始資料庫裡即有兩筆重複記錄，`Name`皆為「非都市計畫區」但
+  `LblName`分別為「林口特定區計畫」與「東北角海岸風景特定區計畫」，
+  本對照表原樣保留兩筆、未擅自判斷何者「正確」
+- **幾何座標**：本對照表僅含屬性名稱，不含多邊形座標。50個都市計畫的
+  幾何邊界本身在上方`新北市都市計畫範圍.zip`裡並未損毀，可沿用其
+  geometry，僅需替換其原本壞掉的Name/LblName屬性
+- **✅ 2026-09-08更新：已接進程式碼**——`scripts/sync_ntpc_zoning_
+  dataset.py`之`load_plan_name_lookup()`讀取本檔案，建成
+  `(key, sdf_id) -> name`對照dict，供`load_plan_boundary_polygons()`
+  查詢每筆邊界多邊形之正確都市計畫名稱使用（`key=999`兩筆重複記錄因
+  查表一律採複合鍵`(key, sdf_id)`而非單獨`key`，實際查詢不會遇到歧義）
 
 
 ## SEARCH_LEAD_NOT_USED（僅作搜尋線索，非官方來源，未採用）（4筆）

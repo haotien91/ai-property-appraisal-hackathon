@@ -75,3 +75,13 @@ body{margin:0;background:var(--cl-bg)!important;color:#f1f1f2;font-family:"Noto 
 .cl-divider{opacity:1;transition:none}
 .cl-resizing .cl-map-panel{transition:none!important}
 @media(max-width:760px){.cl-intro{position:relative;left:auto;top:auto;width:auto;padding:24px 20px 8px;transform:none;transition:none}.cl-intro h1{font-size:30px;margin-bottom:10px}.cl-intro h1 br{display:none}.cl-intro p br{display:none}.cl-intro-arrow{display:none}.has-shelf .cl-intro{display:none}.cl-map-panel{width:100%;margin-left:0;padding:12px}.cl-map{height:calc(100dvh - 290px);min-height:360px}.has-shelf .cl-map-panel{width:100%}.has-shelf .cl-shelf-panel{transition-delay:0s}}
+
+/* Keep district boundaries visible on both case-history fills. */
+.cl-district,.cl-district.has-cases{stroke:#b8b8bf;stroke-width:1.25}
+.cl-district:hover,.cl-district.has-cases:hover{stroke:#ece0e8}
+.cl-district.selected{stroke:#f2b2ce;stroke-width:2}
+.cl-map-panel{position:relative}
+.cl-map-legend{position:absolute;right:18px;bottom:14px;z-index:1;display:flex;flex-wrap:wrap;gap:10px 18px;padding:10px 12px;border:1px solid var(--cl-line);border-radius:8px;background:#151517;color:#d8d8de;font-size:13px;max-width:calc(100% - 36px)}
+.cl-map-legend span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.cl-legend-swatch{width:14px;height:14px;border:1px solid #b8b8bf;border-radius:3px;background:#29292d;flex-shrink:0}
+.cl-legend-has-cases{background:#704153}

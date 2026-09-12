@@ -46,7 +46,20 @@ def _dynamodb_round_tripped_to_str(value):
 
 
 def _evidence_from_dict(ev_raw: dict) -> Evidence:
-    source_type = _PROVIDER_SOURCE_TYPE_MAP.get(ev_raw.get("source_type"), SourceType.AI_ASSISTED_FILL)
+    # TABLE51-THREE-COMPARABLE-C1-FINAL-GATE-1 Task 2 fix: a caller that
+    # already stores a genuine SourceType enum VALUE (e.g. collect_data.py's
+    # competition_provided_factors, tagged "競賽題目提供固定值" ==
+    # SourceType.COMPETITION_PROVIDED_FIXED.value) must pass through as-is
+    # -- never silently reclassified as AI_ASSISTED_FILL just because it
+    # isn't a Provider-taxonomy string. _PROVIDER_SOURCE_TYPE_MAP (below)
+    # remains the fallback ONLY for genuine free-form Provider-taxonomy
+    # strings (e.g. "GovernmentOpenData"/"Mock") that are NOT already a
+    # valid SourceType value.
+    raw_source_type = ev_raw.get("source_type")
+    try:
+        source_type = SourceType(raw_source_type)
+    except ValueError:
+        source_type = _PROVIDER_SOURCE_TYPE_MAP.get(raw_source_type, SourceType.AI_ASSISTED_FILL)
     return Evidence(
         source=ev_raw.get("source") or _DEFAULT_EVIDENCE.source, source_type=source_type,
         confidence=ev_raw.get("confidence"), retrieved_at=ev_raw.get("retrieved_at"),
@@ -71,6 +84,46 @@ def to_factor_inputs(raw_list):
     return result
 
 
+def _apply_competition_provided_precedence(
+    base_list: list, factors_record: dict, fixed_key: str = "competition_provided_factors",
+) -> list:
+    """COMPETITION-DOMAIN-MULTI-SEGMENT-B1-FINAL-GATE-1 Task 6 (generalized
+    in TABLE4-THREE-COMPARABLE-D1 to also cover individual factors via
+    `fixed_key="competition_provided_individual_factors"` -- same merge
+    logic, no second implementation): a COMPETITION_PROVIDED_FIXED value
+    (see collect_data.py) ALWAYS wins over a Provider-derived `base_list`
+    entry for the SAME field_id -- the Provider's differing value is
+    dropped from what actually feeds the Rule/Grade Engine here (it
+    remains separately readable from FACTORS.regional_base_factors/points
+    for audit, just never used for grading), never merged/averaged/
+    silently preferred. A field_id the fixed bucket does NOT mention is
+    left completely untouched (whatever `base_list` already had for it,
+    unchanged). Note: `user_submitted_factors` (any "AI/user supplemental"
+    value a caller might separately put there) is NEVER read by this
+    function at all -- for regional factors it has no path into grading in
+    the first place; for individual factors it is the `base_list` itself,
+    which fixed values still take precedence over."""
+    fixed = factors_record.get(fixed_key) or []
+    if not fixed:
+        return base_list
+    fixed_field_ids = {f["field_id"] for f in fixed}
+    merged = [f for f in base_list if f.get("field_id") not in fixed_field_ids]
+    merged.extend(fixed)
+    return merged
+
+
+def apply_competition_provided_individual_precedence(base_list: list, factors_record: dict) -> list:
+    """TABLE4-THREE-COMPARABLE-D1 Task 2/10: the individual-factor
+    counterpart of _apply_competition_provided_precedence(), reading
+    factors_record["competition_provided_individual_factors"] (see
+    collect_data.py) instead of the regional bucket. `base_list` is
+    normally `user_submitted_factors.base_parcel_factors` or one
+    comparable_id's list from `user_submitted_factors.comparable_factors`."""
+    return _apply_competition_provided_precedence(
+        base_list, factors_record, fixed_key="competition_provided_individual_factors",
+    )
+
+
 def build_case_and_regional_factors(case_no: str, meta: dict, factors_record: dict):
     """Returns (CompetitionCase, regional_base_factors, regional_comparable_factors)
     from stored case metadata + FACTORS record. Raises the same exceptions a
@@ -78,7 +131,9 @@ def build_case_and_regional_factors(case_no: str, meta: dict, factors_record: di
     user_factors = factors_record.get("user_submitted_factors", {})
     base_list = user_factors.get("base_parcel_factors", []) if isinstance(user_factors, dict) else []
     comp_map = user_factors.get("comparable_factors", {}) if isinstance(user_factors, dict) else {}
-    regional_base = factors_record.get("regional_base_factors", [])
+    regional_base = _apply_competition_provided_precedence(
+        factors_record.get("regional_base_factors", []), factors_record,
+    )
     regional_comp = factors_record.get("regional_comparable_factors", {})
 
     case = CompetitionCase(

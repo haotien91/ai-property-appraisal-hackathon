@@ -1,19 +1,14 @@
 {
   "case_no": "1140901-99-001",
-  "pdf_url": "frontend/mock/pdf/表1_Golden_Case.pdf",
-  "pdf_urls": [
-    { "form": "表1", "url": "frontend/mock/pdf/表1_Golden_Case.pdf" },
-    { "form": "表4+表5-2（系統整合輸出）", "url": "frontend/mock/pdf/表4_表5-2_Golden_Case.pdf" }
-  ],
-  "generated_at": "2026-08-30T06:20:57.689070",
-  "forms_included": [
-    "表1",
-    "表4+表5-2（系統整合輸出）"
-  ],
-  "page_count": {
-    "表1": 2,
-    "表4+表5-2": 6
+  "generated_at": "2026-09-12T22:54:20.275875",
+  "forms": {
+    "official_form": {
+      "pdf_url": "frontend/mock/pdf/shulin_official_six_page_v1.pdf",
+      "title": "官方六頁式查估書表（表3x4+表5-1+表4）"
+    }
   },
-  "fallback_mode": true,
-  "fallback_reason": "官方查估書表範本.pdf非標準PDF(無AcroForm可填欄位)，採結構化結果->系統產出報表之後備輸出方式"
+  "pdf_url": "frontend/mock/pdf/shulin_official_six_page_v1.pdf",
+  "official_pdf_url": "frontend/mock/pdf/shulin_official_six_page_v1.pdf",
+  "official_pdf_status": "READY",
+  "official_pdf_page_count": 6
 }
