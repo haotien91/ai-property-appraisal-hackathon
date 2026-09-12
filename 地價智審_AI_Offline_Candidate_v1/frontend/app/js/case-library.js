@@ -1,10 +1,13 @@
 /* Standalone prototype. Stable case IDs are independent of editable display names.
  * Replace the demo data / name storage adapter when the case database is ready.
  * No demo case IDs are sent to the existing team's document workflow. */
-(() => {
+(async () => {
   'use strict';
   const root = document.getElementById('case-library');
   if (!root) return;
+  if(new URLSearchParams(location.search).get('data')==='live'&&!window.ArtifactLibraryAPI){
+    const note=document.createElement('p');note.setAttribute('role','alert');note.textContent='真實資料介面未載入，請重新整理。';root.prepend(note);return;
+  }
   const districts = window.NTPC_DISTRICTS || [];
   const group = (id, section, landUse) => ({id, name:section, section, sections:[section], landUse, inputs:2});
   const demoCases = [
@@ -22,7 +25,14 @@
   const storageKey = 'ntpc-case-library-names-v1';
   let saved = {};
   try { const value=JSON.parse(localStorage.getItem(storageKey)||'{}'); if(value && typeof value==='object' && !Array.isArray(value)) saved=value; } catch (_) { /* Storage may be disabled. */ }
-  const cases=demoCases.map(c=>({...c,name:typeof saved[c.id]==='string' && saved[c.id].trim() ? saved[c.id].slice(0,60) : c.name}));
+  let cases=demoCases.map(c=>({...c,name:typeof saved[c.id]==='string' && saved[c.id].trim() ? saved[c.id].slice(0,60) : c.name}));
+  if(window.ArtifactLibraryAPI){
+    root.querySelector('.cl-add')?.setAttribute('hidden','');
+    const note=document.querySelector('.cl-dialog-note');if(note)note.textContent='選擇組別以查看書表。';
+    try { cases=await window.ArtifactLibraryAPI.listCases(); }
+    catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message+' 請重新整理重試。';root.prepend(note);cases=[];}
+    const footer=document.querySelector('.cl-minimal-footer');if(footer)footer.querySelector('span')?.replaceChildren(document.createTextNode('· AWS 資料'));
+  }
   let selected='', query='', active=null, opener=null, toastTimer;
   const $=id=>document.getElementById(id);
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -73,7 +83,7 @@
     $('cl-district-select').options[0].textContent=searching?'全市搜尋':'選擇行政區';
     root.querySelectorAll('[data-district]').forEach(el=>{const yes=el.dataset.district===selected;el.classList.toggle('selected',yes);el.setAttribute('aria-pressed',String(yes));});
     root.querySelectorAll('[data-label]').forEach(el=>el.classList.toggle('selected',el.dataset.label===selected));
-    $('cl-books').innerHTML=shown.length?shown.map(c=>`<button type="button" class="cl-book" data-case="${c.id}" title="${esc(c.name)}" aria-label="開啟${esc(c.name)}，共 ${c.groups.length} 組">${searching?`<span class="cl-book-district">${esc(c.district)}</span>`:''}<span class="cl-document-preview"><img src="img/case-thumbnails/sample-form.png" alt="估價表範例縮圖" loading="lazy"><span class="cl-preview-label">範例預覽</span></span><span class="cl-book-name">${esc(c.name)}</span><span class="cl-book-meta">${c.number.slice(0,3)} 年度 · 案號 ${c.number.slice(-3)}</span><span class="cl-book-footer"><span>${c.groups.length} 組</span></span></button>`).join(''):`<div class="cl-empty"><strong>${searching?'沒有符合條件的案件':'此行政區尚無案件'}</strong><button type="button" class="cl-text-button" id="cl-reset">${searching?'清除搜尋':'返回行政區地圖'} →</button></div>`;
+    $('cl-books').innerHTML=shown.length?shown.map(c=>`<button type="button" class="cl-book" data-case="${esc(c.id)}" title="${esc(c.name)}" aria-label="開啟${esc(c.name)}，共 ${c.groups.length} 組">${searching?`<span class="cl-book-district">${esc(c.district)}</span>`:''}<span class="cl-document-preview">${c.live?'<span class="cl-preview-label">估價書表</span>':''}<img src="img/case-thumbnails/sample-form.png" alt="估價表範例縮圖" loading="lazy" ${c.live?'hidden':''}>${c.live?'':'<span class="cl-preview-label">範例預覽</span>'}</span><span class="cl-book-name">${esc(c.name)}</span><span class="cl-book-meta">${esc(c.number||'尚未設定案號')}</span><span class="cl-book-footer"><span>${c.groups.length} 組</span></span></button>`).join(''):`<div class="cl-empty"><strong>${searching?'沒有符合條件的案件':'此行政區尚無案件'}</strong><button type="button" class="cl-text-button" id="cl-reset">${searching?'清除搜尋':'返回行政區地圖'} →</button></div>`;
     $('cl-results-message').textContent=showShelf?`${searching?'全市':selected}顯示 ${shown.length} 件案件`:'';
   }
   function choose(name){selected=name;query='';$('cl-search').value='';render();if(name)$('cl-district-title').focus({preventScroll:true});}
@@ -99,7 +109,8 @@
     $('cl-detail-district').textContent=c.district+' / 案件卷宗';
     $('cl-detail-meta').innerHTML=`<dt>正式案號</dt><dd>${esc(c.number)}</dd>`;
     $('cl-group-count').textContent=`${c.groups.length} 組`;
-    $('cl-detail-groups').innerHTML=c.groups.map(g=>`<button type="button" class="gw-group-link" data-open-group="${esc(g.id)}"><span><b>${esc(g.name||g.section)}</b><small>${esc(g.landUse)}</small></span><span aria-hidden="true">→</span></button>`).join('');
+    $('cl-detail-groups').innerHTML=c.groups.length?c.groups.map(g=>`<button type="button" class="gw-group-link" data-open-group="${esc(g.id)}"><span><b>${esc(g.name||g.section)}</b><small>${esc(g.landUse)}</small></span><span aria-hidden="true">→</span></button>`).join(''):'<p>此案件尚無估價組別。</p>';
+    $('cl-edit-name').hidden=Boolean(window.ArtifactLibraryAPI);
     $('cl-rename-form').hidden=true;
     $('cl-title-area').hidden=false;
   }

@@ -163,3 +163,17 @@ selected_run_id 只能指向同組已 imported 的 run，不能選別組或尚�
 交付範圍：生成端可以開始串接；尚未完成跨 IAM role 團隊共用、前端登入與 harness Gateway 切換。不宣稱完成併發負載測試或正式多租戶權限驗收。
 
 交付複查的修正版已獲 CloudFormation UPDATE_COMPLETE，且合成 JSON＋3 份 PDF 的線上匯入成功。最後的 Lambda CodeSha256 核對與合成測試資料清理因工具自動審查額度限制未執行；殘留 TEST 案件 ID 見 deployment.json 的 review_synthetic_fixture，不是正式估價案件。
+
+## 前端真實資料預覽
+
+```sh
+python3 services/artifact-import/preview_server.py --port 8002 --profile hackathon
+```
+
+開啟 `http://127.0.0.1:8002/index.html?data=live`。不帶 `?data=live` 維持 mock。代理僅監聽 127.0.0.1，限制 Host 與可讀路徑，不提供寫入接口；AWS credentials 留在 Python process。這是本機整合預覽，不是可公開部署的使用者登入服務。
+
+真實模式從目錄取得案件與組別，地圖依案件行政區標示；組別工作區可切換已匯入版本。PDF 使用目錄的版本固定存取連結，來源未上傳或產出 PDF 缺少時顯示空態，不用範例文件替代。分開的區段 PDF 也可從區段目錄切換。切換組別／版本會清除舊 iframe 並重新載入連結。
+
+尚未實作：PDF 首頁 thumbnail、公開部署所需登入／session、跨 IAM role 共用、真實模式建立／改名 UI、harness 對話。真實模式暫停示範聊天與本機改名，避免誤以為已送到 backend。
+
+無 computer use 驗證：`node services/artifact-import/tests/test_frontend_adapter.cjs` 檢查資料映射、分開 PDF、缺件與 scope。另需對實際 UI 做人工排版驗收。
