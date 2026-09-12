@@ -28,7 +28,7 @@
   const isProduction = !window.ArtifactLibraryAPI && window.APP_CONFIG?.MODE === 'production';
   let cases=demoCases.map(c=>({...c,name:typeof saved[c.id]==='string' && saved[c.id].trim() ? saved[c.id].slice(0,60) : c.name}));
   if(window.ArtifactLibraryAPI){
-    root.querySelector('.cl-add')?.setAttribute('hidden','');
+    root.querySelector('.cl-add')?.setAttribute('href','artifact-new.html');
     const note=document.querySelector('.cl-dialog-note');if(note)note.textContent='選擇組別以查看書表。';
     try { cases=await window.ArtifactLibraryAPI.listCases(); }
     catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message+' 請重新整理重試。';root.prepend(note);cases=[];}

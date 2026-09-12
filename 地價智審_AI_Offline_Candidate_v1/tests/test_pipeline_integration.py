@@ -60,7 +60,7 @@ def test_pdf_delivery_manifest_preserves_identity(tmp_path):
               {'kind':'comparison','page_start':len(codes)+2,'page_end':len(codes)+2}]
     mapping=tmp_path/'pages.json'; mapping.write_text(json.dumps(pages))
     manifest=json.loads(prepare(bundle,pdf,mapping,tmp_path/'out').read_text())
-    assert [x['kind'] for x in manifest] == ['survey','comparison','regional_factors']
+    assert [x['kind'] for x in manifest] == ['survey_pdf','comparison_pdf','regional_factors_pdf']
     assert len(PdfReader(tmp_path/'out/survey.pdf').pages)==len(codes)
     assert [x['segment_code'] for x in manifest[0]['segments']]==codes
     pages[1]['page_start']=1;mapping.write_text(json.dumps(pages))

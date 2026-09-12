@@ -213,3 +213,41 @@ python3 services/artifact-import/client.py \
 
 這次整合沒有自動替隊友的執行角色配置 IAM，也沒有部署其 pipeline。
 執行角色仍須能呼叫匯入 API；不同角色的 workspace 隔離需沿用既有部署規格確認。
+
+## 直接匯入生成包（本機 UI / 後端共用）
+
+啟動 preview_server.py 後，`index.html?data=live` 的「建立案件」現在會開啟
+`artifact-new.html`。填入案件、組別名稱並選取新版 export ZIP，即可在背景匯入。
+完成後回案件庫讀取三類 PDF。這個入口接收**已生成檔案**，不執行原始資料 OCR 或估價生成。
+舊 ZIP 缺少 artifact-pages.json 時會拒絕，不能猜測 PDF 頁碼。
+
+後端生成完成後也可以直接呼叫：
+
+```python
+from client import Client
+from deliver_generated import deliver_generated
+
+result = deliver_generated(
+    Client(endpoint), zip_bytes, idempotency_key=job_uuid,
+    case_id=existing_case_uuid, group_id=existing_group_uuid,
+)
+```
+
+將 `services/artifact-import` 納入 Python module path，安裝 requirements.txt 與 boto3。
+沒有現成 UUID 時省略 case_id/group_id，API 會建立新案件與組別；不按案號或名稱自動合併。
+只提供 case_id 會在該案件新增組別。同一組補上 PDF 必須建立新 run，不能修改已完成的 JSON-only run。
+`case_name/group_name` 僅命名本次新建的容器，不會改名既有容器。
+
+命令列也可執行 `deliver_generated.py --zip FILE --endpoint URL --idempotency-key JOB_UUID`
+（本機可加 `--profile hackathon`）。成功回傳 case_id/group_id/run_id/status/pdf_complete。
+請以同一份生成 ZIP 與同一 job key 重試；不要重新生成不同內容後重用同一 key。
+
+本機服務新增 `POST /artifact-api/deliver`（application/zip）及 `GET /artifact-api/jobs/{key}`。
+它只監聽 localhost，POST 檢查同源 Origin，背景同時最多兩件；不是公開部署用的登入/授權 API。
+作業進度存在本機記憶體，重啟後可使用同一檔案、名稱重試，AWS idempotency 仍保留。
+現有 `/artifact-api/v1/*` 代理仍限原本 GET 白名單，不開放任意寫入路由。
+
+驗證：20 個 artifact tests、7 個 pipeline integration tests 通過；其中生成 ZIP → 拆 PDF →
+API 驗證 → 匯入 → 重試不重複的測試使用 moto 模擬 S3/DynamoDB。
+本機 HTTP 頁面與真實 AWS 案件讀取皆 200，無效 ZIP 失敗、跨站 POST 為 403。
+本次未將示範生成包寫入真實 AWS，也未部署隊友 pipeline。

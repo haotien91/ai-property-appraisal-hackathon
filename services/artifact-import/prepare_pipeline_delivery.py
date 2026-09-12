@@ -41,7 +41,7 @@ def prepare(bundle_path, pdf_path, page_map_path, output_dir):
         filename = kind + '.pdf'
         with (out / filename).open('wb') as stream:
             writer.write(stream)
-        manifest.append({'path': filename, 'kind': kind, 'segments': segments})
+        manifest.append({'path': filename, 'kind': kind + '_pdf', 'segments': segments})
     (out / 'bundle.json').write_bytes(Path(bundle_path).read_bytes())
     (out / 'pdf-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2))
     return out / 'pdf-manifest.json'
