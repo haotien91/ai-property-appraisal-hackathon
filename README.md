@@ -2,6 +2,12 @@
 
 程式碼位於 [`地價智審_AI_Offline_Candidate_v1/`](地價智審_AI_Offline_Candidate_v1/README.md)。
 
+## 已部署的 JSON／PDF 匯入 API（2026-09-13）
+
+後端組員請先讀 [匯入 API 串接文件](services/artifact-import/README.md)，並使用 [Python client](services/artifact-import/client.py)。此服務已部署到 AWS，支援完整 JSON 拆分、PDF 上傳、案件／組別／版本目錄。
+
+此服務的程式碼在 `services/artifact-import/`，部署範本在 `infra/artifact-api/` 與 `infra/artifact-storage/`；不要用下方舊專案部署文件取代本次 API 的設定。前端目前仍為 mock，harness 尚未切換到此 API。
+
 ## 下載與啟動
 
 先安裝 Python（後端 AWS runtime 使用 3.12）、Git 與 Git LFS。下載前執行一次：

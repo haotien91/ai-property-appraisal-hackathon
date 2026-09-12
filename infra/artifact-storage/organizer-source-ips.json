@@ -1,0 +1,10 @@
+{
+  "source": "Organizer slide supplied by user on 2026-09-12",
+  "required_allowed_ipv4_cidrs": [
+    "60.250.71.45/32",
+    "61.222.117.53/32",
+    "59.125.121.41/32",
+    "60.250.71.43/32"
+  ],
+  "enforcement": "pending-user-network-scope; not applied to S3 or DynamoDB"
+}
