@@ -35,7 +35,25 @@
     <link href="css/group-workspace.css?v=landing-7" rel="stylesheet">
 
     <style>
-        body{background:#0b0b0d;font-family:"Noto Sans TC",sans-serif}
+ body{
+    background:
+        linear-gradient(rgba(11,11,13,.82), rgba(11,11,13,.90)),
+        url('img/BACKGROUND.jpg') center center / cover no-repeat fixed !important;
+    font-family:"Noto Sans TC",sans-serif;
+}
+
+/* 讓上層容器透明,避免蓋住 body 背景圖 */
+.case-library,
+.case-library .container,
+.cl-workspace,
+.cl-main,
+.cl-map-panel{
+    background: transparent !important;
+}
+/* Empty districts have no SVG fill at all; only borders and labels remain. */
+.cl-map{background:none!important;filter:none!important}
+.cl-district:not(.has-cases):not(.selected){fill:none!important;fill-opacity:0;pointer-events:all}
+.cl-legend-swatch:not(.cl-legend-has-cases){background:transparent}
         .navbar{position:relative;background:#0b0b0d;border-bottom:1px solid #ffffff12}
         .navbar-brand h2{font-size:25px;margin:0}.navbar .navbar-nav .nav-link{padding:20px 0}
     </style>

@@ -20,6 +20,13 @@
     <link href="css/style.css?v=20260912-brand-6" rel="stylesheet">
 
     <style>
+        /* This workflow page deliberately has no homepage photo or overlay. */
+        body.case-create-page,
+        body.case-create-page .app-shell {
+            background: #0b0b0d !important;
+            background-image: none !important;
+        }
+
         .case-create-grid {
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
