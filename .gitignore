@@ -1,41 +1,63 @@
-# .gitignore — 地價智審 AI
-#
-# 目的：避免正式AWS憑證/密鑰於Phase 7B實際部署過程中被誤commit。
-# 本檔案本身不涉及業務邏輯，僅為Repository衛生措施。
+# Local editor and assistant settings (shared skills remain versioned).
+.vscode/
+.idea/
+.claude/settings.json
+.claude/settings.local.json
+.codex/config.toml
 
-# --- 環境變數 / 憑證（核心目的） ---
+# Credentials; keep safe templates.
 .env
 .env.*
 !.env.example
-*.pem
-*.key
+!.env.*.example
 .aws/
 aws_credentials
 credentials.json
+*.pem
+*.key
+*.p12
+*.pfx
 
-# --- Python ---
-__pycache__/
-*.pyc
-*.pyo
-.pytest_cache/
+# Dependencies and generated builds.
+node_modules/
 .venv/
 venv/
+__pycache__/
+*.py[cod]
 *.egg-info/
-.coverage
-htmlcov/
-
-# --- SAM / Lambda build 產物 ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
 .aws-sam/
+coverage/
+.coverage
+.coverage.*
+htmlcov/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tsbuildinfo
 
-# --- OS 暫存檔 ---
+# OS and temporary files.
 .DS_Store
 Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+~$*
 
-# ---------------------------------------------------------------
-# 明確不忽略（避免誤ignore正式Source/Config/測試/Mock資料）：
-#   .env.example（見上方!規則）
-#   data/rules/*.json, data/golden/*, data/demo_errors/*
-#   frontend/mock/*.json
-#   infra/template.yaml, infra/statemachine/*.json
-#   tests/**, docs/**
-# ---------------------------------------------------------------
+# SQLite databases are intentionally INCLUDED. These are transient sidecars.
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+*.sqlite3-wal
+*.sqlite3-shm
+*.sqlite3-journal
+*.db-wal
+*.db-shm
+*.db-journal
+
+# Do not blanket-ignore data/, PDFs, ZIPs, frontend/lib/, or sample_output/:
+# they contain checked-in source material, browser dependencies and demos.

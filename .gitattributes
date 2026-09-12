@@ -1,6 +1,7 @@
-# Git LFS — 超過 GitHub 單檔 100MB 硬上限的資料檔，與隊友 repo 既有做法一致。
-# 接收者請以 Git LFS clone/pull 取得內容，不要用 Download ZIP（只會拿到 pointer）。
-data/cadastral_dataset_cache.sqlite3 filter=lfs diff=lfs merge=lfs -text
-data/snapshots/*.sqlite3 filter=lfs diff=lfs merge=lfs -text
-data/sources/gis/**/*.shp filter=lfs diff=lfs merge=lfs -text
-data/sources/gis/**/*.zip filter=lfs diff=lfs merge=lfs -text
+# Preserve the complete cadastral snapshot through Git LFS.
+**/data/cadastral_dataset_cache.sqlite3 filter=lfs diff=lfs merge=lfs -text
+
+# 本分支另有數個超過 GitHub 單檔 100MB 硬上限的資料集，一併走 LFS。
+**/data/snapshots/*.sqlite3 filter=lfs diff=lfs merge=lfs -text
+**/data/sources/gis/**/*.shp filter=lfs diff=lfs merge=lfs -text
+**/data/sources/gis/**/*.zip filter=lfs diff=lfs merge=lfs -text
