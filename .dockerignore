@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+_*
+*.log
+
+# 產出圖與樣本圖不需要進 image
+P00*_boundary*.png
+P00*_black60.png
+P00*_sample.png
+dbg_*.png
+zone_boundary.png
+*.zip
+
+# 大型文件與試算表
+*.pdf
+*.docx
+*.xlsx
+
+# 都市計畫範圍目前未被出圖流程使用；要用再解開
+新北市都市計畫範圍/

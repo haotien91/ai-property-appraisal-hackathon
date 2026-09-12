@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# --- 地理參考資料（不進 repo）-------------------------------------------------
+# 新北市使用分區 shapefile 合計 179 MB，單一 .shp 就 162 MB，
+# 超過 GitHub 的 100 MB 硬限制。轉 GeoParquet 可壓到 63 MB，
+# 仍是大型二進位檔，一旦進 git history 就永久佔空間。
+# 取得方式見 README 的「參考資料」一節。
+新北市使用分區/
+新北市使用分區.zip
+新北市都市計畫範圍/
+新北市都市計畫範圍.zip
+*.shp
+*.dbf
+*.shx
+*.prj
+*.cpg
+*.parquet
+
+# --- 快取（可重建，且內容為第三方資料）---------------------------------------
+# _road_cache 是 OSM 資料（ODbL，轉散布需標示授權）
+# _tile_cache 是 NLSC 圖磚（轉散布須確認介接條款）
+# 兩者都用 prewarm 重建，不要提交。
+_road_cache/
+_tile_cache/
+_result_cache/
+
+# --- 產出 --------------------------------------------------------------------
+# artifacts 是可追溯的產出檔案庫，正式環境應存 S3，不進 repo。
+artifacts/
+*_boundary.png
+*_boundary_*.png
+zone_boundary.png
+dbg_*.png
+
+# 暫存與診斷。只錨定專案根層的底線檔案：
+# 用無錨定的 _* 會連 src/__init__.py 一起排除，套件就 import 不到了。
+/_*
+
+# 大型文件
+*.pdf
+*.docx
+*.xlsx

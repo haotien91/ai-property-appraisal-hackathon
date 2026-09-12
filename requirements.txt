@@ -1,0 +1,18 @@
+# 地價區段圖出圖所需套件（版本鎖定為本機實測通過的版本）
+#
+# 容器內請改用 opencv-python-headless：opencv-python 會拉進 libGL 等
+# 圖形介面相依，在無 X 的容器裡只是徒增體積與啟動失敗風險。
+requests==2.33.1
+urllib3==2.6.3
+pillow==12.1.1
+numpy==2.4.3
+pyproj==3.8.0
+shapely==2.1.2
+geopandas==1.1.4
+pyogrio==0.13.0
+opencv-python-headless==4.13.0.92
+
+# 只有走 HTTP API（zone_map_api.py）才需要；merge 成函式庫可拿掉。
+fastapi==0.136.1
+uvicorn==0.46.0
+pydantic==2.13.3

@@ -1,0 +1,24 @@
+[
+{
+"section": { "name": "太平段", "code": "1921" },
+"parcel": "367",
+"constraints": {
+"north_of": "東榮街",
+"south_of": "鎮前街411巷1弄",
+"east_of": "東榮街88巷",
+"west_of": "鎮前街367巷",
+"zone": "第一種住宅區"
+}
+},
+{
+"section": { "name": "太平段", "code": "1921" },
+"parcel": "917",
+"constraints": {
+"north_of": "東榮街",
+"south_of": "鎮前街411巷1弄",
+"east_of": "東榮街88巷",
+"west_of": "鎮前街367巷",
+"zone": "第一種住宅區"
+}
+}
+]

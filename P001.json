@@ -1,0 +1,11 @@
+{
+"section": { "name": "樹德段", "code": "1902" },
+"parcel": "1415",
+"constraints": {
+"west_of": "八德街",
+"south_of": "啟智街",
+"east_of": "啟智街187巷",
+"north_of": "啟智街187巷24弄",
+"zone": "捷運開發區"
+}
+}

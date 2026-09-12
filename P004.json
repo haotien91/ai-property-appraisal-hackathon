@@ -1,0 +1,14 @@
+{
+"section": {
+"name": "文林段",
+"code": "1937"
+},
+"parcel": "317",
+"constraints": {
+"north_of": "潭興街107巷21弄",
+"west_of": "潭興街",
+"south_of": "潭興街91巷",
+"east_of": "潭興街107巷21弄",
+"zone": "第一種住宅區"
+}
+}
