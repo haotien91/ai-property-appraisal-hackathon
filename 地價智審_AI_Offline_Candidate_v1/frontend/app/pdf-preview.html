@@ -268,7 +268,9 @@
             .pdf-workspace-page .app-stepper { flex-shrink: 0; margin-bottom: 14px; padding-bottom: 10px; }
             #content { flex: 1; min-height: 0; }
             #content:not([style*="display:none"]):not([style*="display: none"]) { display: flex !important; flex-direction: column; }
-            .workspace-grid { flex: 1; min-height: 0; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+            .workspace-grid { flex: 1; min-height: 0; grid-template-columns: minmax(0,3fr) minmax(280px,1fr); gap: 12px; }
+            .chat-panel .workspace-header { flex-wrap: wrap; gap: 6px; }
+            .chat-panel .chat-bubble { max-width: 100%; font-size: .84rem; padding: 10px 12px; }
             .workspace-panel { display: flex; flex-direction: column; min-height: 0; }
             .workspace-header { padding: 10px 14px; flex-shrink: 0; }
             .workspace-header .btn { padding: 7px 10px; font-size: .78rem; }
@@ -283,6 +285,34 @@
             .chat-note { padding: 0 12px 8px; font-size: .72rem; flex-shrink: 0; }
             .page-actions { margin-top: 10px; flex-shrink: 0; }
             .page-actions .btn { padding: 7px 14px; font-size: .8rem; }
+        }
+        /* Keep the centered brand and workflow above the full-height document host. */
+        @media (min-width: 992px) {
+            .pdf-workspace-page .app-navbar { height: 76px; padding: 16px 20px; justify-content: center; }
+            .pdf-workspace-page .app-navbar .navbar-brand { font-size: 19px; }
+            body.pdf-workspace-page .app-shell { height: calc(100dvh - 76px); padding: 0; }
+            .pdf-workspace-page .app-shell > .container-fluid { padding: 0 !important; }
+            .pdf-workspace-page .app-stepper { position: static; transform: none; margin: 0; padding: 14px 12px 10px; border-bottom: 1px solid var(--ai-border); flex-wrap: nowrap; }
+            .pdf-workspace-page .app-stepper a { font-size: .88rem; padding: 6px 14px 6px 6px; }
+            .workspace-grid { grid-template-columns: minmax(0,1fr) minmax(300px,25%); gap: 10px; }
+            .workspace-panel { border: 0; border-radius: 0; background: #19191c; }
+            .workspace-panel:not(.chat-panel) > .workspace-header { display: none; }
+            .document-toolbar { display: flex; align-items: center; flex-shrink: 0; min-height: 48px; background: #19191c; }
+            .pdf-switcher { flex: 1; border: 0; padding: 4px 8px; display: flex; }
+            .pdf-switch-btn { padding: 8px 12px; font-size: .8rem; }
+            .document-downloads { position: relative; flex-shrink: 0; margin: 4px 10px; font-size: .78rem; }
+            .document-downloads summary { cursor: pointer; padding: 7px 10px; color: #bcbcc4; border: 1px solid #343437; border-radius: 5px; }
+            .document-downloads .download-row { position: absolute; top: 100%; right: 0; width: 280px; z-index: 5; display: grid; grid-template-columns: 1fr; background: #19191c; border: 1px solid #343437; }
+            .chat-panel .workspace-header { min-height: 48px; padding: 8px 14px; }
+            .chat-panel .workspace-subtitle { display: none; }
+            .chat-panel .workspace-title { font-size: .85rem; }
+            .chat-messages { padding: 24px 20px; }
+            .chat-input-wrap { padding: 12px 16px; }
+            .chat-input { min-height: 80px; font-size: .85rem; }
+            /* The third workflow step already links to the same result page. */
+            .page-actions { display: none; }
+            .page-actions .btn { font-size: .72rem; padding: 5px 10px; }
+            .pdf-workspace-page .mode-badge { display: none; }
         }
     </style>
 
@@ -304,7 +334,7 @@
         <div class="container-fluid px-3 px-lg-5">
             <div class="app-stepper">
                 <a href="case-new.html?ui=file-list-13" class="done" data-preserve-case><span class="step-num">1</span>建立案件</a>
-                <a href="pdf-preview.html?ui=workspace-10" class="active" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="pdf-preview.html?ui=reader-16" class="active" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
                 <a href="result.html?ui=20260912-6" data-preserve-case><span class="step-num">3</span>案件結果</a>
             </div>
 
@@ -323,9 +353,9 @@
                             </a>
                         </div>
 
-                        <div id="previewTabs" class="pdf-switcher"></div>
+                        <div class="document-toolbar"><div id="previewTabs" class="pdf-switcher"></div><details class="document-downloads"><summary>下載書表</summary><div id="downloadLinks" class="download-row"></div></details></div>
                         <iframe id="pdfViewer" class="pdf-viewer-frame" title="查估書表 PDF 預覽"></iframe>
-                        <div id="downloadLinks" class="download-row"></div>
+
                     </section>
 
                     <section class="workspace-panel chat-panel">
