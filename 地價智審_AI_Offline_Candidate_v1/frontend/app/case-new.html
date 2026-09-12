@@ -57,7 +57,7 @@
             align-items: center;
             gap: 16px;
             min-height: 118px;
-            padding: 18px;
+            padding: 18px 56px 18px 18px;
             margin-top: 16px;
             border: 1px dashed rgba(255,255,255,.22);
             border-radius: 10px;
@@ -65,10 +65,16 @@
             transition: .2s ease;
         }
 
-        .upload-box:hover,
-        .upload-box.has-file {
-            border-color: var(--ai-accent);
-            background: rgba(255,10,120,.06);
+        .upload-box:hover {
+            border-color: rgba(255,10,120,.7);
+            background: rgba(255,10,120,.04);
+        }
+
+        .upload-box.has-file,
+        .upload-box.has-file:hover {
+            border-color: #35c46a;
+            background: rgba(53,196,106,.08);
+            box-shadow: 0 0 0 1px rgba(53,196,106,.08) inset;
         }
 
         .upload-icon {
@@ -82,11 +88,20 @@
             color: var(--ai-accent);
             background: var(--ai-accent-soft);
             font-size: 1.15rem;
+            transition: .2s ease;
+        }
+
+        .upload-box.has-file .upload-icon {
+            color: #35c46a;
+            background: rgba(53,196,106,.14);
         }
 
         .upload-copy {
+            position: relative;
+            z-index: 2;
             min-width: 0;
             flex: 1;
+            pointer-events: none;
         }
 
         .upload-copy strong {
@@ -102,13 +117,48 @@
             overflow-wrap: anywhere;
         }
 
+        .upload-box.has-file .upload-copy span {
+            color: #8fe0aa;
+        }
+
         .upload-box input[type="file"] {
             position: absolute;
             inset: 0;
+            z-index: 1;
             width: 100%;
             height: 100%;
             opacity: 0;
             cursor: pointer;
+        }
+
+        .upload-clear {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 4;
+            width: 32px;
+            height: 32px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 50%;
+            background: rgba(10,10,12,.85);
+            color: #d9d9df;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .upload-box.has-file .upload-clear {
+            display: inline-flex;
+        }
+
+        .upload-clear:hover {
+            color: #fff;
+            border-color: #ff4268;
+            background: rgba(255,66,104,.18);
+            transform: scale(1.04);
         }
 
         .extraction-status {
@@ -248,6 +298,9 @@
                                 <span id="appraisalFileName">點擊或拖曳上傳 PDF</span>
                             </span>
                             <input id="appraisalFile" name="appraisal_file" type="file" accept="application/pdf,.pdf" required>
+                            <button type="button" class="upload-clear" id="clearAppraisalFile" aria-label="移除查估書表" title="移除並重新選擇">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
                         </label>
 
                         <label class="upload-box" id="criteriaUploadBox">
@@ -257,6 +310,9 @@
                                 <span id="criteriaFileName">點擊或拖曳上傳 PDF</span>
                             </span>
                             <input id="criteriaFile" name="criteria_file" type="file" accept="application/pdf,.pdf" required>
+                            <button type="button" class="upload-clear" id="clearCriteriaFile" aria-label="移除評價基準明細表" title="移除並重新選擇">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
                         </label>
 
                         <div class="flow-hint">
@@ -333,7 +389,7 @@
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/assets/owl.carousel.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="js/main.js"></script>
 
@@ -353,7 +409,7 @@
             const name = document.getElementById(fileNameId);
             if (input.files && input.files[0]) {
                 box.classList.add('has-file');
-                name.textContent = input.files[0].name;
+                name.textContent = '已上傳：' + input.files[0].name;
             } else {
                 box.classList.remove('has-file');
                 name.textContent = '點擊或拖曳上傳 PDF';
@@ -413,8 +469,24 @@
             }
         }
 
+        function clearFileSelection(event, input, boxId, fileNameId) {
+            event.preventDefault();
+            event.stopPropagation();
+            input.value = '';
+            setUploadState(input, boxId, fileNameId);
+            extractWhenReady();
+        }
+
         appraisalFile.addEventListener('change', extractWhenReady);
         criteriaFile.addEventListener('change', extractWhenReady);
+
+        document.getElementById('clearAppraisalFile').addEventListener('click', (event) => {
+            clearFileSelection(event, appraisalFile, 'appraisalUploadBox', 'appraisalFileName');
+        });
+
+        document.getElementById('clearCriteriaFile').addEventListener('click', (event) => {
+            clearFileSelection(event, criteriaFile, 'criteriaUploadBox', 'criteriaFileName');
+        });
 
         document.getElementById('newCaseForm').addEventListener('submit', async (event) => {
             event.preventDefault();
