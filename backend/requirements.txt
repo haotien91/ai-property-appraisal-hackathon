@@ -1,0 +1,19 @@
+# EngineLayer's shared runtime dependencies (infra/layers/engine/
+# requirements.txt includes this file via pip's `-r` directive -- keep
+# this the ONLY place these are declared).
+#
+# pydantic: domain/models.py's Pydantic models, used throughout
+#   engine/ and providers/.
+# shapely: providers/ntpc_zoning_provider.py's point-in-polygon lookup
+#   (RealLandUseProvider, DATA_PROVIDER_MODE=real only; code already
+#   degrades to requires_manual_review=True if shapely is absent, but a
+#   real deployment needs it present for that mode to actually resolve).
+#
+# boto3 is DELIBERATELY excluded: AWS Lambda's Python 3.12 runtime ships
+# boto3/botocore pre-installed, and this repo's usage (S3 get/put/head_
+# object/download_file/generate_presigned_url, DynamoDB Table resource
+# get_item/put_item/scan) is long-stable API surface with no dependency
+# on a specific recent boto3 version. Re-packaging it would only add
+# Layer size for no runtime benefit -- see this round's packaging audit.
+pydantic>=2.0,<3.0
+shapely>=2.0

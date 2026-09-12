@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-valuation-review.local/schemas/rule_schema.json",
+  "title": "Valuation Adjustment Rule",
+  "description": "機器可讀之評價基準規則。每筆規則代表某一評價因素在某一優劣等級級距下的判定條件，並攜帶該因素完整的修正率矩陣。設計目標：可擴充至其他縣市/行政區/用地類別，不綁死金山區商業用地。",
+  "type": "object",
+  "required": [
+    "rule_id",
+    "version",
+    "city",
+    "district",
+    "land_use_type",
+    "category",
+    "factor",
+    "value_type",
+    "unit",
+    "direction",
+    "lower_bound",
+    "upper_bound",
+    "lower_inclusive",
+    "upper_inclusive",
+    "grade",
+    "grade_code",
+    "adjustment_matrix",
+    "max_adjustment",
+    "effective_date",
+    "source_document",
+    "source_page",
+    "source_note"
+  ],
+  "properties": {
+    "rule_id": {
+      "type": "string",
+      "description": "穩定唯一識別碼，格式 <REG|IND>-<FACTOR_KEY>-<序號>"
+    },
+    "version": {
+      "type": "string",
+      "description": "規則版本號，供未來評價基準明細表修訂時遞增"
+    },
+    "city": {
+      "type": "string",
+      "description": "直轄市/縣市，例如 新北市"
+    },
+    "district": {
+      "type": "string",
+      "description": "鄉鎮市區，例如 金山區"
+    },
+    "land_use_type": {
+      "type": "string",
+      "description": "用地類別，例如 商業用地"
+    },
+    "category": {
+      "type": "string",
+      "description": "主要項目分類，例如 土地使用管制(1)"
+    },
+    "factor": {
+      "type": "string",
+      "description": "修正細項名稱（官方原文）"
+    },
+    "value_type": {
+      "type": "string",
+      "enum": [
+        "numeric_range",
+        "boolean",
+        "categorical",
+        "distance_positive",
+        "distance_negative"
+      ],
+      "description": "數值型態：numeric_range=一般數值級距；boolean=2級有無/可否；categorical=多級文字描述無數值級距；distance_positive=距離越近越優；distance_negative=距離越遠越優（嫌惡/污染/特殊設施類）"
+    },
+    "unit": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "單位，如 M、%、M2；categorical/boolean可為null"
+    },
+    "direction": {
+      "type": "string",
+      "description": "數值與優劣關係之語意標籤，供人員與程式雙重確認，非Rule Selection邏輯本身依據（邏輯依lower/upper bound與grade順序決定）"
+    },
+    "lower_bound": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "本級距數值下界（不含distance/boolean/categorical之無數值情形時為null）"
+    },
+    "upper_bound": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "本級距數值上界"
+    },
+    "lower_inclusive": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "下界是否包含（≥ vs >）"
+    },
+    "upper_inclusive": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "上界是否包含（≤ vs <）；官方級距慣例為『X以上未滿Y』即lower_inclusive=true, upper_inclusive=false"
+    },
+    "grade": {
+      "type": "string",
+      "description": "優劣等級文字。作業手冊p.48-49／p.52-53明文列出5種分級制度（2/3/5/7/9級），且5級制底下依因素性質另有3種不同用語版本（優/稍優/普通/稍劣/劣；無/輕微/中度/嚴重/極嚴重；極輕微/輕微/普通/嚴格/極嚴格），9級以上之用語由地方政府自行決定，故此欄位刻意不設enum限制——engine/rule_table_validator.py之KNOWN_GRADE_VOCABULARIES收錄7組已知官方用語作『已知詞彙』核對用（不在清單內時僅WARNING非ERROR，因9級以上本無固定清單）"
+    },
+    "grade_code": {
+      "type": "integer",
+      "description": "優劣等級代碼，數值越小代表等級越優（1=最優）。實際代碼範圍依該因素分級制度而定：2級制僅用1,5；3級制用1,2,5；5級制用1-5；7級制用1-7；9級制用1-9，皆依作業手冊p.48-49所定編碼方式"
+    },
+    "grade_label": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "該等級對應之官方原文敘述，例如『15m以上未滿20m』"
+    },
+    "adjustment_matrix": {
+      "type": "object",
+      "description": "修正率矩陣，key為grade_code字串。matrix[row][col] = 修正百分比，row=比準地等級,col=比較標的等級（見rule_engine_spec.md矩陣方向驗證說明）",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "number"
+        }
+      }
+    },
+    "max_adjustment": {
+      "type": "number",
+      "description": "官方明細表標示之最大修正率（矩陣邊角絕對值），用於備註欄酌調時之上限檢查（作業手冊p.48-49彈性條款）"
+    },
+    "effective_date": {
+      "type": "string",
+      "description": "生效日期（ROC格式），對應評價基準明細表版本"
+    },
+    "source_document": {
+      "type": "string"
+    },
+    "source_page": {
+      "type": "string"
+    },
+    "source_note": {
+      "type": "string",
+      "description": "官方原文摘要與Golden Case交叉驗證結果（若有）"
+    },
+    "anomaly_flag": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "若本規則之來源資料存在疑似錯誤（m/km誤植、級距異常等），記錄對應source_anomalies.md之ANOMALY編號；正常規則為null"
+    }
+  },
+  "additionalProperties": true
+}

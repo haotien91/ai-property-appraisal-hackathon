@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-valuation-review.local/schemas/review_result.schema.json",
+  "title": "Smart Review Result",
+  "description": "Phase 6 Cross-Form Audit / Smart Review 輸出格式。每筆 issue 對應 domain.models.AuditIssue，全部由 deterministic engine 產生（AuditEngine/CrossFormValidationEngine/CalculationValidator/RuleValidator/DependencyImpactAnalyzer），不涉及LLM判斷。",
+  "type": "object",
+  "required": ["case_no", "issues", "generated_at"],
+  "properties": {
+    "case_no": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "engine_versions": { "type": "object" },
+    "issues": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/AuditIssue" }
+    }
+  },
+  "definitions": {
+    "AuditIssue": {
+      "type": "object",
+      "required": [
+        "issue_id", "severity", "issue_type", "source_form", "field", "label",
+        "source", "explanation_data", "recommendation_data",
+        "upstream_dependency", "downstream_impact"
+      ],
+      "properties": {
+        "issue_id": { "type": "string", "description": "穩定唯一識別碼，格式 ISS-<序號>" },
+        "severity": {
+          "type": "string",
+          "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"],
+          "description": "CRITICAL=影響最終比準地比較價格；HIGH=影響小計/總計但未確認達最終價格；MEDIUM=局部單一欄位；LOW=建議性質；INFO=Passed或純資訊"
+        },
+        "issue_type": {
+          "type": "string",
+          "enum": ["Passed", "Error", "Warning", "Missing", "Inconsistent", "Low Confidence"]
+        },
+        "source_form": { "type": "string", "enum": ["表1", "表5-2", "表4"] },
+        "field": { "type": "string", "description": "對應 schemas/field_dictionary.json 之 field_id" },
+        "label": { "type": "string", "description": "中文欄位標籤" },
+        "submitted_value": { "type": ["string", "number", "null"] },
+        "expected_value": { "type": ["string", "number", "null"] },
+        "rule_id": { "type": ["string", "null"], "description": "對應 data/rules/*.json 之 rule_id，找不到規則時為null" },
+        "source": { "type": "string", "description": "產生本issue之引擎名稱" },
+        "explanation_data": {
+          "type": "object",
+          "required": ["summary", "check_type"],
+          "properties": {
+            "summary": { "type": "string" },
+            "check_type": {
+              "type": "string",
+              "enum": ["GRADE_ERROR", "ADJUSTMENT_ERROR", "SUBTOTAL_ERROR", "TOTAL_ERROR",
+                       "MISSING", "WRONG_UNIT", "RULE_NOT_FOUND", "CROSS_FORM_INCONSISTENT", "PASSED_CHECK"]
+            },
+            "rule_citation": { "type": ["string", "null"] },
+            "computed_steps": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "recommendation_data": {
+          "type": "object",
+          "required": ["action", "requires_human_review"],
+          "properties": {
+            "action": { "type": "string" },
+            "suggested_value": { "type": ["string", "number", "null"] },
+            "requires_human_review": { "type": "boolean" }
+          }
+        },
+        "upstream_dependency": {
+          "type": "array", "items": { "type": "string" },
+          "description": "此欄位所依賴之上游field_id清單（若本身即為源頭，為空陣列）"
+        },
+        "downstream_impact": {
+          "type": "array", "items": { "type": "string" },
+          "description": "若本欄位有誤，可能受影響之下游field_id清單（依data/dependency_graph.json）"
+        }
+      }
+    }
+  }
+}

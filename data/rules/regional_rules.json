@@ -1,0 +1,7972 @@
+{
+  "schema_version": "1.0",
+  "rule_set": "regional_rules",
+  "city": "新北市",
+  "district": "金山區",
+  "land_use_type": "商業用地",
+  "factor_count": 28,
+  "rule_count": 131,
+  "matrix_orientation_note": "row=比準地(base parcel/region) grade, column=比較標的(comparable) grade; cell=adjustment percentage. Verified by analogy from individual-factor table (regional table's Golden Case data is degenerate - see source_anomalies.md ANOMALY-05",
+  "rules": [
+    {
+      "rule_id": "REG-ZONING_INSIDE_OUTSIDE-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "都市計畫（內、外）",
+      "value_type": "boolean",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "都市計畫內",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "5": 20
+        },
+        "5": {
+          "1": -20,
+          "5": 0
+        }
+      },
+      "max_adjustment": 20,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以都市計畫內外來制定其優劣；優=都市計畫內，劣=都市計畫外",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ZONING_INSIDE_OUTSIDE-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "都市計畫（內、外）",
+      "value_type": "boolean",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "都市計畫外",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "5": 20
+        },
+        "5": {
+          "1": -20,
+          "5": 0
+        }
+      },
+      "max_adjustment": 20,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以都市計畫內外來制定其優劣；優=都市計畫內，劣=都市計畫外",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-LAND_USE_ZONE-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "使用分區(使用地類別)",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "第二種商業區",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 5,
+          "3": 10,
+          "4": 15,
+          "5": 20
+        },
+        "2": {
+          "1": -5,
+          "2": 0,
+          "3": 5,
+          "4": 10,
+          "5": 15
+        },
+        "3": {
+          "1": -10,
+          "2": -5,
+          "3": 0,
+          "4": 5,
+          "5": 10
+        },
+        "4": {
+          "1": -15,
+          "2": -10,
+          "3": -5,
+          "4": 0,
+          "5": 5
+        },
+        "5": {
+          "1": -20,
+          "2": -15,
+          "3": -10,
+          "4": -5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 20,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以都市計畫使用分區及土地編定用地來制定其優劣",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-LAND_USE_ZONE-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "使用分區(使用地類別)",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "市場用地",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 5,
+          "3": 10,
+          "4": 15,
+          "5": 20
+        },
+        "2": {
+          "1": -5,
+          "2": 0,
+          "3": 5,
+          "4": 10,
+          "5": 15
+        },
+        "3": {
+          "1": -10,
+          "2": -5,
+          "3": 0,
+          "4": 5,
+          "5": 10
+        },
+        "4": {
+          "1": -15,
+          "2": -10,
+          "3": -5,
+          "4": 0,
+          "5": 5
+        },
+        "5": {
+          "1": -20,
+          "2": -15,
+          "3": -10,
+          "4": -5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 20,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以都市計畫使用分區及土地編定用地來制定其優劣",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-LAND_USE_ZONE-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "使用分區(使用地類別)",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "第二種住宅區",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 5,
+          "3": 10,
+          "4": 15,
+          "5": 20
+        },
+        "2": {
+          "1": -5,
+          "2": 0,
+          "3": 5,
+          "4": 10,
+          "5": 15
+        },
+        "3": {
+          "1": -10,
+          "2": -5,
+          "3": 0,
+          "4": 5,
+          "5": 10
+        },
+        "4": {
+          "1": -15,
+          "2": -10,
+          "3": -5,
+          "4": 0,
+          "5": 5
+        },
+        "5": {
+          "1": -20,
+          "2": -15,
+          "3": -10,
+          "4": -5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 20,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以都市計畫使用分區及土地編定用地來制定其優劣",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-LAND_USE_ZONE-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "使用分區(使用地類別)",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "第一種住宅區",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 5,
+          "3": 10,
+          "4": 15,
+          "5": 20
+        },
+        "2": {
+          "1": -5,
+          "2": 0,
+          "3": 5,
+          "4": 10,
+          "5": 15
+        },
+        "3": {
+          "1": -10,
+          "2": -5,
+          "3": 0,
+          "4": 5,
+          "5": 10
+        },
+        "4": {
+          "1": -15,
+          "2": -10,
+          "3": -5,
+          "4": 0,
+          "5": 5
+        },
+        "5": {
+          "1": -20,
+          "2": -15,
+          "3": -10,
+          "4": -5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 20,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以都市計畫使用分區及土地編定用地來制定其優劣",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-LAND_USE_ZONE-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "使用分區(使用地類別)",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "其他分區",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 5,
+          "3": 10,
+          "4": 15,
+          "5": 20
+        },
+        "2": {
+          "1": -5,
+          "2": 0,
+          "3": 5,
+          "4": 10,
+          "5": 15
+        },
+        "3": {
+          "1": -10,
+          "2": -5,
+          "3": 0,
+          "4": 5,
+          "5": 10
+        },
+        "4": {
+          "1": -15,
+          "2": -10,
+          "3": -5,
+          "4": 0,
+          "5": 5
+        },
+        "5": {
+          "1": -20,
+          "2": -15,
+          "3": -10,
+          "4": -5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 20,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以都市計畫使用分區及土地編定用地來制定其優劣",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BUILDING_COVERAGE_RATIO-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "建蔽率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 60,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "60%以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以建蔽率高低來制定其優劣等級；Golden Case驗證：70%落於優(60%以上)區間，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BUILDING_COVERAGE_RATIO-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "建蔽率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 50,
+      "upper_bound": 60,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "50%以上未滿60%",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以建蔽率高低來制定其優劣等級；Golden Case驗證：70%落於優(60%以上)區間，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BUILDING_COVERAGE_RATIO-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "建蔽率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 45,
+      "upper_bound": 50,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "45%以上未滿50%",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以建蔽率高低來制定其優劣等級；Golden Case驗證：70%落於優(60%以上)區間，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BUILDING_COVERAGE_RATIO-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "建蔽率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 40,
+      "upper_bound": 45,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "40%以上未滿45%",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以建蔽率高低來制定其優劣等級；Golden Case驗證：70%落於優(60%以上)區間，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BUILDING_COVERAGE_RATIO-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "建蔽率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": 40,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿40%",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以建蔽率高低來制定其優劣等級；Golden Case驗證：70%落於優(60%以上)區間，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FLOOR_AREA_RATIO-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "容積率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 240,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "240%以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 10,
+          "3": 20,
+          "4": 30,
+          "5": 40
+        },
+        "2": {
+          "1": -10,
+          "2": 0,
+          "3": 10,
+          "4": 20,
+          "5": 30
+        },
+        "3": {
+          "1": -20,
+          "2": -10,
+          "3": 0,
+          "4": 10,
+          "5": 20
+        },
+        "4": {
+          "1": -30,
+          "2": -20,
+          "3": -10,
+          "4": 0,
+          "5": 10
+        },
+        "5": {
+          "1": -40,
+          "2": -30,
+          "3": -20,
+          "4": -10,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以容積率高低來制定其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FLOOR_AREA_RATIO-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "容積率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 200,
+      "upper_bound": 240,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "200%以上未滿240%",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 10,
+          "3": 20,
+          "4": 30,
+          "5": 40
+        },
+        "2": {
+          "1": -10,
+          "2": 0,
+          "3": 10,
+          "4": 20,
+          "5": 30
+        },
+        "3": {
+          "1": -20,
+          "2": -10,
+          "3": 0,
+          "4": 10,
+          "5": 20
+        },
+        "4": {
+          "1": -30,
+          "2": -20,
+          "3": -10,
+          "4": 0,
+          "5": 10
+        },
+        "5": {
+          "1": -40,
+          "2": -30,
+          "3": -20,
+          "4": -10,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以容積率高低來制定其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FLOOR_AREA_RATIO-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "容積率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 160,
+      "upper_bound": 200,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "160%以上未滿200%",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 10,
+          "3": 20,
+          "4": 30,
+          "5": 40
+        },
+        "2": {
+          "1": -10,
+          "2": 0,
+          "3": 10,
+          "4": 20,
+          "5": 30
+        },
+        "3": {
+          "1": -20,
+          "2": -10,
+          "3": 0,
+          "4": 10,
+          "5": 20
+        },
+        "4": {
+          "1": -30,
+          "2": -20,
+          "3": -10,
+          "4": 0,
+          "5": 10
+        },
+        "5": {
+          "1": -40,
+          "2": -30,
+          "3": -20,
+          "4": -10,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以容積率高低來制定其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FLOOR_AREA_RATIO-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "容積率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 120,
+      "upper_bound": 160,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "120%以上未滿160%",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 10,
+          "3": 20,
+          "4": 30,
+          "5": 40
+        },
+        "2": {
+          "1": -10,
+          "2": 0,
+          "3": 10,
+          "4": 20,
+          "5": 30
+        },
+        "3": {
+          "1": -20,
+          "2": -10,
+          "3": 0,
+          "4": 10,
+          "5": 20
+        },
+        "4": {
+          "1": -30,
+          "2": -20,
+          "3": -10,
+          "4": 0,
+          "5": 10
+        },
+        "5": {
+          "1": -40,
+          "2": -30,
+          "3": -20,
+          "4": -10,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以容積率高低來制定其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FLOOR_AREA_RATIO-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "容積率",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": 120,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿120%",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 10,
+          "3": 20,
+          "4": 30,
+          "5": 40
+        },
+        "2": {
+          "1": -10,
+          "2": 0,
+          "3": 10,
+          "4": 20,
+          "5": 30
+        },
+        "3": {
+          "1": -20,
+          "2": -10,
+          "3": 0,
+          "4": 10,
+          "5": 20
+        },
+        "4": {
+          "1": -30,
+          "2": -20,
+          "3": -10,
+          "4": 0,
+          "5": 10
+        },
+        "5": {
+          "1": -40,
+          "2": -30,
+          "3": -20,
+          "4": -10,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以容積率高低來制定其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CONSTRUCTION_PROHIBITED-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "有無禁止建築",
+      "value_type": "boolean",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "5": 40
+        },
+        "5": {
+          "1": -40,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以區段內有無禁止建築來衡量其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CONSTRUCTION_PROHIBITED-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "有無禁止建築",
+      "value_type": "boolean",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "5": 40
+        },
+        "5": {
+          "1": -40,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以區段內有無禁止建築來衡量其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CONSTRUCTION_RESTRICTED-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "有無限制建築（整體開發、面積限制、高度限制……等）",
+      "value_type": "boolean",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "5": 40
+        },
+        "5": {
+          "1": -40,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以該地區有無限制建築及開發來衡量其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CONSTRUCTION_RESTRICTED-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "土地使用管制(1)",
+      "factor": "有無限制建築（整體開發、面積限制、高度限制……等）",
+      "value_type": "boolean",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "5": 40
+        },
+        "5": {
+          "1": -40,
+          "5": 0
+        }
+      },
+      "max_adjustment": 40,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.1",
+      "source_note": "以該地區有無限制建築及開發來衡量其優劣等級",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAIN_ROAD_WIDTH-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 30,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "30m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3.75,
+          "3": 7.5,
+          "4": 11.25,
+          "5": 15
+        },
+        "2": {
+          "1": -3.75,
+          "2": 0,
+          "3": 3.75,
+          "4": 7.5,
+          "5": 11.25
+        },
+        "3": {
+          "1": -7.5,
+          "2": -3.75,
+          "3": 0,
+          "4": 3.75,
+          "5": 7.5
+        },
+        "4": {
+          "1": -11.25,
+          "2": -7.5,
+          "3": -3.75,
+          "4": 0,
+          "5": 3.75
+        },
+        "5": {
+          "1": -15,
+          "2": -11.25,
+          "3": -7.5,
+          "4": -3.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 15,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內主要道路寬度來衡量；Golden Case驗證：18M落於普通(15-20m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAIN_ROAD_WIDTH-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 20,
+      "upper_bound": 30,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "20m以上未滿30m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3.75,
+          "3": 7.5,
+          "4": 11.25,
+          "5": 15
+        },
+        "2": {
+          "1": -3.75,
+          "2": 0,
+          "3": 3.75,
+          "4": 7.5,
+          "5": 11.25
+        },
+        "3": {
+          "1": -7.5,
+          "2": -3.75,
+          "3": 0,
+          "4": 3.75,
+          "5": 7.5
+        },
+        "4": {
+          "1": -11.25,
+          "2": -7.5,
+          "3": -3.75,
+          "4": 0,
+          "5": 3.75
+        },
+        "5": {
+          "1": -15,
+          "2": -11.25,
+          "3": -7.5,
+          "4": -3.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 15,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內主要道路寬度來衡量；Golden Case驗證：18M落於普通(15-20m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAIN_ROAD_WIDTH-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 15,
+      "upper_bound": 20,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "15m以上未滿20m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3.75,
+          "3": 7.5,
+          "4": 11.25,
+          "5": 15
+        },
+        "2": {
+          "1": -3.75,
+          "2": 0,
+          "3": 3.75,
+          "4": 7.5,
+          "5": 11.25
+        },
+        "3": {
+          "1": -7.5,
+          "2": -3.75,
+          "3": 0,
+          "4": 3.75,
+          "5": 7.5
+        },
+        "4": {
+          "1": -11.25,
+          "2": -7.5,
+          "3": -3.75,
+          "4": 0,
+          "5": 3.75
+        },
+        "5": {
+          "1": -15,
+          "2": -11.25,
+          "3": -7.5,
+          "4": -3.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 15,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內主要道路寬度來衡量；Golden Case驗證：18M落於普通(15-20m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAIN_ROAD_WIDTH-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 10,
+      "upper_bound": 15,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "10m以上未滿15m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3.75,
+          "3": 7.5,
+          "4": 11.25,
+          "5": 15
+        },
+        "2": {
+          "1": -3.75,
+          "2": 0,
+          "3": 3.75,
+          "4": 7.5,
+          "5": 11.25
+        },
+        "3": {
+          "1": -7.5,
+          "2": -3.75,
+          "3": 0,
+          "4": 3.75,
+          "5": 7.5
+        },
+        "4": {
+          "1": -11.25,
+          "2": -7.5,
+          "3": -3.75,
+          "4": 0,
+          "5": 3.75
+        },
+        "5": {
+          "1": -15,
+          "2": -11.25,
+          "3": -7.5,
+          "4": -3.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 15,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內主要道路寬度來衡量；Golden Case驗證：18M落於普通(15-20m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAIN_ROAD_WIDTH-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": 10,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿10m或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3.75,
+          "3": 7.5,
+          "4": 11.25,
+          "5": 15
+        },
+        "2": {
+          "1": -3.75,
+          "2": 0,
+          "3": 3.75,
+          "4": 7.5,
+          "5": 11.25
+        },
+        "3": {
+          "1": -7.5,
+          "2": -3.75,
+          "3": 0,
+          "4": 3.75,
+          "5": 7.5
+        },
+        "4": {
+          "1": -11.25,
+          "2": -7.5,
+          "3": -3.75,
+          "4": 0,
+          "5": 3.75
+        },
+        "5": {
+          "1": -15,
+          "2": -11.25,
+          "3": -7.5,
+          "4": -3.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 15,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內主要道路寬度來衡量；Golden Case驗證：18M落於普通(15-20m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-AVG_ROAD_WIDTH-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路平均寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 20,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "20m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內已開闢道路平均寬度來衡量；Golden Case驗證：12M落於普通(10-15m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-AVG_ROAD_WIDTH-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路平均寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 15,
+      "upper_bound": 20,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "15m以上未滿20m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內已開闢道路平均寬度來衡量；Golden Case驗證：12M落於普通(10-15m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-AVG_ROAD_WIDTH-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路平均寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 10,
+      "upper_bound": 15,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "10m以上未滿15m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內已開闢道路平均寬度來衡量；Golden Case驗證：12M落於普通(10-15m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-AVG_ROAD_WIDTH-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路平均寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 6,
+      "upper_bound": 10,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "6m以上未滿10m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內已開闢道路平均寬度來衡量；Golden Case驗證：12M落於普通(10-15m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-AVG_ROAD_WIDTH-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路平均寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": 6,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿6m或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內已開闢道路平均寬度來衡量；Golden Case驗證：12M落於普通(10-15m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAJOR_STATION_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "接近大型車站之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近大型車站距離程度來衡量其優劣等級；距離量測起點見distance_rules.md(本區段中心點)",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAJOR_STATION_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "接近大型車站之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近大型車站距離程度來衡量其優劣等級；距離量測起點見distance_rules.md(本區段中心點)",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAJOR_STATION_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "接近大型車站之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 2000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "1,000m以上未滿2,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近大型車站距離程度來衡量其優劣等級；距離量測起點見distance_rules.md(本區段中心點)",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAJOR_STATION_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "接近大型車站之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 2000,
+      "upper_bound": 3000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "2,000m以上未滿3,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近大型車站距離程度來衡量其優劣等級；距離量測起點見distance_rules.md(本區段中心點)",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MAJOR_STATION_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "接近大型車站之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 3000,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "3,000m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近大型車站距離程度來衡量其優劣等級；距離量測起點見distance_rules.md(本區段中心點)",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BUS_STOP_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "站牌之接近程度或密集程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近站牌距離程度來衡量其優劣等級",
+      "anomaly_flag": "ANOMALY-01: 原文『普通』級距printed為『200km以上未滿400m』，依上下文(稍優未滿200m,稍劣400-700m)判斷應為200m之誤植，未自行修正，數值已按原文km單位保留於grade_label供對照，實際lower_bound/upper_bound欄位採用推定之m單位(200/400)以利Rule Engine運作，此假設已於source_anomalies.md記錄"
+    },
+    {
+      "rule_id": "REG-BUS_STOP_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "站牌之接近程度或密集程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 200,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿200m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近站牌距離程度來衡量其優劣等級",
+      "anomaly_flag": "ANOMALY-01: 原文『普通』級距printed為『200km以上未滿400m』，依上下文(稍優未滿200m,稍劣400-700m)判斷應為200m之誤植，未自行修正，數值已按原文km單位保留於grade_label供對照，實際lower_bound/upper_bound欄位採用推定之m單位(200/400)以利Rule Engine運作，此假設已於source_anomalies.md記錄"
+    },
+    {
+      "rule_id": "REG-BUS_STOP_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "站牌之接近程度或密集程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 200,
+      "upper_bound": 400,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "200m以上未滿400m【原文誤植為200km,見source_anomalies.md ANOMALY-01】",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近站牌距離程度來衡量其優劣等級",
+      "anomaly_flag": "ANOMALY-01: 原文『普通』級距printed為『200km以上未滿400m』，依上下文(稍優未滿200m,稍劣400-700m)判斷應為200m之誤植，未自行修正，數值已按原文km單位保留於grade_label供對照，實際lower_bound/upper_bound欄位採用推定之m單位(200/400)以利Rule Engine運作，此假設已於source_anomalies.md記錄"
+    },
+    {
+      "rule_id": "REG-BUS_STOP_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "站牌之接近程度或密集程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 400,
+      "upper_bound": 700,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "400m以上未滿700m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近站牌距離程度來衡量其優劣等級",
+      "anomaly_flag": "ANOMALY-01: 原文『普通』級距printed為『200km以上未滿400m』，依上下文(稍優未滿200m,稍劣400-700m)判斷應為200m之誤植，未自行修正，數值已按原文km單位保留於grade_label供對照，實際lower_bound/upper_bound欄位採用推定之m單位(200/400)以利Rule Engine運作，此假設已於source_anomalies.md記錄"
+    },
+    {
+      "rule_id": "REG-BUS_STOP_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "站牌之接近程度或密集程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 700,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "700m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以接近站牌距離程度來衡量其優劣等級",
+      "anomaly_flag": "ANOMALY-01: 原文『普通』級距printed為『200km以上未滿400m』，依上下文(稍優未滿200m,稍劣400-700m)判斷應為200m之誤植，未自行修正，數值已按原文km單位保留於grade_label供對照，實際lower_bound/upper_bound欄位採用推定之m單位(200/400)以利Rule Engine運作，此假設已於source_anomalies.md記錄"
+    },
+    {
+      "rule_id": "REG-INTERCHANGE_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "交流道之有無及接近交流道之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以各地價區段至交流道距離計算；Golden Case驗證：無交流道(距離空白)，表5-2記載(5,劣)，代表『無』視同最劣等級，見source_anomalies.md ANOMALY-04",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-INTERCHANGE_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "交流道之有無及接近交流道之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1500,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "500m以上未滿1,500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以各地價區段至交流道距離計算；Golden Case驗證：無交流道(距離空白)，表5-2記載(5,劣)，代表『無』視同最劣等級，見source_anomalies.md ANOMALY-04",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-INTERCHANGE_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "交流道之有無及接近交流道之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1500,
+      "upper_bound": 3000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "1,500m以上未滿3,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以各地價區段至交流道距離計算；Golden Case驗證：無交流道(距離空白)，表5-2記載(5,劣)，代表『無』視同最劣等級，見source_anomalies.md ANOMALY-04",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-INTERCHANGE_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "交流道之有無及接近交流道之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 3000,
+      "upper_bound": 4500,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "3,000m以上未滿4,500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以各地價區段至交流道距離計算；Golden Case驗證：無交流道(距離空白)，表5-2記載(5,劣)，代表『無』視同最劣等級，見source_anomalies.md ANOMALY-04",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-INTERCHANGE_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "交流道之有無及接近交流道之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 4500,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "4,500m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以各地價區段至交流道距離計算；Golden Case驗證：無交流道(距離空白)，表5-2記載(5,劣)，代表『無』視同最劣等級，見source_anomalies.md ANOMALY-04",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路規劃及闢建程度",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "已完全開發",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內道路規劃及闢建程度來衡量；Golden Case驗證：已完全開發，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路規劃及闢建程度",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "大部分已完成",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內道路規劃及闢建程度來衡量；Golden Case驗證：已完全開發，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路規劃及闢建程度",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "已規劃及闢建中",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內道路規劃及闢建程度來衡量；Golden Case驗證：已完全開發，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路規劃及闢建程度",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "已進行規劃",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內道路規劃及闢建程度來衡量；Golden Case驗證：已完全開發，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "交通運輸(2)",
+      "factor": "區段內道路規劃及闢建程度",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "尚未規劃",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.2",
+      "source_note": "以區段內道路規劃及闢建程度來衡量；Golden Case驗證：已完全開發，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DRAINAGE_QUALITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "排水之良否",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "排水系統完善不曾淹水",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以排水系統是否良好來衡量；Golden Case驗證：有排水系統不易淹水，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DRAINAGE_QUALITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "排水之良否",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "有排水系統不易淹水",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以排水系統是否良好來衡量；Golden Case驗證：有排水系統不易淹水，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DRAINAGE_QUALITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "排水之良否",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "有排水系統偶有淹水但排水速度快",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以排水系統是否良好來衡量；Golden Case驗證：有排水系統不易淹水，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DRAINAGE_QUALITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "排水之良否",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "有排水系統偶有淹水",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以排水系統是否良好來衡量；Golden Case驗證：有排水系統不易淹水，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DRAINAGE_QUALITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "排水之良否",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "無排水系統易淹水",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以排水系統是否良好來衡量；Golden Case驗證：有排水系統不易淹水，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-TERRAIN-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "地勢",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "該區地勢平坦",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以地勢平坦完整來衡量；Golden Case驗證：該區地勢平坦，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-TERRAIN-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "地勢",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "該區大部分地勢平坦",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以地勢平坦完整來衡量；Golden Case驗證：該區地勢平坦，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-TERRAIN-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "地勢",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "該區一半地勢平坦",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以地勢平坦完整來衡量；Golden Case驗證：該區地勢平坦，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-TERRAIN-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "地勢",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "該區大部分地勢高亢或低窪",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以地勢平坦完整來衡量；Golden Case驗證：該區地勢平坦，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-TERRAIN-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "自然條件(3)",
+      "factor": "地勢",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "該區全部地勢高亢或低窪",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2.5,
+          "3": 5,
+          "4": 7.5,
+          "5": 10
+        },
+        "2": {
+          "1": -2.5,
+          "2": 0,
+          "3": 2.5,
+          "4": 5,
+          "5": 7.5
+        },
+        "3": {
+          "1": -5,
+          "2": -2.5,
+          "3": 0,
+          "4": 2.5,
+          "5": 5
+        },
+        "4": {
+          "1": -7.5,
+          "2": -5,
+          "3": -2.5,
+          "4": 0,
+          "5": 2.5
+        },
+        "5": {
+          "1": -10,
+          "2": -7.5,
+          "3": -5,
+          "4": -2.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 10,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以地勢平坦完整來衡量；Golden Case驗證：該區地勢平坦，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MARKET_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近市場之程度（傳統市場、超級市場、超大型購物中心）",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近傳統市場、超級市場或超大型購物中心之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MARKET_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近市場之程度（傳統市場、超級市場、超大型購物中心）",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近傳統市場、超級市場或超大型購物中心之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MARKET_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近市場之程度（傳統市場、超級市場、超大型購物中心）",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近傳統市場、超級市場或超大型購物中心之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MARKET_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近市場之程度（傳統市場、超級市場、超大型購物中心）",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 1800,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "1,000m以上未滿1,800m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近傳統市場、超級市場或超大型購物中心之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-MARKET_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近市場之程度（傳統市場、超級市場、超大型購物中心）",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1800,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "1,800m以上或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近傳統市場、超級市場或超大型購物中心之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARK_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近鄰里公園、一般公園、廣場、徒步區之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARK_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近鄰里公園、一般公園、廣場、徒步區之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARK_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近鄰里公園、一般公園、廣場、徒步區之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARK_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 1800,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "1,000m以上未滿1,800m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近鄰里公園、一般公園、廣場、徒步區之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARK_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1800,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "1,800m以上或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近鄰里公園、一般公園、廣場、徒步區之距離來衡量；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近觀光遊憩設施之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 0.75,
+          "3": 1.5,
+          "4": 2.25,
+          "5": 3
+        },
+        "2": {
+          "1": -0.75,
+          "2": 0,
+          "3": 0.75,
+          "4": 1.5,
+          "5": 2.25
+        },
+        "3": {
+          "1": -1.5,
+          "2": -0.75,
+          "3": 0,
+          "4": 0.75,
+          "5": 1.5
+        },
+        "4": {
+          "1": -2.25,
+          "2": -1.5,
+          "3": -0.75,
+          "4": 0,
+          "5": 0.75
+        },
+        "5": {
+          "1": -3,
+          "2": -2.25,
+          "3": -1.5,
+          "4": -0.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 3,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近觀光遊憩設施程度來衡量其優劣等級；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": "ANOMALY-02: 原文『稍劣』級距printed為『1,000km以上未滿1,500m』，依上下文(普通500-1,000m,劣1,500m以上)判斷應為1,000m之誤植，處理方式同ANOMALY-01"
+    },
+    {
+      "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近觀光遊憩設施之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 0.75,
+          "3": 1.5,
+          "4": 2.25,
+          "5": 3
+        },
+        "2": {
+          "1": -0.75,
+          "2": 0,
+          "3": 0.75,
+          "4": 1.5,
+          "5": 2.25
+        },
+        "3": {
+          "1": -1.5,
+          "2": -0.75,
+          "3": 0,
+          "4": 0.75,
+          "5": 1.5
+        },
+        "4": {
+          "1": -2.25,
+          "2": -1.5,
+          "3": -0.75,
+          "4": 0,
+          "5": 0.75
+        },
+        "5": {
+          "1": -3,
+          "2": -2.25,
+          "3": -1.5,
+          "4": -0.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 3,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近觀光遊憩設施程度來衡量其優劣等級；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": "ANOMALY-02: 原文『稍劣』級距printed為『1,000km以上未滿1,500m』，依上下文(普通500-1,000m,劣1,500m以上)判斷應為1,000m之誤植，處理方式同ANOMALY-01"
+    },
+    {
+      "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近觀光遊憩設施之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 0.75,
+          "3": 1.5,
+          "4": 2.25,
+          "5": 3
+        },
+        "2": {
+          "1": -0.75,
+          "2": 0,
+          "3": 0.75,
+          "4": 1.5,
+          "5": 2.25
+        },
+        "3": {
+          "1": -1.5,
+          "2": -0.75,
+          "3": 0,
+          "4": 0.75,
+          "5": 1.5
+        },
+        "4": {
+          "1": -2.25,
+          "2": -1.5,
+          "3": -0.75,
+          "4": 0,
+          "5": 0.75
+        },
+        "5": {
+          "1": -3,
+          "2": -2.25,
+          "3": -1.5,
+          "4": -0.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 3,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近觀光遊憩設施程度來衡量其優劣等級；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": "ANOMALY-02: 原文『稍劣』級距printed為『1,000km以上未滿1,500m』，依上下文(普通500-1,000m,劣1,500m以上)判斷應為1,000m之誤植，處理方式同ANOMALY-01"
+    },
+    {
+      "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近觀光遊憩設施之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 1500,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "1,000m以上未滿1,500m【原文誤植為1,000km,見source_anomalies.md ANOMALY-02】",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 0.75,
+          "3": 1.5,
+          "4": 2.25,
+          "5": 3
+        },
+        "2": {
+          "1": -0.75,
+          "2": 0,
+          "3": 0.75,
+          "4": 1.5,
+          "5": 2.25
+        },
+        "3": {
+          "1": -1.5,
+          "2": -0.75,
+          "3": 0,
+          "4": 0.75,
+          "5": 1.5
+        },
+        "4": {
+          "1": -2.25,
+          "2": -1.5,
+          "3": -0.75,
+          "4": 0,
+          "5": 0.75
+        },
+        "5": {
+          "1": -3,
+          "2": -2.25,
+          "3": -1.5,
+          "4": -0.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 3,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近觀光遊憩設施程度來衡量其優劣等級；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": "ANOMALY-02: 原文『稍劣』級距printed為『1,000km以上未滿1,500m』，依上下文(普通500-1,000m,劣1,500m以上)判斷應為1,000m之誤植，處理方式同ANOMALY-01"
+    },
+    {
+      "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "接近觀光遊憩設施之程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1500,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "1,500m以上或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 0.75,
+          "3": 1.5,
+          "4": 2.25,
+          "5": 3
+        },
+        "2": {
+          "1": -0.75,
+          "2": 0,
+          "3": 0.75,
+          "4": 1.5,
+          "5": 2.25
+        },
+        "3": {
+          "1": -1.5,
+          "2": -0.75,
+          "3": 0,
+          "4": 0.75,
+          "5": 1.5
+        },
+        "4": {
+          "1": -2.25,
+          "2": -1.5,
+          "3": -0.75,
+          "4": 0,
+          "5": 0.75
+        },
+        "5": {
+          "1": -3,
+          "2": -2.25,
+          "3": -1.5,
+          "4": -0.75,
+          "5": 0
+        }
+      },
+      "max_adjustment": 3,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近觀光遊憩設施程度來衡量其優劣等級；Golden Case驗證：區段內有，與表5-2記載(1,優)一致",
+      "anomaly_flag": "ANOMALY-02: 原文『稍劣』級距printed為『1,000km以上未滿1,500m』，依上下文(普通500-1,000m,劣1,500m以上)判斷應為1,000m之誤植，處理方式同ANOMALY-01"
+    },
+    {
+      "rule_id": "REG-PARKING_CONVENIENCE-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "停車場地之便利程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近停車位的距離衡量其優劣等級；Golden Case驗證：120M落於稍優(未滿200m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARKING_CONVENIENCE-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "停車場地之便利程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 200,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿200m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近停車位的距離衡量其優劣等級；Golden Case驗證：120M落於稍優(未滿200m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARKING_CONVENIENCE-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "停車場地之便利程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 200,
+      "upper_bound": 400,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "200m以上未滿400m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近停車位的距離衡量其優劣等級；Golden Case驗證：120M落於稍優(未滿200m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARKING_CONVENIENCE-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "停車場地之便利程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 400,
+      "upper_bound": 700,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "400m以上未滿700m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近停車位的距離衡量其優劣等級；Golden Case驗證：120M落於稍優(未滿200m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-PARKING_CONVENIENCE-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "公共建設(4)",
+      "factor": "停車場地之便利程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 700,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "700m以上或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.3",
+      "source_note": "以接近停車位的距離衡量其優劣等級；Golden Case驗證：120M落於稍優(未滿200m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "電業設施及公用氣體燃料設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 3000,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "3,000m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有此特殊設施及接近該等設施距離之遠近來衡量；Golden Case驗證：瓦斯槽440M落於劣(未滿500m,取多設施中影響最大者)，與表5-2記載(5,劣)一致；多設施擇一影響最大者之規則見distance_rules.md與作業手冊p.24",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "電業設施及公用氣體燃料設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 2000,
+      "upper_bound": 3000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "2,000m以上未滿3,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有此特殊設施及接近該等設施距離之遠近來衡量；Golden Case驗證：瓦斯槽440M落於劣(未滿500m,取多設施中影響最大者)，與表5-2記載(5,劣)一致；多設施擇一影響最大者之規則見distance_rules.md與作業手冊p.24",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "電業設施及公用氣體燃料設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 2000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "1,000m以上未滿2,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有此特殊設施及接近該等設施距離之遠近來衡量；Golden Case驗證：瓦斯槽440M落於劣(未滿500m,取多設施中影響最大者)，與表5-2記載(5,劣)一致；多設施擇一影響最大者之規則見distance_rules.md與作業手冊p.24",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "電業設施及公用氣體燃料設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有此特殊設施及接近該等設施距離之遠近來衡量；Golden Case驗證：瓦斯槽440M落於劣(未滿500m,取多設施中影響最大者)，與表5-2記載(5,劣)一致；多設施擇一影響最大者之規則見distance_rules.md與作業手冊p.24",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "電業設施及公用氣體燃料設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有此特殊設施及接近該等設施距離之遠近來衡量；Golden Case驗證：瓦斯槽440M落於劣(未滿500m,取多設施中影響最大者)，與表5-2記載(5,劣)一致；多設施擇一影響最大者之規則見distance_rules.md與作業手冊p.24",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "殯葬設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 3000,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "3,000m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無墓地、殯儀館、火葬場及接近程度來衡量其優劣等級；Golden Case驗證：墓地80M落於劣(未滿500m)，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "殯葬設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 2000,
+      "upper_bound": 3000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "2,000m以上未滿3,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無墓地、殯儀館、火葬場及接近程度來衡量其優劣等級；Golden Case驗證：墓地80M落於劣(未滿500m)，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "殯葬設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 2000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "1,000m以上未滿2,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無墓地、殯儀館、火葬場及接近程度來衡量其優劣等級；Golden Case驗證：墓地80M落於劣(未滿500m)，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "殯葬設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無墓地、殯儀館、火葬場及接近程度來衡量其優劣等級；Golden Case驗證：墓地80M落於劣(未滿500m)，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "殯葬設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無墓地、殯儀館、火葬場及接近程度來衡量其優劣等級；Golden Case驗證：墓地80M落於劣(未滿500m)，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-WASTE_FACILITY_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "廢棄物處理設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 3000,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "3,000m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無垃圾場、掩埋場、焚化爐及接近程度來衡量其優劣等級；Golden Case驗證：無此類設施(視同最佳)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-WASTE_FACILITY_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "廢棄物處理設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 2000,
+      "upper_bound": 3000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "2,000m以上未滿3,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無垃圾場、掩埋場、焚化爐及接近程度來衡量其優劣等級；Golden Case驗證：無此類設施(視同最佳)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-WASTE_FACILITY_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "廢棄物處理設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 2000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "1,000m以上未滿2,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無垃圾場、掩埋場、焚化爐及接近程度來衡量其優劣等級；Golden Case驗證：無此類設施(視同最佳)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-WASTE_FACILITY_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "廢棄物處理設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無垃圾場、掩埋場、焚化爐及接近程度來衡量其優劣等級；Golden Case驗證：無此類設施(視同最佳)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-WASTE_FACILITY_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "特殊設施(5)",
+      "factor": "廢棄物處理設施之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以該地區有無垃圾場、掩埋場、焚化爐及接近程度來衡量其優劣等級；Golden Case驗證：無此類設施(視同最佳)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-POLLUTION_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "環境污染(6)",
+      "factor": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 3000,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "3,000m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有污染設施及接近程度來衡量其優劣等級；Golden Case驗證：無污染源，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-POLLUTION_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "環境污染(6)",
+      "factor": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 2000,
+      "upper_bound": 3000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "2,000m以上未滿3,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有污染設施及接近程度來衡量其優劣等級；Golden Case驗證：無污染源，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-POLLUTION_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "環境污染(6)",
+      "factor": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 2000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "1,000m以上未滿2,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有污染設施及接近程度來衡量其優劣等級；Golden Case驗證：無污染源，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-POLLUTION_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "環境污染(6)",
+      "factor": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有污染設施及接近程度來衡量其優劣等級；Golden Case驗證：無污染源，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-POLLUTION_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "環境污染(6)",
+      "factor": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度",
+      "value_type": "distance_negative",
+      "unit": "M",
+      "direction": "positive_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1.5,
+          "3": 3,
+          "4": 4.5,
+          "5": 6
+        },
+        "2": {
+          "1": -1.5,
+          "2": 0,
+          "3": 1.5,
+          "4": 3,
+          "5": 4.5
+        },
+        "3": {
+          "1": -3,
+          "2": -1.5,
+          "3": 0,
+          "4": 1.5,
+          "5": 3
+        },
+        "4": {
+          "1": -4.5,
+          "2": -3,
+          "3": -1.5,
+          "4": 0,
+          "5": 1.5
+        },
+        "5": {
+          "1": -6,
+          "2": -4.5,
+          "3": -3,
+          "4": -1.5,
+          "5": 0
+        }
+      },
+      "max_adjustment": 6,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.4",
+      "source_note": "以區段內是否有污染設施及接近程度來衡量其優劣等級；Golden Case驗證：無污染源，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DEPARTMENT_STORE_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "百貨公司之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以百貨公司之接近程度來衡量其優劣等級；Golden Case驗證：無百貨公司，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DEPARTMENT_STORE_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "百貨公司之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以百貨公司之接近程度來衡量其優劣等級；Golden Case驗證：無百貨公司，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DEPARTMENT_STORE_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "百貨公司之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以百貨公司之接近程度來衡量其優劣等級；Golden Case驗證：無百貨公司，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DEPARTMENT_STORE_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "百貨公司之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 1500,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "1,000m以上未滿1,500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以百貨公司之接近程度來衡量其優劣等級；Golden Case驗證：無百貨公司，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-DEPARTMENT_STORE_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "百貨公司之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1500,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "1,500m以上或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以百貨公司之接近程度來衡量其優劣等級；Golden Case驗證：無百貨公司，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FINANCIAL_INSTITUTION_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "金融機構之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以金融機構之接近程度來衡量其優劣等級；Golden Case驗證：210M落於稍優(未滿500m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FINANCIAL_INSTITUTION_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "金融機構之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以金融機構之接近程度來衡量其優劣等級；Golden Case驗證：210M落於稍優(未滿500m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FINANCIAL_INSTITUTION_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "金融機構之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以金融機構之接近程度來衡量其優劣等級；Golden Case驗證：210M落於稍優(未滿500m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FINANCIAL_INSTITUTION_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "金融機構之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 1500,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "1,000m以上未滿1,500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以金融機構之接近程度來衡量其優劣等級；Golden Case驗證：210M落於稍優(未滿500m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-FINANCIAL_INSTITUTION_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "金融機構之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1500,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "1,500m以上或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以金融機構之接近程度來衡量其優劣等級；Golden Case驗證：210M落於稍優(未滿500m)，與表5-2記載(2,稍優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ENTERTAINMENT_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "娛樂設施之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以娛樂設施之接近程度來衡量其優劣等級；Golden Case驗證：無娛樂設施，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ENTERTAINMENT_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "娛樂設施之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以娛樂設施之接近程度來衡量其優劣等級；Golden Case驗證：無娛樂設施，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ENTERTAINMENT_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "娛樂設施之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以娛樂設施之接近程度來衡量其優劣等級；Golden Case驗證：無娛樂設施，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ENTERTAINMENT_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "娛樂設施之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 1500,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "1,000m以上未滿1,500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以娛樂設施之接近程度來衡量其優劣等級；Golden Case驗證：無娛樂設施，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-ENTERTAINMENT_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "娛樂設施之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1500,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "1,500m以上或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "2": {
+          "1": -1,
+          "2": 0,
+          "3": 1,
+          "4": 2,
+          "5": 3
+        },
+        "3": {
+          "1": -2,
+          "2": -1,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "4": {
+          "1": -3,
+          "2": -2,
+          "3": -1,
+          "4": 0,
+          "5": 1
+        },
+        "5": {
+          "1": -4,
+          "2": -3,
+          "3": -2,
+          "4": -1,
+          "5": 0
+        }
+      },
+      "max_adjustment": 4,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以娛樂設施之接近程度來衡量其優劣等級；Golden Case驗證：無娛樂設施，與表5-2記載(5,劣)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-EXHIBITION_HOTEL_PROXIMITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "大型展示中心或觀光飯店之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "區段內有",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以大型展示中心或觀光飯店之接近程度來衡量其優劣等級；Golden Case驗證：850M落於普通(500-1,000m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-EXHIBITION_HOTEL_PROXIMITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "大型展示中心或觀光飯店之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": null,
+      "upper_bound": 500,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "未滿500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以大型展示中心或觀光飯店之接近程度來衡量其優劣等級；Golden Case驗證：850M落於普通(500-1,000m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-EXHIBITION_HOTEL_PROXIMITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "大型展示中心或觀光飯店之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 500,
+      "upper_bound": 1000,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "500m以上未滿1,000m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以大型展示中心或觀光飯店之接近程度來衡量其優劣等級；Golden Case驗證：850M落於普通(500-1,000m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-EXHIBITION_HOTEL_PROXIMITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "大型展示中心或觀光飯店之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1000,
+      "upper_bound": 1500,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "1,000m以上未滿1,500m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以大型展示中心或觀光飯店之接近程度來衡量其優劣等級；Golden Case驗證：850M落於普通(500-1,000m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-EXHIBITION_HOTEL_PROXIMITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "大型展示中心或觀光飯店之有無、數量、接近程度",
+      "value_type": "distance_positive",
+      "unit": "M",
+      "direction": "negative_distance_better",
+      "lower_bound": 1500,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "1,500m以上或無",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 6,
+          "5": 8
+        },
+        "2": {
+          "1": -2,
+          "2": 0,
+          "3": 2,
+          "4": 4,
+          "5": 6
+        },
+        "3": {
+          "1": -4,
+          "2": -2,
+          "3": 0,
+          "4": 2,
+          "5": 4
+        },
+        "4": {
+          "1": -6,
+          "2": -4,
+          "3": -2,
+          "4": 0,
+          "5": 2
+        },
+        "5": {
+          "1": -8,
+          "2": -6,
+          "3": -4,
+          "4": -2,
+          "5": 0
+        }
+      },
+      "max_adjustment": 8,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以大型展示中心或觀光飯店之接近程度來衡量其優劣等級；Golden Case驗證：850M落於普通(500-1,000m)，與表5-2記載(3,普通)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CUSTOMER_TRAFFIC-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "顧客通行量之多寡",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "顧客通行量多",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以平均顧客通行量之多寡來衡量其優劣等級；Golden Case驗證：顧客通行量多，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CUSTOMER_TRAFFIC-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "顧客通行量之多寡",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "顧客通行量稍多",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以平均顧客通行量之多寡來衡量其優劣等級；Golden Case驗證：顧客通行量多，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CUSTOMER_TRAFFIC-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "顧客通行量之多寡",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "顧客通行量普通",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以平均顧客通行量之多寡來衡量其優劣等級；Golden Case驗證：顧客通行量多，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CUSTOMER_TRAFFIC-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "顧客通行量之多寡",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "顧客通行量較少",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以平均顧客通行量之多寡來衡量其優劣等級；Golden Case驗證：顧客通行量多，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-CUSTOMER_TRAFFIC-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "顧客通行量之多寡",
+      "value_type": "categorical",
+      "unit": null,
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": null,
+      "lower_inclusive": null,
+      "upper_inclusive": null,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "顧客通行量少",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以平均顧客通行量之多寡來衡量其優劣等級；Golden Case驗證：顧客通行量多，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-SHOP_CONTIGUITY-01",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "店舖之毗連狀態",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 80,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "80%以上作為店舖",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以區段內店舖多寡來衡量其優劣等級；Golden Case驗證：90%以上作為店舖落於優(80%以上)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-SHOP_CONTIGUITY-02",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "店舖之毗連狀態",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 70,
+      "upper_bound": 80,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "70%以上未滿80%作為店舖",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以區段內店舖多寡來衡量其優劣等級；Golden Case驗證：90%以上作為店舖落於優(80%以上)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-SHOP_CONTIGUITY-03",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "店舖之毗連狀態",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 60,
+      "upper_bound": 70,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "60%以上未滿70%作為店舖",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以區段內店舖多寡來衡量其優劣等級；Golden Case驗證：90%以上作為店舖落於優(80%以上)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-SHOP_CONTIGUITY-04",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "店舖之毗連狀態",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": 50,
+      "upper_bound": 60,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "50%以上未滿60%作為店舖",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以區段內店舖多寡來衡量其優劣等級；Golden Case驗證：90%以上作為店舖落於優(80%以上)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-SHOP_CONTIGUITY-05",
+      "version": "1.0",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "工商活動(7)",
+      "factor": "店舖之毗連狀態",
+      "value_type": "numeric_range",
+      "unit": "%",
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": 50,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿50%作為店舖",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 3,
+          "3": 6,
+          "4": 9,
+          "5": 12
+        },
+        "2": {
+          "1": -3,
+          "2": 0,
+          "3": 3,
+          "4": 6,
+          "5": 9
+        },
+        "3": {
+          "1": -6,
+          "2": -3,
+          "3": 0,
+          "4": 3,
+          "5": 6
+        },
+        "4": {
+          "1": -9,
+          "2": -6,
+          "3": -3,
+          "4": 0,
+          "5": 3
+        },
+        "5": {
+          "1": -12,
+          "2": -9,
+          "3": -6,
+          "4": -3,
+          "5": 0
+        }
+      },
+      "max_adjustment": 12,
+      "effective_date": "1140901",
+      "source_document": "評價基準明細表範例.pdf",
+      "source_page": "p.5",
+      "source_note": "以區段內店舖多寡來衡量其優劣等級；Golden Case驗證：90%以上作為店舖落於優(80%以上)，與表5-2記載(1,優)一致",
+      "anomaly_flag": null
+    }
+  ]
+}

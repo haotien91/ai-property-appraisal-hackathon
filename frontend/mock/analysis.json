@@ -1,0 +1,572 @@
+{
+  "case_no": "1140901-99-001",
+  "grades": [
+    {
+      "field_id": "individual_building_coverage_ratio_differential_rate_溫泉段218地號",
+      "factor": "建蔽率差異率",
+      "grade": "base=稍優, comp=稍優",
+      "rule_id": "IND-BUILDING_COVERAGE_RATIO_INDIVIDUAL-02"
+    },
+    {
+      "field_id": "individual_commercial_district_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近商圈之程度差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-COMMERCIAL_DISTRICT_PROXIMITY-01"
+    },
+    {
+      "field_id": "individual_construction_restriction_differential_rate_溫泉段218地號",
+      "factor": "有無禁限建差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-CONSTRUCTION_RESTRICTION_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_floor_area_ratio_differential_rate_溫泉段218地號",
+      "factor": "容積率差異率",
+      "grade": "base=稍優, comp=稍優",
+      "rule_id": "IND-FLOOR_AREA_RATIO_INDIVIDUAL-02"
+    },
+    {
+      "field_id": "individual_frontage_road_width_differential_rate_溫泉段218地號",
+      "factor": "面前道路寬度差異率",
+      "grade": "base=稍優, comp=稍劣",
+      "rule_id": "IND-FRONTAGE_ROAD_WIDTH-02"
+    },
+    {
+      "field_id": "individual_land_area_differential_rate_溫泉段218地號",
+      "factor": "面積差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-LAND_AREA-01"
+    },
+    {
+      "field_id": "individual_land_depth_differential_rate_溫泉段218地號",
+      "factor": "深度差異率",
+      "grade": "base=普通, comp=稍劣",
+      "rule_id": "IND-LAND_DEPTH-03"
+    },
+    {
+      "field_id": "individual_land_shape_differential_rate_溫泉段218地號",
+      "factor": "形狀差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-LAND_SHAPE-01"
+    },
+    {
+      "field_id": "individual_land_terrain_differential_rate_溫泉段218地號",
+      "factor": "地勢差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-LAND_TERRAIN-01"
+    },
+    {
+      "field_id": "individual_land_width_differential_rate_溫泉段218地號",
+      "factor": "寬度差異率",
+      "grade": "base=稍劣, comp=稍劣",
+      "rule_id": "IND-LAND_WIDTH-04"
+    },
+    {
+      "field_id": "individual_market_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近市場之程度差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-MARKET_PROXIMITY_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_nuisance_facility_differential_rate_溫泉段218地號",
+      "factor": "嫌惡設施之有無差異率",
+      "grade": "base=普通, comp=劣",
+      "rule_id": "IND-NUISANCE_FACILITY-03"
+    },
+    {
+      "field_id": "individual_park_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近公園、廣場之程度差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-PARK_PROXIMITY_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_parking_convenience_differential_rate_溫泉段218地號",
+      "factor": "停車方便性差異率",
+      "grade": "base=優, comp=劣",
+      "rule_id": "IND-PARKING_CONVENIENCE_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_road_type_differential_rate_溫泉段218地號",
+      "factor": "道路種類差異率",
+      "grade": "base=優, comp=稍優",
+      "rule_id": "IND-ROAD_TYPE-01"
+    },
+    {
+      "field_id": "individual_school_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近學校之程度差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-SCHOOL_PROXIMITY-01"
+    },
+    {
+      "field_id": "individual_station_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近車站之程度差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-STATION_PROXIMITY_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_street_frontage_differential_rate_溫泉段218地號",
+      "factor": "臨路情形差異率",
+      "grade": "base=稍劣, comp=稍劣",
+      "rule_id": "IND-STREET_FRONTAGE-04"
+    },
+    {
+      "field_id": "individual_zoning_designation_differential_rate_溫泉段218地號",
+      "factor": "使用分區或編定差異率",
+      "grade": "base=優, comp=優",
+      "rule_id": "IND-ZONING_DESIGNATION-01"
+    },
+    {
+      "field_id": "regional_avg_road_width_adjustment_pct_溫泉段218地號",
+      "factor": "區段內道路平均寬度修正百分比",
+      "grade": "base=普通, comp=普通",
+      "rule_id": "REG-AVG_ROAD_WIDTH-03"
+    },
+    {
+      "field_id": "regional_building_coverage_ratio_adjustment_pct_溫泉段218地號",
+      "factor": "建蔽率修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-BUILDING_COVERAGE_RATIO-01"
+    },
+    {
+      "field_id": "regional_bus_stop_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "站牌之接近程度或密集程度修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-BUS_STOP_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_construction_prohibited_adjustment_pct_溫泉段218地號",
+      "factor": "有無禁止建築修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-CONSTRUCTION_PROHIBITED-01"
+    },
+    {
+      "field_id": "regional_construction_restricted_adjustment_pct_溫泉段218地號",
+      "factor": "有無限制建築（整體開發、面積限制、高度限制……等）修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-CONSTRUCTION_RESTRICTED-01"
+    },
+    {
+      "field_id": "regional_customer_traffic_adjustment_pct_溫泉段218地號",
+      "factor": "顧客通行量之多寡修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-CUSTOMER_TRAFFIC-01"
+    },
+    {
+      "field_id": "regional_department_store_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "百貨公司之有無、數量、接近程度修正百分比",
+      "grade": "base=劣, comp=劣",
+      "rule_id": "REG-DEPARTMENT_STORE_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_drainage_quality_adjustment_pct_溫泉段218地號",
+      "factor": "排水之良否修正百分比",
+      "grade": "base=稍優, comp=稍優",
+      "rule_id": "REG-DRAINAGE_QUALITY-02"
+    },
+    {
+      "field_id": "regional_entertainment_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "娛樂設施之有無、數量、接近程度修正百分比",
+      "grade": "base=劣, comp=劣",
+      "rule_id": "REG-ENTERTAINMENT_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_exhibition_hotel_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "大型展示中心或觀光飯店之有無、數量、接近程度修正百分比",
+      "grade": "base=普通, comp=普通",
+      "rule_id": "REG-EXHIBITION_HOTEL_PROXIMITY-03"
+    },
+    {
+      "field_id": "regional_financial_institution_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "金融機構之有無、數量、接近程度修正百分比",
+      "grade": "base=稍優, comp=稍優",
+      "rule_id": "REG-FINANCIAL_INSTITUTION_PROXIMITY-02"
+    },
+    {
+      "field_id": "regional_floor_area_ratio_adjustment_pct_溫泉段218地號",
+      "factor": "容積率修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-FLOOR_AREA_RATIO-01"
+    },
+    {
+      "field_id": "regional_funeral_facility_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "殯葬設施之有無及接近程度修正百分比",
+      "grade": "base=劣, comp=劣",
+      "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_interchange_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "交流道之有無及接近交流道之程度修正百分比",
+      "grade": "base=劣, comp=劣",
+      "rule_id": "REG-INTERCHANGE_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_land_use_zone_adjustment_pct_溫泉段218地號",
+      "factor": "使用分區(使用地類別)修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-LAND_USE_ZONE-01"
+    },
+    {
+      "field_id": "regional_main_road_width_adjustment_pct_溫泉段218地號",
+      "factor": "主要道路寬度修正百分比",
+      "grade": "base=普通, comp=普通",
+      "rule_id": "REG-MAIN_ROAD_WIDTH-03"
+    },
+    {
+      "field_id": "regional_major_station_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "接近大型車站之程度修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-MAJOR_STATION_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_market_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "接近市場之程度（傳統市場、超級市場、超大型購物中心）修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-MARKET_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_park_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-PARK_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_parking_convenience_adjustment_pct_溫泉段218地號",
+      "factor": "停車場地之便利程度修正百分比",
+      "grade": "base=稍優, comp=稍優",
+      "rule_id": "REG-PARKING_CONVENIENCE-02"
+    },
+    {
+      "field_id": "regional_pollution_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-POLLUTION_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_road_development_adjustment_pct_溫泉段218地號",
+      "factor": "區段內道路規劃及闢建程度修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-01"
+    },
+    {
+      "field_id": "regional_shop_contiguity_adjustment_pct_溫泉段218地號",
+      "factor": "店舖之毗連狀態修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-SHOP_CONTIGUITY-01"
+    },
+    {
+      "field_id": "regional_terrain_adjustment_pct_溫泉段218地號",
+      "factor": "地勢修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-TERRAIN-01"
+    },
+    {
+      "field_id": "regional_tourism_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "接近觀光遊憩設施之程度修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_utility_facility_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "電業設施及公用氣體燃料設施之有無及接近程度修正百分比",
+      "grade": "base=劣, comp=劣",
+      "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_waste_facility_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "廢棄物處理設施之有無及接近程度修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-WASTE_FACILITY_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_zoning_inside_outside_adjustment_pct_溫泉段218地號",
+      "factor": "都市計畫（內、外）修正百分比",
+      "grade": "base=優, comp=優",
+      "rule_id": "REG-ZONING_INSIDE_OUTSIDE-01"
+    }
+  ],
+  "adjustments": [
+    {
+      "field_id": "individual_building_coverage_ratio_differential_rate_溫泉段218地號",
+      "factor": "建蔽率差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-BUILDING_COVERAGE_RATIO_INDIVIDUAL-02"
+    },
+    {
+      "field_id": "individual_commercial_district_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近商圈之程度差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-COMMERCIAL_DISTRICT_PROXIMITY-01"
+    },
+    {
+      "field_id": "individual_construction_restriction_differential_rate_溫泉段218地號",
+      "factor": "有無禁限建差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-CONSTRUCTION_RESTRICTION_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_floor_area_ratio_differential_rate_溫泉段218地號",
+      "factor": "容積率差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-FLOOR_AREA_RATIO_INDIVIDUAL-02"
+    },
+    {
+      "field_id": "individual_frontage_road_width_differential_rate_溫泉段218地號",
+      "factor": "面前道路寬度差異率",
+      "adjustment_pct": "5",
+      "rule_id": "IND-FRONTAGE_ROAD_WIDTH-02"
+    },
+    {
+      "field_id": "individual_land_area_differential_rate_溫泉段218地號",
+      "factor": "面積差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-LAND_AREA-01"
+    },
+    {
+      "field_id": "individual_land_depth_differential_rate_溫泉段218地號",
+      "factor": "深度差異率",
+      "adjustment_pct": "1",
+      "rule_id": "IND-LAND_DEPTH-03"
+    },
+    {
+      "field_id": "individual_land_shape_differential_rate_溫泉段218地號",
+      "factor": "形狀差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-LAND_SHAPE-01"
+    },
+    {
+      "field_id": "individual_land_terrain_differential_rate_溫泉段218地號",
+      "factor": "地勢差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-LAND_TERRAIN-01"
+    },
+    {
+      "field_id": "individual_land_width_differential_rate_溫泉段218地號",
+      "factor": "寬度差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-LAND_WIDTH-04"
+    },
+    {
+      "field_id": "individual_market_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近市場之程度差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-MARKET_PROXIMITY_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_nuisance_facility_differential_rate_溫泉段218地號",
+      "factor": "嫌惡設施之有無差異率",
+      "adjustment_pct": "3",
+      "rule_id": "IND-NUISANCE_FACILITY-03"
+    },
+    {
+      "field_id": "individual_park_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近公園、廣場之程度差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-PARK_PROXIMITY_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_parking_convenience_differential_rate_溫泉段218地號",
+      "factor": "停車方便性差異率",
+      "adjustment_pct": "2",
+      "rule_id": "IND-PARKING_CONVENIENCE_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_road_type_differential_rate_溫泉段218地號",
+      "factor": "道路種類差異率",
+      "adjustment_pct": "2",
+      "rule_id": "IND-ROAD_TYPE-01"
+    },
+    {
+      "field_id": "individual_school_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近學校之程度差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-SCHOOL_PROXIMITY-01"
+    },
+    {
+      "field_id": "individual_station_proximity_differential_rate_溫泉段218地號",
+      "factor": "接近車站之程度差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-STATION_PROXIMITY_INDIVIDUAL-01"
+    },
+    {
+      "field_id": "individual_street_frontage_differential_rate_溫泉段218地號",
+      "factor": "臨路情形差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-STREET_FRONTAGE-04"
+    },
+    {
+      "field_id": "individual_zoning_designation_differential_rate_溫泉段218地號",
+      "factor": "使用分區或編定差異率",
+      "adjustment_pct": "0",
+      "rule_id": "IND-ZONING_DESIGNATION-01"
+    },
+    {
+      "field_id": "regional_avg_road_width_adjustment_pct_溫泉段218地號",
+      "factor": "區段內道路平均寬度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-AVG_ROAD_WIDTH-03"
+    },
+    {
+      "field_id": "regional_building_coverage_ratio_adjustment_pct_溫泉段218地號",
+      "factor": "建蔽率修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-BUILDING_COVERAGE_RATIO-01"
+    },
+    {
+      "field_id": "regional_bus_stop_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "站牌之接近程度或密集程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-BUS_STOP_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_construction_prohibited_adjustment_pct_溫泉段218地號",
+      "factor": "有無禁止建築修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-CONSTRUCTION_PROHIBITED-01"
+    },
+    {
+      "field_id": "regional_construction_restricted_adjustment_pct_溫泉段218地號",
+      "factor": "有無限制建築（整體開發、面積限制、高度限制……等）修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-CONSTRUCTION_RESTRICTED-01"
+    },
+    {
+      "field_id": "regional_customer_traffic_adjustment_pct_溫泉段218地號",
+      "factor": "顧客通行量之多寡修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-CUSTOMER_TRAFFIC-01"
+    },
+    {
+      "field_id": "regional_department_store_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "百貨公司之有無、數量、接近程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-DEPARTMENT_STORE_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_drainage_quality_adjustment_pct_溫泉段218地號",
+      "factor": "排水之良否修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-DRAINAGE_QUALITY-02"
+    },
+    {
+      "field_id": "regional_entertainment_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "娛樂設施之有無、數量、接近程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-ENTERTAINMENT_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_exhibition_hotel_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "大型展示中心或觀光飯店之有無、數量、接近程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-EXHIBITION_HOTEL_PROXIMITY-03"
+    },
+    {
+      "field_id": "regional_financial_institution_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "金融機構之有無、數量、接近程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-FINANCIAL_INSTITUTION_PROXIMITY-02"
+    },
+    {
+      "field_id": "regional_floor_area_ratio_adjustment_pct_溫泉段218地號",
+      "factor": "容積率修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-FLOOR_AREA_RATIO-01"
+    },
+    {
+      "field_id": "regional_funeral_facility_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "殯葬設施之有無及接近程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_interchange_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "交流道之有無及接近交流道之程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-INTERCHANGE_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_land_use_zone_adjustment_pct_溫泉段218地號",
+      "factor": "使用分區(使用地類別)修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-LAND_USE_ZONE-01"
+    },
+    {
+      "field_id": "regional_main_road_width_adjustment_pct_溫泉段218地號",
+      "factor": "主要道路寬度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-MAIN_ROAD_WIDTH-03"
+    },
+    {
+      "field_id": "regional_major_station_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "接近大型車站之程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-MAJOR_STATION_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_market_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "接近市場之程度（傳統市場、超級市場、超大型購物中心）修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-MARKET_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_park_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-PARK_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_parking_convenience_adjustment_pct_溫泉段218地號",
+      "factor": "停車場地之便利程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-PARKING_CONVENIENCE-02"
+    },
+    {
+      "field_id": "regional_pollution_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-POLLUTION_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_road_development_adjustment_pct_溫泉段218地號",
+      "factor": "區段內道路規劃及闢建程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-01"
+    },
+    {
+      "field_id": "regional_shop_contiguity_adjustment_pct_溫泉段218地號",
+      "factor": "店舖之毗連狀態修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-SHOP_CONTIGUITY-01"
+    },
+    {
+      "field_id": "regional_terrain_adjustment_pct_溫泉段218地號",
+      "factor": "地勢修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-TERRAIN-01"
+    },
+    {
+      "field_id": "regional_tourism_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "接近觀光遊憩設施之程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_utility_facility_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "電業設施及公用氣體燃料設施之有無及接近程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-05"
+    },
+    {
+      "field_id": "regional_waste_facility_proximity_adjustment_pct_溫泉段218地號",
+      "factor": "廢棄物處理設施之有無及接近程度修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-WASTE_FACILITY_PROXIMITY-01"
+    },
+    {
+      "field_id": "regional_zoning_inside_outside_adjustment_pct_溫泉段218地號",
+      "factor": "都市計畫（內、外）修正百分比",
+      "adjustment_pct": "0",
+      "rule_id": "REG-ZONING_INSIDE_OUTSIDE-01"
+    }
+  ],
+  "unresolved_factors": []
+}

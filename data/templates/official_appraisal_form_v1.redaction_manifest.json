@@ -1,0 +1,8982 @@
+[
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   58.32,
+   87.11,
+   88.86,
+   96.59
+  ],
+  "original_text": "1140901",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   374.47,
+   101.87,
+   405.55,
+   108.95
+  ],
+  "original_text": "名稱：金包里老街",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "金包里老街"
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   105.11,
+   56.7,
+   112.19
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   105.11,
+   68.7,
+   112.19
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   111.95,
+   300.35,
+   119.03
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   111.95,
+   312.35,
+   119.03
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   119.75,
+   56.7,
+   126.83
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   119.75,
+   68.7,
+   126.83
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   356.47,
+   122.51,
+   432.55,
+   129.59
+  ],
+  "original_text": "●本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     357.07,
+     123.11,
+     362.95,
+     128.99
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     393.07,
+     123.11,
+     398.95,
+     128.99
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   374.47,
+   131.15,
+   423.55,
+   138.23
+  ],
+  "original_text": "名稱：金包里老街停車場",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "金包里老街停車場"
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   152.06,
+   133.91,
+   162.2,
+   140.99
+  ],
+  "original_text": "70%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   134.39,
+   56.7,
+   141.47
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   134.39,
+   68.7,
+   141.47
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   141.23,
+   300.35,
+   148.31
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   141.23,
+   312.35,
+   148.31
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   152.06,
+   148.55,
+   165.2,
+   155.63
+  ],
+  "original_text": "240%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   149.03,
+   56.7,
+   156.11
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   149.03,
+   68.7,
+   156.11
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   356.47,
+   151.79,
+   456.62,
+   158.87
+  ],
+  "original_text": "○本區段內　●本區段外(距  120 M)",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     357.07,
+     152.39,
+     362.95,
+     158.27
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     393.07,
+     152.39,
+     398.95,
+     158.27
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   152.06,
+   163.19,
+   159.14,
+   170.27
+  ],
+  "original_text": "無",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   163.67,
+   56.7,
+   170.75
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   163.67,
+   68.7,
+   170.75
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   356.47,
+   181.1,
+   432.55,
+   188.18
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     357.07,
+     181.7,
+     362.95,
+     187.58
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     393.07,
+     181.7,
+     398.95,
+     187.58
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   185.18,
+   56.7,
+   192.26
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   185.18,
+   68.7,
+   192.26
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   152.06,
+   185.18,
+   159.14,
+   192.26
+  ],
+  "original_text": "無",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   146.3,
+   207.14,
+   165.38,
+   214.22
+  ],
+  "original_text": "名稱：中山路",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "中山路"
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   234.51,
+   207.14,
+   256.61,
+   214.22
+  ],
+  "original_text": "寬度：　18　M",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "寬度：",
+  "value_text": "　18　M"
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   207.62,
+   56.7,
+   214.7
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   207.62,
+   68.7,
+   214.7
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   222.26,
+   56.7,
+   229.34
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   222.26,
+   68.7,
+   229.34
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   374.45,
+   229.34,
+   396.55,
+   236.42
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   407.38,
+   229.34,
+   483.36,
+   236.42
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     407.98,
+     229.94,
+     413.86,
+     235.82
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     443.93,
+     229.94,
+     449.81,
+     235.82
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   236.66,
+   105.86,
+   243.74
+  ],
+  "original_text": "○無高鐵站",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     237.26,
+     105.26,
+     243.14
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   155.68,
+   236.66,
+   231.66,
+   243.74
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.28,
+     237.26,
+     162.16,
+     243.14
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.23,
+     237.26,
+     198.11,
+     243.14
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   251.3,
+   105.86,
+   258.38
+  ],
+  "original_text": "○無火車站",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     251.9,
+     105.26,
+     257.78
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   155.68,
+   251.3,
+   231.66,
+   258.38
+  ],
+  "original_text": "○本區段內  ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.28,
+     251.9,
+     162.16,
+     257.78
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.22,
+     251.9,
+     198.1,
+     257.78
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   258.38,
+   56.7,
+   265.46
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   258.38,
+   68.7,
+   265.46
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   371.83,
+   258.38,
+   519.98,
+   265.46
+  ],
+  "original_text": "名稱：金山變電所 ○本區段內　●本區段外(距 700 M)",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.43,
+     258.98,
+     429.31,
+     264.86
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     459.43,
+     258.98,
+     465.31,
+     264.86
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   265.94,
+   147.86,
+   273.02
+  ],
+  "original_text": "●國光客運金山站",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     266.54,
+     105.26,
+     272.42
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   155.79,
+   265.94,
+   258.94,
+   273.02
+  ],
+  "original_text": "○本區段內  ●本區段外(距  300  M)",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.39,
+     266.54,
+     162.27,
+     272.42
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     192.39,
+     266.54,
+     198.27,
+     272.42
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   274.46,
+   300.35,
+   281.54
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   274.46,
+   312.35,
+   281.54
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   280.58,
+   105.86,
+   287.66
+  ],
+  "original_text": "○無捷運站",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     281.18,
+     105.26,
+     287.06
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   155.68,
+   280.58,
+   231.66,
+   287.66
+  ],
+  "original_text": "○本區段內  ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.28,
+     281.18,
+     162.16,
+     287.06
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.22,
+     281.18,
+     198.1,
+     287.06
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   371.83,
+   289.34,
+   519.98,
+   296.42
+  ],
+  "original_text": "名稱：中油金山站 ○本區段內　●本區段外(距 440 M)",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.43,
+     289.94,
+     429.31,
+     295.82
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     459.43,
+     289.94,
+     465.31,
+     295.82
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   292.82,
+   234.93,
+   299.9
+  ],
+  "original_text": "名稱：金山區公所站 ●本區段內  ○本區段外(距 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     156.39,
+     293.42,
+     162.27,
+     299.3
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.39,
+     293.42,
+     198.27,
+     299.3
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   296.9,
+   56.7,
+   303.98
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   296.9,
+   68.7,
+   303.98
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   155.68,
+   300.5,
+   240.64,
+   307.58
+  ],
+  "original_text": "○非常密集  ●密集  ○不密集",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.28,
+     301.1,
+     162.16,
+     306.98
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     192.22,
+     301.1,
+     198.1,
+     306.98
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     216.18,
+     301.1,
+     222.06,
+     306.98
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   116.78,
+   312.5,
+   144.92,
+   319.58
+  ],
+  "original_text": "名稱：無交流道 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無交流道 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   155.79,
+   312.5,
+   231.87,
+   319.58
+  ],
+  "original_text": "○本區段內  ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     156.39,
+     313.1,
+     162.27,
+     318.98
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     192.39,
+     313.1,
+     198.27,
+     318.98
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   312.74,
+   337.39,
+   319.82
+  ],
+  "original_text": "●墓　地",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     313.34,
+     336.79,
+     319.22
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   371.83,
+   312.74,
+   516.76,
+   319.82
+  ],
+  "original_text": "名稱：金山第1公墓○本區段內　●本區段外(距 80 M)",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.36,
+     313.34,
+     429.24,
+     319.22
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     459.31,
+     313.34,
+     465.19,
+     319.22
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   312.98,
+   56.7,
+   320.06
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   312.98,
+   68.7,
+   320.06
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   327.38,
+   337.39,
+   334.46
+  ],
+  "original_text": "○殯儀館",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     327.98,
+     336.79,
+     333.86
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   327.38,
+   411.91,
+   334.46
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   327.38,
+   498.72,
+   334.46
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     327.98,
+     429.22,
+     333.86
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     327.98,
+     465.17,
+     333.86
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   334.46,
+   300.35,
+   341.54
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   334.46,
+   312.35,
+   341.54
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   342.04,
+   337.39,
+   349.12
+  ],
+  "original_text": "○火葬場",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     342.64,
+     336.79,
+     348.52
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   342.04,
+   411.91,
+   349.12
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   342.04,
+   498.72,
+   349.12
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     342.64,
+     429.22,
+     348.52
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     342.64,
+     465.17,
+     348.52
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   356.68,
+   337.39,
+   363.76
+  ],
+  "original_text": "●納骨塔",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     357.28,
+     336.79,
+     363.16
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.83,
+   356.68,
+   453.97,
+   363.76
+  ],
+  "original_text": "名稱：金山區公所福緣納骨堂 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "金山區公所福緣納骨堂 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   458.83,
+   356.68,
+   555.98,
+   363.76
+  ],
+  "original_text": "○本區段內　●本區段外(距 750 M)",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.43,
+     357.28,
+     465.31,
+     363.16
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     495.43,
+     357.28,
+     501.31,
+     363.16
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   371.32,
+   367.39,
+   378.4
+  ],
+  "original_text": "○污水處理場",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     371.92,
+     336.79,
+     377.8
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   371.32,
+   411.91,
+   378.4
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   371.32,
+   498.72,
+   378.4
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     371.92,
+     429.22,
+     377.8
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     371.92,
+     465.17,
+     377.8
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   371.56,
+   56.7,
+   378.64
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7489,
+   0.749,
+   0.7489
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   371.56,
+   68.7,
+   378.64
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7489,
+   0.749,
+   0.7489
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   382.12,
+   367.39,
+   389.2
+  ],
+  "original_text": "○垃圾場或掩",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     382.72,
+     336.79,
+     388.6
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   385.72,
+   300.35,
+   392.8
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   385.72,
+   312.35,
+   392.8
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   385.96,
+   411.91,
+   393.04
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   385.96,
+   498.72,
+   393.04
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     386.56,
+     429.22,
+     392.44
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     386.56,
+     465.17,
+     392.44
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   400.6,
+   355.39,
+   407.68
+  ],
+  "original_text": "○焚化爐",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     401.2,
+     336.79,
+     407.08
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   400.6,
+   411.91,
+   407.68
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   400.6,
+   498.72,
+   407.68
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     401.2,
+     429.22,
+     407.08
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     401.2,
+     465.17,
+     407.08
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   316.63,
+   415.0,
+   341.71,
+   422.08
+  ],
+  "original_text": "○水污染",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     415.6,
+     323.11,
+     421.48
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   415.24,
+   411.91,
+   422.32
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   415.24,
+   498.72,
+   422.32
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     415.84,
+     429.22,
+     421.72
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     415.84,
+     465.17,
+     421.72
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   316.63,
+   429.64,
+   347.71,
+   436.72
+  ],
+  "original_text": "○噪音污染",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     430.24,
+     323.11,
+     436.12
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   429.88,
+   411.91,
+   436.96
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   429.88,
+   498.72,
+   436.96
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     430.48,
+     429.22,
+     436.36
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     430.48,
+     465.17,
+     436.36
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   430.12,
+   56.7,
+   437.2
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   430.12,
+   68.7,
+   437.2
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   444.28,
+   300.35,
+   451.36
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   444.28,
+   312.35,
+   451.36
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   316.63,
+   444.28,
+   347.71,
+   451.36
+  ],
+  "original_text": "○廢氣污染",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     444.88,
+     323.11,
+     450.76
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   444.52,
+   411.91,
+   451.6
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   444.52,
+   498.72,
+   451.6
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     445.12,
+     429.22,
+     451.0
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     445.12,
+     465.17,
+     451.0
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   444.76,
+   56.7,
+   451.84
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   444.76,
+   68.7,
+   451.84
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   316.63,
+   458.92,
+   353.71,
+   466.0
+  ],
+  "original_text": "○廢棄物污染",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     459.52,
+     323.11,
+     465.4
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   459.16,
+   411.91,
+   466.24
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   459.16,
+   498.72,
+   466.24
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     459.76,
+     429.22,
+     465.64
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     459.76,
+     465.17,
+     465.64
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   316.63,
+   473.56,
+   347.71,
+   480.64
+  ],
+  "original_text": "○其他污染",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     317.23,
+     474.16,
+     323.11,
+     480.04
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   473.8,
+   411.91,
+   480.88
+  ],
+  "original_text": "名稱：無  　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無  　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   422.74,
+   473.8,
+   498.72,
+   480.88
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     423.34,
+     474.4,
+     429.22,
+     480.28
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     459.29,
+     474.4,
+     465.17,
+     480.28
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   485.44,
+   429.89,
+   492.52
+  ],
+  "original_text": "名稱：無　　  　　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無　　  　　 "
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   491.92,
+   255.86,
+   499.0
+  ],
+  "original_text": "□整平或填挖基地　□開挖水溝　□水土保持　□鋪築道路",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     99.38,
+     492.52,
+     105.26,
+     498.4
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     153.38,
+     492.52,
+     159.26,
+     498.4
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     189.38,
+     492.52,
+     195.26,
+     498.4
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     225.38,
+     492.52,
+     231.26,
+     498.4
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   495.52,
+   300.35,
+   502.6
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   495.52,
+   312.35,
+   502.6
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   499.6,
+   243.86,
+   506.68
+  ],
+  "original_text": "□埋設管道　　　　□修築駁嵌　□其他＿＿＿＿＿＿",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     99.38,
+     500.2,
+     105.26,
+     506.08
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     153.38,
+     500.2,
+     159.26,
+     506.08
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     189.38,
+     500.2,
+     195.26,
+     506.08
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   371.83,
+   506.11,
+   447.91,
+   513.19
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     372.43,
+     506.71,
+     378.31,
+     512.59
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     408.43,
+     506.71,
+     414.31,
+     512.59
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.83,
+   514.75,
+   468.97,
+   521.83
+  ],
+  "original_text": "名稱：新北市金山地區農會  數量:1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "新北市金山地區農會  數量:1"
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   517.39,
+   261.87,
+   524.47
+  ],
+  "original_text": "□耕地整理　□水土保持  □土壤改良  □修築農路  □灌溉",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     99.38,
+     517.99,
+     105.26,
+     523.87
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     135.38,
+     517.99,
+     141.26,
+     523.87
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     171.39,
+     517.99,
+     177.27,
+     523.87
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     207.39,
+     517.99,
+     213.27,
+     523.87
+    ]
+   },
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     243.39,
+     517.99,
+     249.27,
+     523.87
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   524.83,
+   300.35,
+   531.91
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   524.83,
+   312.35,
+   531.91
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   525.07,
+   117.85,
+   532.15
+  ],
+  "original_text": "□排水",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     99.38,
+     525.67,
+     105.26,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   134.72,
+   525.07,
+   153.78,
+   532.15
+  ],
+  "original_text": "□防風",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     135.32,
+     525.67,
+     141.2,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   170.65,
+   525.07,
+   189.71,
+   532.15
+  ],
+  "original_text": "□防砂",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     171.25,
+     525.67,
+     177.13,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   206.58,
+   525.07,
+   225.65,
+   532.15
+  ],
+  "original_text": "□堤防",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     207.18,
+     525.67,
+     213.06,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   242.51,
+   525.07,
+   273.56,
+   532.15
+  ],
+  "original_text": "□其他＿＿",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "□",
+    "kind": "UNCHECKED_SQUARE",
+    "bbox": [
+     243.11,
+     525.67,
+     248.99,
+     531.55
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   371.83,
+   535.39,
+   468.82,
+   542.47
+  ],
+  "original_text": "○本區段內  ●本區段外(距 210 M)",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     372.43,
+     535.99,
+     378.31,
+     541.87
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     408.37,
+     535.99,
+     414.25,
+     541.87
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   544.03,
+   147.86,
+   551.11
+  ],
+  "original_text": "○　　　國小　　",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     544.63,
+     105.26,
+     550.51
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   167.79,
+   544.03,
+   243.87,
+   551.11
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     544.63,
+     174.27,
+     550.51
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     544.63,
+     210.27,
+     550.51
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.81,
+   544.03,
+   429.89,
+   551.11
+  ],
+  "original_text": "名稱：無　　  　　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "無　　  　　 "
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   548.71,
+   300.35,
+   555.79
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   548.71,
+   312.35,
+   555.79
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   371.83,
+   552.91,
+   447.91,
+   559.99
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     372.43,
+     553.51,
+     378.31,
+     559.39
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     408.43,
+     553.51,
+     414.31,
+     559.39
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   558.67,
+   147.86,
+   565.75
+  ],
+  "original_text": "○　　　國中　　",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     559.27,
+     105.26,
+     565.15
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   167.79,
+   558.67,
+   243.87,
+   565.75
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     559.27,
+     174.27,
+     565.15
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     559.27,
+     210.27,
+     565.15
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   389.83,
+   561.55,
+   471.97,
+   568.63
+  ],
+  "original_text": "名稱：新北北海溫泉洲際酒店 數量:1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "名稱：",
+  "value_text": "新北北海溫泉洲際酒店 數量:1"
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   566.23,
+   300.35,
+   573.31
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   566.23,
+   312.35,
+   573.31
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   371.83,
+   570.43,
+   468.98,
+   577.51
+  ],
+  "original_text": "○本區段內　●本區段外(距 850 M)",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     372.43,
+     571.03,
+     378.31,
+     576.91
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     408.43,
+     571.03,
+     414.31,
+     576.91
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   573.31,
+   147.86,
+   580.39
+  ],
+  "original_text": "○　　　高中　　",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     573.91,
+     105.26,
+     579.79
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   167.79,
+   573.31,
+   243.87,
+   580.39
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     573.91,
+     174.27,
+     579.79
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     573.91,
+     210.27,
+     579.79
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   583.75,
+   300.35,
+   590.83
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   583.75,
+   312.35,
+   590.83
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   588.07,
+   147.86,
+   595.15
+  ],
+  "original_text": "○　　　大專院校",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     588.67,
+     105.26,
+     594.55
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   167.79,
+   588.07,
+   243.87,
+   595.15
+  ],
+  "original_text": "○本區段內　○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     588.67,
+     174.27,
+     594.55
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     588.67,
+     210.27,
+     594.55
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   596.59,
+   264.87,
+   603.67
+  ],
+  "original_text": "●　　　金山區第一零售傳統市場 ●本區段內 ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     597.19,
+     105.26,
+     603.07
+    ]
+   },
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     192.38,
+     597.19,
+     198.26,
+     603.07
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     225.39,
+     597.19,
+     231.27,
+     603.07
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   296.21,
+   601.27,
+   300.35,
+   608.35
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   308.21,
+   601.27,
+   312.35,
+   608.35
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   612.91,
+   56.7,
+   619.99
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   612.91,
+   68.7,
+   619.99
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   618.67,
+   147.86,
+   625.75
+  ],
+  "original_text": "○　　　超級市場",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     619.27,
+     105.26,
+     625.15
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   167.79,
+   618.67,
+   243.88,
+   625.75
+  ],
+  "original_text": "○本區段內  ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     619.27,
+     174.27,
+     625.15
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     619.27,
+     210.27,
+     625.15
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   629.83,
+   243.87,
+   636.91
+  ],
+  "original_text": "○　　　超大型購物中心 ○本區段內  ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     630.43,
+     105.26,
+     636.31
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     630.43,
+     174.27,
+     636.31
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     630.43,
+     210.27,
+     636.31
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   638.35,
+   171.86,
+   645.43
+  ],
+  "original_text": "●　　　中山溫泉里鄰公園",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     638.95,
+     105.26,
+     644.83
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   185.79,
+   638.35,
+   261.87,
+   645.43
+  ],
+  "original_text": "●本區段內  ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     186.39,
+     638.95,
+     192.27,
+     644.83
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     222.39,
+     638.95,
+     228.27,
+     644.83
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   371.95,
+   639.43,
+   383.89,
+   647.71
+  ],
+  "original_text": "95%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   52.56,
+   660.19,
+   56.7,
+   667.27
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   64.56,
+   660.19,
+   68.7,
+   667.27
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   0.7529,
+   0.753,
+   0.7529
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   664.75,
+   355.37,
+   671.83
+  ],
+  "original_text": "○商業用",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     665.35,
+     336.79,
+     671.23
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   372.23,
+   664.75,
+   409.33,
+   671.83
+  ],
+  "original_text": " 　○住宅用 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     381.82,
+     665.35,
+     387.7,
+     671.23
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   423.14,
+   664.75,
+   469.22,
+   671.83
+  ],
+  "original_text": " 　 ○工業用　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     435.72,
+     665.35,
+     441.6,
+     671.23
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   489.02,
+   664.75,
+   520.07,
+   671.83
+  ],
+  "original_text": "●住商混合",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "●",
+    "kind": "CHECKED_CIRCLE",
+    "bbox": [
+     489.62,
+     665.35,
+     495.5,
+     671.23
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   667.77,
+   147.86,
+   674.85
+  ],
+  "original_text": "○　　　一般公園",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     668.37,
+     105.26,
+     674.25
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   167.79,
+   667.77,
+   243.88,
+   674.85
+  ],
+  "original_text": "○本區段內  ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.39,
+     668.37,
+     174.27,
+     674.25
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.39,
+     668.37,
+     210.27,
+     674.25
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   672.45,
+   367.35,
+   679.53
+  ],
+  "original_text": "○住工混合　",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     673.05,
+     336.79,
+     678.93
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   381.22,
+   672.45,
+   412.27,
+   679.53
+  ],
+  "original_text": "○農作用　",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     381.82,
+     673.05,
+     387.7,
+     678.93
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   426.15,
+   672.45,
+   469.23,
+   679.53
+  ],
+  "original_text": " 　○漁牧用　 ",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     435.73,
+     673.05,
+     441.61,
+     678.93
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   489.03,
+   672.45,
+   508.1,
+   679.53
+  ],
+  "original_text": "○空地",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     489.63,
+     673.05,
+     495.51,
+     678.93
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   330.31,
+   680.13,
+   361.36,
+   687.21
+  ],
+  "original_text": "○公共設施",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     330.91,
+     680.73,
+     336.79,
+     686.61
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   381.22,
+   680.13,
+   415.31,
+   687.21
+  ],
+  "original_text": "○其他_____",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     381.82,
+     680.73,
+     387.7,
+     686.61
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   98.78,
+   682.53,
+   156.79,
+   689.61
+  ],
+  "original_text": "○　　　廣場.徒步區",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     99.38,
+     683.13,
+     105.26,
+     689.01
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "CHECKBOX_GLYPH",
+  "bbox": [
+   167.67,
+   682.53,
+   243.65,
+   689.61
+  ],
+  "original_text": "○本區段內  ○本區段外(距",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "checkbox_chars": [
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     168.27,
+     683.13,
+     174.15,
+     689.01
+    ]
+   },
+   {
+    "char": "○",
+    "kind": "UNCHECKED_CIRCLE",
+    "bbox": [
+     204.22,
+     683.13,
+     210.1,
+     689.01
+    ]
+   }
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   73.08,
+   695.97,
+   120.87,
+   704.25
+  ],
+  "original_text": "勘查日期：114年09月18日",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "勘查日期：",
+  "value_text": "114年09月18日"
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   85.78,
+   75.2,
+   140.59,
+   83.96
+  ],
+  "original_text": "案號：1140901-99-001",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ],
+  "label_text": "案號：",
+  "value_text": "1140901-99-001"
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   329.59,
+   75.68,
+   334.57,
+   84.44
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   124.57,
+   341.77,
+   134.77
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   125.12,
+   218.15,
+   133.88
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   125.12,
+   245.93,
+   133.88
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   125.12,
+   272.15,
+   133.88
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   125.12,
+   302.57,
+   133.88
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   136.33,
+   341.77,
+   146.53
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   136.88,
+   218.15,
+   145.64
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   136.88,
+   245.93,
+   145.64
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   136.88,
+   272.15,
+   145.64
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   136.88,
+   302.57,
+   145.64
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   148.09,
+   341.77,
+   158.29
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   148.64,
+   218.15,
+   157.4
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   148.64,
+   245.93,
+   157.4
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   148.64,
+   272.15,
+   157.4
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   148.64,
+   302.57,
+   157.4
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   159.85,
+   341.77,
+   170.05
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   160.4,
+   218.15,
+   169.16
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   160.4,
+   245.93,
+   169.16
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   160.4,
+   272.15,
+   169.16
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   160.4,
+   302.57,
+   169.16
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   171.64,
+   341.77,
+   181.84
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   172.19,
+   218.15,
+   180.95
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   172.19,
+   245.93,
+   180.95
+  ],
+  "original_text": "無",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   172.19,
+   272.15,
+   180.95
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   172.19,
+   302.57,
+   180.95
+  ],
+  "original_text": "無",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   187.6,
+   341.77,
+   197.8
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   188.15,
+   218.15,
+   196.91
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   188.15,
+   245.93,
+   196.91
+  ],
+  "original_text": "無",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   188.15,
+   272.15,
+   196.91
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   188.15,
+   302.57,
+   196.91
+  ],
+  "original_text": "無",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   203.08,
+   313.91,
+   213.28
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   215.32,
+   341.77,
+   225.52
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   215.87,
+   218.15,
+   224.63
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   233.33,
+   215.87,
+   249.77,
+   224.63
+  ],
+  "original_text": "普通",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   215.87,
+   272.15,
+   224.63
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   289.97,
+   215.87,
+   306.41,
+   224.63
+  ],
+  "original_text": "普通",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   227.08,
+   341.77,
+   237.28
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   227.63,
+   218.15,
+   236.39
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   233.33,
+   227.63,
+   249.77,
+   236.39
+  ],
+  "original_text": "普通",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   227.63,
+   272.15,
+   236.39
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   289.97,
+   227.63,
+   306.41,
+   236.39
+  ],
+  "original_text": "普通",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   238.84,
+   341.77,
+   249.04
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   239.39,
+   218.15,
+   248.15
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   239.39,
+   245.93,
+   248.15
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   239.39,
+   272.15,
+   248.15
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   239.39,
+   302.57,
+   248.15
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   250.6,
+   341.77,
+   260.8
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   251.15,
+   218.15,
+   259.91
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   251.15,
+   245.93,
+   259.91
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   251.15,
+   272.15,
+   259.91
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   251.15,
+   302.57,
+   259.91
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   266.56,
+   341.77,
+   276.76
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   267.11,
+   218.15,
+   275.87
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   267.11,
+   245.93,
+   275.87
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   267.11,
+   272.15,
+   275.87
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   267.11,
+   302.57,
+   275.87
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   282.52,
+   341.77,
+   292.72
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   283.07,
+   218.15,
+   291.83
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   283.07,
+   245.93,
+   291.83
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   283.07,
+   272.15,
+   291.83
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   283.07,
+   302.57,
+   291.83
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   293.8,
+   313.91,
+   304.0
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   306.04,
+   341.77,
+   316.24
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   306.59,
+   218.15,
+   315.35
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   233.33,
+   306.59,
+   249.77,
+   315.35
+  ],
+  "original_text": "稍優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   306.59,
+   272.15,
+   315.35
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   289.97,
+   306.59,
+   306.41,
+   315.35
+  ],
+  "original_text": "稍優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   317.8,
+   341.77,
+   328.0
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   318.35,
+   218.15,
+   327.11
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   318.35,
+   245.93,
+   327.11
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   318.35,
+   272.15,
+   327.11
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   318.35,
+   302.57,
+   327.11
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   329.08,
+   313.91,
+   339.28
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   345.54,
+   341.77,
+   355.74
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   346.09,
+   218.15,
+   354.85
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   346.09,
+   245.93,
+   354.85
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   346.09,
+   272.15,
+   354.85
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   346.09,
+   302.57,
+   354.85
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   365.7,
+   341.77,
+   375.9
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   366.25,
+   218.15,
+   375.01
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   366.25,
+   245.93,
+   375.01
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   366.25,
+   272.15,
+   375.01
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   366.25,
+   302.57,
+   375.01
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   381.66,
+   341.77,
+   391.86
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   382.21,
+   218.15,
+   390.97
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   382.21,
+   245.93,
+   390.97
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   382.21,
+   272.15,
+   390.97
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   382.21,
+   302.57,
+   390.97
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   393.42,
+   341.77,
+   403.62
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   393.97,
+   218.15,
+   402.73
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   233.33,
+   393.97,
+   249.77,
+   402.73
+  ],
+  "original_text": "稍優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   393.97,
+   272.15,
+   402.73
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   289.97,
+   393.97,
+   306.41,
+   402.73
+  ],
+  "original_text": "稍優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   404.7,
+   313.91,
+   414.9
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   421.14,
+   341.77,
+   431.34
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   421.69,
+   218.15,
+   430.45
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   421.69,
+   245.93,
+   430.45
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   421.69,
+   272.15,
+   430.45
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   421.69,
+   302.57,
+   430.45
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   437.1,
+   341.77,
+   447.3
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   437.65,
+   218.15,
+   446.41
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   437.65,
+   245.93,
+   446.41
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   437.65,
+   272.15,
+   446.41
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   437.65,
+   302.57,
+   446.41
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   453.06,
+   341.77,
+   463.26
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   453.61,
+   218.15,
+   462.37
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   453.61,
+   245.93,
+   462.37
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   453.61,
+   272.15,
+   462.37
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   453.61,
+   302.57,
+   462.37
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   468.54,
+   313.91,
+   478.74
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   490.26,
+   341.77,
+   500.46
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   490.81,
+   218.15,
+   499.57
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   490.81,
+   245.93,
+   499.57
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   490.81,
+   272.15,
+   499.57
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   490.81,
+   302.57,
+   499.57
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   511.17,
+   313.91,
+   521.37
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   527.61,
+   341.77,
+   537.81
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   528.16,
+   218.15,
+   536.92
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   528.16,
+   245.93,
+   536.92
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   528.16,
+   272.15,
+   536.92
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   528.16,
+   302.57,
+   536.92
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   547.77,
+   341.77,
+   557.97
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   548.32,
+   218.15,
+   557.08
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   233.33,
+   548.32,
+   249.77,
+   557.08
+  ],
+  "original_text": "稍優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   548.32,
+   272.15,
+   557.08
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   289.97,
+   548.32,
+   306.41,
+   557.08
+  ],
+  "original_text": "稍優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   567.93,
+   341.77,
+   578.13
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   568.48,
+   218.15,
+   577.24
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   568.48,
+   245.93,
+   577.24
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   568.48,
+   272.15,
+   577.24
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   568.48,
+   302.57,
+   577.24
+  ],
+  "original_text": "劣",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   588.09,
+   341.77,
+   598.29
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   588.64,
+   218.15,
+   597.4
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   233.33,
+   588.64,
+   249.77,
+   597.4
+  ],
+  "original_text": "普通",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   588.64,
+   272.15,
+   597.4
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   289.97,
+   588.64,
+   306.41,
+   597.4
+  ],
+  "original_text": "普通",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   604.05,
+   341.77,
+   614.25
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   604.6,
+   218.15,
+   613.36
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   604.6,
+   245.93,
+   613.36
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   604.6,
+   272.15,
+   613.36
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   604.6,
+   302.57,
+   613.36
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   322.39,
+   615.81,
+   341.77,
+   626.01
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   213.17,
+   616.36,
+   218.15,
+   625.12
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   237.17,
+   616.36,
+   245.93,
+   625.12
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   267.17,
+   616.36,
+   272.15,
+   625.12
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   293.81,
+   616.36,
+   302.57,
+   625.12
+  ],
+  "original_text": "優",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   627.09,
+   313.91,
+   637.29
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   650.61,
+   313.91,
+   660.81
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 1,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   294.53,
+   673.19,
+   313.91,
+   683.39
+  ],
+  "original_text": "0.00",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   542.86,
+   32.13,
+   570.94,
+   41.01
+  ],
+  "original_text": "1140901",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   365.11,
+   44.64,
+   370.15,
+   54.34
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   519.34,
+   44.64,
+   524.38,
+   54.34
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   673.56,
+   44.64,
+   678.6,
+   54.34
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "bbox": [
+   250.61,
+   44.97,
+   290.21,
+   53.85
+  ],
+  "original_text": "比準地：宗地流水號",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ],
+  "label_text": "比準地：",
+  "value_text": "宗地流水號"
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   454.63,
+   45.09,
+   459.01,
+   53.33
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   62.42,
+   68.28,
+   67.46,
+   77.98
+  ],
+  "original_text": "0",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   381.43,
+   82.15,
+   405.91,
+   91.19
+  ],
+  "original_text": "184,763",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   449.64,
+   92.09,
+   469.29,
+   101.12
+  ],
+  "original_text": "2.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   366.19,
+   92.87,
+   393.07,
+   101.11
+  ],
+  "original_text": "114.05.28",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   381.43,
+   102.79,
+   405.91,
+   111.83
+  ],
+  "original_text": "188,459",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   112.87,
+   470.09,
+   121.91
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   369.19,
+   123.19,
+   390.08,
+   132.23
+  ],
+  "original_text": "111.85",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   123.19,
+   470.09,
+   132.23
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   242.45,
+   124.15,
+   263.34,
+   133.19
+  ],
+  "original_text": "113.21",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   124.63,
+   106.88,
+   133.67
+  ],
+  "original_text": "7",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   250.13,
+   135.31,
+   254.87,
+   144.35
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   377.35,
+   135.31,
+   382.09,
+   144.35
+  ],
+  "original_text": "7",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   135.31,
+   470.09,
+   144.35
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   135.79,
+   106.88,
+   144.83
+  ],
+  "original_text": "8",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   86.42,
+   144.38,
+   91.46,
+   154.08
+  ],
+  "original_text": "1",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   248.33,
+   147.43,
+   256.67,
+   156.47
+  ],
+  "original_text": "23",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   375.55,
+   147.43,
+   383.89,
+   156.47
+  ],
+  "original_text": "16",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   147.43,
+   470.09,
+   156.47
+  ],
+  "original_text": "1.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   147.91,
+   106.88,
+   156.95
+  ],
+  "original_text": "9",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   159.55,
+   470.09,
+   168.59
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   160.03,
+   110.48,
+   169.07
+  ],
+  "original_text": "10",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   171.67,
+   470.09,
+   180.71
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   172.15,
+   110.48,
+   181.19
+  ],
+  "original_text": "11",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   184.27,
+   110.48,
+   193.31
+  ],
+  "original_text": "12",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   185.35,
+   470.09,
+   194.39
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   195.94,
+   470.09,
+   204.98
+  ],
+  "original_text": "2.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   196.42,
+   110.48,
+   205.46
+  ],
+  "original_text": "13",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   86.78,
+   196.92,
+   91.16,
+   204.48
+  ],
+  "original_text": "2",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   271.13,
+   209.02,
+   279.47,
+   218.06
+  ],
+  "original_text": "18",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   400.99,
+   209.02,
+   405.73,
+   218.06
+  ],
+  "original_text": "6",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   209.02,
+   470.09,
+   218.06
+  ],
+  "original_text": "5.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   209.5,
+   110.48,
+   218.54
+  ],
+  "original_text": "14",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   269.33,
+   222.1,
+   281.27,
+   231.14
+  ],
+  "original_text": "150",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   397.39,
+   222.1,
+   409.33,
+   231.14
+  ],
+  "original_text": "100",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   222.1,
+   470.09,
+   231.14
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   222.58,
+   110.48,
+   231.62
+  ],
+  "original_text": "15",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   271.13,
+   235.18,
+   279.47,
+   244.22
+  ],
+  "original_text": "30",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   399.19,
+   235.18,
+   407.53,
+   244.22
+  ],
+  "original_text": "92",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   235.18,
+   470.09,
+   244.22
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   235.66,
+   110.48,
+   244.7
+  ],
+  "original_text": "16",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   86.42,
+   239.69,
+   91.46,
+   249.39
+  ],
+  "original_text": "3",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   269.33,
+   248.26,
+   281.27,
+   257.3
+  ],
+  "original_text": "190",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   397.39,
+   248.26,
+   409.33,
+   257.3
+  ],
+  "original_text": "200",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   248.26,
+   470.09,
+   257.3
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   248.74,
+   110.48,
+   257.78
+  ],
+  "original_text": "17",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   271.13,
+   261.34,
+   279.47,
+   270.38
+  ],
+  "original_text": "80",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   397.39,
+   261.34,
+   409.33,
+   270.38
+  ],
+  "original_text": "190",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   261.34,
+   470.09,
+   270.38
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   261.82,
+   110.48,
+   270.86
+  ],
+  "original_text": "18",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   272.93,
+   274.42,
+   277.67,
+   283.46
+  ],
+  "original_text": "0",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   400.99,
+   274.42,
+   405.73,
+   283.46
+  ],
+  "original_text": "0",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   274.42,
+   470.09,
+   283.46
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   274.9,
+   110.48,
+   283.94
+  ],
+  "original_text": "19",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   269.33,
+   287.5,
+   281.27,
+   296.54
+  ],
+  "original_text": "260",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   399.19,
+   287.5,
+   407.53,
+   296.54
+  ],
+  "original_text": "80",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   287.5,
+   470.09,
+   296.54
+  ],
+  "original_text": "3.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   287.98,
+   110.48,
+   297.02
+  ],
+  "original_text": "20",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   86.78,
+   288.36,
+   91.16,
+   295.92
+  ],
+  "original_text": "4",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   300.58,
+   470.09,
+   309.62
+  ],
+  "original_text": "2.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   301.06,
+   110.48,
+   310.1
+  ],
+  "original_text": "21",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   313.32,
+   470.09,
+   322.36
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   314.88,
+   110.48,
+   323.92
+  ],
+  "original_text": "22",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   86.42,
+   321.19,
+   91.46,
+   330.89
+  ],
+  "original_text": "5",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   324.84,
+   470.09,
+   333.88
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   246.53,
+   325.96,
+   258.47,
+   334.24
+  ],
+  "original_text": "70%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   373.75,
+   325.96,
+   385.69,
+   334.24
+  ],
+  "original_text": "70%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   326.4,
+   110.48,
+   335.44
+  ],
+  "original_text": "23",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   336.36,
+   470.09,
+   345.4
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   244.73,
+   337.48,
+   260.27,
+   345.76
+  ],
+  "original_text": "240%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   371.95,
+   337.48,
+   387.49,
+   345.76
+  ],
+  "original_text": "240%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   337.92,
+   110.48,
+   346.96
+  ],
+  "original_text": "24",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   450.43,
+   347.88,
+   470.09,
+   356.92
+  ],
+  "original_text": "0.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   248.33,
+   349.0,
+   256.61,
+   357.28
+  ],
+  "original_text": "無",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   375.55,
+   349.0,
+   383.83,
+   357.28
+  ],
+  "original_text": "無",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   102.14,
+   349.44,
+   110.48,
+   358.48
+  ],
+  "original_text": "25",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   77.3,
+   360.19,
+   82.34,
+   369.89
+  ],
+  "original_text": "6",
+  "redaction_fill": [
+   1.0,
+   1.0,
+   0.8
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   382.03,
+   371.76,
+   405.28,
+   380.8
+  ],
+  "original_text": "13.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   356.11,
+   384.12,
+   379.36,
+   393.16
+  ],
+  "original_text": "15.00%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   437.11,
+   385.12,
+   452.59,
+   393.4
+  ],
+  "original_text": "普通",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   355.51,
+   397.32,
+   379.99,
+   406.36
+  ],
+  "original_text": "212,958",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   435.91,
+   397.32,
+   453.81,
+   406.36
+  ],
+  "original_text": "100%",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "VALUE_STANDALONE",
+  "bbox": [
+   535.66,
+   410.52,
+   560.14,
+   419.56
+  ],
+  "original_text": "212,958",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   152.06,
+   104.63,
+   183.14,
+   111.71
+  ],
+  "original_text": "都市計畫內",
+  "field_id": "regional_zoning_inside_outside",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   152.06,
+   119.27,
+   189.14,
+   126.35
+  ],
+  "original_text": "第二種商業區",
+  "field_id": "regional_land_use_zone",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   152.06,
+   163.19,
+   159.14,
+   170.27
+  ],
+  "original_text": "無",
+  "field_id": "regional_construction_prohibited",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   152.06,
+   185.18,
+   159.14,
+   192.26
+  ],
+  "original_text": "無",
+  "field_id": "regional_construction_restricted",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   150.97,
+   221.78,
+   163.6,
+   228.86
+  ],
+  "original_text": "12",
+  "field_id": "regional_avg_road_width",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   184.46,
+   371.08,
+   215.54,
+   378.16
+  ],
+  "original_text": "已完全開發",
+  "field_id": "regional_road_development",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   184.46,
+   429.64,
+   239.54,
+   436.72
+  ],
+  "original_text": "有排水系統不易淹水",
+  "field_id": "regional_drainage_quality",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   184.46,
+   444.28,
+   221.54,
+   451.36
+  ],
+  "original_text": "該區地勢平坦",
+  "field_id": "regional_terrain",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   371.83,
+   583.27,
+   408.91,
+   590.35
+  ],
+  "original_text": "顧客通行量多",
+  "field_id": "regional_customer_traffic",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   371.83,
+   600.79,
+   417.85,
+   607.87
+  ],
+  "original_text": "90%以上作為店舖",
+  "field_id": "regional_shop_contiguity",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   371.83,
+   506.11,
+   468.98,
+   513.19
+  ],
+  "original_text": "○本區段內　○本區段外(距 M)",
+  "field_id": "regional_department_store_proximity",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   371.83,
+   535.39,
+   468.82,
+   542.47
+  ],
+  "original_text": "○本區段內  ●本區段外(距 210 M)",
+  "field_id": "regional_financial_institution_proximity",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   371.83,
+   552.91,
+   468.98,
+   559.99
+  ],
+  "original_text": "○本區段內　○本區段外(距 M)",
+  "field_id": "regional_entertainment_proximity",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   371.83,
+   570.43,
+   468.98,
+   577.51
+  ],
+  "original_text": "○本區段內　●本區段外(距 850 M)",
+  "field_id": "regional_exhibition_hotel_proximity",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   155.79,
+   312.5,
+   231.87,
+   319.58
+  ],
+  "original_text": "○本區段內  ○本區段外(距",
+  "field_id": "regional_interchange_proximity",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   356.47,
+   122.51,
+   456.62,
+   129.59
+  ],
+  "original_text": "●本區段內　○本區段外(距 M)",
+  "field_id": "regional_tourism_proximity",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   356.47,
+   151.79,
+   456.62,
+   158.87
+  ],
+  "original_text": "○本區段內　●本區段外(距 120 M)",
+  "field_id": "regional_parking_convenience",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   512.6,
+   327.38,
+   519.73,
+   334.46
+  ],
+  "original_text": "M)",
+  "field_id": "_residual_fragment_funeral_home_checkbox_tail",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   512.6,
+   342.04,
+   519.73,
+   349.12
+  ],
+  "original_text": "M)",
+  "field_id": "_residual_fragment_crematorium_checkbox_tail",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   251.52,
+   236.66,
+   258.66,
+   243.74
+  ],
+  "original_text": "M)",
+  "field_id": "_residual_fragment_hsr_checkbox_tail",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   251.52,
+   251.3,
+   258.65,
+   258.38
+  ],
+  "original_text": "M)",
+  "field_id": "_residual_fragment_tra_checkbox_tail",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   251.52,
+   280.58,
+   258.65,
+   287.66
+  ],
+  "original_text": "M)",
+  "field_id": "_residual_fragment_mrt_checkbox_tail",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   371.95,
+   651.55,
+   430.63,
+   659.83
+  ],
+  "original_text": "連棟透天厝、公寓",
+  "field_id": "_unmapped_building_type_no_source",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   35.5,
+   70.2,
+   91.1,
+   79.7
+  ],
+  "original_text": "新北市金山區",
+  "field_id": "city_district",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   140.8,
+   87.1,
+   171.3,
+   96.6
+  ],
+  "original_text": "P002-00",
+  "field_id": "segment_code",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 0,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   279.0,
+   83.1,
+   553.7,
+   100.7
+  ],
+  "original_text": "北側至金包里街以北臨路第一筆宗地，南側至中山路以南第一筆宗地，西側至中正路，東側至福德街之第二種商業區土地劃為P002-00區段。",
+  "field_id": "segment_scope",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   67.4,
+   300.6,
+   78.6
+  ],
+  "original_text": "新北市金山區金美段489地號",
+  "field_id": "base_parcel_id",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   67.4,
+   441.6,
+   78.6
+  ],
+  "original_text": "新北市金山區溫泉段218地號",
+  "field_id": "comparable_parcel_id",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   158.4,
+   300.6,
+   169.6
+  ],
+  "original_text": "方形",
+  "field_id": "individual_land_shape[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   158.4,
+   441.6,
+   169.6
+  ],
+  "original_text": "方形",
+  "field_id": "individual_land_shape[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   170.4,
+   300.6,
+   181.6
+  ],
+  "original_text": "單面臨街",
+  "field_id": "individual_street_frontage[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   170.4,
+   441.6,
+   181.6
+  ],
+  "original_text": "單面臨街",
+  "field_id": "individual_street_frontage[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   182.4,
+   300.6,
+   194.6
+  ],
+  "original_text": "平坦",
+  "field_id": "individual_land_terrain[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   182.4,
+   441.6,
+   194.6
+  ],
+  "original_text": "平坦",
+  "field_id": "individual_land_terrain[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   194.4,
+   300.6,
+   206.6
+  ],
+  "original_text": "主要道路",
+  "field_id": "individual_road_type[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   194.4,
+   441.6,
+   206.6
+  ],
+  "original_text": "次要道路",
+  "field_id": "individual_road_type[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   207.4,
+   268.6,
+   219.6
+  ],
+  "original_text": "中山路",
+  "field_id": "individual_frontage_road_width.road_name[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   207.4,
+   396.6,
+   219.6
+  ],
+  "original_text": "金包里街",
+  "field_id": "individual_frontage_road_width.road_name[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   220.4,
+   268.6,
+   232.6
+  ],
+  "original_text": "金山國小",
+  "field_id": "individual_school_proximity.name[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   220.4,
+   396.6,
+   232.6
+  ],
+  "original_text": "金山國小",
+  "field_id": "individual_school_proximity.name[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   233.4,
+   268.6,
+   245.6
+  ],
+  "original_text": "金山市場",
+  "field_id": "individual_market_proximity.name[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   233.4,
+   396.6,
+   245.6
+  ],
+  "original_text": "金山市場",
+  "field_id": "individual_market_proximity.name[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   246.4,
+   268.6,
+   258.6
+  ],
+  "original_text": "中山溫泉公園",
+  "field_id": "individual_park_proximity.name[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   339.4,
+   246.4,
+   396.6,
+   258.6
+  ],
+  "original_text": "中山溫泉公園",
+  "field_id": "individual_park_proximity.name[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   259.4,
+   268.6,
+   271.6
+  ],
+  "original_text": "金山區公所站",
+  "field_id": "individual_station_proximity.name[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   339.4,
+   259.4,
+   396.6,
+   271.6
+  ],
+  "original_text": "金山區公所站",
+  "field_id": "individual_station_proximity.name[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   272.4,
+   268.6,
+   284.6
+  ],
+  "original_text": "老街商圈",
+  "field_id": "individual_commercial_district_proximity.name[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   272.4,
+   396.6,
+   284.6
+  ],
+  "original_text": "老街商圈",
+  "field_id": "individual_commercial_district_proximity.name[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   285.4,
+   268.6,
+   297.6
+  ],
+  "original_text": "金山第一公墓",
+  "field_id": "individual_nuisance_facility.name[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   339.4,
+   285.4,
+   396.6,
+   297.6
+  ],
+  "original_text": "金山第一公墓",
+  "field_id": "individual_nuisance_facility.name[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   298.4,
+   285.6,
+   310.6
+  ],
+  "original_text": "可路邊停車",
+  "field_id": "individual_parking_convenience[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   298.4,
+   415.6,
+   310.6
+  ],
+  "original_text": "不可路邊停車",
+  "field_id": "individual_parking_convenience[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   204.4,
+   311.4,
+   290.6,
+   323.6
+  ],
+  "original_text": "第二種商業區",
+  "field_id": "individual_zoning_designation[base]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   345.4,
+   311.4,
+   415.6,
+   323.6
+  ],
+  "original_text": "第二種商業區",
+  "field_id": "individual_zoning_designation[comp]",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   697.08,
+   32.61,
+   746.28,
+   41.49
+  ],
+  "original_text": "1140901-99-001",
+  "field_id": "case_no",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   104.66,
+   539.97,
+   174.98,
+   548.85
+  ],
+  "original_text": "114 年 09 月 18 日",
+  "field_id": "form_fill_date",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   188.4,
+   422.4,
+   777.6,
+   477.6
+  ],
+  "original_text": "（比準地或各比較標的 備註欄 narrative, 5 lines）",
+  "field_id": "table4_remarks_comparable",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "page": 2,
+  "classification": "SUPPLEMENTAL_MANUAL_VERIFIED",
+  "bbox": [
+   188.4,
+   482.4,
+   777.6,
+   523.6
+  ],
+  "original_text": "（全案 備註欄 narrative, 4 lines）",
+  "field_id": "table4_remarks_case",
+  "redaction_fill": [
+   1,
+   1,
+   1
+  ]
+ }
+]

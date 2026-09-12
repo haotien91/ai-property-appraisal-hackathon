@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8">
+    <title>文件上傳與擷取｜地價智審 AI</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="地價智審 AI, 不動產估價, AI 審查" name="keywords">
+    <meta content="AI 輔助不動產估價案件審查系統" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css?v=20260912-1" rel="stylesheet">
+
+    <!-- Loaded early (before body scripts) so Api/APP_CONFIG exist before any page-specific inline script runs -->
+    <script src="js/config.js?v=20260912-1"></script>
+    <script src="js/api.js?v=20260912-1"></script>
+    <script src="js/case-context.js?v=20260912-1"></script>
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                <h2 class="mb-0 text-primary">
+                    <i class="fa-solid fa-landmark me-2"></i>地價智審 AI
+                </h2>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">首頁</a>
+                    <a href="case.html" class="nav-item nav-link ">案件列表</a>
+                    <a href="review.html" class="nav-item nav-link ">智慧審查</a>
+                </div>
+                <div class="d-none d-lg-flex">
+                    <a class="btn btn-outline-primary border-2" href="case-new.html">
+                        <i class="fa-solid fa-plus me-1"></i> 建立案件
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+<section class="app-shell"><div class="container"><div class="app-stepper"><a href="case.html" class="done" data-preserve-case><span class="step-num">1</span>案件列表</a><a href="case-new.html" class="done" data-preserve-case><span class="step-num">2</span>建立案件</a><a href="data.html" class="done" data-preserve-case><span class="step-num">3</span>資料收集</a><a href="analysis.html" class="done" data-preserve-case><span class="step-num">4</span>因素分析</a><a href="form-fill.html" class="done" data-preserve-case><span class="step-num">5</span>書表填寫</a><a href="pdf-preview.html" class="done" data-preserve-case><span class="step-num">6</span>PDF預覽</a><a href="document-review.html" class="active" data-preserve-case><span class="step-num"><i class="fa-solid fa-file-import"></i></span>文件上傳（選用）</a><a href="review.html" class="" data-preserve-case><span class="step-num">7</span>智慧審查</a><a href="result.html" class="" data-preserve-case><span class="step-num">8</span>案件結果</a></div>
+<h2 class="section-title" style="font-size:1.8rem;">文件上傳與擷取（選用流程）</h2>
+<p class="section-text mb-4">
+    POST /api/cases/{id}/documents → PUT S3 → POST .../extract → GET .../extraction → POST .../confirm，
+    對應既有 DocumentExtractionProvider（LocalExtractionProvider）+ engine/human_confirmation.py 之
+    Human Confirmation Gate。此為 FORM_COMPLETION 書表填寫流程之外，第二種可送入智慧審查的資料來源
+    （submission_source=DOCUMENT）。
+</p>
+
+<div id="modeBanner"></div>
+
+<div id="noCaseState" class="state-error" style="display:none;">缺少案號（case_no），請從案件列表或建立案件重新進入。</div>
+
+<div id="mainContent">
+  <div class="app-card mb-4">
+    <h3><i class="fa-solid fa-upload me-2"></i>步驟一：上傳文件</h3>
+    <p class="section-text" id="uploadHint"></p>
+    <input class="form-control" type="file" id="fileInput" accept="application/pdf">
+    <button id="uploadBtn" type="button" class="btn btn-ai-primary mt-3"><i class="fa-solid fa-cloud-arrow-up me-2"></i>上傳並擷取</button>
+    <div id="uploadLog" class="section-text mt-3" style="font-size:.85rem;white-space:pre-line;"></div>
+  </div>
+
+  <div class="app-card mb-4" id="extractionCard" style="display:none;">
+    <h3><i class="fa-solid fa-magnifying-glass me-2"></i>步驟二：擷取結果（ExtractedField[]）</h3>
+    <div class="row g-4 mb-2">
+      <div class="col-md-4"><div class="result-card passed"><span class="result-count" id="fieldCount">-</span><span class="result-label">總欄位</span></div></div>
+      <div class="col-md-4"><div class="result-card passed"><span class="result-count" id="extractedOkCount">-</span><span class="result-label">成功擷取</span></div></div>
+      <div class="col-md-4"><div class="result-card warning"><span class="result-count" id="reviewCount">-</span><span class="result-label">需人工確認</span></div></div>
+    </div>
+    <p class="section-text mb-3">document_id：<code id="extractDocId">-</code></p>
+
+    <div class="app-card" style="background:rgba(255,255,255,.03);">
+      <h4 style="font-size:1rem;"><i class="fa-solid fa-circle-info me-2"></i>「需人工確認」原因摘要</h4>
+      <p class="section-text mb-2"><strong>CELL_BLANK ≠ AI擷取錯誤。</strong>下方分類直接來自既有 <code>extraction_status</code>/<code>confidence</code>，未經任何改寫：</p>
+      <div class="row g-3 mb-2">
+        <div class="col-6 col-md-3"><div class="result-card missing"><span class="result-count" id="reasonCellBlank">-</span><span class="result-label">文件原始欄位空白</span></div></div>
+        <div class="col-6 col-md-3"><div class="result-card warning"><span class="result-count" id="reasonLowConfidence">-</span><span class="result-label">低信心辨識</span></div></div>
+        <div class="col-6 col-md-3"><div class="result-card error"><span class="result-count" id="reasonParseFailed">-</span><span class="result-label">解析失敗</span></div></div>
+        <div class="col-6 col-md-3"><div class="result-card error"><span class="result-count" id="reasonUnknownFactor">-</span><span class="result-label">未知因素</span></div></div>
+      </div>
+      <p class="section-text" style="font-size:.85rem;" id="reasonExplain"></p>
+    </div>
+
+    <p class="section-text mt-3">下方依「比較標的」欄位分組、預設收合；點開分組後可於「確認值」欄位修改，全部確認完畢後一併送出。分組與筆數僅為畫面呈現方式，<code>requires_manual_review</code>/<code>confidence</code>/<code>extraction_status</code> 本身未被更動。</p>
+    <div id="confirmFieldsContainer"></div>
+
+    <button id="confirmBtn" type="button" class="btn btn-ai-primary mt-3"><i class="fa-solid fa-check-double me-2"></i>送出人工確認</button>
+    <div id="confirmLog" class="section-text mt-3" style="font-size:.85rem;"></div>
+  </div>
+
+  <div class="app-card" id="nextStepCard" style="display:none;">
+    <h3><i class="fa-solid fa-arrow-right me-2"></i>下一步</h3>
+    <p class="section-text">document_id 已保存於本分頁（sessionStorage），可前往「智慧審查」頁面，選擇 <code>submission_source = DOCUMENT</code> 執行審查。</p>
+    <a href="review.html" class="btn btn-ai-primary" data-preserve-case><i class="fa-solid fa-flag-checkered me-2"></i>前往智慧審查（DOCUMENT）</a>
+  </div>
+</div>
+
+<script>
+const caseNo = CaseContext.currentCaseNo();
+const isMock = (Api.mode === 'mock');
+let lastExtractionFields = [];
+
+function renderModeBanner() {
+    const el = document.getElementById('modeBanner');
+    if (isMock) {
+        el.innerHTML = `<div class="alert mb-4" style="background:rgba(255,176,32,.12);border:1px solid rgba(255,176,32,.35);color:#ffb020;">
+            <i class="fa-solid fa-flask me-2"></i><strong>LOCAL / MOCK 展示模式</strong> ——
+            目前無官方 AWS 存取權限，本頁不會呼叫真實 S3 Presigned Upload、Lambda 擷取或雲端人工確認寫入。
+            擷取結果來自 <code>LocalExtractionProvider</code> 對 Golden Case PDF 之實際擷取輸出（見
+            <code>scripts/build_document_extraction_mock.py</code>），並非憑空杜撰之示範數字，但整個流程皆在瀏覽器端本地完成。
+            切換 <code>js/config.js</code> 之 <code>APP_CONFIG.MODE = "production"</code> 後，本頁將改走真實 API 合約，行為不變。
+        </div>`;
+    } else {
+        el.innerHTML = `<div class="alert mb-4" style="background:rgba(53,196,106,.12);border:1px solid rgba(53,196,106,.35);color:#35c46a;">
+            <i class="fa-solid fa-server me-2"></i><strong>PRODUCTION 模式</strong> —— 本頁將對 ${((window.APP_CONFIG||{}).API_BASE_URL)||''} 呼叫真實 API（Presigned S3 Upload / Lambda 擷取 / 人工確認）。
+        </div>`;
+    }
+}
+
+function log(elId, msg) {
+    const el = document.getElementById(elId);
+    el.textContent = (el.textContent ? el.textContent + '\n' : '') + msg;
+}
+
+/** 純畫面分類：直接讀既有 extraction_status/requires_manual_review，
+ * 不改寫、不新增欄位語意。四類對應 domain/models.py 之 ExtractionStatus：
+ * CELL_BLANK/ROW_NOT_FOUND＝文件原始欄位空白（非AI錯誤，confidence本來就是0）；
+ * PARSE_FAILED＝解析失敗；UNKNOWN_FACTOR＝未知因素；
+ * 其餘（EXTRACTED但requires_manual_review=true）＝低信心辨識。 */
+function reasonCategory(f) {
+    if (f.extraction_status === 'CELL_BLANK' || f.extraction_status === 'ROW_NOT_FOUND') return 'CELL_BLANK';
+    if (f.extraction_status === 'PARSE_FAILED') return 'PARSE_FAILED';
+    if (f.extraction_status === 'UNKNOWN_FACTOR') return 'UNKNOWN_FACTOR';
+    return 'LOW_CONFIDENCE';
+}
+
+function groupLabel(slot, subjectRole) {
+    if (slot !== null && slot !== undefined && slot !== '') return `比較標的${slot}`;
+    if (subjectRole === 'BASE') return '比準地（無比較標的區分）';
+    return '無比較標的區分';
+}
+
+function fieldRowHtml(f) {
+    const idAttrs = `data-field-id="${f.field_id}" data-role="${f.extraction_role}" data-subject-role="${f.extraction_subject_role}" data-slot="${f.comparable_slot ?? ''}"`;
+    const prefill = (f.normalized_value ?? f.raw_text ?? '').toString().replace(/"/g, '&quot;');
+    return `<tr ${idAttrs}>
+        <td style="white-space:nowrap;">${f.field_id}</td>
+        <td>${f.raw_text || '<span class="section-text">(空白)</span>'}</td>
+        <td>${f.normalized_value ?? 'N/A'}</td>
+        <td>${f.confidence.toFixed(2)}</td>
+        <td><span class="badge-missing">${f.extraction_status}</span></td>
+        <td style="font-size:.75rem;white-space:nowrap;">${f.extraction_role} / ${f.extraction_subject_role} / ${f.comparable_slot ?? '-'}</td>
+        <td><input class="form-control confirm-input" type="text" value="${prefill}"></td>
+    </tr>`;
+}
+
+function renderExtraction(full) {
+    lastExtractionFields = full.fields || [];
+    const totalCount = full.field_count ?? lastExtractionFields.length;
+    const needsReview = lastExtractionFields.filter(f => f.requires_manual_review);
+    const reviewCount = full.requires_confirmation_count ?? needsReview.length;
+
+    document.getElementById('fieldCount').textContent = totalCount;
+    document.getElementById('extractedOkCount').textContent = totalCount - reviewCount;
+    document.getElementById('reviewCount').textContent = reviewCount;
+    document.getElementById('extractDocId').textContent = full.document_id || '-';
+
+    const reasonCounts = { CELL_BLANK: 0, LOW_CONFIDENCE: 0, PARSE_FAILED: 0, UNKNOWN_FACTOR: 0 };
+    needsReview.forEach(f => { reasonCounts[reasonCategory(f)]++; });
+    document.getElementById('reasonCellBlank').textContent = reasonCounts.CELL_BLANK;
+    document.getElementById('reasonLowConfidence').textContent = reasonCounts.LOW_CONFIDENCE;
+    document.getElementById('reasonParseFailed').textContent = reasonCounts.PARSE_FAILED;
+    document.getElementById('reasonUnknownFactor').textContent = reasonCounts.UNKNOWN_FACTOR;
+    document.getElementById('reasonExplain').textContent = reviewCount
+        ? `本案 ${reviewCount} 筆需人工確認中：${reasonCounts.CELL_BLANK} 筆為「文件原始欄位空白」`
+          + `（CELL_BLANK/ROW_NOT_FOUND，PDF裡本來就沒有文字可擷取，confidence=0，系統誠實回報，非AI誤判）；`
+          + `${reasonCounts.LOW_CONFIDENCE} 筆為低信心辨識（已擷取到文字但信心低於門檻）；`
+          + `${reasonCounts.PARSE_FAILED} 筆解析失敗；${reasonCounts.UNKNOWN_FACTOR} 筆未知因素。`
+        : '本案無需人工確認之欄位。';
+
+    const container = document.getElementById('confirmFieldsContainer');
+    if (!needsReview.length) {
+        container.innerHTML = '<p class="section-text">所有欄位皆已達信心門檻，無需人工確認。</p>';
+    } else {
+        const groups = new Map();
+        needsReview.forEach(f => {
+            const key = (f.comparable_slot ?? '') + '|' + f.extraction_subject_role;
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key).push(f);
+        });
+        const sortedKeys = Array.from(groups.keys()).sort();
+        container.innerHTML = sortedKeys.map(key => {
+            const items = groups.get(key);
+            const label = groupLabel(items[0].comparable_slot, items[0].extraction_subject_role);
+            return `<details class="app-card mb-3">
+                <summary style="cursor:pointer;font-weight:600;">${label}（${items.length} 筆需確認）</summary>
+                <div style="max-height:480px;overflow:auto;margin-top:.75rem;">
+                  <table class="app-table">
+                    <thead><tr>
+                      <th>field_id</th><th>raw_text</th><th>normalized_value</th><th>confidence</th>
+                      <th>extraction_status</th><th>role / subject_role / slot</th><th>確認值（confirmed_value）</th>
+                    </tr></thead>
+                    <tbody>${items.map(fieldRowHtml).join('')}</tbody>
+                  </table>
+                </div>
+            </details>`;
+        }).join('');
+    }
+
+    document.getElementById('extractionCard').style.display = 'block';
+    document.getElementById('nextStepCard').style.display = 'block';
+}
+
+async function runUploadAndExtract() {
+    const fileInput = document.getElementById('fileInput');
+    if (!fileInput.files || fileInput.files.length === 0) {
+        log('uploadLog', '請先選擇欲上傳之 PDF 檔案。');
+        return;
+    }
+    const file = fileInput.files[0];
+    document.getElementById('uploadLog').textContent = '';
+    try {
+        log('uploadLog', '① 呼叫 requestDocumentUpload(caseNo)...');
+        const up = await Api.requestDocumentUpload(caseNo);
+        const documentId = up.document_id;
+        CaseContext.setCurrentDocumentId(documentId, caseNo);
+        log('uploadLog', `　→ document_id = ${documentId}${up.local_mock ? '（LOCAL/MOCK 固定示範值）' : ''}`);
+
+        log('uploadLog', up.local_mock
+            ? '② LOCAL/MOCK：略過真實 S3 PUT（不假裝上傳成功）。'
+            : '② 呼叫 putDocumentFile(upload_url, file) 直接 PUT 至 S3...');
+        await Api.putDocumentFile(up.upload_url, file);
+
+        log('uploadLog', '③ 呼叫 extractDocument(caseNo, documentId)...');
+        const ext = await Api.extractDocument(caseNo, documentId);
+        log('uploadLog', `　→ 擷取完成：field_count=${ext.field_count}，requires_confirmation_count=${ext.requires_confirmation_count}`);
+
+        log('uploadLog', '④ 呼叫 getDocumentExtraction(caseNo, documentId) 取得完整欄位...');
+        const full = await Api.getDocumentExtraction(caseNo, documentId);
+        log('uploadLog', '⑤ 完成。');
+        renderExtraction(full);
+    } catch (e) {
+        log('uploadLog', 'Error: ' + ((e && e.error && e.error.message) || String(e)));
+    }
+}
+
+async function runConfirm() {
+    const documentId = CaseContext.currentDocumentId(caseNo);
+    if (!documentId) {
+        log('confirmLog', '尚未取得 document_id，請先完成上傳與擷取。');
+        return;
+    }
+    const rows = document.querySelectorAll('#confirmFieldsContainer tr[data-field-id]');
+    const confirmations = Array.from(rows).map(tr => ({
+        field_id: tr.getAttribute('data-field-id'),
+        extraction_role: tr.getAttribute('data-role'),
+        extraction_subject_role: tr.getAttribute('data-subject-role'),
+        comparable_slot: tr.getAttribute('data-slot') ? Number(tr.getAttribute('data-slot')) : null,
+        confirmed_value: tr.querySelector('.confirm-input').value,
+        confirmed_by: 'frontend-demo-user',
+    }));
+    try {
+        const res = await Api.confirmDocument(caseNo, documentId, confirmations);
+        document.getElementById('confirmLog').innerHTML =
+            `<i class="fa-solid fa-circle-check me-1" style="color:#35c46a;"></i>已送出 ${res.confirmed_count} 筆確認（skipped=${res.skipped_count}）。${res.local_mock ? '（LOCAL/MOCK：未實際寫入後端）' : ''}`;
+    } catch (e) {
+        document.getElementById('confirmLog').innerHTML = '<div class="state-error">' + ((e && e.error && e.error.message) || String(e)) + '</div>';
+    }
+}
+
+if (!caseNo) {
+    document.getElementById('noCaseState').style.display = 'block';
+    document.getElementById('mainContent').style.display = 'none';
+} else {
+    renderModeBanner();
+    document.getElementById('uploadHint').textContent = isMock
+        ? '此為 LOCAL/MOCK 展示：仍需選擇一個 PDF 檔案以符合流程操作，但檔案內容不會被讀取或上傳，擷取結果將顯示既有 Golden Case 擷取結果。'
+        : '選擇欲上傳之查估書表 PDF，將依序呼叫 requestDocumentUpload → putDocumentFile → extractDocument → getDocumentExtraction。';
+    document.getElementById('uploadBtn').addEventListener('click', runUploadAndExtract);
+    document.getElementById('confirmBtn').addEventListener('click', runConfirm);
+}
+</script>
+</div></section>
+    <footer class="container-fluid bg-dark text-light footer py-5">
+        <div class="container text-center py-4">
+            <a href="index.html" class="text-decoration-none">
+                <h2 class="footer-brand mb-3"><i class="fa-solid fa-landmark text-primary me-2"></i>地價智審 AI</h2>
+            </a>
+            <p class="footer-copy mb-2">2026 新北市 AI 智慧城市黑客松｜AI 輔助不動產估價案件審查</p>
+            <p class="footer-copy mb-3">AI 文件理解 × 評價規則引擎 × 數值重算 × 跨表勾稽 × 人工覆核</p>
+            <p class="mb-0 small">
+                Designed By <a class="border-bottom" href="https://htmlcodex.com" target="_blank" rel="noopener">HTML Codex</a>.
+                Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a>.
+            </p>
+        </div>
+    </footer>
+
+    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('modeIndicator').textContent = (window.APP_CONFIG || {}).MODE || 'unknown';
+        CaseContext.applyCaseQueryToLinks();
+    </script>
+
+</body>
+</html>

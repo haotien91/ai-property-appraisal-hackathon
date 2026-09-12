@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "case_no": "1140901-99-001",
+      "segment_code": "P002-00",
+      "district": "金山區",
+      "status": "COMPLETED",
+      "updated_at": "2026-08-30T06:20:42.254416"
+    }
+  ],
+  "total": 1,
+  "page": 1,
+  "page_size": 20
+}

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <title>建立案件｜地價智審 AI</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="地價智審 AI, 不動產估價, AI 審查" name="keywords">
+    <meta content="AI 輔助不動產估價案件審查系統" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css?v=20260912-brand-6" rel="stylesheet">
+
+    <style>
+        /* This workflow page deliberately has no homepage photo or overlay. */
+        body.case-create-page,
+        body.case-create-page .app-shell {
+            background: #0b0b0d !important;
+            background-image: none !important;
+        }
+
+        .case-create-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .case-panel {
+            height: 100%;
+            border: 1px solid var(--ai-border);
+            border-radius: 12px;
+            background: var(--ai-panel);
+            padding: 24px;
+        }
+
+        .panel-kicker {
+            color: var(--ai-accent);
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .panel-title {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .upload-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-height: 118px;
+            padding: 18px 56px 18px 18px;
+            margin-top: 16px;
+            border: 1px dashed rgba(255,255,255,.22);
+            border-radius: 10px;
+            background: rgba(255,255,255,.025);
+            transition: .2s ease;
+        }
+
+        .upload-box:hover {
+            border-color: rgba(255,10,120,.7);
+            background: rgba(255,10,120,.04);
+        }
+
+        .upload-box.has-file,
+        .upload-box.has-file:hover {
+            border-color: #35c46a;
+            border-style: solid;
+            background: rgba(53,196,106,.14);
+            box-shadow: 0 0 0 1px rgba(53,196,106,.08) inset;
+        }
+
+        .upload-icon {
+            flex: 0 0 48px;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--ai-accent);
+            background: var(--ai-accent-soft);
+            font-size: 1.15rem;
+            transition: .2s ease;
+        }
+
+        .upload-box.has-file .upload-icon {
+            color: #35c46a;
+            background: rgba(53,196,106,.14);
+        }
+
+        .upload-copy {
+            position: relative;
+            z-index: 2;
+            min-width: 0;
+            flex: 1;
+            pointer-events: none;
+        }
+
+        .upload-copy strong {
+            display: block;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .upload-copy span {
+            display: block;
+            color: var(--ai-muted);
+            font-size: .9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .upload-box.has-file .upload-copy span {
+            color: #8fe0aa;
+        }
+
+        .upload-box input[type="file"] {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .upload-clear {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 4;
+            width: 32px;
+            height: 32px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 50%;
+            background: rgba(10,10,12,.85);
+            color: #d9d9df;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .upload-box.has-file .upload-clear {
+            display: inline-flex;
+        }
+
+        .upload-clear:hover {
+            color: #fff;
+            border-color: #ff4268;
+            background: rgba(255,66,104,.18);
+            transform: scale(1.04);
+        }
+
+        .upload-clear:focus-visible,
+        .upload-box:has(input:focus-visible) {
+            outline: 2px solid #35c46a;
+            outline-offset: 3px;
+        }
+
+        .upload-clear span {
+            font: 24px/1 sans-serif;
+        }
+
+        .extraction-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 42px;
+            margin-bottom: 18px;
+            padding: 10px 12px;
+            border: 1px solid var(--ai-border);
+            border-radius: 8px;
+            color: var(--ai-muted);
+            background: rgba(255,255,255,.025);
+            font-size: .9rem;
+        }
+
+        .extraction-status.ready {
+            color: #35c46a;
+            border-color: rgba(53,196,106,.35);
+            background: rgba(53,196,106,.07);
+        }
+
+        .extraction-status.loading {
+            color: #ffb020;
+            border-color: rgba(255,176,32,.3);
+            background: rgba(255,176,32,.06);
+        }
+
+        .form-control[readonly] {
+            background: #f2f2f3;
+        }
+
+        .case-submit-wrap {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 22px;
+        }
+
+        .case-submit-wrap .btn {
+            min-width: 220px;
+        }
+
+        .flow-hint {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .flow-hint-item {
+            padding: 12px;
+            border: 1px solid var(--ai-border);
+            border-radius: 8px;
+            background: rgba(255,255,255,.02);
+            color: var(--ai-muted);
+            font-size: .86rem;
+            text-align: center;
+        }
+
+        .flow-hint-item i {
+            color: var(--ai-accent);
+            margin-right: 6px;
+        }
+
+        @media (max-width: 991.98px) {
+            .case-create-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .case-panel {
+                padding: 18px;
+            }
+
+            .flow-hint {
+                grid-template-columns: 1fr;
+            }
+
+            .case-submit-wrap .btn {
+                width: 100%;
+            }
+        }
+        /* Compact desktop workspace: keep both steps and the action in view. */
+        @media (min-width: 992px) {
+            body.case-create-page .app-shell {
+                padding: 14px 0 28px;
+                height: calc(100dvh - 76px);
+                display: flex;
+            }
+            .case-create-page .app-shell > .container { display: flex; flex-direction: column; min-height: 0; }
+            #newCaseForm { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+            .case-create-grid { flex: 1; min-height: 0; }
+            .case-panel { display: flex; flex-direction: column; min-height: 0; }
+            .case-panel > .row { flex: 1; align-content: space-between; }
+            .case-panel .upload-box { flex: 1; }
+            .case-panel #segmentScope { height: clamp(64px, 13dvh, 150px); }
+            body.case-create-page:has(.app-navbar.position-fixed) .app-shell {
+                padding-top: 90px;
+            }
+            .case-create-page .app-stepper {
+                margin-bottom: 14px;
+                padding-bottom: 10px;
+            }
+            .case-create-grid { gap: 16px; }
+            .case-panel { padding: clamp(16px, 2.4dvh, 26px) 20px; }
+            .panel-kicker { font-size: .72rem; margin-bottom: 4px; }
+            .panel-title { font-size: 1.05rem; margin-bottom: 6px; }
+            .case-panel .section-text { font-size: .82rem; line-height: 1.5; margin-bottom: 10px; }
+            .upload-box { min-height: 76px; margin-top: 10px; padding: 12px 50px 12px 14px; gap: 12px; }
+            .upload-icon { flex-basis: 36px; width: 36px; height: 36px; font-size: 1rem; }
+            .upload-copy strong { font-size: .9rem; margin-bottom: 2px; }
+            .upload-copy span { font-size: .78rem; }
+            .flow-hint { margin-top: 10px; gap: 8px; }
+            .flow-hint-item { padding: 8px 4px; font-size: .76rem; }
+            #mockNotice { padding: 8px 10px; margin-top: 10px !important; font-size: .76rem; line-height: 1.5; }
+            .extraction-status { min-height: 32px; padding: 6px 10px; margin-bottom: 10px; font-size: .8rem; }
+            .case-panel .row { --bs-gutter-x: 12px; --bs-gutter-y: 8px; }
+            .case-panel .form-label { font-size: .82rem; margin-bottom: 4px; }
+            .case-panel .form-control { font-size: .82rem; padding: 6px 10px; }
+            #segmentScope { height: 64px; min-height: 64px; }
+            .case-submit-wrap { margin-top: 12px; }
+            .case-submit-wrap .btn { min-width: 0; padding: 7px 14px; font-size: .8rem; }
+            #createResult:empty { display: none; }
+        }
+        .upload-copy .appraisal-file-list { max-height: 90px; overflow-y: auto; pointer-events: auto; }
+        .upload-copy .appraisal-file-row { display: flex; align-items: center; gap: 8px; padding-top: 4px; }
+        .appraisal-file-row > span { flex: 1; min-width: 0; }
+        .appraisal-file-row button { flex-shrink: 0; border: 1px solid var(--ai-border); border-radius: 5px; background: #151517; color: #fff; width: 28px; height: 28px; font-size: 20px; line-height: 1; }
+        .appraisal-file-row button:hover, .appraisal-file-row button:focus-visible { border-color: #35c46a; outline: 1px solid #35c46a; }
+        .selected-files { margin-top: 12px; padding: 12px; border: 1px solid var(--ai-border); border-radius: 8px; background: #151517; }
+        .selected-files-heading { display: flex; justify-content: space-between; color: #efeff0; font-size: .85rem; font-weight: 600; margin-bottom: 8px; }
+        .selected-files-heading span, .selected-files-empty { color: var(--ai-muted); font-size: .78rem; }
+        .selected-files-empty { margin: 0; }
+        .selected-files .appraisal-file-list { overflow-y: auto; max-height: 150px; overscroll-behavior: contain; }
+        .selected-files .appraisal-file-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; color: #dce5de; font-size: .8rem; }
+        .selected-files .appraisal-file-row > span { overflow-wrap: anywhere; }
+        @media (min-width: 992px) {
+            .case-panel .upload-box { flex: 1 0 76px; }
+            .selected-files { flex: 0 0 124px; height: 124px; min-height: 0; display: flex; flex-direction: column; }
+            .selected-files-heading { flex-shrink: 0; }
+            .selected-files .appraisal-file-list { flex: 1; min-height: 0; max-height: 76px; overflow-y: auto; scrollbar-gutter: stable; }
+        }
+    </style>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/case-context.js"></script>
+</head>
+
+<body class="case-create-page">
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-dark app-navbar" aria-label="網站標誌">
+            <a href="index.html" class="navbar-brand">
+                <i class="fa-solid fa-landmark" aria-hidden="true"></i><span>地價智審 <b>AI</b></span>
+            </a>
+        </nav>
+    </div>
+
+    <section class="app-shell">
+        <div class="container">
+            <div class="app-stepper">
+                <a href="case-new.html?ui=file-list-13" class="active" data-preserve-case><span class="step-num">1</span>建立案件</a>
+                <a href="pdf-preview.html?ui=reader-16" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="result.html?ui=20260912-6" data-preserve-case><span class="step-num">3</span>案件結果</a>
+            </div>
+
+
+
+            <form id="newCaseForm">
+                <div class="case-create-grid">
+                    <section class="case-panel">
+                        <div class="panel-kicker">Step 1 · Documents</div>
+                        <h3 class="panel-title">上傳文件</h3>
+                        <p class="section-text mb-0">請選取同一案件的 1 份以上查估書表 PDF，以及 1 份評價基準明細表。正式版將由後端文件理解流程擷取欄位與評價規則。</p>
+
+                        <label class="upload-box" id="appraisalUploadBox">
+                            <span class="upload-icon"><i class="fa-solid fa-file-pdf"></i></span>
+                            <span class="upload-copy">
+                                <strong>查估書表</strong>
+                                <span id="appraisalFileName">點擊或拖曳加入 PDF（可多選／分次加入）</span>
+
+                            </span>
+                            <input id="appraisalFile" name="appraisal_file" multiple type="file" accept="application/pdf,.pdf" required>
+                            <button type="button" class="upload-clear" id="clearAppraisalFile" aria-label="移除全部查估書表" title="移除全部查估書表">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </label>
+
+                        <label class="upload-box" id="criteriaUploadBox">
+                            <span class="upload-icon"><i class="fa-solid fa-table-list"></i></span>
+                            <span class="upload-copy">
+                                <strong>評價基準明細表</strong>
+                                <span id="criteriaFileName">點擊或拖曳上傳 PDF</span>
+                            </span>
+                            <input id="criteriaFile" name="criteria_file" type="file" accept="application/pdf,.pdf" required>
+                            <button type="button" class="upload-clear" id="clearCriteriaFile" aria-label="移除評價基準明細表" title="移除並重新選擇">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </label>
+
+                        <section class="selected-files" aria-label="已選取的查估書表">
+                            <div class="selected-files-heading">已選取檔案 <span id="appraisalCount">0 份</span></div>
+                            <div id="appraisalFileList" class="appraisal-file-list" aria-live="polite"><p class="selected-files-empty">尚未選取查估書表，可多選或分次加入。</p></div>
+                        </section>
+                    </section>
+
+                    <section class="case-panel">
+                        <div class="panel-kicker">Step 2 · Extracted Metadata</div>
+                        <h3 class="panel-title">自動擷取案件資訊</h3>
+                        <p class="section-text">以下資訊應從查估書表自動擷取。擷取完成後可人工確認或修正，再送往後端。</p>
+
+                        <div id="extractionStatus" class="extraction-status">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>請選取查估書表與評價基準明細表</span>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-light">案號</label>
+                                <input id="caseNo" class="form-control" name="case_no" placeholder="自動擷取" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">區段編號</label>
+                                <input id="segmentCode" class="form-control" name="segment_code" placeholder="自動擷取" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">行政區</label>
+                                <input id="district" class="form-control" name="district" placeholder="自動擷取" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">用地類別</label>
+                                <input id="landUseType" class="form-control" name="land_use_type" placeholder="自動擷取" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-light">區段範圍</label>
+                                <textarea id="segmentScope" class="form-control" name="segment_scope" rows="4" placeholder="自動擷取查估書表中的區段範圍"></textarea>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="case-submit-wrap">
+                    <button id="submitCaseBtn" type="submit" class="btn btn-ai-primary" disabled>
+                        <i class="fa-solid fa-wand-magic-sparkles me-2"></i>建立案件並開始分析
+                    </button>
+                </div>
+                <div id="createResult" class="mt-3"></div>
+            </form>
+        </div>
+    </section>
+
+    <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
+        document.getElementById('modeIndicator').textContent = mode;
+        CaseContext.applyCaseQueryToLinks();
+
+
+        const appraisalFile = document.getElementById('appraisalFile');
+        const criteriaFile = document.getElementById('criteriaFile');
+        const submitBtn = document.getElementById('submitCaseBtn');
+        const extractionStatus = document.getElementById('extractionStatus');
+        let extractionVersion = 0;
+        let selectedAppraisals = [];
+
+        function setUploadState(input, boxId, fileNameId) {
+            const box = document.getElementById(boxId);
+            const name = document.getElementById(fileNameId);
+            if (input.files && input.files[0]) {
+                box.classList.add('has-file');
+                name.textContent = input.multiple ? '✓ 已選取 ' + input.files.length + ' 份查估書表（點擊可繼續加入）' : '✓ 已選取：' + input.files[0].name;
+            } else {
+                box.classList.remove('has-file');
+                name.textContent = input.multiple ? '點擊或拖曳加入 PDF（可多選／分次加入）' : '點擊或拖曳上傳 PDF';
+            }
+        }
+
+        function renderAppraisalFiles() {
+            const list = document.getElementById('appraisalFileList');
+            list.replaceChildren();
+            document.getElementById('appraisalCount').textContent = appraisalFile.files.length + ' 份';
+            if (!appraisalFile.files.length) {
+                const empty = document.createElement('p');
+                empty.className = 'selected-files-empty';
+                empty.textContent = '尚未選取查估書表，可多選或分次加入。';
+                list.append(empty);
+            }
+            Array.from(appraisalFile.files).forEach((file, index) => {
+                const row = document.createElement('span');
+                row.className = 'appraisal-file-row';
+                const name = document.createElement('span');
+                name.textContent = file.name;
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.textContent = '×';
+                remove.setAttribute('aria-label', '移除 ' + file.name);
+                remove.addEventListener('click', event => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const remaining = new DataTransfer();
+                    Array.from(appraisalFile.files).forEach((item, i) => {
+                        if (i !== index) remaining.items.add(item);
+                    });
+                    appraisalFile.files = remaining.files;
+                    selectedAppraisals = Array.from(remaining.files);
+                    extractWhenReady();
+                    appraisalFile.focus();
+                });
+                row.append(name, remove);
+                list.append(row);
+            });
+        }
+
+        function applyExtractedMetadata(data) {
+            document.getElementById('caseNo').value = data.case_no || '';
+            document.getElementById('segmentCode').value = data.segment_code || '';
+            document.getElementById('district').value = data.district || '';
+            document.getElementById('landUseType').value = data.land_use_type || '';
+            document.getElementById('segmentScope').value = data.segment_scope || '';
+            extractionStatus.className = 'extraction-status ready';
+            extractionStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i><span>案件資訊已擷取，請確認內容後送出</span>';
+            submitBtn.disabled = false;
+        }
+
+        async function extractWhenReady() {
+            const version = ++extractionVersion;
+            setUploadState(appraisalFile, 'appraisalUploadBox', 'appraisalFileName');
+            setUploadState(criteriaFile, 'criteriaUploadBox', 'criteriaFileName');
+            renderAppraisalFiles();
+            ['caseNo', 'segmentCode', 'district', 'landUseType', 'segmentScope'].forEach(id => {
+                document.getElementById(id).value = '';
+            });
+            document.getElementById('createResult').innerHTML = '';
+
+            if (!(appraisalFile.files[0] && criteriaFile.files[0])) {
+                extractionStatus.className = 'extraction-status';
+                extractionStatus.innerHTML = '<i class="fa-solid fa-circle-info"></i><span>請選取查估書表與評價基準明細表</span>';
+                submitBtn.disabled = true;
+                return;
+            }
+
+            extractionStatus.className = 'extraction-status loading';
+            extractionStatus.innerHTML = '<span class="spinner-border spinner-border-sm"></span><span>正在擷取查估書表案件資訊...</span>';
+            submitBtn.disabled = true;
+
+            try {
+                if (typeof Api.extractCaseMetadata === 'function') {
+                    const extracted = await Api.extractCaseMetadata(Array.from(appraisalFile.files), criteriaFile.files[0]);
+                    if (version !== extractionVersion) return;
+                    applyExtractedMetadata(extracted);
+                    return;
+                }
+
+                if (mode === 'mock') {
+                    await new Promise(resolve => setTimeout(resolve, 650));
+                    if (version !== extractionVersion) return;
+                    applyExtractedMetadata({
+                        case_no: '1140901-99-001',
+                        segment_code: 'P002-00',
+                        district: '金山區',
+                        land_use_type: '商業用地',
+                        segment_scope: 'Mock Golden Case：正式版將從查估書表自動擷取此欄位。'
+                    });
+                    return;
+                }
+
+                extractionStatus.className = 'extraction-status';
+                extractionStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i><span>文件擷取 API 尚未串接，請先由後端提供 extractCaseMetadata。</span>';
+            } catch (error) {
+                if (version !== extractionVersion) return;
+                extractionStatus.className = 'extraction-status';
+                extractionStatus.innerHTML = '<i class="fa-solid fa-circle-xmark"></i><span>文件擷取失敗，請重新上傳或稍後再試。</span>';
+            }
+        }
+
+        function clearFileSelection(event, input, boxId, fileNameId) {
+            event.preventDefault();
+            event.stopPropagation();
+            input.value = '';
+            if (input === appraisalFile) selectedAppraisals = [];
+            setUploadState(input, boxId, fileNameId);
+            extractWhenReady();
+            input.focus();
+        }
+
+        appraisalFile.addEventListener('change', () => {
+            const combined = new DataTransfer();
+            const seen = new Set();
+            [...selectedAppraisals, ...Array.from(appraisalFile.files)].forEach(file => {
+                const key = JSON.stringify([file.name, file.size, file.lastModified]);
+                if (!seen.has(key)) { combined.items.add(file); seen.add(key); }
+            });
+            appraisalFile.files = combined.files;
+            selectedAppraisals = Array.from(combined.files);
+            extractWhenReady();
+        });
+        criteriaFile.addEventListener('change', extractWhenReady);
+
+        document.getElementById('clearAppraisalFile').addEventListener('click', (event) => {
+            clearFileSelection(event, appraisalFile, 'appraisalUploadBox', 'appraisalFileName');
+        });
+
+        document.getElementById('clearCriteriaFile').addEventListener('click', (event) => {
+            clearFileSelection(event, criteriaFile, 'criteriaUploadBox', 'criteriaFileName');
+        });
+
+        document.getElementById('newCaseForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const resultDiv = document.getElementById('createResult');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>後端分析與產表中...';
+            resultDiv.innerHTML = '';
+
+            const payload = {
+                case_no: document.getElementById('caseNo').value.trim(),
+                segment_code: document.getElementById('segmentCode').value.trim(),
+                district: document.getElementById('district').value.trim(),
+                land_use_type: document.getElementById('landUseType').value.trim(),
+                segment_scope: document.getElementById('segmentScope').value.trim(),
+            };
+
+            try {
+                let created;
+                if (typeof Api.createCaseWithDocuments === 'function') {
+                    created = await Api.createCaseWithDocuments(payload, Array.from(appraisalFile.files), criteriaFile.files[0]);
+                } else {
+                    created = await Api.createCase(payload);
+                }
+
+                CaseContext.setCurrentCaseNo(created.case_no || payload.case_no);
+                const target = CaseContext.withCaseQuery('pdf-preview.html', created.case_no || payload.case_no);
+
+                if (mode === 'mock') await new Promise(resolve => setTimeout(resolve, 750));
+                window.location.href = target;
+            } catch (error) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles me-2"></i>建立案件並開始分析';
+                resultDiv.innerHTML = `<div class="state-error">${(error && error.error && error.error.message) || '建立案件失敗'}</div>`;
+            }
+        });
+    </script>
+</body>
+</html>

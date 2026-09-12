@@ -1,0 +1,263 @@
+[
+ {
+  "field_id": "year_period",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B3:D3",
+  "rect": [
+   -14.766019830774514,
+   59.94749450683594,
+   34.673240070611655,
+   81.58495538884944
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "segment_code",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "G3:H3",
+  "rect": [
+   58.12225406270632,
+   59.94749450683594,
+   97.04400062561035,
+   81.58495538884944
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "zone_range_description",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "L3:V3",
+  "rect": [
+   163.80941054400276,
+   59.94749450683594,
+   572.9846814744016,
+   81.58495538884944
+  ],
+  "font_size": 7,
+  "min_font_size": 5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_zoning_inside_outside",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "H4:K4",
+  "rect": [
+   84.56400108337402,
+   81.58495538884944,
+   163.80941054400276,
+   95.8399658203125
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 17
+ },
+ {
+  "field_id": "regional_land_use_zone",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "H5:K5",
+  "rect": [
+   84.56400108337402,
+   95.8399658203125,
+   163.80941054400276,
+   110.1199951171875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 34
+ },
+ {
+  "field_id": "regional_building_coverage_ratio",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "H6:K6",
+  "rect": [
+   84.56400108337402,
+   110.1199951171875,
+   163.80941054400276,
+   124.39996337890625
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_no_unit",
+  "kind": "redact_and_write"
+ },
+ {
+  "field_id": "regional_floor_area_ratio",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "H7:K7",
+  "rect": [
+   84.56400108337402,
+   124.39996337890625,
+   163.80941054400276,
+   138.67999267578125
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_no_unit",
+  "kind": "redact_and_write"
+ },
+ {
+  "field_id": "regional_construction_prohibited",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "H8:K8",
+  "rect": [
+   84.56400108337402,
+   138.67999267578125,
+   163.80941054400276,
+   152.9599609375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 12
+ },
+ {
+  "field_id": "regional_construction_restricted",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "H9:K10",
+  "rect": [
+   84.56400108337402,
+   152.9599609375,
+   163.80941054400276,
+   181.5213484330611
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_road_development_level",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "I23:K23",
+  "rect": [
+   97.04400062561035,
+   352.9099655151367,
+   163.80941054400276,
+   367.1893191867405
+  ],
+  "font_size": 6.5,
+  "min_font_size": 4.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 32
+ },
+ {
+  "field_id": "regional_sunlight",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "I24:K24",
+  "rect": [
+   97.04400062561035,
+   367.1893191867405,
+   163.80941054400276,
+   381.44885444641113
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_view",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "I25:K25",
+  "rect": [
+   97.04400062561035,
+   381.44885444641113,
+   163.80941054400276,
+   395.7499771118164
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_slope",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "I26:K26",
+  "rect": [
+   97.04400062561035,
+   395.7499771118164,
+   163.80941054400276,
+   410.0299816131592
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_drainage_quality",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "I27:K27",
+  "rect": [
+   97.04400062561035,
+   410.0299816131592,
+   163.80941054400276,
+   424.30999183654785
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 41
+ },
+ {
+  "field_id": "regional_terrain",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "I28:K28",
+  "rect": [
+   97.04400062561035,
+   424.30999183654785,
+   163.80941054400276,
+   438.58974266052246
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "land_use_status",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "Q44:V44",
+  "rect": [
+   321.7541432698568,
+   652.7574920654297,
+   572.9846814744016,
+   669.219970703125
+  ],
+  "font_size": 8,
+  "min_font_size": 5.5,
+  "align": "left",
+  "formatter": "str",
+  "kind": "checkbox_multiselect"
+ }
+]

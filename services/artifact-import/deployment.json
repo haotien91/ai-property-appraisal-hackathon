@@ -1,0 +1,41 @@
+{
+  "account_id": "137336531963",
+  "region": "us-west-2",
+  "stack": "ntpc-artifact-import-api-v1",
+  "endpoint": "https://zyte6qrr2k.execute-api.us-west-2.amazonaws.com",
+  "authentication": "AWS_IAM_SIGV4",
+  "invoke_arn": "arn:aws:execute-api:us-west-2:137336531963:zyte6qrr2k/*",
+  "function": "ntpc-artifact-import-v1",
+  "code_sha256": "ab02511b21ed579a0b5dc94077b056aa0a8119675a0ea2bb14642631dcadccad",
+  "producer_sample_import": {
+    "case_id": "63fd3e9a-c8e1-4579-a19e-b1473e4abcc7",
+    "group_id": "9ed8a575-6646-4039-a546-e775ca6ec75d",
+    "run_id": "8a8d55b0-b5d5-478f-95d4-1f4fd037cb94",
+    "status": "imported",
+    "pdf_complete": false
+  },
+  "verification": {
+    "unit_integration_tests": 18,
+    "live_original_and_split_roundtrip": true,
+    "live_scoped_field_read": true,
+    "live_idempotent_complete": true,
+    "anonymous_http_status": 403,
+    "synthetic_three_pdf_import_passed": true,
+    "live_missing_upload_rejected": true,
+    "synthetic_fixtures_removed": true,
+    "live_directory_case_group_run_lookup": true,
+    "live_directory_create_rename_idempotency": true,
+    "review_update_stack_status": "UPDATE_COMPLETE",
+    "review_json_pdf_live_import_passed": true,
+    "review_final_lambda_hash_check": "blocked_by_approval_usage_limit",
+    "review_synthetic_fixture_cleanup": "pending"
+  },
+  "harness_gateway_updated": false,
+  "directory_api_deployed": true,
+  "review_synthetic_fixture": {
+    "case_id": "4a28ab26-49b6-4d58-b06c-3a30cf577199",
+    "group_id": "1b128579-c9e8-4915-9da0-7bd6168cb6f9",
+    "run_id": "1145da13-104b-4fd6-bee7-34838243ba22",
+    "producer_case_no": "TEST"
+  }
+}

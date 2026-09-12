@@ -1,0 +1,19 @@
+[
+  {
+    "plan_id": "jinshan",
+    "plan_name": "金山都市計畫",
+    "zone_name": "第二種商業區",
+    "floor_area_ratio_pct": "240",
+    "rule_status": "CONFIRMED",
+    "document_title": "變更金山細部計畫（土地使用分區管制要點專案通盤檢討）書",
+    "document_agency": "新北市政府",
+    "document_date": "中華民國109年11月",
+    "article_or_section": "土地使用分區管制要點第五點（現行條文，該點已於本通盤檢討中整併至新條文第4點，惟本系統僅查證確認本次通盤檢討之現行條文數值，未逐一追蹤後續是否有再次修正；容積率上限亦見於同文件第2525-2527行等多處一致重複）",
+    "source_url": "https://www.planning.ntpc.gov.tw/uploaddowndoc?file=anounce/202012081632471.pdf&filedisplay=1091023(%E7%94%A8%E5%8D%B0%E7%89%88)%E8%AE%8A%E6%9B%B4%E9%87%91%E5%B1%B1%E7%B4%B0%E9%83%A8%E8%A8%88%E7%95%AB%EF%BC%88%E5%9C%9F%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%88%86%E5%8D%80%E7%AE%A1%E5%88%B6%E8%A6%81%E9%BB%9E%E5%B0%88%E6%A1%88%E9%80%9A%E7%9B%A4%E6%AA%A2%E8%A8%8E%EF%BC%89%E6%9B%B8(%E5%85%A8).pdf&flag=doc",
+    "source_pdf_sha256": "83b2afb2be304783e32948880cb545b84a2b072fc74eff3e882693842536847e",
+    "source_pdf_byte_size": 3929549,
+    "requires_manual_review": true,
+    "notes": "原文（現行條文欄）：「五、第二種商業區以建築商店及商業使用之建築為主，其建蔽率不得大於70%，容積率不得大於240%。第二種商業區作住宅使用之基準容積率不得超過180%。」與Golden Case（案號1140901-99-001）表1所載70%/240%完全吻合。requires_manual_review=True：本文件為都市計畫法第26條通盤檢討程序文件，雖多處一致重複記載240%，但本系統未取得該通盤檢討案後續核定發布之最終版本以完全排除後續修正之可能，估價人員使用本數值前仍應自行確認決賽當日提供之評價基準明細表或最新公告都市計畫書是否有異動",
+    "source_local_path": "data/sources/urban_planning/變更金山細部計畫_土地使用分區管制要點專案通盤檢討_書.pdf"
+  }
+]

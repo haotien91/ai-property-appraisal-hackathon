@@ -1,0 +1,1440 @@
+{
+  "case_no": "1140901-99-001",
+  "issues": [
+    {
+      "issue_id": "ISS-0001",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_building_coverage_ratio_differential_rate_溫泉段218地號",
+      "label": "建蔽率差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-BUILDING_COVERAGE_RATIO_INDIVIDUAL-02",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "建蔽率差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0002",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_commercial_district_proximity_differential_rate_溫泉段218地號",
+      "label": "接近商圈之程度差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-COMMERCIAL_DISTRICT_PROXIMITY-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "接近商圈之程度差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0003",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_construction_restriction_differential_rate_溫泉段218地號",
+      "label": "有無禁限建差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-CONSTRUCTION_RESTRICTION_INDIVIDUAL-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "有無禁限建差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0004",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_floor_area_ratio_differential_rate_溫泉段218地號",
+      "label": "容積率差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-FLOOR_AREA_RATIO_INDIVIDUAL-02",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "容積率差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0005",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_frontage_road_width_differential_rate_溫泉段218地號",
+      "label": "面前道路寬度差異率",
+      "submitted_value": "5",
+      "expected_value": "5",
+      "rule_id": "IND-FRONTAGE_ROAD_WIDTH-02",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "面前道路寬度差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0006",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_land_area_differential_rate_溫泉段218地號",
+      "label": "面積差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-LAND_AREA-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "面積差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0007",
+      "severity": "CRITICAL",
+      "issue_type": "Error",
+      "source_form": "表4",
+      "field": "individual_land_depth_differential_rate_溫泉段218地號",
+      "label": "深度差異率",
+      "submitted_value": "5.00",
+      "expected_value": "1",
+      "rule_id": "IND-LAND_DEPTH-03",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "深度差異率 修正百分比錯誤：比準地=普通、比較標的=稍劣，矩陣查表應為1%，表單填載為5.00%",
+        "check_type": "ADJUSTMENT_ERROR",
+        "rule_citation": null,
+        "computed_steps": [
+          "matrix[3][4] = 1",
+          "表單實際填載 = 5.00（不符）"
+        ]
+      },
+      "recommendation_data": {
+        "action": "訂正修正百分比為系統核算結果",
+        "suggested_value": "1",
+        "requires_human_review": true
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0008",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_land_shape_differential_rate_溫泉段218地號",
+      "label": "形狀差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-LAND_SHAPE-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "形狀差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0009",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_land_terrain_differential_rate_溫泉段218地號",
+      "label": "地勢差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-LAND_TERRAIN-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "地勢差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0010",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_land_width_differential_rate_溫泉段218地號",
+      "label": "寬度差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-LAND_WIDTH-04",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "寬度差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0011",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_market_proximity_differential_rate_溫泉段218地號",
+      "label": "接近市場之程度差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-MARKET_PROXIMITY_INDIVIDUAL-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "接近市場之程度差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0012",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_nuisance_facility_differential_rate_溫泉段218地號",
+      "label": "嫌惡設施之有無差異率",
+      "submitted_value": "3",
+      "expected_value": "3",
+      "rule_id": "IND-NUISANCE_FACILITY-03",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "嫌惡設施之有無差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0013",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_park_proximity_differential_rate_溫泉段218地號",
+      "label": "接近公園、廣場之程度差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-PARK_PROXIMITY_INDIVIDUAL-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "接近公園、廣場之程度差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0014",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_parking_convenience_differential_rate_溫泉段218地號",
+      "label": "停車方便性差異率",
+      "submitted_value": "2",
+      "expected_value": "2",
+      "rule_id": "IND-PARKING_CONVENIENCE_INDIVIDUAL-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "停車方便性差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0015",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_road_type_differential_rate_溫泉段218地號",
+      "label": "道路種類差異率",
+      "submitted_value": "2",
+      "expected_value": "2",
+      "rule_id": "IND-ROAD_TYPE-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "道路種類差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0016",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_school_proximity_differential_rate_溫泉段218地號",
+      "label": "接近學校之程度差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-SCHOOL_PROXIMITY-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "接近學校之程度差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0017",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_station_proximity_differential_rate_溫泉段218地號",
+      "label": "接近車站之程度差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-STATION_PROXIMITY_INDIVIDUAL-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "接近車站之程度差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0018",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_street_frontage_differential_rate_溫泉段218地號",
+      "label": "臨路情形差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-STREET_FRONTAGE-04",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "臨路情形差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0019",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表4",
+      "field": "individual_zoning_designation_differential_rate_溫泉段218地號",
+      "label": "使用分區或編定差異率",
+      "submitted_value": "0",
+      "expected_value": "0",
+      "rule_id": "IND-ZONING_DESIGNATION-01",
+      "source": "CalculationValidator",
+      "explanation_data": {
+        "summary": "使用分區或編定差異率 修正百分比正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": null,
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "individual_adjustment_total_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0020",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_avg_road_width_adjustment_pct_溫泉段218地號",
+      "label": "區段內道路平均寬度優劣等級",
+      "submitted_value": "普通",
+      "expected_value": "普通",
+      "rule_id": "REG-AVG_ROAD_WIDTH-03",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "區段內道路平均寬度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.2",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0021",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_building_coverage_ratio_adjustment_pct_溫泉段218地號",
+      "label": "建蔽率優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-BUILDING_COVERAGE_RATIO-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "建蔽率優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.1",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0022",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_bus_stop_proximity_adjustment_pct_溫泉段218地號",
+      "label": "站牌之接近程度或密集程度優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-BUS_STOP_PROXIMITY-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "站牌之接近程度或密集程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.2",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0023",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_construction_prohibited_adjustment_pct_溫泉段218地號",
+      "label": "有無禁止建築優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-CONSTRUCTION_PROHIBITED-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "有無禁止建築優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.1",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0024",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_construction_restricted_adjustment_pct_溫泉段218地號",
+      "label": "有無限制建築（整體開發、面積限制、高度限制……等）優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-CONSTRUCTION_RESTRICTED-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "有無限制建築（整體開發、面積限制、高度限制……等）優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.1",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0025",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_customer_traffic_adjustment_pct_溫泉段218地號",
+      "label": "顧客通行量之多寡優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-CUSTOMER_TRAFFIC-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "顧客通行量之多寡優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.5",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0026",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_department_store_proximity_adjustment_pct_溫泉段218地號",
+      "label": "百貨公司之有無、數量、接近程度優劣等級",
+      "submitted_value": "劣",
+      "expected_value": "劣",
+      "rule_id": "REG-DEPARTMENT_STORE_PROXIMITY-05",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "百貨公司之有無、數量、接近程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.5",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0027",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_drainage_quality_adjustment_pct_溫泉段218地號",
+      "label": "排水之良否優劣等級",
+      "submitted_value": "稍優",
+      "expected_value": "稍優",
+      "rule_id": "REG-DRAINAGE_QUALITY-02",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "排水之良否優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.3",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0028",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_entertainment_proximity_adjustment_pct_溫泉段218地號",
+      "label": "娛樂設施之有無、數量、接近程度優劣等級",
+      "submitted_value": "劣",
+      "expected_value": "劣",
+      "rule_id": "REG-ENTERTAINMENT_PROXIMITY-05",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "娛樂設施之有無、數量、接近程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.5",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0029",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_exhibition_hotel_proximity_adjustment_pct_溫泉段218地號",
+      "label": "大型展示中心或觀光飯店之有無、數量、接近程度優劣等級",
+      "submitted_value": "普通",
+      "expected_value": "普通",
+      "rule_id": "REG-EXHIBITION_HOTEL_PROXIMITY-03",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "大型展示中心或觀光飯店之有無、數量、接近程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.5",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0030",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_financial_institution_proximity_adjustment_pct_溫泉段218地號",
+      "label": "金融機構之有無、數量、接近程度優劣等級",
+      "submitted_value": "稍優",
+      "expected_value": "稍優",
+      "rule_id": "REG-FINANCIAL_INSTITUTION_PROXIMITY-02",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "金融機構之有無、數量、接近程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.5",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0031",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_floor_area_ratio_adjustment_pct_溫泉段218地號",
+      "label": "容積率優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-FLOOR_AREA_RATIO-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "容積率優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.1",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0032",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_funeral_facility_proximity_adjustment_pct_溫泉段218地號",
+      "label": "殯葬設施之有無及接近程度優劣等級",
+      "submitted_value": "劣",
+      "expected_value": "劣",
+      "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-05",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "殯葬設施之有無及接近程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.4",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0033",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_interchange_proximity_adjustment_pct_溫泉段218地號",
+      "label": "交流道之有無及接近交流道之程度優劣等級",
+      "submitted_value": "劣",
+      "expected_value": "劣",
+      "rule_id": "REG-INTERCHANGE_PROXIMITY-05",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "交流道之有無及接近交流道之程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.2",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0034",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_land_use_zone_adjustment_pct_溫泉段218地號",
+      "label": "使用分區(使用地類別)優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-LAND_USE_ZONE-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "使用分區(使用地類別)優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.1",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0035",
+      "severity": "CRITICAL",
+      "issue_type": "Error",
+      "source_form": "表5-2",
+      "field": "regional_main_road_width_adjustment_pct_溫泉段218地號",
+      "label": "主要道路寬度優劣等級",
+      "submitted_value": "優",
+      "expected_value": "普通",
+      "rule_id": "REG-MAIN_ROAD_WIDTH-03",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "主要道路寬度優劣等級 優劣等級錯誤：原始值18M應判定為「普通」，表單填載為「優」",
+        "check_type": "GRADE_ERROR",
+        "rule_citation": "評價基準明細表範例.pdf p.2",
+        "computed_steps": [
+          "raw_value=18M",
+          "依評價基準明細表級距判定 -> 普通（15m以上未滿20m）",
+          "表單實際填載 -> 優（不符）"
+        ]
+      },
+      "recommendation_data": {
+        "action": "訂正優劣等級為系統核算結果",
+        "suggested_value": "普通",
+        "requires_human_review": true
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0036",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_major_station_proximity_adjustment_pct_溫泉段218地號",
+      "label": "接近大型車站之程度優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-MAJOR_STATION_PROXIMITY-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "接近大型車站之程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.2",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0037",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_market_proximity_adjustment_pct_溫泉段218地號",
+      "label": "接近市場之程度（傳統市場、超級市場、超大型購物中心）優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-MARKET_PROXIMITY-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "接近市場之程度（傳統市場、超級市場、超大型購物中心）優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.3",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0038",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_park_proximity_adjustment_pct_溫泉段218地號",
+      "label": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-PARK_PROXIMITY-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "接近公園（里鄰公園、一般公園）、廣場、徒步區之程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.3",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0039",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_parking_convenience_adjustment_pct_溫泉段218地號",
+      "label": "停車場地之便利程度優劣等級",
+      "submitted_value": "稍優",
+      "expected_value": "稍優",
+      "rule_id": "REG-PARKING_CONVENIENCE-02",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "停車場地之便利程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.3",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0040",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_pollution_proximity_adjustment_pct_溫泉段218地號",
+      "label": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-POLLUTION_PROXIMITY-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "水污染、噪音污染、廢氣污染、廢棄物污染等之有無及接近程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.4",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0041",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_road_development_adjustment_pct_溫泉段218地號",
+      "label": "區段內道路規劃及闢建程度優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "區段內道路規劃及闢建程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.2",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0042",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_shop_contiguity_adjustment_pct_溫泉段218地號",
+      "label": "店舖之毗連狀態優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-SHOP_CONTIGUITY-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "店舖之毗連狀態優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.5",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0043",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_terrain_adjustment_pct_溫泉段218地號",
+      "label": "地勢優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-TERRAIN-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "地勢優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.3",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0044",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_tourism_proximity_adjustment_pct_溫泉段218地號",
+      "label": "接近觀光遊憩設施之程度優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "接近觀光遊憩設施之程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.3",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0045",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_utility_facility_proximity_adjustment_pct_溫泉段218地號",
+      "label": "電業設施及公用氣體燃料設施之有無及接近程度優劣等級",
+      "submitted_value": "劣",
+      "expected_value": "劣",
+      "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-05",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "電業設施及公用氣體燃料設施之有無及接近程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.4",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0046",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_waste_facility_proximity_adjustment_pct_溫泉段218地號",
+      "label": "廢棄物處理設施之有無及接近程度優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-WASTE_FACILITY_PROXIMITY-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "廢棄物處理設施之有無及接近程度優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.4",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0047",
+      "severity": "INFO",
+      "issue_type": "Passed",
+      "source_form": "表5-2",
+      "field": "regional_zoning_inside_outside_adjustment_pct_溫泉段218地號",
+      "label": "都市計畫（內、外）優劣等級",
+      "submitted_value": "優",
+      "expected_value": "優",
+      "rule_id": "REG-ZONING_INSIDE_OUTSIDE-01",
+      "source": "RuleValidator",
+      "explanation_data": {
+        "summary": "都市計畫（內、外）優劣等級 優劣等級正確",
+        "check_type": "PASSED_CHECK",
+        "rule_citation": "評價基準明細表範例.pdf p.1",
+        "computed_steps": []
+      },
+      "recommendation_data": {
+        "action": "無需處理",
+        "suggested_value": null,
+        "requires_human_review": false
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "region_adjustment_rate_溫泉段218地號",
+        "trial_price_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    },
+    {
+      "issue_id": "ISS-0048",
+      "severity": "CRITICAL",
+      "issue_type": "Inconsistent",
+      "source_form": "表4",
+      "field": "region_adjustment_rate_溫泉段218地號",
+      "label": "區域因素調整百分率（跨表一致性）",
+      "submitted_value": "5.00",
+      "expected_value": "0.00",
+      "rule_id": null,
+      "source": "CrossFormValidationEngine",
+      "explanation_data": {
+        "summary": "跨表不一致：表5-2「影響地價區域因素總修正數」=0.00%，表4「區域因素調整百分率」=5.00%，兩者應逐字相符但不一致",
+        "check_type": "CROSS_FORM_INCONSISTENT",
+        "rule_citation": "作業手冊 p.48「(4)」；docs/phase1/evidence_matrix.md REQ-023（官方審查checklist核心檢查點）",
+        "computed_steps": [
+          "表5-2記載值 = 0.00%",
+          "表4記載值 = 5.00%",
+          "兩值不相等 -> Cross-form Inconsistent"
+        ]
+      },
+      "recommendation_data": {
+        "action": "請確認表4是否正確承接表5-2之總修正數，並訂正其中一方",
+        "suggested_value": null,
+        "requires_human_review": true
+      },
+      "upstream_dependency": [],
+      "downstream_impact": [
+        "trial_price_溫泉段218地號",
+        "adjustment_abs_sum_溫泉段218地號",
+        "base_parcel_comparison_price"
+      ]
+    }
+  ],
+  "generated_at": "2026-08-31T17:36:02.705207",
+  "engine_versions": {
+    "audit_engine": "1.0",
+    "rule_validator": "1.0",
+    "calculation_validator": "1.0",
+    "cross_form_validation_engine": "1.0"
+  },
+  "passed_count": 45,
+  "error_count": 2,
+  "warning_count": 0,
+  "missing_count": 0,
+  "inconsistent_count": 1,
+  "low_confidence_count": 0
+}

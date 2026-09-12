@@ -1,0 +1,177 @@
+{
+  "schema_version": "factor_alias_registry_v1",
+  "description": "STEP 4 §6 (docs/audit/TEAMMATE_RULE_DATA_INTEGRATION_REPORT.md). Single alias registry for factor-name variants observed across data/rules/regional_rules.json, individual_rules.json, data/rules/central_max_adjustment_range.json, docs/incoming_rule_sources/*.doc, and data/sources/competition/評價基準明細表範例.pdf's own note-sentence text (Phase 3A/3C). NOT a second factor-naming system -- canonical_factor_id/canonical_name always equal an ALREADY-EXISTING factor string from one of these official/digitized sources (never invented). `confidence` and `verified_by` are honest: every entry here was derived by systematic exact-match cross-referencing during this round's audit, not by a human domain-expert sign-off -- `verified_by` stays null until a human explicitly confirms an entry (see this file's own README note below); do not treat presence in this file as VERIFIED.",
+  "verification_note": "None of the entries below have verified_by set -- this round (STEP 4) only PROPOSES aliases from deterministic cross-referencing (exact string match after normalizing whitespace/punctuation-width/a known character variant, or exact substring containment in an official note sentence). A human reviewer should set verified_by=<name> (and may raise/lower confidence) on any entry before treating it as authoritative for automated factor-mapping decisions beyond Phase 3A's existing exact-match-only policy.",
+  "aliases": [
+    {
+      "canonical_factor_id": "都市計畫（內、外）",
+      "canonical_name": "都市計畫（內、外）",
+      "scope": "regional",
+      "aliases": [
+        {
+          "alias_text": "都市計畫內外",
+          "source": "data/sources/competition/評價基準明細表範例.pdf page 1 note text (Phase 3A candidate CAND-P1-00, deterministic exact-match failed on this exact wording -- punctuation removed)",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "純標點符號差異（全形括號、頓號 vs 無標點），語意完全相同。"
+    },
+    {
+      "canonical_factor_id": "區段內道路平均寬度",
+      "canonical_name": "區段內道路平均寬度",
+      "scope": "regional",
+      "aliases": [
+        {
+          "alias_text": "區段內已開闢道路平均寬度",
+          "source": "data/sources/competition/評價基準明細表範例.pdf page 2 note text (Phase 3A candidate, note sentence 「以區段內已開闢道路平均寬度來衡量」 contains an extra 「已開闢」 insertion breaking exact substring match)",
+          "confidence": "MEDIUM"
+        }
+      ],
+      "confidence": "MEDIUM",
+      "verified_by": null,
+      "notes": "備註句插入「已開闢」一詞，語意相容但非嚴格子字串，建議人工確認「已開闢」是否為刻意限定條件。"
+    },
+    {
+      "canonical_factor_id": "接近大型車站之程度",
+      "canonical_name": "接近大型車站之程度",
+      "scope": "regional",
+      "aliases": [
+        {
+          "alias_text": "接近大型車站距離程度",
+          "source": "data/sources/competition/評價基準明細表範例.pdf page 2 note text (Phase 3A candidate)",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "「之程度」vs「距離程度」，語意相同。"
+    },
+    {
+      "canonical_factor_id": "排水之良否",
+      "canonical_name": "排水之良否",
+      "scope": "regional",
+      "aliases": [
+        {
+          "alias_text": "排水系統是否良好",
+          "source": "data/sources/competition/評價基準明細表範例.pdf page 3 note text (Phase 3C smoke test finding)",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "語意相同，用字順序不同。"
+    },
+    {
+      "canonical_factor_id": "使用分區（使用地類別）",
+      "canonical_name": "使用分區（使用地類別）",
+      "scope": "regional",
+      "aliases": [
+        {
+          "alias_text": "使用分區(使用地類別)",
+          "source": "data/rules/regional_rules.json（既有金山商業用地local rule，131筆之一）",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "全形括號（）vs 半形括號()，字元寬度差異，語意完全相同。"
+    },
+    {
+      "canonical_factor_id": "店鋪之毗連狀態",
+      "canonical_name": "店鋪之毗連狀態",
+      "scope": "regional",
+      "aliases": [
+        {
+          "alias_text": "店舖之毗連狀態",
+          "source": "data/rules/regional_rules.json（既有金山商業用地local rule）與docs/incoming_rule_sources/附件二影響商業用地區域因素評價基準表.doc（隊友資料，兩者皆用「舖」）",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "「舖」（U+8216）vs「鋪」（U+92EA）異體字，STEP 4中央資料交叉比對確認478筆比對中10筆皆屬此同一異體字問題，數值本身完全一致（見TEAMMATE_RULE_DATA_INTEGRATION_REPORT.md §2）。"
+    },
+    {
+      "canonical_factor_id": "建築基地改良（整平或填挖基地、開挖水溝、水土保持、鋪築道路、埋設管道、修築駁嵌等）或其他改良",
+      "canonical_name": "建築基地改良（整平或填挖基地、開挖水溝、水土保持、鋪築道路、埋設管道、修築駁嵌等）或其他改良",
+      "scope": "regional",
+      "aliases": [
+        {
+          "alias_text": "建築基地改良（整平或填挖基地、開挖水溝、水土保持、舖築道路、埋設管道、修築駁嵌等）或其他改良",
+          "source": "docs/incoming_rule_sources/附件一/附件三.doc（隊友資料，antiword擷取，用「舖」）",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "同上「舖」vs「鋪」異體字問題。"
+    },
+    {
+      "canonical_factor_id": "臨街情形",
+      "canonical_name": "臨街情形",
+      "scope": "individual",
+      "aliases": [
+        {
+          "alias_text": "臨路情形",
+          "source": "data/rules/individual_rules.json（既有金山商業用地local rule）",
+          "confidence": "MEDIUM"
+        },
+        {
+          "alias_text": "臨街情況",
+          "source": "data/sources/competition/評價基準明細表範例.pdf page 5 note text（Phase 3A候選）",
+          "confidence": "MEDIUM"
+        }
+      ],
+      "confidence": "MEDIUM",
+      "verified_by": null,
+      "notes": "同一概念出現三種寫法（臨街情形／臨路情形／臨街情況），本輪僅能確認官方中央表用「臨街情形」（1040130個別因素表item 11），「臨路」是否與「臨街」在估價實務上完全同義，建議人工確認而非直接視為HIGH confidence。"
+    },
+    {
+      "canonical_factor_id": "嫌惡設施",
+      "canonical_name": "嫌惡設施",
+      "scope": "individual",
+      "aliases": [
+        {
+          "alias_text": "嫌惡設施之有無",
+          "source": "data/rules/individual_rules.json（既有金山商業用地local rule）",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "local rule多帶「之有無」後綴，中央表item 20僅作「嫌惡設施」，語意相同。"
+    },
+    {
+      "canonical_factor_id": "使用分區或編定用地",
+      "canonical_name": "使用分區或編定用地",
+      "scope": "individual",
+      "aliases": [
+        {
+          "alias_text": "使用分區或編定",
+          "source": "data/rules/individual_rules.json（既有金山商業用地local rule）",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "local rule省略「用地」二字，中央表item 22作「使用分區或編定用地」，語意相同。"
+    },
+    {
+      "canonical_factor_id": "接近學校之程度",
+      "canonical_name": "接近學校之程度",
+      "scope": "individual",
+      "aliases": [
+        {
+          "alias_text": "接近學校程度",
+          "source": "data/sources/competition/評價基準明細表範例.pdf page 7 note text（Phase 3A候選，省略「之」字）",
+          "confidence": "HIGH"
+        }
+      ],
+      "confidence": "HIGH",
+      "verified_by": null,
+      "notes": "省略「之」字，語意相同。"
+    }
+  ]
+}

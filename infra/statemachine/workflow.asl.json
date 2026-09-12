@@ -1,0 +1,110 @@
+{
+  "Comment": "地價智審AI — Case→Data→Geo→Rule→Calculation→FormCompletion→PDF→Review→AIExplanation→Complete。見docs/phase7/step_functions_spec.md。規則本身不Hardcode於Choice狀態，Choice只依engine回傳之status/error_code分支。",
+  "StartAt": "CollectData",
+  "States": {
+
+    "CollectData": {
+      "Type": "Task",
+      "Comment": "呼叫 Data Acquisition Layer（7個Provider）。Geo（GeoDistanceEngine）已內嵌於Provider流程中，非獨立State，因目前僅Mock Provider不涉及真實座標計算，見docs/phase5/geo_engine_spec.md。",
+      "Resource": "${CollectDataFunctionArn}",
+      "ResultPath": "$.collectDataResult",
+      "Retry": [
+        { "ErrorEquals": ["States.TaskFailed"], "IntervalSeconds": 2, "MaxAttempts": 2, "BackoffRate": 2.0 }
+      ],
+      "Catch": [
+        { "ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "PipelineFailed" }
+      ],
+      "Next": "CheckDataCompleteness"
+    },
+
+    "CheckDataCompleteness": {
+      "Type": "Choice",
+      "Comment": "僅依collect-data回傳之status欄位（COMPLETE/PARTIAL）分支，不在此處判斷任何具體業務規則數值。",
+      "Choices": [
+        {
+          "Variable": "$.collectDataResult.status",
+          "StringEquals": "COMPLETE",
+          "Next": "Analyze"
+        }
+      ],
+      "Default": "AwaitManualDataReview"
+    },
+
+    "AwaitManualDataReview": {
+      "Type": "Task",
+      "Comment": "資料不完整時，暫停流程等待人工補件確認，而非由AI猜測缺漏欄位（呼應Provider之UNKNOWN/MANUAL_REVIEW_REQUIRED原則）。",
+      "Resource": "arn:aws:states:::lambda:invoke.waitForTaskToken",
+      "Parameters": {
+        "FunctionName": "${NotifyManualReviewFunctionArn}",
+        "Payload": {
+          "caseNo.$": "$.caseNo",
+          "taskToken.$": "$$.Task.Token",
+          "missingFields.$": "$.collectDataResult.missing_field_ids"
+        }
+      },
+      "Next": "Analyze"
+    },
+
+    "Analyze": {
+      "Type": "Task",
+      "Comment": "Grade Engine + Adjustment Engine，deterministic，見engine/rule_validator.py同源之engine/grade_engine.py。",
+      "Resource": "${AnalyzeFunctionArn}",
+      "ResultPath": "$.analyzeResult",
+      "Retry": [{ "ErrorEquals": ["States.TaskFailed"], "IntervalSeconds": 2, "MaxAttempts": 2 }],
+      "Catch": [{ "ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "PipelineFailed" }],
+      "Next": "CompleteForm"
+    },
+
+    "CompleteForm": {
+      "Type": "Task",
+      "Comment": "Calculation Engine 全流程（含Phase2/3獨立驗證過之完整精度保留規則）。",
+      "Resource": "${CompleteFormFunctionArn}",
+      "ResultPath": "$.formCompletionResult",
+      "Retry": [{ "ErrorEquals": ["States.TaskFailed"], "IntervalSeconds": 2, "MaxAttempts": 2 }],
+      "Catch": [{ "ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "PipelineFailed" }],
+      "Next": "GeneratePdf"
+    },
+
+    "GeneratePdf": {
+      "Type": "Task",
+      "Comment": "PdfRenderer（weasyprint，見docs/phase5/pdf_output_spec.md），輸出至S3並回傳presigned URL。",
+      "Resource": "${PdfFunctionArn}",
+      "ResultPath": "$.pdfResult",
+      "Retry": [{ "ErrorEquals": ["States.TaskFailed"], "IntervalSeconds": 3, "MaxAttempts": 2 }],
+      "Catch": [{ "ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "PipelineFailed" }],
+      "Next": "Review"
+    },
+
+    "Review": {
+      "Type": "Task",
+      "Comment": "AuditEngine + CrossFormValidationEngine，deterministic Smart Review。",
+      "Resource": "${ReviewFunctionArn}",
+      "ResultPath": "$.reviewResult",
+      "Retry": [{ "ErrorEquals": ["States.TaskFailed"], "IntervalSeconds": 2, "MaxAttempts": 2 }],
+      "Catch": [{ "ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "PipelineFailed" }],
+      "Next": "AiExplanation"
+    },
+
+    "AiExplanation": {
+      "Type": "Task",
+      "Comment": "Bedrock自然語言摘要（Part F）。此步驟失敗不應阻擋整體流程完成（Explanation為錦上添花，非核心正確性），故Catch後仍導向Complete而非PipelineFailed。",
+      "Resource": "${ExplanationFunctionArn}",
+      "ResultPath": "$.explanationResult",
+      "Catch": [
+        { "ErrorEquals": ["States.ALL"], "ResultPath": "$.explanationError", "Next": "Complete" }
+      ],
+      "Next": "Complete"
+    },
+
+    "Complete": {
+      "Type": "Succeed"
+    },
+
+    "PipelineFailed": {
+      "Type": "Fail",
+      "Comment": "任何deterministic engine步驟失敗即整體失敗，不得靜默略過或以猜測值繼續。",
+      "CausePath": "$.error.Cause",
+      "ErrorPath": "$.error.Error"
+    }
+  }
+}

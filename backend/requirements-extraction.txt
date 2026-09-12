@@ -1,0 +1,22 @@
+# ExtractionLayer's dependency (infra/layers/extraction/requirements.txt
+# includes this file via pip's `-r` directive -- keep this the ONLY place
+# it is declared). Attached ONLY to DocumentExtractFunction in infra/
+# template.yaml (providers/document_extraction_provider.py's
+# LocalExtractionProvider is the sole caller of `import fitz`, both
+# lazily/locally imported inside classify()/extract_fields(), never at
+# module top-level).
+#
+# pydantic and boto3 are DELIBERATELY NOT listed here (unlike this file's
+# pre-Phase-F version): DocumentExtractFunction also attaches EngineLayer
+# (which already provides pydantic), and boto3 ships pre-installed in the
+# Lambda Python 3.12 runtime -- see backend/requirements.txt's own
+# boto3-exclusion rationale, which applies identically here. Declaring
+# them again here would risk two independently-pip-installed copies
+# landing in /opt at once (wasted Layer size, and a theoretical version-
+# skew risk if the two Layers' pins ever diverge), not just be redundant.
+#
+# pymupdf is a native compiled (non-pure-Python) wheel -- MUST be built
+# via `sam build --use-container`, never by copying a locally
+# pip-installed site-packages directory (see infra/layers/extraction/
+# Makefile's own docstring for why).
+pymupdf>=1.24

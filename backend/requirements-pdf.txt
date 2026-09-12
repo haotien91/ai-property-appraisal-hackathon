@@ -1,0 +1,16 @@
+pydantic>=2.0,<3.0
+jinja2>=3.0
+weasyprint>=60.0
+boto3
+# pdf/official_pdf_renderer.py (PDF-OFFICIAL-1) -- PyMuPDF overlay onto
+# data/templates/official_appraisal_form_v1.pdf. Same package already used
+# by backend/requirements-extraction.txt's ExtractionLayer (pymupdf>=1.24)
+# for the (unrelated) Evaluation Standard PDF importer; listed here
+# separately since PdfFunction is a Container Image with its own
+# requirements file, not the EngineLayer/ExtractionLayer zip layers.
+pymupdf>=1.24
+# SUPPLEMENTAL-JSON-EXCEL-EXPORT-H1: Excel export (export/excel_exporter.py)
+# copies the 3 official source XLSX workbooks and fills them via openpyxl --
+# runtime-only, never Microsoft Excel COM/LibreOffice (those were build-time-
+# only, E1's own PDF template generation, and are not a dependency here).
+openpyxl>=3.1

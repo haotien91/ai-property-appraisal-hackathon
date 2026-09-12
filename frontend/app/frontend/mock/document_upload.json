@@ -1,0 +1,8 @@
+{
+  "case_no": "1140901-99-001",
+  "document_id": "LOCAL-MOCK-GOLDEN-DOCUMENT",
+  "upload_url": null,
+  "expires_in": 0,
+  "local_mock": true,
+  "local_mock_notice": "此為 LOCAL/MOCK 回應：並未實際建立 S3 Presigned URL，也不會真的上傳檔案內容。document_id 為固定示範值，對應既有 Golden Case 擷取結果。"
+}

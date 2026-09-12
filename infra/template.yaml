@@ -1,0 +1,988 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  地價智審 AI — AI輔助不動產估價案件審查系統。
+  API Gateway + Lambda + DynamoDB + S3 + Step Functions（見docs/phase7/aws_services.md之選型理由）。
+  此模板可由具備AWS帳號權限者以 `sam build && sam deploy --guided` 直接部署；
+  本專案開發環境本身無AWS存取權限，未曾實際執行過本模板（見docs/phase7/backend_deployment.md誠實揭露）。
+
+Parameters:
+  BedrockModelId:
+    Type: String
+    Default: anthropic.claude-3-5-sonnet-20241022-v2:0
+    Description: >
+      Bedrock foundation model ID used by ExplanationFunction (Part F --
+      natural-language summary only, never Grade/Adjustment/Calculation/
+      Distance, see docs/phase7/aws_services.md Part F). Overridable at
+      `sam deploy --parameter-overrides BedrockModelId=<id>` without
+      editing this template. The Default here matches
+      backend/handlers/explanation.py's own code-side fallback, so the
+      two never silently disagree.
+
+  # Phase DEPLOY-1E: data/cadastral_dataset_cache.sqlite3 (~407MB) cannot
+  # be packaged into EngineLayer (structurally exceeds Lambda's 250MB
+  # combined Layer+package limit -- see Phase DEPLOY-1's packaging
+  # audit), so CollectDataFunction fetches it from S3 into /tmp on cold
+  # start (backend/handlers/cadastral_snapshot_bootstrap.py). This bucket
+  # is DELIBERATELY NOT created by this template (see that module's
+  # design audit, docs/phase7/backend_deployment.md's Phase DEPLOY-1E
+  # section, for the CFN-managed-bucket vs externally-provisioned-bucket
+  # comparison) -- a hackathon-scoped stack that gets torn down/recreated
+  # repeatedly should not also own the lifecycle of a large, slow-to-
+  # reproduce dataset artifact, and an S3 bucket containing objects
+  # otherwise blocks CloudFormation stack deletion until manually emptied.
+  CadastralSnapshotBucketName:
+    Type: String
+    Description: >
+      Externally-provisioned S3 bucket holding the cadastral dataset
+      snapshot. Must be set at `sam deploy --parameter-overrides
+      CadastralSnapshotBucketName=<bucket>` -- this template has no
+      default (no bucket name is assumed to exist).
+
+  CadastralSnapshotS3Key:
+    Type: String
+    Default: datasets/cadastral/v2026-09-06/cadastral_dataset_cache.sqlite3
+    Description: >
+      Immutable, versioned S3 object key for the cadastral snapshot --
+      NEVER reuse a key for a different file version. Publish a NEW key
+      (and update CadastralSnapshotSha256 to match) every time the
+      dataset is resynced via scripts/sync_expropriation_dataset.py /
+      scripts/sync_land_price_dataset.py; never overwrite an existing
+      key's object in place.
+
+  CadastralSnapshotSha256:
+    Type: String
+    Default: d2ffbe849c21273a0a6602ce25b58e940d23125c9bba779b34e1a5b589656e42
+    Description: >
+      Expected SHA-256 (hex) of the object at CadastralSnapshotS3Key,
+      computed by the release/sync process -- NEVER an S3 ETag (not
+      guaranteed to equal an MD5 for multipart uploads, and never SHA-256
+      regardless). backend/handlers/cadastral_snapshot_bootstrap.py
+      refuses to publish any downloaded file whose own SHA-256 does not
+      match this value exactly; a mismatch (or a missing/unreachable
+      object) degrades to the frozen Real providers' existing UNKNOWN/
+      requires_manual_review semantics, never a crash and never a
+      silent Mock/stale-snapshot fallback. Default here is this round's
+      actual measured value for the current local data/cadastral_
+      dataset_cache.sqlite3 (426,459,136 bytes).
+
+  # 2026-09-09 (URBAN_PLAN_BOUNDARY_SNAPSHOT_NOT_PACKAGED, see
+  # docs/backlog.md): same S3-to-/tmp-at-cold-start pattern as the
+  # cadastral parameters above, for the two NTPC GIS point-in-polygon
+  # snapshots (新北市使用分區 / 新北市都市計畫範圍) --
+  # backend/handlers/gis_snapshot_bootstrap.py. Deliberately reuses
+  # CadastralSnapshotBucketName (a different, immutable prefix) rather
+  # than introducing a second externally-provisioned bucket parameter --
+  # one "external dataset bucket" a deployer has to actually create and
+  # populate is simpler to operate than two, and the IAM Statement below
+  # scopes access to this dataset's own prefix only, same least-privilege
+  # posture as the cadastral policy.
+  NtpcZoningSnapshotS3Key:
+    Type: String
+    Default: datasets/ntpc-gis/v2026-09-09/ntpc_zoning.sqlite3
+    Description: >
+      Immutable, versioned S3 object key for 新北市使用分區
+      (scripts/sync_ntpc_zoning_dataset.py's sync() output) in the
+      CadastralSnapshotBucketName bucket. NEVER a "latest"-style key --
+      publish a NEW key (and update NtpcZoningSnapshotSha256 to match)
+      every time the dataset is resynced; never overwrite an existing
+      key's object in place.
+
+  NtpcZoningSnapshotSha256:
+    Type: String
+    Default: 311b3e1705d7a3765fa9acf9c7a73a5c811228ff427822a921607fd20430125e
+    Description: >
+      Expected SHA-256 (hex) of the object at NtpcZoningSnapshotS3Key --
+      same verify-or-refuse contract as CadastralSnapshotSha256 above,
+      enforced by backend/handlers/gis_snapshot_bootstrap.py. Default
+      here is this round's actual measured value for the current local
+      data/snapshots/ntpc_zoning_2026-09-09.sqlite3 (190,365,696 bytes).
+
+  NtpcPlanBoundarySnapshotS3Key:
+    Type: String
+    Default: datasets/ntpc-gis/v2026-09-08/ntpc_plan_boundary.sqlite3
+    Description: >
+      Immutable, versioned S3 object key for 新北市都市計畫範圍
+      (scripts/sync_ntpc_zoning_dataset.py's sync_plan_boundary() output)
+      in the CadastralSnapshotBucketName bucket. Same "never reuse a key"
+      contract as NtpcZoningSnapshotS3Key above.
+
+  NtpcPlanBoundarySnapshotSha256:
+    Type: String
+    Default: a18393d0b5c0ea0e327684f1e5a2cb9ef196755a894bfcd4bc2d65d48dc1fad0
+    Description: >
+      Expected SHA-256 (hex) of the object at NtpcPlanBoundarySnapshotS3Key.
+      Default here is this round's actual measured value for the current
+      local data/snapshots/ntpc_plan_boundary_2026-09-08.sqlite3
+      (5,419,008 bytes).
+
+Globals:
+  Function:
+    # Runtime deliberately NOT set here: this is a documented AWS SAM
+    # limitation (github.com/aws/serverless-application-model issues
+    # #1890 and #3766) -- Globals.Function.Runtime merges into EVERY
+    # function including Image-type ones, and there is no supported way
+    # to exclude a single resource from a Globals property. Confirmed via
+    # `sam validate --lint` actually running the SAM transform (cfn-lint
+    # alone did not catch this). Runtime is instead set explicitly on
+    # each of the 9 Zip-type functions below; PdfFunction (Image type)
+    # correctly has none.
+    Timeout: 30
+    MemorySize: 512
+    Environment:
+      Variables:
+        CASES_TABLE_NAME: !Ref CasesTable
+        PDF_BUCKET_NAME: !Ref PdfBucket
+        DOCUMENT_BUCKET_NAME: !Ref DocumentBucket
+        LOG_LEVEL: INFO
+    Tracing: Active   # AWS X-Ray，呼應docs/phase7/aws_services.md之Monitoring節
+
+Resources:
+
+  # ---------------------------------------------------------------
+  # Lambda Layers：EngineLayer（共用domain/engine/providers/schemas/
+  # data/rules程式碼＋pydantic/shapely）＋ExtractionLayer（pymupdf，僅
+  # DocumentExtractFunction掛載）。PdfFunction不受影響，繼續使用既有
+  # Container Image（weasyprint系統層級依賴無法用zip Layer提供，見下方
+  # PdfFunction區塊）。
+  #
+  # Phase F packaging audit 發現：先前ContentUri: ../ 沒有Metadata.
+  # BuildMethod，`sam build`不會執行任何pip install，且會把整個repo根
+  # 目錄（含frontend/docs/tests/.claude等）原樣打包、沒有`python/`前綴
+  # ——與Lambda runtime「/opt/python自動加入sys.path」慣例、以及本repo
+  # 每個handler自行`sys.path.insert(0, "/opt/python")`的假設皆不符。
+  # 改用Metadata.BuildMethod: makefile 明確控制artifact結構為
+  # $(ARTIFACTS_DIR)/python/...，不再依賴SAM隱含copy行為。建置邏輯見
+  # infra/layers/engine/Makefile（純copy＋pip install，不修改
+  # domain/engine/providers本身）。
+  # ---------------------------------------------------------------
+  EngineLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: ai-valuation-engine-layer
+      Description: 共用之domain/engine/providers/schemas/data-rules模組＋pydantic/shapely
+      # ContentUri改為repo root（原為layers/engine/）——Phase DEPLOY-1B發現：
+      # `sam build --use-container`只會把ContentUri本身mount進build容器，
+      # 原本的infra/layers/engine/Makefile需要複製repo root的domain/engine/
+      # providers/schemas/data/rules，container化後完全無法存取ContentUri
+      # 以外的路徑（native/非container build時因為make是直接在host檔案系統
+      # 執行，恰好沒有暴露這個問題）。修正方式是讓ContentUri直接涵蓋整個
+      # repo root，並在repo root新增一個符合SAM官方contract的Makefile
+      # （AWS SAM要求Makefile必須存在於ContentUri根目錄本身，見aws_lambda_
+      # builders/workflows/custom_make/DESIGN.md）。見repo root Makefile
+      # 本身的完整說明。infra/layers/engine/Makefile本輪保持不動（未被
+      # sam build使用，留作native build之legacy參考，是否清理留待下輪）。
+      ContentUri: ../
+      CompatibleRuntimes: [python3.12]
+      CompatibleArchitectures: [x86_64]
+      RetentionPolicy: Retain
+    Metadata:
+      BuildMethod: makefile
+      BuildArchitecture: x86_64
+
+  # pymupdf（native compiled wheel）獨立成一個Layer，只掛給真正需要它的
+  # DocumentExtractFunction——不得掛到其他任何Lambda（其餘function皆不
+  # import fitz/pymupdf）。建置邏輯見infra/layers/extraction/Makefile；
+  # 依賴宣告單一真相為backend/requirements-extraction.txt（Makefile的
+  # requirements.txt僅用pip `-r`引用，不重複宣告版本號）。
+  ExtractionLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: ai-valuation-extraction-layer
+      Description: 表5-2文件擷取專用依賴（pymupdf），僅DocumentExtractFunction掛載
+      # ContentUri改為repo root（原為layers/extraction/）——與EngineLayer
+      # 同一輪（Phase DEPLOY-1B）發現、同一類根因：infra/layers/extraction/
+      # requirements.txt內的`-r ../../../backend/requirements-extraction.txt`
+      # 假設ContentUri與repo root間固定3層目錄深度，`sam build --use-
+      # container`下只mount ContentUri本身，此相對路徑會爬出容器檔案系統
+      # 根目錄，解析成不存在的/backend/requirements-extraction.txt（已
+      # 實際build驗證過此錯誤）。修法與EngineLayer一致：ContentUri改為
+      # repo root，build-ExtractionLayer target移至repo root Makefile
+      # （與build-EngineLayer共用同一份manifest）。infra/layers/extraction/
+      # requirements.txt／Makefile內容本身不變，backend/requirements-
+      # extraction.txt仍是唯一真相來源，未重複宣告pymupdf版本號。
+      ContentUri: ../
+      CompatibleRuntimes: [python3.12]
+      CompatibleArchitectures: [x86_64]
+      RetentionPolicy: Retain
+    Metadata:
+      BuildMethod: makefile
+      BuildArchitecture: x86_64
+
+  # PDF產出Function額外需要weasyprint+Cairo+Pango+Noto CJK字型（見docs/phase5/pdf_output_spec.md），
+  # 這些系統層級依賴無法用一般zip Layer提供，改採Container Image封裝。
+  PdfFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: ai-valuation-pdf
+      PackageType: Image
+      # Runtime/Handler/Layers deliberately OMITTED (not set to AWS::NoValue):
+      # sam validate's actual transform-time check rejects these keys being
+      # PRESENT AT ALL on an Image-type function, even when the value is
+      # !Ref AWS::NoValue (that pseudo-parameter only resolves to "absent"
+      # at CloudFormation deploy time, not at SAM's own pre-transform
+      # validation) -- confirmed via `sam validate --lint`, which catches
+      # this and cfn-lint alone did not.
+      MemorySize: 1024
+      Timeout: 60
+      Environment:
+        Variables:
+          CASES_TABLE_NAME: !Ref CasesTable
+          PDF_BUCKET_NAME: !Ref PdfBucket
+          # FRONTEND-UNIFIED-EXPORT-WIRING-F2: empty in every real deploy
+          # (never overridden by `sam deploy`) -- boto3 endpoint_url stays
+          # unset, so production behavior is unchanged. Only a local
+          # `sam local start-api --env-vars` file sets this, to point at a
+          # standalone moto server for local connectivity verification.
+          LOCAL_AWS_ENDPOINT_URL: ""
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - S3CrudPolicy: { BucketName: !Ref PdfBucket }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/pdf', Method: get, RestApiId: !Ref ApiGateway }
+    Metadata:
+      DockerTag: pdf-latest
+      DockerContext: ../
+      Dockerfile: backend/docker/pdf.Dockerfile
+
+  # SUPPLEMENTAL-JSON-EXCEL-EXPORT-H1 Task 16/17: three NEW, additive
+  # Supplemental Export routes -- GET /api/cases/{id}/pdf (PdfFunction
+  # above) is completely unchanged. All three reuse PdfFunction's own
+  # Docker image (same Metadata block: openpyxl + export/ were added to
+  # backend/docker/pdf.Dockerfile/backend/requirements-pdf.txt for this
+  # round, see those files' own comments) -- ImageConfig.Command is the
+  # ONLY thing that differs per function, so no second Dockerfile/image
+  # build is needed. /export/json returns the CaseExportBundle JSON
+  # inline (small enough; no S3 round-trip needed); /export/excel and
+  # /export/bundle return a presigned S3 URL to a zip, same convention
+  # PdfFunction already established for binary payloads.
+  GetExportJsonFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: ai-valuation-export-json-get
+      PackageType: Image
+      MemorySize: 512
+      Timeout: 60
+      ImageConfig:
+        Command: ["export_handler.get_export_json"]
+      Environment:
+        Variables:
+          CASES_TABLE_NAME: !Ref CasesTable
+          LOCAL_AWS_ENDPOINT_URL: ""
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/export/json', Method: get, RestApiId: !Ref ApiGateway }
+    Metadata:
+      DockerTag: pdf-latest
+      DockerContext: ../
+      Dockerfile: backend/docker/pdf.Dockerfile
+
+  GetExportExcelFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: ai-valuation-export-excel-get
+      PackageType: Image
+      MemorySize: 1024
+      Timeout: 90
+      ImageConfig:
+        Command: ["export_handler.get_export_excel"]
+      Environment:
+        Variables:
+          CASES_TABLE_NAME: !Ref CasesTable
+          PDF_BUCKET_NAME: !Ref PdfBucket
+          LOCAL_AWS_ENDPOINT_URL: ""
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - S3CrudPolicy: { BucketName: !Ref PdfBucket }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/export/excel', Method: get, RestApiId: !Ref ApiGateway }
+    Metadata:
+      DockerTag: pdf-latest
+      DockerContext: ../
+      Dockerfile: backend/docker/pdf.Dockerfile
+
+  GetExportBundleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: ai-valuation-export-bundle-get
+      PackageType: Image
+      MemorySize: 1024
+      Timeout: 120
+      ImageConfig:
+        Command: ["export_handler.get_export_bundle"]
+      Environment:
+        Variables:
+          CASES_TABLE_NAME: !Ref CasesTable
+          PDF_BUCKET_NAME: !Ref PdfBucket
+          LOCAL_AWS_ENDPOINT_URL: ""
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - S3CrudPolicy: { BucketName: !Ref PdfBucket }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/export/bundle', Method: get, RestApiId: !Ref ApiGateway }
+    Metadata:
+      DockerTag: pdf-latest
+      DockerContext: ../
+      Dockerfile: backend/docker/pdf.Dockerfile
+
+  ListCasesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-list-cases
+      CodeUri: ../backend/handlers/
+      Handler: cases.list_cases
+      Layers: [!Ref EngineLayer]
+      Policies: [DynamoDBReadPolicy: { TableName: !Ref CasesTable }]
+      Events:
+        Api: { Type: Api, Properties: { Path: /api/cases, Method: get, RestApiId: !Ref ApiGateway } }
+
+  CreateCaseFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-create-case
+      CodeUri: ../backend/handlers/
+      Handler: cases.create_case
+      Layers: [!Ref EngineLayer]
+      Policies: [DynamoDBCrudPolicy: { TableName: !Ref CasesTable }]
+      Events:
+        Api: { Type: Api, Properties: { Path: /api/cases, Method: post, RestApiId: !Ref ApiGateway } }
+
+  GetCaseFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-get-case
+      CodeUri: ../backend/handlers/
+      Handler: cases.get_case
+      Layers: [!Ref EngineLayer]
+      Policies: [DynamoDBReadPolicy: { TableName: !Ref CasesTable }]
+      Events:
+        Api: { Type: Api, Properties: { Path: '/api/cases/{id}', Method: get, RestApiId: !Ref ApiGateway } }
+
+  CollectDataFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-collect-data
+      CodeUri: ../backend/handlers/
+      Handler: collect_data.collect_data
+      Layers: [!Ref EngineLayer]
+      # Phase DEPLOY-1E: raised from Globals' 512MB default ONLY for this
+      # function. Lambda's network throughput and CPU allocation both
+      # scale with MemorySize; the cadastral snapshot bootstrap (S3
+      # download of ~407MB + a streamed SHA-256 verification of the same
+      # size, backend/handlers/cadastral_snapshot_bootstrap.py) needs to
+      # complete within this endpoint's REST API Gateway integration,
+      # which has a fixed 29-second ceiling that is NOT configurable via
+      # this template (a platform-level limit, not a SAM/Timeout setting)
+      # -- raising Timeout alone would not help a caller who has already
+      # received a 504 from API Gateway. 1536MB gives roughly 3x the
+      # network/CPU share of the 512MB default without over-provisioning
+      # this endpoint's otherwise lightweight (mostly outbound HTTP calls
+      # to OSM/NTPC/NLSC) normal, warm-reuse workload. Actual cold-start
+      # bootstrap timing has NOT been empirically measured against real
+      # AWS S3 throughput (this dev environment has no AWS account
+      # access) -- this is a reasoned, conservative sizing choice, to be
+      # verified once real deployment is possible.
+      MemorySize: 1536
+      # 2026-09-09 update: raised from 1536 to 3072. Worst case is now
+      # THREE independent S3-bootstrapped snapshots potentially resident
+      # on /tmp at once (cadastral_snapshot_bootstrap.py's ~407MB +
+      # gis_snapshot_bootstrap.py's ~182MB 新北市使用分區 + ~5MB 新北市
+      # 都市計畫範圍 = ~594MB steady-state), PLUS whichever ONE of the
+      # three happens to be mid atomic-replace (existing + freshly-
+      # downloaded temp copy briefly coexisting) at that moment -- the
+      # worst single case is cadastral's own replace (~814MB) while the
+      # two GIS snapshots already sit resolved from earlier in the SAME
+      # request (bootstrap call order: gis_snapshot_bootstrap.py's
+      # ensure_gis_snapshots() runs BEFORE cadastral_snapshot_bootstrap.
+      # ensure_cadastral_snapshot() in collect_data.py, see that file) =
+      # 814 + 182 + 5 ~= 1001MB peak. 3072MB leaves ~2GB of headroom over
+      # that peak -- more generous than the original single-dataset
+      # design's ~700MB target, since this endpoint now juggles three
+      # independent large-file bootstraps instead of one. Still NOT
+      # empirically measured against real AWS S3 throughput (no AWS
+      # account access in this dev environment) -- a reasoned, generous
+      # sizing choice, to be verified once real deployment is possible.
+      EphemeralStorage:
+        Size: 3072
+      Environment:
+        Variables:
+          CADASTRAL_SNAPSHOT_S3_BUCKET: !Ref CadastralSnapshotBucketName
+          CADASTRAL_SNAPSHOT_S3_KEY: !Ref CadastralSnapshotS3Key
+          CADASTRAL_SNAPSHOT_SHA256: !Ref CadastralSnapshotSha256
+          # Read by the FROZEN providers/cadastral_dataset_cache.py
+          # (CADASTRAL_DATASET_CACHE_DB_PATH override, already part of
+          # that file's existing, unmodified contract) AND by this
+          # round's new bootstrap module -- both must agree on this
+          # exact path, which is why it is set ONCE here rather than
+          # negotiated at runtime between the two.
+          CADASTRAL_DATASET_CACHE_DB_PATH: /tmp/cadastral_dataset_cache.sqlite3
+          # 2026-09-09 (URBAN_PLAN_BOUNDARY_SNAPSHOT_NOT_PACKAGED): same
+          # bucket as the cadastral dataset above, different immutable
+          # prefix -- see NtpcZoningSnapshotS3Key's Parameter description
+          # for why this reuses CadastralSnapshotBucketName rather than a
+          # second bucket parameter.
+          NTPC_ZONING_SNAPSHOT_S3_BUCKET: !Ref CadastralSnapshotBucketName
+          NTPC_ZONING_SNAPSHOT_S3_KEY: !Ref NtpcZoningSnapshotS3Key
+          NTPC_ZONING_SNAPSHOT_SHA256: !Ref NtpcZoningSnapshotSha256
+          NTPC_ZONING_RUNTIME_PATH: /tmp/ntpc_zoning.sqlite3
+          NTPC_PLAN_BOUNDARY_SNAPSHOT_S3_BUCKET: !Ref CadastralSnapshotBucketName
+          NTPC_PLAN_BOUNDARY_SNAPSHOT_S3_KEY: !Ref NtpcPlanBoundarySnapshotS3Key
+          NTPC_PLAN_BOUNDARY_SNAPSHOT_SHA256: !Ref NtpcPlanBoundarySnapshotSha256
+          NTPC_PLAN_BOUNDARY_RUNTIME_PATH: /tmp/ntpc_plan_boundary.sqlite3
+          # Read by BOTH backend/handlers/gis_snapshot_bootstrap.py
+          # (writes the two rows above into this file after a successful
+          # bootstrap) AND providers/ntpc_zoning_provider.py's /
+          # providers/urban_plan_boundary_provider.py's own default-
+          # constructed DatasetRegistry() (providers/dataset_registry.py
+          # already reads this exact env var name to override its
+          # otherwise EngineLayer-relative DEFAULT_DB_PATH) -- set ONCE
+          # here so both sides agree without runtime negotiation, same
+          # pattern as CADASTRAL_DATASET_CACHE_DB_PATH above. Never
+          # points at the packaged data/dataset_registry.sqlite3 (that
+          # file is not shipped to Lambda at all under this design --
+          # see infra/layers/engine/Makefile's module docstring).
+          DATASET_REGISTRY_DB_PATH: /tmp/runtime_dataset_registry.sqlite3
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        # Deliberately NOT SAM's S3ReadPolicy managed policy template --
+        # that grants s3:GetObject AND s3:ListBucket AND
+        # s3:GetBucketLocation AND s3:GetObjectVersion AND s3:
+        # GetLifecycleConfiguration (confirmed by reading aws-sam-cli's
+        # own samtranslator/policy_templates_data/policy_templates.json
+        # this round, not assumed), far broader than this function needs.
+        # A single known, immutable object key never requires listing the
+        # bucket, and HeadObject (if ever called) uses the SAME s3:
+        # GetObject permission per AWS's own IAM action-to-permission
+        # reference -- no separate action needed for it.
+        - Statement:
+            - Effect: Allow
+              Action: [s3:GetObject]
+              Resource: !Sub "arn:${AWS::Partition}:s3:::${CadastralSnapshotBucketName}/datasets/cadastral/*"
+            # 2026-09-09: same bucket, separate immutable prefix for the
+            # two NTPC GIS snapshots -- same least-privilege reasoning as
+            # the cadastral statement above (a single s3:GetObject,
+            # scoped to this dataset family's own prefix only, never
+            # s3:ListBucket/s3:*/AmazonS3FullAccess).
+            - Effect: Allow
+              Action: [s3:GetObject]
+              Resource: !Sub "arn:${AWS::Partition}:s3:::${CadastralSnapshotBucketName}/datasets/ntpc-gis/*"
+      Events:
+        Api: { Type: Api, Properties: { Path: '/api/cases/{id}/collect-data', Method: post, RestApiId: !Ref ApiGateway } }
+
+  AnalyzeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-analyze
+      CodeUri: ../backend/handlers/
+      Handler: analyze.analyze
+      Layers: [!Ref EngineLayer]
+      Timeout: 60
+      Policies: [DynamoDBCrudPolicy: { TableName: !Ref CasesTable }]
+      Events:
+        Api: { Type: Api, Properties: { Path: '/api/cases/{id}/analyze', Method: post, RestApiId: !Ref ApiGateway } }
+
+  CompleteFormFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-complete-form
+      CodeUri: ../backend/handlers/
+      Handler: complete_form.complete_form
+      Layers: [!Ref EngineLayer]
+      Timeout: 60
+      Policies: [DynamoDBCrudPolicy: { TableName: !Ref CasesTable }]
+      Events:
+        Api: { Type: Api, Properties: { Path: '/api/cases/{id}/complete-form', Method: post, RestApiId: !Ref ApiGateway } }
+
+  ReviewFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-review
+      CodeUri: ../backend/handlers/
+      Handler: review.review
+      Layers: [!Ref EngineLayer]
+      Timeout: 60
+      Policies: [DynamoDBCrudPolicy: { TableName: !Ref CasesTable }]
+      Events:
+        Api: { Type: Api, Properties: { Path: '/api/cases/{id}/review', Method: post, RestApiId: !Ref ApiGateway } }
+
+  GetResultFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-get-result
+      CodeUri: ../backend/handlers/
+      Handler: result.get_result
+      Layers: [!Ref EngineLayer]
+      Policies: [DynamoDBReadPolicy: { TableName: !Ref CasesTable }]
+      Events:
+        Api: { Type: Api, Properties: { Path: '/api/cases/{id}/result', Method: get, RestApiId: !Ref ApiGateway } }
+
+  # ---------------------------------------------------------------
+  # Document Upload / Extraction / Confirmation (Phase E — Document
+  # Upload -> Extraction -> Human Confirmation -> Smart Review vertical
+  # slice). Reuses EngineLayer for domain/engine/providers source code;
+  # DocumentExtractFunction additionally needs pymupdf (backend/
+  # requirements-extraction.txt) -- see that file's own docstring and
+  # this template's DocumentExtractFunction comment below for the
+  # packaging caveat (KNOWN GAP, not resolved by this template alone;
+  # see docs/phase7/backend_deployment.md and this round's audit report).
+  # ---------------------------------------------------------------
+  RequestUploadFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-document-upload
+      CodeUri: ../backend/handlers/
+      Handler: document_upload.request_upload
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - S3CrudPolicy: { BucketName: !Ref DocumentBucket }
+      Events:
+        Api: { Type: Api, Properties: { Path: '/api/cases/{id}/documents', Method: post, RestApiId: !Ref ApiGateway } }
+
+  DocumentExtractFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-document-extract
+      CodeUri: ../backend/handlers/
+      Handler: document_extract.extract_document
+      # pymupdf needs NO system-level libraries (no Cairo/Pango like
+      # weasyprint), so it ships as a plain zip Layer (ExtractionLayer,
+      # Metadata.BuildMethod: makefile, see infra/layers/extraction/
+      # Makefile) rather than PdfFunction's Container Image treatment.
+      # ONLY this function gets ExtractionLayer -- every other Lambda
+      # only needs EngineLayer (none of them import fitz/pymupdf).
+      # MemorySize/Timeout sized for a 28-factor page image-scan + word-
+      # bbox pass (real Golden PDF measured ~565ms locally via moto, see
+      # tests/test_backend_document_handlers_e2e.py).
+      Layers: [!Ref EngineLayer, !Ref ExtractionLayer]
+      MemorySize: 1024
+      Timeout: 60
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - S3CrudPolicy: { BucketName: !Ref DocumentBucket }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/documents/{document_id}/extract', Method: post, RestApiId: !Ref ApiGateway }
+
+  DocumentGetExtractionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-document-get-extraction
+      CodeUri: ../backend/handlers/
+      Handler: document_get_extraction.get_extraction
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBReadPolicy: { TableName: !Ref CasesTable }
+        - S3ReadPolicy: { BucketName: !Ref DocumentBucket }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/documents/{document_id}/extraction', Method: get, RestApiId: !Ref ApiGateway }
+
+  DocumentConfirmFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-document-confirm
+      CodeUri: ../backend/handlers/
+      Handler: document_confirm.confirm_document
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - S3CrudPolicy: { BucketName: !Ref DocumentBucket }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/documents/{document_id}/confirm', Method: post, RestApiId: !Ref ApiGateway }
+
+  # ---------------------------------------------------------------
+  # Evaluation Standard Importer -> Human Confirmation -> CaseRuleRepository
+  # (STEP 3A/3B — docs/audit/EVALUATION_STANDARD_HUMAN_CONFIRMATION_
+  # PHASE3B_REPORT.md). Reuses RequestUploadFunction/document_upload.py
+  # AS-IS for the PDF upload step (no new upload mechanism) -- these five
+  # functions only extract/review/edit/confirm/reject a CaseRulePackage,
+  # never grade/adjust/calculate anything themselves.
+  # ---------------------------------------------------------------
+  ExtractEvaluationStandardFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-evaluation-standard-extract
+      CodeUri: ../backend/handlers/
+      Handler: evaluation_standard.extract_evaluation_standard
+      # Same ExtractionLayer (pymupdf) requirement as DocumentExtractFunction
+      # above -- this is the only one of the five that parses a PDF.
+      Layers: [!Ref EngineLayer, !Ref ExtractionLayer]
+      MemorySize: 1024
+      Timeout: 60
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - S3ReadPolicy: { BucketName: !Ref DocumentBucket }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/evaluation-standard/{document_id}/extract', Method: post, RestApiId: !Ref ApiGateway }
+
+  ProposeEvaluationStandardAiCandidatesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-evaluation-standard-ai-candidates
+      CodeUri: ../backend/handlers/
+      Handler: evaluation_standard.propose_evaluation_standard_ai_candidates
+      # AI Semantic Fallback (docs/audit/AI_SEMANTIC_FALLBACK_PHASE3C_
+      # REPORT.md) -- ALWAYS advisory, never writes regional_rules/
+      # individual_rules itself (see that module's own docstring).
+      # SEMANTIC_RULE_MAPPING_PROVIDER_MODE defaults to "mock" (same
+      # explicit-default-never-silent-coerce convention as collect_data.
+      # py's DATA_PROVIDER_MODE); bedrock:InvokeModel is granted below
+      # so switching to SEMANTIC_RULE_MAPPING_PROVIDER_MODE=bedrock needs
+      # no template change, but BedrockSemanticRuleMappingProvider itself
+      # is CODE_READY, NOT AWS_RUNTIME_VERIFIED -- selecting it today
+      # returns HTTP 503, never a silently-substituted Mock result.
+      Layers: [!Ref EngineLayer]
+      Timeout: 30
+      Environment:
+        Variables:
+          SEMANTIC_RULE_MAPPING_PROVIDER_MODE: mock
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+        - Statement:
+            - Effect: Allow
+              Action: [bedrock:InvokeModel]
+              Resource: !Sub "arn:aws:bedrock:${AWS::Region}::foundation-model/*"
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/evaluation-standard/{package_id}/ai-candidates', Method: post, RestApiId: !Ref ApiGateway }
+
+  GetEvaluationStandardCandidateFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-evaluation-standard-get
+      CodeUri: ../backend/handlers/
+      Handler: evaluation_standard.get_evaluation_standard_candidate
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBReadPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/evaluation-standard/{package_id}', Method: get, RestApiId: !Ref ApiGateway }
+
+  SubmitEvaluationStandardEditsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-evaluation-standard-edits
+      CodeUri: ../backend/handlers/
+      Handler: evaluation_standard.submit_evaluation_standard_edits
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/evaluation-standard/{package_id}/edits', Method: post, RestApiId: !Ref ApiGateway }
+
+  ConfirmEvaluationStandardFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-evaluation-standard-confirm
+      CodeUri: ../backend/handlers/
+      Handler: evaluation_standard.confirm_evaluation_standard
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/evaluation-standard/{package_id}/confirm', Method: post, RestApiId: !Ref ApiGateway }
+
+  RejectEvaluationStandardFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-evaluation-standard-reject
+      CodeUri: ../backend/handlers/
+      Handler: evaluation_standard.reject_evaluation_standard
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/evaluation-standard/{package_id}/reject', Method: post, RestApiId: !Ref ApiGateway }
+
+  # FACILITY-CONFIRMATION-GATE-1 (docs precedent: same CONFIRMED Gate shape
+  # as the 3 Evaluation Standard functions above, separate record family --
+  # see backend/handlers/facility_confirmation_repository.py).
+  GetFacilityCandidatesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-facility-candidates-get
+      CodeUri: ../backend/handlers/
+      Handler: facility_confirmation.get_facility_candidates
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/facility-candidates', Method: get, RestApiId: !Ref ApiGateway }
+
+  ConfirmFacilityCandidateFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-facility-candidate-confirm
+      CodeUri: ../backend/handlers/
+      Handler: facility_confirmation.confirm_facility_candidate
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/facility-candidates/{subtype}/confirm', Method: post, RestApiId: !Ref ApiGateway }
+
+  RejectFacilityCandidateFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-facility-candidate-reject
+      CodeUri: ../backend/handlers/
+      Handler: facility_confirmation.reject_facility_candidate
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/facility-candidates/{subtype}/reject', Method: post, RestApiId: !Ref ApiGateway }
+
+  # TABLE51-THREE-COMPARABLE-C1-FINAL-GATE-1 Task 4: minimal route
+  # registration for backend/handlers/table51_analysis.py, mirroring
+  # GetFacilityCandidatesFunction's own shape above -- not previously
+  # registered (docs/phase7/table51_three_comparable_c1.md's own Task 14
+  # note flagged this gap). Read-only (GET), same DynamoDBCrudPolicy
+  # scope as every other case-store-reading function in this template
+  # (build_rule_engine_for_case() also reads CASE_RULE_PACKAGE# records
+  # from the same table).
+  GetTable51AnalysisFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-table51-analysis-get
+      CodeUri: ../backend/handlers/
+      Handler: table51_analysis.get_table51_analysis
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/table5-1', Method: get, RestApiId: !Ref ApiGateway }
+
+  # TABLE4-THREE-COMPARABLE-D1 Task 12: minimal route registration for
+  # backend/handlers/table4_analysis.py, mirroring GetTable51AnalysisFunction
+  # above (which itself mirrors GetFacilityCandidatesFunction) -- read-only
+  # (GET), same DynamoDBCrudPolicy scope as every other case-store-reading
+  # function in this template. Confirmed no pre-existing /api/cases/{id}/
+  # table4 route exists in this template before adding this one.
+  GetTable4AnalysisFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-table4-analysis-get
+      CodeUri: ../backend/handlers/
+      Handler: table4_analysis.get_table4_analysis
+      Layers: [!Ref EngineLayer]
+      Policies:
+        - DynamoDBCrudPolicy: { TableName: !Ref CasesTable }
+      Events:
+        Api:
+          Type: Api
+          Properties: { Path: '/api/cases/{id}/table4', Method: get, RestApiId: !Ref ApiGateway }
+
+  # Bedrock Explanation Function（Part F — 僅負責自然語言摘要，不涉及Grade/Adjustment/Calculation/Distance）
+  ExplanationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      FunctionName: ai-valuation-explanation
+      CodeUri: ../backend/handlers/
+      Handler: explanation.generate_explanation
+      Layers: [!Ref EngineLayer]
+      Timeout: 30
+      Environment:
+        Variables:
+          BEDROCK_MODEL_ID: !Ref BedrockModelId
+      Policies:
+        - DynamoDBReadPolicy: { TableName: !Ref CasesTable }
+        - Statement:
+            - Effect: Allow
+              Action: [bedrock:InvokeModel]
+              Resource: !Sub "arn:aws:bedrock:${AWS::Region}::foundation-model/*"
+
+  # ---------------------------------------------------------------
+  # API Gateway
+  # ---------------------------------------------------------------
+  ApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Cors:
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'Content-Type'"
+        AllowOrigin: "'*'"   # 正式環境建議限制為CloudFront網域，見docs/phase7/api_gateway_spec.md
+      AccessLogSetting:
+        DestinationArn: !GetAtt ApiAccessLogGroup.Arn
+        Format: '{"requestId":"$context.requestId","status":"$context.status","path":"$context.path","errorMessage":"$context.error.message"}'
+
+  ApiAccessLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/apigateway/ai-valuation
+      RetentionInDays: 30
+
+  # ---------------------------------------------------------------
+  # DynamoDB（見docs/phase7/aws_services.md §Database之選型理由）
+  # ---------------------------------------------------------------
+  CasesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: AIValuationCases
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - { AttributeName: PK, AttributeType: S }
+        - { AttributeName: SK, AttributeType: S }
+      KeySchema:
+        - { AttributeName: PK, KeyType: HASH }
+        - { AttributeName: SK, KeyType: RANGE }
+      PointInTimeRecoverySpecification: { PointInTimeRecoveryEnabled: true }
+      SSESpecification: { SSEEnabled: true }
+
+  # ---------------------------------------------------------------
+  # S3：使用者上傳來源文件 + PDF輸出 + 前端靜態網站 + Knowledge Base來源文件
+  # ---------------------------------------------------------------
+  DocumentBucket:
+    # 使用者上傳之來源文件（表1/表4/表5-2掃描件等）與擷取結果artifact，
+    # 與PdfBucket（系統產出之PDF輸出）明確分離、不得混用 -- 見Phase E
+    # 架構決策：DocumentBucket = user-uploaded source documents，
+    # PdfBucket = system-generated output PDFs。
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "ai-valuation-documents-${AWS::AccountId}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireOldDocuments
+            Status: Enabled
+            ExpirationInDays: 90
+
+  PdfBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "ai-valuation-pdfs-${AWS::AccountId}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireOldPdfs
+            Status: Enabled
+            ExpirationInDays: 90
+
+  FrontendBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "ai-valuation-frontend-${AWS::AccountId}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: 404.html
+
+  KnowledgeBaseSourceBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "ai-valuation-kb-source-${AWS::AccountId}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  # ---------------------------------------------------------------
+  # CloudFront（Part C — Static Frontend）
+  # ---------------------------------------------------------------
+  FrontendOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: ai-valuation-frontend-oac
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  FrontendDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        DefaultRootObject: index.html
+        Origins:
+          - Id: S3Origin
+            DomainName: !GetAtt FrontendBucket.RegionalDomainName
+            OriginAccessControlId: !Ref FrontendOAC
+            S3OriginConfig: {}
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # AWS Managed-CachingOptimized
+        CustomErrorResponses:
+          - { ErrorCode: 404, ResponseCode: 404, ResponsePagePath: /404.html }
+
+Outputs:
+  ApiInvokeUrl:
+    Description: API Gateway Invoke URL（部署後填入前端 js/config.js 之 API_BASE_URL）
+    Value: !Sub "https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/prod"
+  FrontendCloudFrontUrl:
+    Description: 前端CloudFront網址（部署後之實際AWS-hosted URL）
+    Value: !Sub "https://${FrontendDistribution.DomainName}"
+  CasesTableName:
+    Value: !Ref CasesTable

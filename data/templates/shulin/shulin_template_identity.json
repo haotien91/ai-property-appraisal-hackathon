@@ -1,0 +1,38 @@
+{
+  "shulin_table3_blank_v1": {
+    "template_id": "shulin_table3_blank_v1",
+    "template_version": "v1",
+    "source_xlsx": "表3地價區段勘查表.xlsx",
+    "source_sheet": "表3區段勘查表",
+    "source_xlsx_sha256": "f85bc407857d2a0072f9a64db1a2edffe224a242ff3d6bc87aa649cc2317342b",
+    "derived_pdf_sha256": "bc5eb063ab299d0d7ac555916ec9f6b7081f819d9f574cde2a94a3156fc093d0",
+    "derived_pdf_filename": "shulin_table3_blank_v1.pdf",
+    "build_method": "MICROSOFT_EXCEL_COM_BUILD_TIME_EXPORT",
+    "build_timestamp": "2026-09-12T08:32:18.982380+00:00",
+    "provenance_note": "This PDF is a DERIVED_RUNTIME_TEMPLATE mechanically exported from the single named worksheet above via Microsoft Excel COM automation at build time. It is NOT an original official government PDF and must never be presented as one."
+  },
+  "shulin_table51_blank_v1": {
+    "template_id": "shulin_table51_blank_v1",
+    "template_version": "v1",
+    "source_xlsx": "表5影響地價區域因素分析明細表(住宅用地).xlsx",
+    "source_sheet": "表5-1區域因素明細表(住)",
+    "source_xlsx_sha256": "d2ab663222fbd401c639be02e6bace069dc8f76f4331f8347a2b858e36d15b39",
+    "derived_pdf_sha256": "d6af83bcefddfc20b1da1ee3732046a2ba987a7da5e82bb24e4752f0f9766231",
+    "derived_pdf_filename": "shulin_table51_blank_v1.pdf",
+    "build_method": "MICROSOFT_EXCEL_COM_BUILD_TIME_EXPORT",
+    "build_timestamp": "2026-09-12T08:32:19.843767+00:00",
+    "provenance_note": "This PDF is a DERIVED_RUNTIME_TEMPLATE mechanically exported from the single named worksheet above via Microsoft Excel COM automation at build time. It is NOT an original official government PDF and must never be presented as one."
+  },
+  "shulin_table4_blank_v1": {
+    "template_id": "shulin_table4_blank_v1",
+    "template_version": "v1",
+    "source_xlsx": "表4比較法調查估價表.xlsx",
+    "source_sheet": "表4比較法調查估價表",
+    "source_xlsx_sha256": "c5f767e8ab6b759b5f31d321f24707bd4bb0d2d503ce8a24bc7b7872c8bf82a8",
+    "derived_pdf_sha256": "83b7ec328bc31e2253e2766f8d3bf5f2e1eaff72068f983ee432a18057a8cb1e",
+    "derived_pdf_filename": "shulin_table4_blank_v1.pdf",
+    "build_method": "MICROSOFT_EXCEL_COM_BUILD_TIME_EXPORT",
+    "build_timestamp": "2026-09-12T08:32:20.822873+00:00",
+    "provenance_note": "This PDF is a DERIVED_RUNTIME_TEMPLATE mechanically exported from the single named worksheet above via Microsoft Excel COM automation at build time. It is NOT an original official government PDF and must never be presented as one."
+  }
+}

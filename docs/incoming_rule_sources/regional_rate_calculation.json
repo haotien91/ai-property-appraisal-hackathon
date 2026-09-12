@@ -1,0 +1,876 @@
+{
+  "schema_version": "regional_rate_calculation_v1",
+  "scope": "regional",
+  "benchmark_source": {
+    "pdf": "地價區段勘查表.pdf",
+    "sha256": "d32ecad3fcf5da71dbdf958e936b6b9a301a77f3d70b1501e89a24d3c00769e6",
+    "page_count": 1,
+    "table_count": 1
+  },
+  "comparable_source": null,
+  "valuation_source": {
+    "source_pdf": "評價基準明細表範例.pdf",
+    "schema_reference": "commercial_land_standard_schema.json"
+  },
+  "records": [
+    {
+      "sub_item": {
+        "key": "regional_urban_plan_status",
+        "name_zh": "都市計畫內外"
+      },
+      "grade_order_zh": [
+        "優",
+        "劣"
+      ],
+      "max_abs_rate_pct": 20.0,
+      "step_rate_pct": 20.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_zoning_designation",
+        "name_zh": "使用分區（編定）"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 20.0,
+      "step_rate_pct": 5.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_building_coverage_ratio",
+        "name_zh": "建蔽率"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 10.0,
+      "step_rate_pct": 2.5,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_floor_area_ratio",
+        "name_zh": "容積率"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 40.0,
+      "step_rate_pct": 10.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_building_prohibition",
+        "name_zh": "有無禁止建築"
+      },
+      "grade_order_zh": [
+        "優",
+        "劣"
+      ],
+      "max_abs_rate_pct": 40.0,
+      "step_rate_pct": 40.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_building_restriction",
+        "name_zh": "有無限制建築"
+      },
+      "grade_order_zh": [
+        "優",
+        "劣"
+      ],
+      "max_abs_rate_pct": 40.0,
+      "step_rate_pct": 40.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_main_road_width",
+        "name_zh": "主要道路寬度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 15.0,
+      "step_rate_pct": 3.75,
+      "benchmark": {
+        "grade_label_zh": "普通",
+        "encoding": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "rank": 3
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_average_road_width",
+        "name_zh": "區段內道路平均寬度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 10.0,
+      "step_rate_pct": 2.5,
+      "benchmark": {
+        "grade_label_zh": "普通",
+        "encoding": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "rank": 3
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_large_station_proximity",
+        "name_zh": "接近大型車站之程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 10.0,
+      "step_rate_pct": 2.5,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_transit_stop_proximity",
+        "name_zh": "站牌或交通運輸密集之接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 8.0,
+      "step_rate_pct": 2.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_interchange_proximity",
+        "name_zh": "接近交流道之有無及程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 8.0,
+      "step_rate_pct": 2.0,
+      "benchmark": {
+        "grade_label_zh": "劣",
+        "encoding": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "rank": 5
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_road_development_status",
+        "name_zh": "區段內道路規劃及闢建程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 10.0,
+      "step_rate_pct": 2.5,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_drainage_condition",
+        "name_zh": "排水之良否"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 10.0,
+      "step_rate_pct": 2.5,
+      "benchmark": {
+        "grade_label_zh": "稍優",
+        "encoding": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank": 2
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_topography_condition",
+        "name_zh": "地勢"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 10.0,
+      "step_rate_pct": 2.5,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_market_proximity",
+        "name_zh": "接近市場之程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 6.0,
+      "step_rate_pct": 1.5,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_park_plaza_pedestrian_proximity",
+        "name_zh": "接近公園、廣場、徒步區之程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 6.0,
+      "step_rate_pct": 1.5,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_recreation_facility_proximity",
+        "name_zh": "接近觀光遊憩設施之程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 3.0,
+      "step_rate_pct": 0.75,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_parking_lot_convenience",
+        "name_zh": "停車場地之便利程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 4.0,
+      "step_rate_pct": 1.0,
+      "benchmark": {
+        "grade_label_zh": "稍優",
+        "encoding": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank": 2
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_utility_facility_proximity",
+        "name_zh": "瓦斯、電業、燃料設施及公用設施之有無及接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 8.0,
+      "step_rate_pct": 2.0,
+      "benchmark": {
+        "grade_label_zh": "劣",
+        "encoding": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "rank": 5
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_funeral_facility_proximity",
+        "name_zh": "殯葬設施之有無及接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 8.0,
+      "step_rate_pct": 2.0,
+      "benchmark": {
+        "grade_label_zh": "稍劣",
+        "encoding": [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "rank": 4
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_waste_facility_proximity",
+        "name_zh": "廢棄物處理設施之有無及接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 8.0,
+      "step_rate_pct": 2.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_pollution_proximity",
+        "name_zh": "環境污染之有無及接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 6.0,
+      "step_rate_pct": 1.5,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_department_store_proximity",
+        "name_zh": "百貨公司之有無、數量、接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 8.0,
+      "step_rate_pct": 2.0,
+      "benchmark": {
+        "grade_label_zh": "劣",
+        "encoding": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "rank": 5
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_financial_institution_proximity",
+        "name_zh": "金融機構之有無、數量、接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 4.0,
+      "step_rate_pct": 1.0,
+      "benchmark": {
+        "grade_label_zh": "稍優",
+        "encoding": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank": 2
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_entertainment_facility_proximity",
+        "name_zh": "娛樂設施之有無、數量、接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 4.0,
+      "step_rate_pct": 1.0,
+      "benchmark": {
+        "grade_label_zh": "劣",
+        "encoding": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "rank": 5
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_exhibition_hotel_proximity",
+        "name_zh": "大型展示中心或觀光飯店之有無、數量、接近程度"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 8.0,
+      "step_rate_pct": 2.0,
+      "benchmark": {
+        "grade_label_zh": "普通",
+        "encoding": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "rank": 3
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_customer_foot_traffic",
+        "name_zh": "顧客通行量之多寡"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 12.0,
+      "step_rate_pct": 3.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    },
+    {
+      "sub_item": {
+        "key": "regional_shop_contiguity",
+        "name_zh": "店舖之毗連狀態"
+      },
+      "grade_order_zh": [
+        "優",
+        "稍優",
+        "普通",
+        "稍劣",
+        "劣"
+      ],
+      "max_abs_rate_pct": 12.0,
+      "step_rate_pct": 3.0,
+      "benchmark": {
+        "grade_label_zh": "優",
+        "encoding": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rank": 1
+      },
+      "comparable": null,
+      "rank_difference": null,
+      "adjustment_rate_pct": null,
+      "status": "comparable_missing",
+      "reason": "comparable_result_not_provided"
+    }
+  ],
+  "summary": {
+    "valuation_items": 28,
+    "calculated": 0,
+    "incomplete": 28,
+    "status_counts": {
+      "comparable_missing": 28
+    }
+  },
+  "status": "incomplete"
+}

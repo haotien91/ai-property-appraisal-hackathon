@@ -1,0 +1,15 @@
+{
+  "case_no": "1140901-99-001",
+  "status": "COMPLETED",
+  "pdf_url": "frontend/mock/pdf/表4_表5-2_Golden_Case.pdf",
+  "review_summary": {
+    "passed": 48,
+    "error": 0,
+    "warning": 0,
+    "missing": 0,
+    "inconsistent": 0
+  },
+  "final_value": {
+    "base_parcel_comparison_price": "212958"
+  }
+}

@@ -1,0 +1,75 @@
+{
+ "profile_id": "shulin_residential_2026",
+ "city": "新北市",
+ "district": "樹林區",
+ "land_use_type": "普通住宅用地",
+ "source_document": "評價基準明細表.pdf",
+ "source_sha256": "a7574aaf56b546737df8b3b34459e764523be77ae4af25490d617a41a33ed09c",
+ "effective_date": "1110901",
+ "version": "1.0",
+ "regional_factor_count": 29,
+ "individual_standard_factor_count": 19,
+ "regional_rule_record_count": 139,
+ "individual_rule_record_count": 84,
+ "other_factors_7grade": {
+  "included_in_pack": true,
+  "grade_count": 7,
+  "competition_case_auto_graded": false,
+  "note": "本案表5-1「其他影響因素」百分比小計已由主辦單位固定為「－ 無 0.00」，本7級矩陣僅供schema完整性/未來其他案件使用，本案運算路徑不得對它產生非零判斷。"
+ },
+ "special_policies": [
+  {
+   "factor": "floor_area_ratio_individual",
+   "factor_cn": "容積率(個別因素)",
+   "calculation_policy": "MANUAL_REVIEW_REQUIRED",
+   "reason": "LAND_DEVELOPMENT_ANALYSIS_REQUIRED",
+   "source_page": "p.8",
+   "note": "評價基準明細表原文：「1.容積率差異以土地開發分析法進行試算調整 2.本項需與區域因素容積率併同考量，調整不足者另於區域因素補充調整」。本規則包無此factor之rule record（故意留白，非缺漏）——任何嘗試以rule_set='individual'對factor='容積率'呼叫GradeEngine都會得到RuleNotFoundError，呼叫端必須將其導向MANUAL_REVIEW_REQUIRED，不得改用regional容積率矩陣、不得預設0、不得自行發明公式。"
+  }
+ ],
+ "ambiguous_subtype_scope": [
+  {
+   "parent_factor": "funeral_facility_proximity",
+   "subtype": "納骨塔",
+   "scope": "RULE_SCOPE_AMBIGUOUS",
+   "note": "評價基準明細表原文僅列舉「墓地、殯儀館、火葬場」，未提及納骨塔；Table3表單結構將納骨塔與其他三者並列於同一殯葬群組。不得自動歸入本factor產生修正率，final grading須MANUAL_REVIEW_REQUIRED；candidate/evidence collection仍可進行。"
+  },
+  {
+   "parent_factor": "waste_facility_proximity",
+   "subtype": "污水處理場",
+   "scope": "RULE_SCOPE_AMBIGUOUS",
+   "note": "評價基準明細表原文僅列舉「垃圾場或掩埋場、焚化爐」，未提及污水處理場；Table3表單結構將污水處理場與其他二者並列於同一廢棄物處理群組。不得自動歸入本factor產生修正率，final grading須MANUAL_REVIEW_REQUIRED；candidate/evidence collection仍可進行。"
+  },
+  {
+   "parent_factor": "major_station_proximity",
+   "subtypes": [
+    "高鐵站",
+    "火車站",
+    "客運站",
+    "捷運站"
+   ],
+   "scope": "INCLUDED_BY_PARENT_RULE_AND_FORM_STRUCTURE",
+   "note": "評價基準明細表原文使用「大型車站」整體類別名稱，未逐一列舉子類型（與納骨塔/污水處理場「明確列出部分子項卻缺一項」的情形不同，此處是完全未枚舉、以parent category概括）。不代表每個subtype都由評價基準逐字明列，但涵蓋全部4個子項，不影響parent rule evaluation。"
+  }
+ ],
+ "non_monotonic_factors": [
+  {
+   "factor": "land_depth",
+   "rule_set": "individual",
+   "grade_code_with_multiple_segments": 3,
+   "grade": "普通",
+   "segments": [
+    [
+     7,
+     14
+    ],
+    [
+     40,
+     50
+    ]
+   ],
+   "note": "見individual_rules.json中IND-LAND_DEPTH-03之range_segments欄位。"
+  }
+ ],
+ "generated_by": "scripts/build_shulin_competition_rule_pack.py"
+}

@@ -1,0 +1,8650 @@
+{
+ "rules": [
+  {
+   "rule_id": "REG-ZONING_INSIDE_OUTSIDE-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "都市計畫內外",
+   "value_type": "boolean",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "都市計畫內",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 20
+    },
+    "2": {
+     "1": -20,
+     "2": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－都市計畫內外：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-ZONING_INSIDE_OUTSIDE-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "都市計畫內外",
+   "value_type": "boolean",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 2,
+   "grade_label": "都市計畫外",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 20
+    },
+    "2": {
+     "1": -20,
+     "2": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－都市計畫內外：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_USE_ZONE-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "使用分區(使用地類別)",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "商業區、捷運用地(聯開)",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－使用分區(使用地類別)：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_USE_ZONE-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "使用分區(使用地類別)",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "住宅區、市場用地",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－使用分區(使用地類別)：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_USE_ZONE-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "使用分區(使用地類別)",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "甲建、乙建、特定專用區、多目標使用之其他公共設施用地",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－使用分區(使用地類別)：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_USE_ZONE-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "使用分區(使用地類別)",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "工業區、丙建、丁建",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－使用分區(使用地類別)：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_USE_ZONE-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "使用分區(使用地類別)",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "其他可建築用地",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－使用分區(使用地類別)：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUILDING_COVERAGE_RATIO-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "建蔽率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": 80,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "80%以上",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－建蔽率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUILDING_COVERAGE_RATIO-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "建蔽率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": 70,
+   "upper_bound": 80,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "70%以上未滿80%",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－建蔽率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUILDING_COVERAGE_RATIO-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "建蔽率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": 60,
+   "upper_bound": 70,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "60%以上未滿70%",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－建蔽率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUILDING_COVERAGE_RATIO-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "建蔽率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": 50,
+   "upper_bound": 60,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "50%以上未滿60%",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－建蔽率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUILDING_COVERAGE_RATIO-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "建蔽率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": 50,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "未滿50%",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－建蔽率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FLOOR_AREA_RATIO-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "容積率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": 460,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "460%以上",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 6.25,
+     "3": 12.5,
+     "4": 18.75,
+     "5": 25
+    },
+    "2": {
+     "1": -6.25,
+     "2": 0.0,
+     "3": 6.25,
+     "4": 12.5,
+     "5": 18.75
+    },
+    "3": {
+     "1": -12.5,
+     "2": -6.25,
+     "3": 0.0,
+     "4": 6.25,
+     "5": 12.5
+    },
+    "4": {
+     "1": -18.75,
+     "2": -12.5,
+     "3": -6.25,
+     "4": 0.0,
+     "5": 6.25
+    },
+    "5": {
+     "1": -25,
+     "2": -18.75,
+     "3": -12.5,
+     "4": -6.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 25,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－容積率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FLOOR_AREA_RATIO-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "容積率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": 360,
+   "upper_bound": 460,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "360%以上未滿460%",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 6.25,
+     "3": 12.5,
+     "4": 18.75,
+     "5": 25
+    },
+    "2": {
+     "1": -6.25,
+     "2": 0.0,
+     "3": 6.25,
+     "4": 12.5,
+     "5": 18.75
+    },
+    "3": {
+     "1": -12.5,
+     "2": -6.25,
+     "3": 0.0,
+     "4": 6.25,
+     "5": 12.5
+    },
+    "4": {
+     "1": -18.75,
+     "2": -12.5,
+     "3": -6.25,
+     "4": 0.0,
+     "5": 6.25
+    },
+    "5": {
+     "1": -25,
+     "2": -18.75,
+     "3": -12.5,
+     "4": -6.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 25,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－容積率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FLOOR_AREA_RATIO-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "容積率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": 260,
+   "upper_bound": 360,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "260%以上未滿360%",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 6.25,
+     "3": 12.5,
+     "4": 18.75,
+     "5": 25
+    },
+    "2": {
+     "1": -6.25,
+     "2": 0.0,
+     "3": 6.25,
+     "4": 12.5,
+     "5": 18.75
+    },
+    "3": {
+     "1": -12.5,
+     "2": -6.25,
+     "3": 0.0,
+     "4": 6.25,
+     "5": 12.5
+    },
+    "4": {
+     "1": -18.75,
+     "2": -12.5,
+     "3": -6.25,
+     "4": 0.0,
+     "5": 6.25
+    },
+    "5": {
+     "1": -25,
+     "2": -18.75,
+     "3": -12.5,
+     "4": -6.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 25,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－容積率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FLOOR_AREA_RATIO-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "容積率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": 180,
+   "upper_bound": 260,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "180%以上未滿260%",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 6.25,
+     "3": 12.5,
+     "4": 18.75,
+     "5": 25
+    },
+    "2": {
+     "1": -6.25,
+     "2": 0.0,
+     "3": 6.25,
+     "4": 12.5,
+     "5": 18.75
+    },
+    "3": {
+     "1": -12.5,
+     "2": -6.25,
+     "3": 0.0,
+     "4": 6.25,
+     "5": 12.5
+    },
+    "4": {
+     "1": -18.75,
+     "2": -12.5,
+     "3": -6.25,
+     "4": 0.0,
+     "5": 6.25
+    },
+    "5": {
+     "1": -25,
+     "2": -18.75,
+     "3": -12.5,
+     "4": -6.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 25,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－容積率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FLOOR_AREA_RATIO-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "容積率",
+   "value_type": "numeric_range",
+   "unit": "%",
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": 180,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "未滿180%",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 6.25,
+     "3": 12.5,
+     "4": 18.75,
+     "5": 25
+    },
+    "2": {
+     "1": -6.25,
+     "2": 0.0,
+     "3": 6.25,
+     "4": 12.5,
+     "5": 18.75
+    },
+    "3": {
+     "1": -12.5,
+     "2": -6.25,
+     "3": 0.0,
+     "4": 6.25,
+     "5": 12.5
+    },
+    "4": {
+     "1": -18.75,
+     "2": -12.5,
+     "3": -6.25,
+     "4": 0.0,
+     "5": 6.25
+    },
+    "5": {
+     "1": -25,
+     "2": -18.75,
+     "3": -12.5,
+     "4": -6.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 25,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－容積率：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-CONSTRUCTION_PROHIBITED-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "有無禁止建築",
+   "value_type": "boolean",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "無禁止建築",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 50
+    },
+    "2": {
+     "1": -50,
+     "2": 0
+    }
+   },
+   "max_adjustment": 50,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－有無禁止建築：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-CONSTRUCTION_PROHIBITED-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "有無禁止建築",
+   "value_type": "boolean",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 2,
+   "grade_label": "有禁止建築",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 50
+    },
+    "2": {
+     "1": -50,
+     "2": 0
+    }
+   },
+   "max_adjustment": 50,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－有無禁止建築：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-CONSTRUCTION_RESTRICTED-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "有無限制建築(整體開發、面積限制、高度限制)",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "無限制建築",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 25,
+     "3": 50
+    },
+    "2": {
+     "1": -25,
+     "2": 0,
+     "3": 25
+    },
+    "3": {
+     "1": -50,
+     "2": -25,
+     "3": 0
+    }
+   },
+   "max_adjustment": 50,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－有無限制建築(整體開發、面積限制、高度限制)：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-CONSTRUCTION_RESTRICTED-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "有無限制建築(整體開發、面積限制、高度限制)",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 2,
+   "grade_label": "部分限制建築(如高度限制或面積限制)",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 25,
+     "3": 50
+    },
+    "2": {
+     "1": -25,
+     "2": 0,
+     "3": 25
+    },
+    "3": {
+     "1": -50,
+     "2": -25,
+     "3": 0
+    }
+   },
+   "max_adjustment": 50,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－有無限制建築(整體開發、面積限制、高度限制)：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-CONSTRUCTION_RESTRICTED-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地使用管制(1)",
+   "factor": "有無限制建築(整體開發、面積限制、高度限制)",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 3,
+   "grade_label": "限制整體開發",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 25,
+     "3": 50
+    },
+    "2": {
+     "1": -25,
+     "2": 0,
+     "3": 25
+    },
+    "3": {
+     "1": -50,
+     "2": -25,
+     "3": 0
+    }
+   },
+   "max_adjustment": 50,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.1",
+   "source_note": "樹林住宅區域因素－有無限制建築(整體開發、面積限制、高度限制)：依評價基準明細表p.1原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAIN_ROAD_WIDTH-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "主要道路寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": 28,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "28m以上",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－主要道路寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAIN_ROAD_WIDTH-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "主要道路寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": 20,
+   "upper_bound": 28,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "20m以上未滿28m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－主要道路寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAIN_ROAD_WIDTH-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "主要道路寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": 12,
+   "upper_bound": 20,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "12m以上未滿20m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－主要道路寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAIN_ROAD_WIDTH-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "主要道路寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": 8,
+   "upper_bound": 12,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "8m以上未滿12m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－主要道路寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAIN_ROAD_WIDTH-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "主要道路寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": 8,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "未滿8m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－主要道路寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-AVG_ROAD_WIDTH-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路平均寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": 20,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "20m以上",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3,
+     "3": 6,
+     "4": 9,
+     "5": 12
+    },
+    "2": {
+     "1": -3,
+     "2": 0,
+     "3": 3,
+     "4": 6,
+     "5": 9
+    },
+    "3": {
+     "1": -6,
+     "2": -3,
+     "3": 0,
+     "4": 3,
+     "5": 6
+    },
+    "4": {
+     "1": -9,
+     "2": -6,
+     "3": -3,
+     "4": 0,
+     "5": 3
+    },
+    "5": {
+     "1": -12,
+     "2": -9,
+     "3": -6,
+     "4": -3,
+     "5": 0
+    }
+   },
+   "max_adjustment": 12,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路平均寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-AVG_ROAD_WIDTH-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路平均寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": 15,
+   "upper_bound": 20,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "15m以上未滿20m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3,
+     "3": 6,
+     "4": 9,
+     "5": 12
+    },
+    "2": {
+     "1": -3,
+     "2": 0,
+     "3": 3,
+     "4": 6,
+     "5": 9
+    },
+    "3": {
+     "1": -6,
+     "2": -3,
+     "3": 0,
+     "4": 3,
+     "5": 6
+    },
+    "4": {
+     "1": -9,
+     "2": -6,
+     "3": -3,
+     "4": 0,
+     "5": 3
+    },
+    "5": {
+     "1": -12,
+     "2": -9,
+     "3": -6,
+     "4": -3,
+     "5": 0
+    }
+   },
+   "max_adjustment": 12,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路平均寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-AVG_ROAD_WIDTH-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路平均寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": 10,
+   "upper_bound": 15,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "10m以上未滿15m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3,
+     "3": 6,
+     "4": 9,
+     "5": 12
+    },
+    "2": {
+     "1": -3,
+     "2": 0,
+     "3": 3,
+     "4": 6,
+     "5": 9
+    },
+    "3": {
+     "1": -6,
+     "2": -3,
+     "3": 0,
+     "4": 3,
+     "5": 6
+    },
+    "4": {
+     "1": -9,
+     "2": -6,
+     "3": -3,
+     "4": 0,
+     "5": 3
+    },
+    "5": {
+     "1": -12,
+     "2": -9,
+     "3": -6,
+     "4": -3,
+     "5": 0
+    }
+   },
+   "max_adjustment": 12,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路平均寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-AVG_ROAD_WIDTH-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路平均寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": 8,
+   "upper_bound": 10,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "8m以上未滿10m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3,
+     "3": 6,
+     "4": 9,
+     "5": 12
+    },
+    "2": {
+     "1": -3,
+     "2": 0,
+     "3": 3,
+     "4": 6,
+     "5": 9
+    },
+    "3": {
+     "1": -6,
+     "2": -3,
+     "3": 0,
+     "4": 3,
+     "5": 6
+    },
+    "4": {
+     "1": -9,
+     "2": -6,
+     "3": -3,
+     "4": 0,
+     "5": 3
+    },
+    "5": {
+     "1": -12,
+     "2": -9,
+     "3": -6,
+     "4": -3,
+     "5": 0
+    }
+   },
+   "max_adjustment": 12,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路平均寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-AVG_ROAD_WIDTH-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路平均寬度",
+   "value_type": "numeric_range",
+   "unit": "M",
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": 8,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "未滿8m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3,
+     "3": 6,
+     "4": 9,
+     "5": 12
+    },
+    "2": {
+     "1": -3,
+     "2": 0,
+     "3": 3,
+     "4": 6,
+     "5": 9
+    },
+    "3": {
+     "1": -6,
+     "2": -3,
+     "3": 0,
+     "4": 3,
+     "5": 6
+    },
+    "4": {
+     "1": -9,
+     "2": -6,
+     "3": -3,
+     "4": 0,
+     "5": 3
+    },
+    "5": {
+     "1": -12,
+     "2": -9,
+     "3": -6,
+     "4": -3,
+     "5": 0
+    }
+   },
+   "max_adjustment": 12,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路平均寬度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAJOR_STATION_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "接近大型車站之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 500,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有大型車站或距離未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－接近大型車站之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAJOR_STATION_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "接近大型車站之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "500m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－接近大型車站之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAJOR_STATION_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "接近大型車站之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": 1500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "1000m以上未滿1500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－接近大型車站之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAJOR_STATION_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "接近大型車站之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1500,
+   "upper_bound": 2000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "1500m以上未滿2000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－接近大型車站之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MAJOR_STATION_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "接近大型車站之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 2000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "2000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－接近大型車站之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUS_STOP_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "站牌之接近程度或密集程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 200,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有站牌或距離未滿200m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－站牌之接近程度或密集程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUS_STOP_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "站牌之接近程度或密集程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 200,
+   "upper_bound": 400,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "200m以上未滿400m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－站牌之接近程度或密集程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUS_STOP_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "站牌之接近程度或密集程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 400,
+   "upper_bound": 600,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "400m以上未滿600m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－站牌之接近程度或密集程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUS_STOP_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "站牌之接近程度或密集程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 600,
+   "upper_bound": 800,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "600m以上未滿800m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－站牌之接近程度或密集程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-BUS_STOP_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "站牌之接近程度或密集程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 800,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "800m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－站牌之接近程度或密集程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-INTERCHANGE_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "交流道之有無及接近交流道之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 1000,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有交流道或距離未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－交流道之有無及接近交流道之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-INTERCHANGE_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "交流道之有無及接近交流道之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": 2000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "1000m以上未滿2000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－交流道之有無及接近交流道之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-INTERCHANGE_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "交流道之有無及接近交流道之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 2000,
+   "upper_bound": 3000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "2000m以上未滿3000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－交流道之有無及接近交流道之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-INTERCHANGE_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "交流道之有無及接近交流道之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 3000,
+   "upper_bound": 4000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "3000m以上未滿4000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－交流道之有無及接近交流道之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-INTERCHANGE_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "交流道之有無及接近交流道之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 4000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "4000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1,
+     "3": 2,
+     "4": 3,
+     "5": 4
+    },
+    "2": {
+     "1": -1,
+     "2": 0,
+     "3": 1,
+     "4": 2,
+     "5": 3
+    },
+    "3": {
+     "1": -2,
+     "2": -1,
+     "3": 0,
+     "4": 1,
+     "5": 2
+    },
+    "4": {
+     "1": -3,
+     "2": -2,
+     "3": -1,
+     "4": 0,
+     "5": 1
+    },
+    "5": {
+     "1": -4,
+     "2": -3,
+     "3": -2,
+     "4": -1,
+     "5": 0
+    }
+   },
+   "max_adjustment": 4,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－交流道之有無及接近交流道之程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路規劃及闢建程度",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "全部規劃及闢建",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路規劃及闢建程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路規劃及闢建程度",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "大部分規劃及闢建",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路規劃及闢建程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路規劃及闢建程度",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "部分規劃及闢建",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路規劃及闢建程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路規劃及闢建程度",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "砂石路",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路規劃及闢建程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-ROAD_DEVELOPMENT_LEVEL-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "交通運輸(2)",
+   "factor": "區段內道路規劃及闢建程度",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "全無規劃及闢建",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.2",
+   "source_note": "樹林住宅區域因素－區段內道路規劃及闢建程度：依評價基準明細表p.2原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SUNLIGHT-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "日照",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "充分",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－日照：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SUNLIGHT-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "日照",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "少許有陰雨",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－日照：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SUNLIGHT-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "日照",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "有部分陰雨",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－日照：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SUNLIGHT-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "日照",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "有相當陰雨",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－日照：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SUNLIGHT-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "日照",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "大部分陰雨",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－日照：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-VIEW-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "景觀",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "視野極寬廣、景觀極優美",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.25,
+     "3": 2.5,
+     "4": 3.75,
+     "5": 5
+    },
+    "2": {
+     "1": -1.25,
+     "2": 0.0,
+     "3": 1.25,
+     "4": 2.5,
+     "5": 3.75
+    },
+    "3": {
+     "1": -2.5,
+     "2": -1.25,
+     "3": 0.0,
+     "4": 1.25,
+     "5": 2.5
+    },
+    "4": {
+     "1": -3.75,
+     "2": -2.5,
+     "3": -1.25,
+     "4": 0.0,
+     "5": 1.25
+    },
+    "5": {
+     "1": -5,
+     "2": -3.75,
+     "3": -2.5,
+     "4": -1.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 5,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－景觀：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-VIEW-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "景觀",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "視野寬廣、景觀優美",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.25,
+     "3": 2.5,
+     "4": 3.75,
+     "5": 5
+    },
+    "2": {
+     "1": -1.25,
+     "2": 0.0,
+     "3": 1.25,
+     "4": 2.5,
+     "5": 3.75
+    },
+    "3": {
+     "1": -2.5,
+     "2": -1.25,
+     "3": 0.0,
+     "4": 1.25,
+     "5": 2.5
+    },
+    "4": {
+     "1": -3.75,
+     "2": -2.5,
+     "3": -1.25,
+     "4": 0.0,
+     "5": 1.25
+    },
+    "5": {
+     "1": -5,
+     "2": -3.75,
+     "3": -2.5,
+     "4": -1.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 5,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－景觀：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-VIEW-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "景觀",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "視野、景觀尚可",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.25,
+     "3": 2.5,
+     "4": 3.75,
+     "5": 5
+    },
+    "2": {
+     "1": -1.25,
+     "2": 0.0,
+     "3": 1.25,
+     "4": 2.5,
+     "5": 3.75
+    },
+    "3": {
+     "1": -2.5,
+     "2": -1.25,
+     "3": 0.0,
+     "4": 1.25,
+     "5": 2.5
+    },
+    "4": {
+     "1": -3.75,
+     "2": -2.5,
+     "3": -1.25,
+     "4": 0.0,
+     "5": 1.25
+    },
+    "5": {
+     "1": -5,
+     "2": -3.75,
+     "3": -2.5,
+     "4": -1.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 5,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－景觀：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-VIEW-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "景觀",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "視野、景觀差",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.25,
+     "3": 2.5,
+     "4": 3.75,
+     "5": 5
+    },
+    "2": {
+     "1": -1.25,
+     "2": 0.0,
+     "3": 1.25,
+     "4": 2.5,
+     "5": 3.75
+    },
+    "3": {
+     "1": -2.5,
+     "2": -1.25,
+     "3": 0.0,
+     "4": 1.25,
+     "5": 2.5
+    },
+    "4": {
+     "1": -3.75,
+     "2": -2.5,
+     "3": -1.25,
+     "4": 0.0,
+     "5": 1.25
+    },
+    "5": {
+     "1": -5,
+     "2": -3.75,
+     "3": -2.5,
+     "4": -1.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 5,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－景觀：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-VIEW-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "景觀",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "視野、景觀極差",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.25,
+     "3": 2.5,
+     "4": 3.75,
+     "5": 5
+    },
+    "2": {
+     "1": -1.25,
+     "2": 0.0,
+     "3": 1.25,
+     "4": 2.5,
+     "5": 3.75
+    },
+    "3": {
+     "1": -2.5,
+     "2": -1.25,
+     "3": 0.0,
+     "4": 1.25,
+     "5": 2.5
+    },
+    "4": {
+     "1": -3.75,
+     "2": -2.5,
+     "3": -1.25,
+     "4": 0.0,
+     "5": 1.25
+    },
+    "5": {
+     "1": -5,
+     "2": -3.75,
+     "3": -2.5,
+     "4": -1.25,
+     "5": 0
+    }
+   },
+   "max_adjustment": 5,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－景觀：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SLOPE-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "傾斜度",
+   "value_type": "numeric_range",
+   "unit": "度",
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": 5,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "平均坡度未滿5度",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－傾斜度：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SLOPE-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "傾斜度",
+   "value_type": "numeric_range",
+   "unit": "度",
+   "direction": "positive",
+   "lower_bound": 5,
+   "upper_bound": 10,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "平均坡度5度以上未滿10度",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－傾斜度：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SLOPE-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "傾斜度",
+   "value_type": "numeric_range",
+   "unit": "度",
+   "direction": "positive",
+   "lower_bound": 10,
+   "upper_bound": 15,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "平均坡度10度以上未滿15度",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－傾斜度：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SLOPE-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "傾斜度",
+   "value_type": "numeric_range",
+   "unit": "度",
+   "direction": "positive",
+   "lower_bound": 15,
+   "upper_bound": 20,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "平均坡度15度以上未滿20度",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－傾斜度：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SLOPE-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "傾斜度",
+   "value_type": "numeric_range",
+   "unit": "度",
+   "direction": "positive",
+   "lower_bound": 20,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "平均坡度20度以上",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－傾斜度：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-DRAINAGE_QUALITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "排水之良否",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "極完善",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－排水之良否：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-DRAINAGE_QUALITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "排水之良否",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "非常完善",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－排水之良否：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-DRAINAGE_QUALITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "排水之良否",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "普通完善",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－排水之良否：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-DRAINAGE_QUALITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "排水之良否",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "不良",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－排水之良否：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-DRAINAGE_QUALITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "排水之良否",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "極不良",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－排水之良否：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TERRAIN-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "地勢",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "極平坦堅硬",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－地勢：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TERRAIN-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "地勢",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "平坦地",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－地勢：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TERRAIN-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "地勢",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "緩傾斜地",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－地勢：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TERRAIN-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "地勢",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "低地、溼地",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－地勢：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TERRAIN-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "自然條件(3)",
+   "factor": "地勢",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "地勢孤劣地",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－地勢：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_IMPROVEMENT-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地改良(4)",
+   "factor": "建築基地改良或其他改良",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "四項以上",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－建築基地改良或其他改良：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_IMPROVEMENT-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地改良(4)",
+   "factor": "建築基地改良或其他改良",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "三項",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－建築基地改良或其他改良：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_IMPROVEMENT-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地改良(4)",
+   "factor": "建築基地改良或其他改良",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "二項",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－建築基地改良或其他改良：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_IMPROVEMENT-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地改良(4)",
+   "factor": "建築基地改良或其他改良",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "一項",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－建築基地改良或其他改良：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-LAND_IMPROVEMENT-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "土地改良(4)",
+   "factor": "建築基地改良或其他改良",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.3",
+   "source_note": "樹林住宅區域因素－建築基地改良或其他改良：依評價基準明細表p.3原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SCHOOL_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近學校之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 300,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有學校者或距離未滿300m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近學校之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SCHOOL_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近學校之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 300,
+   "upper_bound": 500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "300m以上未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近學校之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SCHOOL_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近學校之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 800,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "500m以上未滿800m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近學校之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SCHOOL_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近學校之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 800,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "800m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近學校之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SCHOOL_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近學校之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "1000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近學校之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MARKET_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近市場之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 300,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有市場者或距離未滿300m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近市場之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MARKET_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近市場之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 300,
+   "upper_bound": 500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "300m以上未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近市場之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MARKET_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近市場之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 800,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "500m以上未滿800m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近市場之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MARKET_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近市場之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 800,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "800m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近市場之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-MARKET_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近市場之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "1000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近市場之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARK_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近公園(里鄰公園、一般公園)、廣場、徒步區之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 300,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有公園者或距離未滿300m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近公園(里鄰公園、一般公園)、廣場、徒步區之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARK_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近公園(里鄰公園、一般公園)、廣場、徒步區之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 300,
+   "upper_bound": 500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "300m以上未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近公園(里鄰公園、一般公園)、廣場、徒步區之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARK_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近公園(里鄰公園、一般公園)、廣場、徒步區之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 800,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "500m以上未滿800m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近公園(里鄰公園、一般公園)、廣場、徒步區之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARK_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近公園(里鄰公園、一般公園)、廣場、徒步區之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 800,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "800m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近公園(里鄰公園、一般公園)、廣場、徒步區之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARK_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近公園(里鄰公園、一般公園)、廣場、徒步區之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "1000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2,
+     "3": 4,
+     "4": 6,
+     "5": 8
+    },
+    "2": {
+     "1": -2,
+     "2": 0,
+     "3": 2,
+     "4": 4,
+     "5": 6
+    },
+    "3": {
+     "1": -4,
+     "2": -2,
+     "3": 0,
+     "4": 2,
+     "5": 4
+    },
+    "4": {
+     "1": -6,
+     "2": -4,
+     "3": -2,
+     "4": 0,
+     "5": 2
+    },
+    "5": {
+     "1": -8,
+     "2": -6,
+     "3": -4,
+     "4": -2,
+     "5": 0
+    }
+   },
+   "max_adjustment": 8,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近公園(里鄰公園、一般公園)、廣場、徒步區之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近觀光遊憩設施之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 500,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有或距離未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近觀光遊憩設施之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近觀光遊憩設施之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "500m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近觀光遊憩設施之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近觀光遊憩設施之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": 1500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "1000m以上未滿1500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近觀光遊憩設施之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近觀光遊憩設施之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1500,
+   "upper_bound": 2000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "1500m以上未滿2000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近觀光遊憩設施之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-TOURISM_FACILITY_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近觀光遊憩設施之程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 2000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "2000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近觀光遊憩設施之程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARKING_CONVENIENCE-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "停車場地之便利程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 200,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有停車位者或距離未滿200m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－停車場地之便利程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARKING_CONVENIENCE-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "停車場地之便利程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 200,
+   "upper_bound": 400,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "200m以上未滿400m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－停車場地之便利程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARKING_CONVENIENCE-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "停車場地之便利程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 400,
+   "upper_bound": 600,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "400m以上未滿600m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－停車場地之便利程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARKING_CONVENIENCE-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "停車場地之便利程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 600,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "600m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－停車場地之便利程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-PARKING_CONVENIENCE-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "停車場地之便利程度",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "1000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－停車場地之便利程度：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SERVICE_FACILITY_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近服務性設施的程度(郵局、銀行、醫院、機關等設施)",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": null,
+   "upper_bound": 500,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "區段內有或距離未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近服務性設施的程度(郵局、銀行、醫院、機關等設施)：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SERVICE_FACILITY_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近服務性設施的程度(郵局、銀行、醫院、機關等設施)",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "500m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近服務性設施的程度(郵局、銀行、醫院、機關等設施)：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SERVICE_FACILITY_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近服務性設施的程度(郵局、銀行、醫院、機關等設施)",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": 1500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "1000m以上未滿1500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近服務性設施的程度(郵局、銀行、醫院、機關等設施)：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SERVICE_FACILITY_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近服務性設施的程度(郵局、銀行、醫院、機關等設施)",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 1500,
+   "upper_bound": 2000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "1500m以上未滿2000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近服務性設施的程度(郵局、銀行、醫院、機關等設施)：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-SERVICE_FACILITY_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "公共建設(5)",
+   "factor": "接近服務性設施的程度(郵局、銀行、醫院、機關等設施)",
+   "value_type": "distance_positive",
+   "unit": "M",
+   "direction": "negative_distance_better",
+   "lower_bound": 2000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "2000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 1.5,
+     "3": 3,
+     "4": 4.5,
+     "5": 6
+    },
+    "2": {
+     "1": -1.5,
+     "2": 0.0,
+     "3": 1.5,
+     "4": 3.0,
+     "5": 4.5
+    },
+    "3": {
+     "1": -3,
+     "2": -1.5,
+     "3": 0,
+     "4": 1.5,
+     "5": 3
+    },
+    "4": {
+     "1": -4.5,
+     "2": -3.0,
+     "3": -1.5,
+     "4": 0.0,
+     "5": 1.5
+    },
+    "5": {
+     "1": -6,
+     "2": -4.5,
+     "3": -3,
+     "4": -1.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 6,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.4",
+   "source_note": "樹林住宅區域因素－接近服務性設施的程度(郵局、銀行、醫院、機關等設施)：依評價基準明細表p.4原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "變電所或高壓鐵塔、瓦斯槽之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 2000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "2000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－變電所或高壓鐵塔、瓦斯槽之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "變電所或高壓鐵塔、瓦斯槽之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 1500,
+   "upper_bound": 2000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "1500m以上未滿2000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－變電所或高壓鐵塔、瓦斯槽之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "變電所或高壓鐵塔、瓦斯槽之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": 1500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "1000m以上未滿1500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－變電所或高壓鐵塔、瓦斯槽之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "變電所或高壓鐵塔、瓦斯槽之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "500m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－變電所或高壓鐵塔、瓦斯槽之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-UTILITY_FACILITY_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "變電所或高壓鐵塔、瓦斯槽之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": null,
+   "upper_bound": 500,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "區段內有或距離未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－變電所或高壓鐵塔、瓦斯槽之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "墓地、殯儀館、火葬場之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 2000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "2000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－墓地、殯儀館、火葬場之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "墓地、殯儀館、火葬場之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 1500,
+   "upper_bound": 2000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "1500m以上未滿2000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－墓地、殯儀館、火葬場之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "墓地、殯儀館、火葬場之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": 1500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "1000m以上未滿1500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－墓地、殯儀館、火葬場之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "墓地、殯儀館、火葬場之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "500m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－墓地、殯儀館、火葬場之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-FUNERAL_FACILITY_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "墓地、殯儀館、火葬場之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": null,
+   "upper_bound": 500,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "區段內有或距離未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 2.5,
+     "3": 5,
+     "4": 7.5,
+     "5": 10
+    },
+    "2": {
+     "1": -2.5,
+     "2": 0.0,
+     "3": 2.5,
+     "4": 5.0,
+     "5": 7.5
+    },
+    "3": {
+     "1": -5,
+     "2": -2.5,
+     "3": 0,
+     "4": 2.5,
+     "5": 5
+    },
+    "4": {
+     "1": -7.5,
+     "2": -5.0,
+     "3": -2.5,
+     "4": 0.0,
+     "5": 2.5
+    },
+    "5": {
+     "1": -10,
+     "2": -7.5,
+     "3": -5,
+     "4": -2.5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 10,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－墓地、殯儀館、火葬場之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-WASTE_FACILITY_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "垃圾場或掩埋場、焚化爐之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 2000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "2000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－垃圾場或掩埋場、焚化爐之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-WASTE_FACILITY_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "垃圾場或掩埋場、焚化爐之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 1500,
+   "upper_bound": 2000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "1500m以上未滿2000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－垃圾場或掩埋場、焚化爐之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-WASTE_FACILITY_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "垃圾場或掩埋場、焚化爐之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": 1500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "1000m以上未滿1500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－垃圾場或掩埋場、焚化爐之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-WASTE_FACILITY_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "垃圾場或掩埋場、焚化爐之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "500m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－垃圾場或掩埋場、焚化爐之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-WASTE_FACILITY_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "特殊設施(6)",
+   "factor": "垃圾場或掩埋場、焚化爐之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": null,
+   "upper_bound": 500,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "區段內有或距離未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.75,
+     "3": 7.5,
+     "4": 11.25,
+     "5": 15
+    },
+    "2": {
+     "1": -3.75,
+     "2": 0.0,
+     "3": 3.75,
+     "4": 7.5,
+     "5": 11.25
+    },
+    "3": {
+     "1": -7.5,
+     "2": -3.75,
+     "3": 0.0,
+     "4": 3.75,
+     "5": 7.5
+    },
+    "4": {
+     "1": -11.25,
+     "2": -7.5,
+     "3": -3.75,
+     "4": 0.0,
+     "5": 3.75
+    },
+    "5": {
+     "1": -15,
+     "2": -11.25,
+     "3": -7.5,
+     "4": -3.75,
+     "5": 0
+    }
+   },
+   "max_adjustment": 15,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－垃圾場或掩埋場、焚化爐之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-POLLUTION_PROXIMITY-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "環境污染(7)",
+   "factor": "環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 2000,
+   "upper_bound": null,
+   "lower_inclusive": true,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 1,
+   "grade_label": "2000m以上或無",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-POLLUTION_PROXIMITY-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "環境污染(7)",
+   "factor": "環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 1500,
+   "upper_bound": 2000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍優",
+   "grade_code": 2,
+   "grade_label": "1500m以上未滿2000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-POLLUTION_PROXIMITY-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "環境污染(7)",
+   "factor": "環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 1000,
+   "upper_bound": 1500,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "普通",
+   "grade_code": 3,
+   "grade_label": "1000m以上未滿1500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-POLLUTION_PROXIMITY-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "環境污染(7)",
+   "factor": "環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": 500,
+   "upper_bound": 1000,
+   "lower_inclusive": true,
+   "upper_inclusive": false,
+   "grade": "稍劣",
+   "grade_code": 4,
+   "grade_label": "500m以上未滿1000m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-POLLUTION_PROXIMITY-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "環境污染(7)",
+   "factor": "環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度",
+   "value_type": "distance_negative",
+   "unit": "M",
+   "direction": "positive_distance_better",
+   "lower_bound": null,
+   "upper_bound": 500,
+   "lower_inclusive": null,
+   "upper_inclusive": false,
+   "grade": "劣",
+   "grade_code": 5,
+   "grade_label": "區段內有或距離未滿500m",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 5,
+     "3": 10,
+     "4": 15,
+     "5": 20
+    },
+    "2": {
+     "1": -5,
+     "2": 0,
+     "3": 5,
+     "4": 10,
+     "5": 15
+    },
+    "3": {
+     "1": -10,
+     "2": -5,
+     "3": 0,
+     "4": 5,
+     "5": 10
+    },
+    "4": {
+     "1": -15,
+     "2": -10,
+     "3": -5,
+     "4": 0,
+     "5": 5
+    },
+    "5": {
+     "1": -20,
+     "2": -15,
+     "3": -10,
+     "4": -5,
+     "5": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－環境污染(水污染、噪音污染、廢氣污染、廢棄物污染等)之有無及接近程度：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-OTHER_FACTORS-01",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "其他影響因素(8)",
+   "factor": "其他影響因素",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "極優",
+   "grade_code": 1,
+   "grade_label": "其他影響因素極優",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.33,
+     "3": 6.67,
+     "4": 10,
+     "5": 13.33,
+     "6": 16.67,
+     "7": 20
+    },
+    "2": {
+     "1": -3.33,
+     "2": 0,
+     "3": 3.33,
+     "4": 6.67,
+     "5": 10,
+     "6": 13.33,
+     "7": 16.67
+    },
+    "3": {
+     "1": -6.67,
+     "2": -3.33,
+     "3": 0,
+     "4": 3.33,
+     "5": 6.67,
+     "6": 10,
+     "7": 13.33
+    },
+    "4": {
+     "1": -10,
+     "2": -6.67,
+     "3": -3.33,
+     "4": 0,
+     "5": 3.33,
+     "6": 6.67,
+     "7": 10
+    },
+    "5": {
+     "1": -13.33,
+     "2": -10,
+     "3": -6.67,
+     "4": -3.33,
+     "5": 0,
+     "6": 3.33,
+     "7": 6.67
+    },
+    "6": {
+     "1": -16.67,
+     "2": -13.33,
+     "3": -10,
+     "4": -6.67,
+     "5": -3.33,
+     "6": 0,
+     "7": 3.33
+    },
+    "7": {
+     "1": -20,
+     "2": -16.67,
+     "3": -13.33,
+     "4": -10,
+     "5": -6.67,
+     "6": -3.33,
+     "7": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－其他影響因素：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-OTHER_FACTORS-02",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "其他影響因素(8)",
+   "factor": "其他影響因素",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "優",
+   "grade_code": 2,
+   "grade_label": "其他影響因素優",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.33,
+     "3": 6.67,
+     "4": 10,
+     "5": 13.33,
+     "6": 16.67,
+     "7": 20
+    },
+    "2": {
+     "1": -3.33,
+     "2": 0,
+     "3": 3.33,
+     "4": 6.67,
+     "5": 10,
+     "6": 13.33,
+     "7": 16.67
+    },
+    "3": {
+     "1": -6.67,
+     "2": -3.33,
+     "3": 0,
+     "4": 3.33,
+     "5": 6.67,
+     "6": 10,
+     "7": 13.33
+    },
+    "4": {
+     "1": -10,
+     "2": -6.67,
+     "3": -3.33,
+     "4": 0,
+     "5": 3.33,
+     "6": 6.67,
+     "7": 10
+    },
+    "5": {
+     "1": -13.33,
+     "2": -10,
+     "3": -6.67,
+     "4": -3.33,
+     "5": 0,
+     "6": 3.33,
+     "7": 6.67
+    },
+    "6": {
+     "1": -16.67,
+     "2": -13.33,
+     "3": -10,
+     "4": -6.67,
+     "5": -3.33,
+     "6": 0,
+     "7": 3.33
+    },
+    "7": {
+     "1": -20,
+     "2": -16.67,
+     "3": -13.33,
+     "4": -10,
+     "5": -6.67,
+     "6": -3.33,
+     "7": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－其他影響因素：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-OTHER_FACTORS-03",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "其他影響因素(8)",
+   "factor": "其他影響因素",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍優",
+   "grade_code": 3,
+   "grade_label": "其他影響因素稍優",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.33,
+     "3": 6.67,
+     "4": 10,
+     "5": 13.33,
+     "6": 16.67,
+     "7": 20
+    },
+    "2": {
+     "1": -3.33,
+     "2": 0,
+     "3": 3.33,
+     "4": 6.67,
+     "5": 10,
+     "6": 13.33,
+     "7": 16.67
+    },
+    "3": {
+     "1": -6.67,
+     "2": -3.33,
+     "3": 0,
+     "4": 3.33,
+     "5": 6.67,
+     "6": 10,
+     "7": 13.33
+    },
+    "4": {
+     "1": -10,
+     "2": -6.67,
+     "3": -3.33,
+     "4": 0,
+     "5": 3.33,
+     "6": 6.67,
+     "7": 10
+    },
+    "5": {
+     "1": -13.33,
+     "2": -10,
+     "3": -6.67,
+     "4": -3.33,
+     "5": 0,
+     "6": 3.33,
+     "7": 6.67
+    },
+    "6": {
+     "1": -16.67,
+     "2": -13.33,
+     "3": -10,
+     "4": -6.67,
+     "5": -3.33,
+     "6": 0,
+     "7": 3.33
+    },
+    "7": {
+     "1": -20,
+     "2": -16.67,
+     "3": -13.33,
+     "4": -10,
+     "5": -6.67,
+     "6": -3.33,
+     "7": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－其他影響因素：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-OTHER_FACTORS-04",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "其他影響因素(8)",
+   "factor": "其他影響因素",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "普通",
+   "grade_code": 4,
+   "grade_label": "其他影響因素普通",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.33,
+     "3": 6.67,
+     "4": 10,
+     "5": 13.33,
+     "6": 16.67,
+     "7": 20
+    },
+    "2": {
+     "1": -3.33,
+     "2": 0,
+     "3": 3.33,
+     "4": 6.67,
+     "5": 10,
+     "6": 13.33,
+     "7": 16.67
+    },
+    "3": {
+     "1": -6.67,
+     "2": -3.33,
+     "3": 0,
+     "4": 3.33,
+     "5": 6.67,
+     "6": 10,
+     "7": 13.33
+    },
+    "4": {
+     "1": -10,
+     "2": -6.67,
+     "3": -3.33,
+     "4": 0,
+     "5": 3.33,
+     "6": 6.67,
+     "7": 10
+    },
+    "5": {
+     "1": -13.33,
+     "2": -10,
+     "3": -6.67,
+     "4": -3.33,
+     "5": 0,
+     "6": 3.33,
+     "7": 6.67
+    },
+    "6": {
+     "1": -16.67,
+     "2": -13.33,
+     "3": -10,
+     "4": -6.67,
+     "5": -3.33,
+     "6": 0,
+     "7": 3.33
+    },
+    "7": {
+     "1": -20,
+     "2": -16.67,
+     "3": -13.33,
+     "4": -10,
+     "5": -6.67,
+     "6": -3.33,
+     "7": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－其他影響因素：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-OTHER_FACTORS-05",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "其他影響因素(8)",
+   "factor": "其他影響因素",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "稍劣",
+   "grade_code": 5,
+   "grade_label": "其他影響因素稍差",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.33,
+     "3": 6.67,
+     "4": 10,
+     "5": 13.33,
+     "6": 16.67,
+     "7": 20
+    },
+    "2": {
+     "1": -3.33,
+     "2": 0,
+     "3": 3.33,
+     "4": 6.67,
+     "5": 10,
+     "6": 13.33,
+     "7": 16.67
+    },
+    "3": {
+     "1": -6.67,
+     "2": -3.33,
+     "3": 0,
+     "4": 3.33,
+     "5": 6.67,
+     "6": 10,
+     "7": 13.33
+    },
+    "4": {
+     "1": -10,
+     "2": -6.67,
+     "3": -3.33,
+     "4": 0,
+     "5": 3.33,
+     "6": 6.67,
+     "7": 10
+    },
+    "5": {
+     "1": -13.33,
+     "2": -10,
+     "3": -6.67,
+     "4": -3.33,
+     "5": 0,
+     "6": 3.33,
+     "7": 6.67
+    },
+    "6": {
+     "1": -16.67,
+     "2": -13.33,
+     "3": -10,
+     "4": -6.67,
+     "5": -3.33,
+     "6": 0,
+     "7": 3.33
+    },
+    "7": {
+     "1": -20,
+     "2": -16.67,
+     "3": -13.33,
+     "4": -10,
+     "5": -6.67,
+     "6": -3.33,
+     "7": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－其他影響因素：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-OTHER_FACTORS-06",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "其他影響因素(8)",
+   "factor": "其他影響因素",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "劣",
+   "grade_code": 6,
+   "grade_label": "其他影響因素差",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.33,
+     "3": 6.67,
+     "4": 10,
+     "5": 13.33,
+     "6": 16.67,
+     "7": 20
+    },
+    "2": {
+     "1": -3.33,
+     "2": 0,
+     "3": 3.33,
+     "4": 6.67,
+     "5": 10,
+     "6": 13.33,
+     "7": 16.67
+    },
+    "3": {
+     "1": -6.67,
+     "2": -3.33,
+     "3": 0,
+     "4": 3.33,
+     "5": 6.67,
+     "6": 10,
+     "7": 13.33
+    },
+    "4": {
+     "1": -10,
+     "2": -6.67,
+     "3": -3.33,
+     "4": 0,
+     "5": 3.33,
+     "6": 6.67,
+     "7": 10
+    },
+    "5": {
+     "1": -13.33,
+     "2": -10,
+     "3": -6.67,
+     "4": -3.33,
+     "5": 0,
+     "6": 3.33,
+     "7": 6.67
+    },
+    "6": {
+     "1": -16.67,
+     "2": -13.33,
+     "3": -10,
+     "4": -6.67,
+     "5": -3.33,
+     "6": 0,
+     "7": 3.33
+    },
+    "7": {
+     "1": -20,
+     "2": -16.67,
+     "3": -13.33,
+     "4": -10,
+     "5": -6.67,
+     "6": -3.33,
+     "7": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－其他影響因素：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  },
+  {
+   "rule_id": "REG-OTHER_FACTORS-07",
+   "version": "1.0",
+   "city": "新北市",
+   "district": "樹林區",
+   "land_use_type": "普通住宅用地",
+   "category": "其他影響因素(8)",
+   "factor": "其他影響因素",
+   "value_type": "categorical",
+   "unit": null,
+   "direction": "positive",
+   "lower_bound": null,
+   "upper_bound": null,
+   "lower_inclusive": null,
+   "upper_inclusive": null,
+   "grade": "極劣",
+   "grade_code": 7,
+   "grade_label": "其他影響因素極差",
+   "adjustment_matrix": {
+    "1": {
+     "1": 0,
+     "2": 3.33,
+     "3": 6.67,
+     "4": 10,
+     "5": 13.33,
+     "6": 16.67,
+     "7": 20
+    },
+    "2": {
+     "1": -3.33,
+     "2": 0,
+     "3": 3.33,
+     "4": 6.67,
+     "5": 10,
+     "6": 13.33,
+     "7": 16.67
+    },
+    "3": {
+     "1": -6.67,
+     "2": -3.33,
+     "3": 0,
+     "4": 3.33,
+     "5": 6.67,
+     "6": 10,
+     "7": 13.33
+    },
+    "4": {
+     "1": -10,
+     "2": -6.67,
+     "3": -3.33,
+     "4": 0,
+     "5": 3.33,
+     "6": 6.67,
+     "7": 10
+    },
+    "5": {
+     "1": -13.33,
+     "2": -10,
+     "3": -6.67,
+     "4": -3.33,
+     "5": 0,
+     "6": 3.33,
+     "7": 6.67
+    },
+    "6": {
+     "1": -16.67,
+     "2": -13.33,
+     "3": -10,
+     "4": -6.67,
+     "5": -3.33,
+     "6": 0,
+     "7": 3.33
+    },
+    "7": {
+     "1": -20,
+     "2": -16.67,
+     "3": -13.33,
+     "4": -10,
+     "5": -6.67,
+     "6": -3.33,
+     "7": 0
+    }
+   },
+   "max_adjustment": 20,
+   "effective_date": "1110901",
+   "source_document": "評價基準明細表.pdf",
+   "source_page": "p.5",
+   "source_note": "樹林住宅區域因素－其他影響因素：依評價基準明細表p.5原文逐格視覺核對建立，非沿用金山商業規則。",
+   "anomaly_flag": null
+  }
+ ]
+}

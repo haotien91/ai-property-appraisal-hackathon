@@ -1,0 +1,3746 @@
+[
+ {
+  "field_id": "segment_code[base]",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C3:D3",
+  "rect": [
+   196.32713971819197,
+   66.09332275390625,
+   253.35799560546874,
+   79.70897674560547
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "segment_code[comp1]",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E3:G3",
+  "rect": [
+   253.35799560546874,
+   66.09332275390625,
+   360.5899963378906,
+   79.70897674560547
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "segment_code[comp2]",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H3:J3",
+  "rect": [
+   360.5899963378906,
+   66.09332275390625,
+   467.8999938964844,
+   79.70897674560547
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "segment_code[comp3]",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K3:M3",
+  "rect": [
+   467.8999938964844,
+   66.09332275390625,
+   575.6144435152095,
+   79.70897674560547
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_zoning_inside_outside.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C5:C5",
+  "rect": [
+   196.32713971819197,
+   98.5699691772461,
+   217.91000366210938,
+   110.71994018554688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_zoning_inside_outside.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E5:E5",
+  "rect": [
+   253.35799560546874,
+   98.5699691772461,
+   279.46998596191406,
+   110.71994018554688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_zoning_inside_outside.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G5:G5",
+  "rect": [
+   315.9735161276425,
+   98.5699691772461,
+   360.5899963378906,
+   110.71994018554688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_zoning_inside_outside.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H5:H5",
+  "rect": [
+   360.5899963378906,
+   98.5699691772461,
+   386.77001953125,
+   110.71994018554688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_zoning_inside_outside.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J5:J5",
+  "rect": [
+   423.25351490693936,
+   98.5699691772461,
+   467.8999938964844,
+   110.71994018554688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_zoning_inside_outside.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K5:K5",
+  "rect": [
+   467.8999938964844,
+   98.5699691772461,
+   494.0800018310547,
+   110.71994018554688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_zoning_inside_outside.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M5:M5",
+  "rect": [
+   530.5635555491727,
+   98.5699691772461,
+   575.6144435152095,
+   110.71994018554688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_use_zone.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C6:C6",
+  "rect": [
+   196.32713971819197,
+   110.71994018554688,
+   217.91000366210938,
+   123.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_use_zone.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E6:E6",
+  "rect": [
+   253.35799560546874,
+   110.71994018554688,
+   279.46998596191406,
+   123.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_use_zone.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G6:G6",
+  "rect": [
+   315.9735161276425,
+   110.71994018554688,
+   360.5899963378906,
+   123.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_use_zone.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H6:H6",
+  "rect": [
+   360.5899963378906,
+   110.71994018554688,
+   386.77001953125,
+   123.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_use_zone.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J6:J6",
+  "rect": [
+   423.25351490693936,
+   110.71994018554688,
+   467.8999938964844,
+   123.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_use_zone.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K6:K6",
+  "rect": [
+   467.8999938964844,
+   110.71994018554688,
+   494.0800018310547,
+   123.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_use_zone.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M6:M6",
+  "rect": [
+   530.5635555491727,
+   110.71994018554688,
+   575.6144435152095,
+   123.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_building_coverage_ratio.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C7:C7",
+  "rect": [
+   196.32713971819197,
+   123.07998657226562,
+   217.91000366210938,
+   135.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_building_coverage_ratio.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E7:E7",
+  "rect": [
+   253.35799560546874,
+   123.07998657226562,
+   279.46998596191406,
+   135.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_building_coverage_ratio.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G7:G7",
+  "rect": [
+   315.9735161276425,
+   123.07998657226562,
+   360.5899963378906,
+   135.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_building_coverage_ratio.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H7:H7",
+  "rect": [
+   360.5899963378906,
+   123.07998657226562,
+   386.77001953125,
+   135.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_building_coverage_ratio.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J7:J7",
+  "rect": [
+   423.25351490693936,
+   123.07998657226562,
+   467.8999938964844,
+   135.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_building_coverage_ratio.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K7:K7",
+  "rect": [
+   467.8999938964844,
+   123.07998657226562,
+   494.0800018310547,
+   135.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_building_coverage_ratio.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M7:M7",
+  "rect": [
+   530.5635555491727,
+   123.07998657226562,
+   575.6144435152095,
+   135.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_floor_area_ratio.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C8:C8",
+  "rect": [
+   196.32713971819197,
+   135.43997192382812,
+   217.91000366210938,
+   147.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_floor_area_ratio.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E8:E8",
+  "rect": [
+   253.35799560546874,
+   135.43997192382812,
+   279.46998596191406,
+   147.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_floor_area_ratio.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G8:G8",
+  "rect": [
+   315.9735161276425,
+   135.43997192382812,
+   360.5899963378906,
+   147.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_floor_area_ratio.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H8:H8",
+  "rect": [
+   360.5899963378906,
+   135.43997192382812,
+   386.77001953125,
+   147.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_floor_area_ratio.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J8:J8",
+  "rect": [
+   423.25351490693936,
+   135.43997192382812,
+   467.8999938964844,
+   147.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_floor_area_ratio.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K8:K8",
+  "rect": [
+   467.8999938964844,
+   135.43997192382812,
+   494.0800018310547,
+   147.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_floor_area_ratio.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M8:M8",
+  "rect": [
+   530.5635555491727,
+   135.43997192382812,
+   575.6144435152095,
+   147.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_prohibited.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C9:C9",
+  "rect": [
+   196.32713971819197,
+   147.79995727539062,
+   217.91000366210938,
+   160.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_prohibited.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E9:E9",
+  "rect": [
+   253.35799560546874,
+   147.79995727539062,
+   279.46998596191406,
+   160.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_prohibited.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G9:G9",
+  "rect": [
+   315.9735161276425,
+   147.79995727539062,
+   360.5899963378906,
+   160.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_prohibited.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H9:H9",
+  "rect": [
+   360.5899963378906,
+   147.79995727539062,
+   386.77001953125,
+   160.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_prohibited.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J9:J9",
+  "rect": [
+   423.25351490693936,
+   147.79995727539062,
+   467.8999938964844,
+   160.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_prohibited.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K9:K9",
+  "rect": [
+   467.8999938964844,
+   147.79995727539062,
+   494.0800018310547,
+   160.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_prohibited.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M9:M9",
+  "rect": [
+   530.5635555491727,
+   147.79995727539062,
+   575.6144435152095,
+   160.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_restricted.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C10:C10",
+  "rect": [
+   196.32713971819197,
+   160.15994262695312,
+   217.91000366210938,
+   182.15998331705728
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_restricted.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E10:E10",
+  "rect": [
+   253.35799560546874,
+   160.15994262695312,
+   279.46998596191406,
+   182.15998331705728
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_restricted.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G10:G10",
+  "rect": [
+   315.9735161276425,
+   160.15994262695312,
+   360.5899963378906,
+   182.15998331705728
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_restricted.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H10:H10",
+  "rect": [
+   360.5899963378906,
+   160.15994262695312,
+   386.77001953125,
+   182.15998331705728
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_restricted.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J10:J10",
+  "rect": [
+   423.25351490693936,
+   160.15994262695312,
+   467.8999938964844,
+   182.15998331705728
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_restricted.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K10:K10",
+  "rect": [
+   467.8999938964844,
+   160.15994262695312,
+   494.0800018310547,
+   182.15998331705728
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_construction_restricted.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M10:M10",
+  "rect": [
+   530.5635555491727,
+   160.15994262695312,
+   575.6144435152095,
+   182.15998331705728
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_main_road_width.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C12:C12",
+  "rect": [
+   196.32713971819197,
+   195.00448099772134,
+   217.91000366210938,
+   207.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_main_road_width.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E12:E12",
+  "rect": [
+   253.35799560546874,
+   195.00448099772134,
+   279.46998596191406,
+   207.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_main_road_width.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G12:G12",
+  "rect": [
+   315.9735161276425,
+   195.00448099772134,
+   360.5899963378906,
+   207.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_main_road_width.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H12:H12",
+  "rect": [
+   360.5899963378906,
+   195.00448099772134,
+   386.77001953125,
+   207.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_main_road_width.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J12:J12",
+  "rect": [
+   423.25351490693936,
+   195.00448099772134,
+   467.8999938964844,
+   207.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_main_road_width.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K12:K12",
+  "rect": [
+   467.8999938964844,
+   195.00448099772134,
+   494.0800018310547,
+   207.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_main_road_width.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M12:M12",
+  "rect": [
+   530.5635555491727,
+   195.00448099772134,
+   575.6144435152095,
+   207.07998657226562
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_avg_road_width.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C13:C13",
+  "rect": [
+   196.32713971819197,
+   207.07998657226562,
+   217.91000366210938,
+   219.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_avg_road_width.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E13:E13",
+  "rect": [
+   253.35799560546874,
+   207.07998657226562,
+   279.46998596191406,
+   219.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_avg_road_width.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G13:G13",
+  "rect": [
+   315.9735161276425,
+   207.07998657226562,
+   360.5899963378906,
+   219.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_avg_road_width.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H13:H13",
+  "rect": [
+   360.5899963378906,
+   207.07998657226562,
+   386.77001953125,
+   219.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_avg_road_width.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J13:J13",
+  "rect": [
+   423.25351490693936,
+   207.07998657226562,
+   467.8999938964844,
+   219.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_avg_road_width.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K13:K13",
+  "rect": [
+   467.8999938964844,
+   207.07998657226562,
+   494.0800018310547,
+   219.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_avg_road_width.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M13:M13",
+  "rect": [
+   530.5635555491727,
+   207.07998657226562,
+   575.6144435152095,
+   219.43997192382812
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_major_station_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C14:C14",
+  "rect": [
+   196.32713971819197,
+   219.43997192382812,
+   217.91000366210938,
+   231.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_major_station_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E14:E14",
+  "rect": [
+   253.35799560546874,
+   219.43997192382812,
+   279.46998596191406,
+   231.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_major_station_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G14:G14",
+  "rect": [
+   315.9735161276425,
+   219.43997192382812,
+   360.5899963378906,
+   231.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_major_station_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H14:H14",
+  "rect": [
+   360.5899963378906,
+   219.43997192382812,
+   386.77001953125,
+   231.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_major_station_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J14:J14",
+  "rect": [
+   423.25351490693936,
+   219.43997192382812,
+   467.8999938964844,
+   231.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_major_station_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K14:K14",
+  "rect": [
+   467.8999938964844,
+   219.43997192382812,
+   494.0800018310547,
+   231.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_major_station_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M14:M14",
+  "rect": [
+   530.5635555491727,
+   219.43997192382812,
+   575.6144435152095,
+   231.79995727539062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_bus_stop_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C15:C15",
+  "rect": [
+   196.32713971819197,
+   231.79995727539062,
+   217.91000366210938,
+   244.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_bus_stop_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E15:E15",
+  "rect": [
+   253.35799560546874,
+   231.79995727539062,
+   279.46998596191406,
+   244.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_bus_stop_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G15:G15",
+  "rect": [
+   315.9735161276425,
+   231.79995727539062,
+   360.5899963378906,
+   244.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_bus_stop_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H15:H15",
+  "rect": [
+   360.5899963378906,
+   231.79995727539062,
+   386.77001953125,
+   244.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_bus_stop_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J15:J15",
+  "rect": [
+   423.25351490693936,
+   231.79995727539062,
+   467.8999938964844,
+   244.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_bus_stop_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K15:K15",
+  "rect": [
+   467.8999938964844,
+   231.79995727539062,
+   494.0800018310547,
+   244.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_bus_stop_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M15:M15",
+  "rect": [
+   530.5635555491727,
+   231.79995727539062,
+   575.6144435152095,
+   244.15994262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_interchange_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C16:C16",
+  "rect": [
+   196.32713971819197,
+   244.15994262695312,
+   217.91000366210938,
+   255.03494262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_interchange_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E16:E16",
+  "rect": [
+   253.35799560546874,
+   244.15994262695312,
+   279.46998596191406,
+   255.03494262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_interchange_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G16:G16",
+  "rect": [
+   315.9735161276425,
+   244.15994262695312,
+   360.5899963378906,
+   255.03494262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_interchange_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H16:H16",
+  "rect": [
+   360.5899963378906,
+   244.15994262695312,
+   386.77001953125,
+   255.03494262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_interchange_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J16:J16",
+  "rect": [
+   423.25351490693936,
+   244.15994262695312,
+   467.8999938964844,
+   255.03494262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_interchange_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K16:K16",
+  "rect": [
+   467.8999938964844,
+   244.15994262695312,
+   494.0800018310547,
+   255.03494262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_interchange_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M16:M16",
+  "rect": [
+   530.5635555491727,
+   244.15994262695312,
+   575.6144435152095,
+   255.03494262695312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_road_development_level.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C17:C17",
+  "rect": [
+   196.32713971819197,
+   255.03494262695312,
+   217.91000366210938,
+   265.9099426269531
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_road_development_level.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E17:E17",
+  "rect": [
+   253.35799560546874,
+   255.03494262695312,
+   279.46998596191406,
+   265.9099426269531
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_road_development_level.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G17:G17",
+  "rect": [
+   315.9735161276425,
+   255.03494262695312,
+   360.5899963378906,
+   265.9099426269531
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_road_development_level.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H17:H17",
+  "rect": [
+   360.5899963378906,
+   255.03494262695312,
+   386.77001953125,
+   265.9099426269531
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_road_development_level.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J17:J17",
+  "rect": [
+   423.25351490693936,
+   255.03494262695312,
+   467.8999938964844,
+   265.9099426269531
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_road_development_level.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K17:K17",
+  "rect": [
+   467.8999938964844,
+   255.03494262695312,
+   494.0800018310547,
+   265.9099426269531
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_road_development_level.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M17:M17",
+  "rect": [
+   530.5635555491727,
+   255.03494262695312,
+   575.6144435152095,
+   265.9099426269531
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_sunlight.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C19:C19",
+  "rect": [
+   196.32713971819197,
+   278.54999287923175,
+   217.91000366210938,
+   291.3899688720703
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_sunlight.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E19:E19",
+  "rect": [
+   253.35799560546874,
+   278.54999287923175,
+   279.46998596191406,
+   291.3899688720703
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_sunlight.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G19:G19",
+  "rect": [
+   315.9735161276425,
+   278.54999287923175,
+   360.5899963378906,
+   291.3899688720703
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_sunlight.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H19:H19",
+  "rect": [
+   360.5899963378906,
+   278.54999287923175,
+   386.77001953125,
+   291.3899688720703
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_sunlight.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J19:J19",
+  "rect": [
+   423.25351490693936,
+   278.54999287923175,
+   467.8999938964844,
+   291.3899688720703
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_sunlight.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K19:K19",
+  "rect": [
+   467.8999938964844,
+   278.54999287923175,
+   494.0800018310547,
+   291.3899688720703
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_sunlight.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M19:M19",
+  "rect": [
+   530.5635555491727,
+   278.54999287923175,
+   575.6144435152095,
+   291.3899688720703
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_view.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C20:C20",
+  "rect": [
+   196.32713971819197,
+   291.3899688720703,
+   217.91000366210938,
+   303.4699401855469
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_view.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E20:E20",
+  "rect": [
+   253.35799560546874,
+   291.3899688720703,
+   279.46998596191406,
+   303.4699401855469
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_view.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G20:G20",
+  "rect": [
+   315.9735161276425,
+   291.3899688720703,
+   360.5899963378906,
+   303.4699401855469
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_view.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H20:H20",
+  "rect": [
+   360.5899963378906,
+   291.3899688720703,
+   386.77001953125,
+   303.4699401855469
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_view.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J20:J20",
+  "rect": [
+   423.25351490693936,
+   291.3899688720703,
+   467.8999938964844,
+   303.4699401855469
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_view.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K20:K20",
+  "rect": [
+   467.8999938964844,
+   291.3899688720703,
+   494.0800018310547,
+   303.4699401855469
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_view.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M20:M20",
+  "rect": [
+   530.5635555491727,
+   291.3899688720703,
+   575.6144435152095,
+   303.4699401855469
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_slope.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C21:C21",
+  "rect": [
+   196.32713971819197,
+   303.4699401855469,
+   217.91000366210938,
+   315.8299865722656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_slope.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E21:E21",
+  "rect": [
+   253.35799560546874,
+   303.4699401855469,
+   279.46998596191406,
+   315.8299865722656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_slope.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G21:G21",
+  "rect": [
+   315.9735161276425,
+   303.4699401855469,
+   360.5899963378906,
+   315.8299865722656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_slope.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H21:H21",
+  "rect": [
+   360.5899963378906,
+   303.4699401855469,
+   386.77001953125,
+   315.8299865722656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_slope.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J21:J21",
+  "rect": [
+   423.25351490693936,
+   303.4699401855469,
+   467.8999938964844,
+   315.8299865722656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_slope.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K21:K21",
+  "rect": [
+   467.8999938964844,
+   303.4699401855469,
+   494.0800018310547,
+   315.8299865722656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_slope.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M21:M21",
+  "rect": [
+   530.5635555491727,
+   303.4699401855469,
+   575.6144435152095,
+   315.8299865722656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_drainage_quality.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C22:C22",
+  "rect": [
+   196.32713971819197,
+   315.8299865722656,
+   217.91000366210938,
+   328.1899719238281
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_drainage_quality.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E22:E22",
+  "rect": [
+   253.35799560546874,
+   315.8299865722656,
+   279.46998596191406,
+   328.1899719238281
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_drainage_quality.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G22:G22",
+  "rect": [
+   315.9735161276425,
+   315.8299865722656,
+   360.5899963378906,
+   328.1899719238281
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_drainage_quality.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H22:H22",
+  "rect": [
+   360.5899963378906,
+   315.8299865722656,
+   386.77001953125,
+   328.1899719238281
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_drainage_quality.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J22:J22",
+  "rect": [
+   423.25351490693936,
+   315.8299865722656,
+   467.8999938964844,
+   328.1899719238281
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_drainage_quality.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K22:K22",
+  "rect": [
+   467.8999938964844,
+   315.8299865722656,
+   494.0800018310547,
+   328.1899719238281
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_drainage_quality.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M22:M22",
+  "rect": [
+   530.5635555491727,
+   315.8299865722656,
+   575.6144435152095,
+   328.1899719238281
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_terrain.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C23:C23",
+  "rect": [
+   196.32713971819197,
+   328.1899719238281,
+   217.91000366210938,
+   340.5499572753906
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_terrain.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E23:E23",
+  "rect": [
+   253.35799560546874,
+   328.1899719238281,
+   279.46998596191406,
+   340.5499572753906
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_terrain.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G23:G23",
+  "rect": [
+   315.9735161276425,
+   328.1899719238281,
+   360.5899963378906,
+   340.5499572753906
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_terrain.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H23:H23",
+  "rect": [
+   360.5899963378906,
+   328.1899719238281,
+   386.77001953125,
+   340.5499572753906
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_terrain.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J23:J23",
+  "rect": [
+   423.25351490693936,
+   328.1899719238281,
+   467.8999938964844,
+   340.5499572753906
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_terrain.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K23:K23",
+  "rect": [
+   467.8999938964844,
+   328.1899719238281,
+   494.0800018310547,
+   340.5499572753906
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_terrain.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M23:M23",
+  "rect": [
+   530.5635555491727,
+   328.1899719238281,
+   575.6144435152095,
+   340.5499572753906
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_improvement.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C25:C25",
+  "rect": [
+   196.32713971819197,
+   353.1899871826172,
+   217.91000366210938,
+   366.02998606363934
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_improvement.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E25:E25",
+  "rect": [
+   253.35799560546874,
+   353.1899871826172,
+   279.46998596191406,
+   366.02998606363934
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_improvement.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G25:G25",
+  "rect": [
+   315.9735161276425,
+   353.1899871826172,
+   360.5899963378906,
+   366.02998606363934
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_improvement.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H25:H25",
+  "rect": [
+   360.5899963378906,
+   353.1899871826172,
+   386.77001953125,
+   366.02998606363934
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_improvement.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J25:J25",
+  "rect": [
+   423.25351490693936,
+   353.1899871826172,
+   467.8999938964844,
+   366.02998606363934
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_improvement.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K25:K25",
+  "rect": [
+   467.8999938964844,
+   353.1899871826172,
+   494.0800018310547,
+   366.02998606363934
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_land_improvement.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M25:M25",
+  "rect": [
+   530.5635555491727,
+   353.1899871826172,
+   575.6144435152095,
+   366.02998606363934
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_school_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C27:C27",
+  "rect": [
+   196.32713971819197,
+   409.5899836222331,
+   217.91000366210938,
+   422.4299799601237
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_school_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E27:E27",
+  "rect": [
+   253.35799560546874,
+   409.5899836222331,
+   279.46998596191406,
+   422.4299799601237
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_school_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G27:G27",
+  "rect": [
+   315.9735161276425,
+   409.5899836222331,
+   360.5899963378906,
+   422.4299799601237
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_school_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H27:H27",
+  "rect": [
+   360.5899963378906,
+   409.5899836222331,
+   386.77001953125,
+   422.4299799601237
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_school_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J27:J27",
+  "rect": [
+   423.25351490693936,
+   409.5899836222331,
+   467.8999938964844,
+   422.4299799601237
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_school_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K27:K27",
+  "rect": [
+   467.8999938964844,
+   409.5899836222331,
+   494.0800018310547,
+   422.4299799601237
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_school_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M27:M27",
+  "rect": [
+   530.5635555491727,
+   409.5899836222331,
+   575.6144435152095,
+   422.4299799601237
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_market_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C28:C28",
+  "rect": [
+   196.32713971819197,
+   422.4299799601237,
+   217.91000366210938,
+   443.88999938964844
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_market_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E28:E28",
+  "rect": [
+   253.35799560546874,
+   422.4299799601237,
+   279.46998596191406,
+   443.88999938964844
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_market_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G28:G28",
+  "rect": [
+   315.9735161276425,
+   422.4299799601237,
+   360.5899963378906,
+   443.88999938964844
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_market_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H28:H28",
+  "rect": [
+   360.5899963378906,
+   422.4299799601237,
+   386.77001953125,
+   443.88999938964844
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_market_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J28:J28",
+  "rect": [
+   423.25351490693936,
+   422.4299799601237,
+   467.8999938964844,
+   443.88999938964844
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_market_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K28:K28",
+  "rect": [
+   467.8999938964844,
+   422.4299799601237,
+   494.0800018310547,
+   443.88999938964844
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_market_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M28:M28",
+  "rect": [
+   530.5635555491727,
+   422.4299799601237,
+   575.6144435152095,
+   443.88999938964844
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_park_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C29:C29",
+  "rect": [
+   196.32713971819197,
+   443.88999938964844,
+   217.91000366210938,
+   465.60997009277344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_park_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E29:E29",
+  "rect": [
+   253.35799560546874,
+   443.88999938964844,
+   279.46998596191406,
+   465.60997009277344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_park_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G29:G29",
+  "rect": [
+   315.9735161276425,
+   443.88999938964844,
+   360.5899963378906,
+   465.60997009277344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_park_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H29:H29",
+  "rect": [
+   360.5899963378906,
+   443.88999938964844,
+   386.77001953125,
+   465.60997009277344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_park_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J29:J29",
+  "rect": [
+   423.25351490693936,
+   443.88999938964844,
+   467.8999938964844,
+   465.60997009277344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_park_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K29:K29",
+  "rect": [
+   467.8999938964844,
+   443.88999938964844,
+   494.0800018310547,
+   465.60997009277344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_park_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M29:M29",
+  "rect": [
+   530.5635555491727,
+   443.88999938964844,
+   575.6144435152095,
+   465.60997009277344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_tourism_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C30:C30",
+  "rect": [
+   196.32713971819197,
+   465.60997009277344,
+   217.91000366210938,
+   487.32997131347656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_tourism_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E30:E30",
+  "rect": [
+   253.35799560546874,
+   465.60997009277344,
+   279.46998596191406,
+   487.32997131347656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_tourism_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G30:G30",
+  "rect": [
+   315.9735161276425,
+   465.60997009277344,
+   360.5899963378906,
+   487.32997131347656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_tourism_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H30:H30",
+  "rect": [
+   360.5899963378906,
+   465.60997009277344,
+   386.77001953125,
+   487.32997131347656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_tourism_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J30:J30",
+  "rect": [
+   423.25351490693936,
+   465.60997009277344,
+   467.8999938964844,
+   487.32997131347656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_tourism_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K30:K30",
+  "rect": [
+   467.8999938964844,
+   465.60997009277344,
+   494.0800018310547,
+   487.32997131347656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_tourism_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M30:M30",
+  "rect": [
+   530.5635555491727,
+   465.60997009277344,
+   575.6144435152095,
+   487.32997131347656
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_parking_convenience.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C31:C31",
+  "rect": [
+   196.32713971819197,
+   487.32997131347656,
+   217.91000366210938,
+   499.6899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_parking_convenience.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E31:E31",
+  "rect": [
+   253.35799560546874,
+   487.32997131347656,
+   279.46998596191406,
+   499.6899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_parking_convenience.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G31:G31",
+  "rect": [
+   315.9735161276425,
+   487.32997131347656,
+   360.5899963378906,
+   499.6899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_parking_convenience.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H31:H31",
+  "rect": [
+   360.5899963378906,
+   487.32997131347656,
+   386.77001953125,
+   499.6899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_parking_convenience.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J31:J31",
+  "rect": [
+   423.25351490693936,
+   487.32997131347656,
+   467.8999938964844,
+   499.6899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_parking_convenience.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K31:K31",
+  "rect": [
+   467.8999938964844,
+   487.32997131347656,
+   494.0800018310547,
+   499.6899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_parking_convenience.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M31:M31",
+  "rect": [
+   530.5635555491727,
+   487.32997131347656,
+   575.6144435152095,
+   499.6899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_service_facility_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C32:C32",
+  "rect": [
+   196.32713971819197,
+   499.6899871826172,
+   217.91000366210938,
+   512.0499877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_service_facility_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E32:E32",
+  "rect": [
+   253.35799560546874,
+   499.6899871826172,
+   279.46998596191406,
+   512.0499877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_service_facility_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G32:G32",
+  "rect": [
+   315.9735161276425,
+   499.6899871826172,
+   360.5899963378906,
+   512.0499877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_service_facility_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H32:H32",
+  "rect": [
+   360.5899963378906,
+   499.6899871826172,
+   386.77001953125,
+   512.0499877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_service_facility_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J32:J32",
+  "rect": [
+   423.25351490693936,
+   499.6899871826172,
+   467.8999938964844,
+   512.0499877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_service_facility_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K32:K32",
+  "rect": [
+   467.8999938964844,
+   499.6899871826172,
+   494.0800018310547,
+   512.0499877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_service_facility_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M32:M32",
+  "rect": [
+   530.5635555491727,
+   499.6899871826172,
+   575.6144435152095,
+   512.0499877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_utility_facility_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C34:C34",
+  "rect": [
+   196.32713971819197,
+   534.0499471028646,
+   217.91000366210938,
+   546.8900146484375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_utility_facility_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E34:E34",
+  "rect": [
+   253.35799560546874,
+   534.0499471028646,
+   279.46998596191406,
+   546.8900146484375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_utility_facility_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G34:G34",
+  "rect": [
+   315.9735161276425,
+   534.0499471028646,
+   360.5899963378906,
+   546.8900146484375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_utility_facility_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H34:H34",
+  "rect": [
+   360.5899963378906,
+   534.0499471028646,
+   386.77001953125,
+   546.8900146484375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_utility_facility_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J34:J34",
+  "rect": [
+   423.25351490693936,
+   534.0499471028646,
+   467.8999938964844,
+   546.8900146484375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_utility_facility_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K34:K34",
+  "rect": [
+   467.8999938964844,
+   534.0499471028646,
+   494.0800018310547,
+   546.8900146484375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_utility_facility_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M34:M34",
+  "rect": [
+   530.5635555491727,
+   534.0499471028646,
+   575.6144435152095,
+   546.8900146484375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_funeral_facility_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C35:C35",
+  "rect": [
+   196.32713971819197,
+   546.8900146484375,
+   217.91000366210938,
+   568.3299560546875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_funeral_facility_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E35:E35",
+  "rect": [
+   253.35799560546874,
+   546.8900146484375,
+   279.46998596191406,
+   568.3299560546875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_funeral_facility_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G35:G35",
+  "rect": [
+   315.9735161276425,
+   546.8900146484375,
+   360.5899963378906,
+   568.3299560546875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_funeral_facility_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H35:H35",
+  "rect": [
+   360.5899963378906,
+   546.8900146484375,
+   386.77001953125,
+   568.3299560546875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_funeral_facility_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J35:J35",
+  "rect": [
+   423.25351490693936,
+   546.8900146484375,
+   467.8999938964844,
+   568.3299560546875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_funeral_facility_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K35:K35",
+  "rect": [
+   467.8999938964844,
+   546.8900146484375,
+   494.0800018310547,
+   568.3299560546875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_funeral_facility_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M35:M35",
+  "rect": [
+   530.5635555491727,
+   546.8900146484375,
+   575.6144435152095,
+   568.3299560546875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_waste_facility_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C36:C36",
+  "rect": [
+   196.32713971819197,
+   568.3299560546875,
+   217.91000366210938,
+   580.6900024414062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_waste_facility_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E36:E36",
+  "rect": [
+   253.35799560546874,
+   568.3299560546875,
+   279.46998596191406,
+   580.6900024414062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_waste_facility_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G36:G36",
+  "rect": [
+   315.9735161276425,
+   568.3299560546875,
+   360.5899963378906,
+   580.6900024414062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_waste_facility_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H36:H36",
+  "rect": [
+   360.5899963378906,
+   568.3299560546875,
+   386.77001953125,
+   580.6900024414062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_waste_facility_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J36:J36",
+  "rect": [
+   423.25351490693936,
+   568.3299560546875,
+   467.8999938964844,
+   580.6900024414062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_waste_facility_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K36:K36",
+  "rect": [
+   467.8999938964844,
+   568.3299560546875,
+   494.0800018310547,
+   580.6900024414062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_waste_facility_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M36:M36",
+  "rect": [
+   530.5635555491727,
+   568.3299560546875,
+   575.6144435152095,
+   580.6900024414062
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_pollution_proximity.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C38:C38",
+  "rect": [
+   196.32713971819197,
+   602.6899617513021,
+   217.91000366210938,
+   615.5344746907552
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_pollution_proximity.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E38:E38",
+  "rect": [
+   253.35799560546874,
+   602.6899617513021,
+   279.46998596191406,
+   615.5344746907552
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_pollution_proximity.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G38:G38",
+  "rect": [
+   315.9735161276425,
+   602.6899617513021,
+   360.5899963378906,
+   615.5344746907552
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_pollution_proximity.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H38:H38",
+  "rect": [
+   360.5899963378906,
+   602.6899617513021,
+   386.77001953125,
+   615.5344746907552
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_pollution_proximity.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J38:J38",
+  "rect": [
+   423.25351490693936,
+   602.6899617513021,
+   467.8999938964844,
+   615.5344746907552
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_pollution_proximity.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K38:K38",
+  "rect": [
+   467.8999938964844,
+   602.6899617513021,
+   494.0800018310547,
+   615.5344746907552
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_pollution_proximity.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M38:M38",
+  "rect": [
+   530.5635555491727,
+   602.6899617513021,
+   575.6144435152095,
+   615.5344746907552
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_other.base_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "C40:C40",
+  "rect": [
+   196.32713971819197,
+   637.2799784342448,
+   217.91000366210938,
+   650.1200052897135
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_other.comp1_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E40:E40",
+  "rect": [
+   253.35799560546874,
+   637.2799784342448,
+   279.46998596191406,
+   650.1200052897135
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_other.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "G40:G40",
+  "rect": [
+   315.9735161276425,
+   637.2799784342448,
+   360.5899963378906,
+   650.1200052897135
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_other.comp2_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H40:H40",
+  "rect": [
+   360.5899963378906,
+   637.2799784342448,
+   386.77001953125,
+   650.1200052897135
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_other.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "J40:J40",
+  "rect": [
+   423.25351490693936,
+   637.2799784342448,
+   467.8999938964844,
+   650.1200052897135
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_other.comp3_grade",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K40:K40",
+  "rect": [
+   467.8999938964844,
+   637.2799784342448,
+   494.0800018310547,
+   650.1200052897135
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "regional_other.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "M40:M40",
+  "rect": [
+   530.5635555491727,
+   637.2799784342448,
+   575.6144435152095,
+   650.1200052897135
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "category1.comp1_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E11:F11",
+  "rect": [
+   253.35799560546874,
+   182.15998331705728,
+   315.9735161276425,
+   195.00448099772134
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category1.comp2_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H11:I11",
+  "rect": [
+   360.5899963378906,
+   182.15998331705728,
+   423.25351490693936,
+   195.00448099772134
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category1.comp3_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K11:L11",
+  "rect": [
+   467.8999938964844,
+   182.15998331705728,
+   530.5635555491727,
+   195.00448099772134
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category2.comp1_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E18:F18",
+  "rect": [
+   253.35799560546874,
+   265.9099426269531,
+   315.9735161276425,
+   278.54999287923175
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category2.comp2_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H18:I18",
+  "rect": [
+   360.5899963378906,
+   265.9099426269531,
+   423.25351490693936,
+   278.54999287923175
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category2.comp3_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K18:L18",
+  "rect": [
+   467.8999938964844,
+   265.9099426269531,
+   530.5635555491727,
+   278.54999287923175
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category3.comp1_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E24:F24",
+  "rect": [
+   253.35799560546874,
+   340.5499572753906,
+   315.9735161276425,
+   353.1899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category3.comp2_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H24:I24",
+  "rect": [
+   360.5899963378906,
+   340.5499572753906,
+   423.25351490693936,
+   353.1899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category3.comp3_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K24:L24",
+  "rect": [
+   467.8999938964844,
+   340.5499572753906,
+   530.5635555491727,
+   353.1899871826172
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category4.comp1_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E26:F26",
+  "rect": [
+   253.35799560546874,
+   366.02998606363934,
+   315.9735161276425,
+   409.5899836222331
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category4.comp2_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H26:I26",
+  "rect": [
+   360.5899963378906,
+   366.02998606363934,
+   423.25351490693936,
+   409.5899836222331
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category4.comp3_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K26:L26",
+  "rect": [
+   467.8999938964844,
+   366.02998606363934,
+   530.5635555491727,
+   409.5899836222331
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category5.comp1_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E33:F33",
+  "rect": [
+   253.35799560546874,
+   512.0499877929688,
+   315.9735161276425,
+   534.0499471028646
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category5.comp2_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H33:I33",
+  "rect": [
+   360.5899963378906,
+   512.0499877929688,
+   423.25351490693936,
+   534.0499471028646
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category5.comp3_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K33:L33",
+  "rect": [
+   467.8999938964844,
+   512.0499877929688,
+   530.5635555491727,
+   534.0499471028646
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category6.comp1_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E37:F37",
+  "rect": [
+   253.35799560546874,
+   580.6900024414062,
+   315.9735161276425,
+   602.6899617513021
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category6.comp2_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H37:I37",
+  "rect": [
+   360.5899963378906,
+   580.6900024414062,
+   423.25351490693936,
+   602.6899617513021
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category6.comp3_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K37:L37",
+  "rect": [
+   467.8999938964844,
+   580.6900024414062,
+   530.5635555491727,
+   602.6899617513021
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category7.comp1_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E39:F39",
+  "rect": [
+   253.35799560546874,
+   615.5344746907552,
+   315.9735161276425,
+   637.2799784342448
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category7.comp2_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H39:I39",
+  "rect": [
+   360.5899963378906,
+   615.5344746907552,
+   423.25351490693936,
+   637.2799784342448
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category7.comp3_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K39:L39",
+  "rect": [
+   467.8999938964844,
+   615.5344746907552,
+   530.5635555491727,
+   637.2799784342448
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category8.comp1_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E41:F41",
+  "rect": [
+   253.35799560546874,
+   650.1200052897135,
+   315.9735161276425,
+   662.4799957275391
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category8.comp2_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H41:I41",
+  "rect": [
+   360.5899963378906,
+   650.1200052897135,
+   423.25351490693936,
+   662.4799957275391
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "category8.comp3_subtotal_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K41:L41",
+  "rect": [
+   467.8999938964844,
+   650.1200052897135,
+   530.5635555491727,
+   662.4799957275391
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "grand_total.comp1_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "E42:F42",
+  "rect": [
+   253.35799560546874,
+   662.4799957275391,
+   315.9735161276425,
+   675.0399780273438
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "grand_total.comp2_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "H42:I42",
+  "rect": [
+   360.5899963378906,
+   662.4799957275391,
+   423.25351490693936,
+   675.0399780273438
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ },
+ {
+  "field_id": "grand_total.comp3_pct",
+  "source_sheet": "表5-1區域因素明細表(住)",
+  "source_cell": "K42:L42",
+  "rect": [
+   467.8999938964844,
+   662.4799957275391,
+   530.5635555491727,
+   675.0399780273438
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed_no_unit",
+  "kind": "text"
+ }
+]

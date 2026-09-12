@@ -1,0 +1,3106 @@
+[
+ {
+  "text": "表5-2  影響地價區域因素分析明細表（商業用地）",
+  "bbox": [
+   63.96,
+   56.89,
+   336.84,
+   68.89
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 12.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "比較",
+  "bbox": [
+   262.01,
+   71.36,
+   277.25,
+   78.92
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "比較",
+  "bbox": [
+   353.59,
+   71.36,
+   368.83,
+   78.92
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "比較",
+  "bbox": [
+   445.18,
+   71.36,
+   460.42,
+   78.92
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "案號：1140901-99-001",
+  "bbox": [
+   63.36,
+   75.8,
+   139.99,
+   83.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_AFTER_FULLWIDTH_COLON",
+  "label_text": "案號：",
+  "value_text": "1140901-99-001",
+  "value_bbox": [
+   86.38,
+   75.8,
+   139.99,
+   83.36
+  ]
+ },
+ {
+  "text": "比準地",
+  "bbox": [
+   220.37,
+   75.8,
+   243.29,
+   83.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "實例編號",
+  "bbox": [
+   282.89,
+   76.28,
+   313.49,
+   83.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   330.19,
+   76.28,
+   333.97,
+   83.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "實例編號",
+  "bbox": [
+   374.47,
+   76.28,
+   405.07,
+   83.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "實例編號",
+  "bbox": [
+   466.06,
+   76.28,
+   496.66,
+   83.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "標的1",
+  "bbox": [
+   260.09,
+   81.2,
+   279.23,
+   88.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "標的2",
+  "bbox": [
+   351.67,
+   81.2,
+   370.81,
+   88.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "標的3",
+  "bbox": [
+   443.26,
+   81.2,
+   462.4,
+   88.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "地價區段號",
+  "bbox": [
+   114.74,
+   91.4,
+   153.02,
+   98.96
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "P002-00",
+  "bbox": [
+   218.45,
+   91.4,
+   245.27,
+   98.96
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "P002-00",
+  "bbox": [
+   290.09,
+   91.4,
+   316.91,
+   98.96
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "修正百分",
+  "bbox": [
+   316.75,
+   103.28,
+   347.35,
+   110.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "修正百分",
+  "bbox": [
+   408.31,
+   103.28,
+   438.91,
+   110.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "修正百分",
+  "bbox": [
+   499.9,
+   103.28,
+   530.5,
+   110.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "主要項目",
+  "bbox": [
+   64.68,
+   108.2,
+   95.28,
+   115.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "修正細項",
+  "bbox": [
+   136.58,
+   108.2,
+   167.18,
+   115.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "優劣等級",
+  "bbox": [
+   216.53,
+   108.2,
+   247.13,
+   115.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "優劣等級",
+  "bbox": [
+   271.01,
+   108.2,
+   301.61,
+   115.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "優劣等級",
+  "bbox": [
+   362.59,
+   108.2,
+   393.19,
+   115.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "優劣等級",
+  "bbox": [
+   454.18,
+   108.2,
+   484.78,
+   115.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "比",
+  "bbox": [
+   328.27,
+   113.12,
+   335.83,
+   120.68
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "比",
+  "bbox": [
+   419.83,
+   113.12,
+   427.39,
+   120.68
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "比",
+  "bbox": [
+   511.42,
+   113.12,
+   518.98,
+   120.68
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   125.17,
+   341.17,
+   134.17
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "都市計畫（內、外）",
+  "bbox": [
+   99.38,
+   125.72,
+   168.38,
+   133.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   125.72,
+   217.55,
+   133.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   125.72,
+   245.33,
+   133.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   125.72,
+   271.55,
+   133.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   125.72,
+   301.97,
+   133.28
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   136.93,
+   341.17,
+   145.93
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "使用分區(使用地類別)",
+  "bbox": [
+   99.38,
+   137.48,
+   176.06,
+   145.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   137.48,
+   217.55,
+   145.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   137.48,
+   245.33,
+   145.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   137.48,
+   271.55,
+   145.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   137.48,
+   301.97,
+   145.04
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   148.69,
+   341.17,
+   157.69
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "建蔽率",
+  "bbox": [
+   99.38,
+   149.24,
+   122.3,
+   156.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   149.24,
+   217.55,
+   156.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   149.24,
+   245.33,
+   156.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   149.24,
+   271.55,
+   156.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   149.24,
+   301.97,
+   156.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "土地使用",
+  "bbox": [
+   64.68,
+   159.8,
+   95.28,
+   167.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   160.45,
+   341.17,
+   169.45
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "容積率",
+  "bbox": [
+   99.38,
+   161.0,
+   122.3,
+   168.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   161.0,
+   217.55,
+   168.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   161.0,
+   245.33,
+   168.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   161.0,
+   271.55,
+   168.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   161.0,
+   301.97,
+   168.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "管制(1)",
+  "bbox": [
+   66.6,
+   169.64,
+   93.39,
+   177.2
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   172.24,
+   341.17,
+   181.24
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "有無禁止建築",
+  "bbox": [
+   99.38,
+   172.79,
+   145.34,
+   180.35
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   172.79,
+   217.55,
+   180.35
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "無",
+  "bbox": [
+   237.77,
+   172.79,
+   245.33,
+   180.35
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   172.79,
+   271.55,
+   180.35
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "無",
+  "bbox": [
+   294.41,
+   172.79,
+   301.97,
+   180.35
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "有無限制建築（整體開發、面",
+  "bbox": [
+   99.38,
+   183.83,
+   199.1,
+   191.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   188.2,
+   341.17,
+   197.2
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   188.75,
+   217.55,
+   196.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "無",
+  "bbox": [
+   237.77,
+   188.75,
+   245.33,
+   196.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   188.75,
+   271.55,
+   196.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "無",
+  "bbox": [
+   294.41,
+   188.75,
+   301.97,
+   196.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "積限制、高度限制……等）",
+  "bbox": [
+   99.38,
+   193.67,
+   191.42,
+   201.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   203.68,
+   313.31,
+   212.68
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   204.16,
+   325.51,
+   213.16
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百分比小計",
+  "bbox": [
+   99.38,
+   204.23,
+   137.66,
+   211.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   215.92,
+   341.17,
+   224.92
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "主要道路寬度",
+  "bbox": [
+   99.38,
+   216.47,
+   145.34,
+   224.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   213.77,
+   216.47,
+   217.55,
+   224.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "普通",
+  "bbox": [
+   233.93,
+   216.47,
+   249.17,
+   224.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   267.77,
+   216.47,
+   271.55,
+   224.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "普通",
+  "bbox": [
+   290.57,
+   216.47,
+   305.81,
+   224.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   227.68,
+   341.17,
+   236.68
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "區段內道路平均寬度",
+  "bbox": [
+   99.38,
+   228.23,
+   168.38,
+   235.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   213.77,
+   228.23,
+   217.55,
+   235.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "普通",
+  "bbox": [
+   233.93,
+   228.23,
+   249.17,
+   235.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   267.77,
+   228.23,
+   271.55,
+   235.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "普通",
+  "bbox": [
+   290.57,
+   228.23,
+   305.81,
+   235.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   239.44,
+   341.17,
+   248.44
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "接近大型車站之程度",
+  "bbox": [
+   99.38,
+   239.99,
+   168.38,
+   247.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   239.99,
+   217.55,
+   247.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   239.99,
+   245.33,
+   247.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   239.99,
+   271.55,
+   247.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   239.99,
+   301.97,
+   247.55
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "交通運輸",
+  "bbox": [
+   64.68,
+   250.55,
+   95.28,
+   258.11
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   251.2,
+   341.17,
+   260.2
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "站牌之接近程度或密集程度",
+  "bbox": [
+   99.38,
+   251.75,
+   191.42,
+   259.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   251.75,
+   217.55,
+   259.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   251.75,
+   245.33,
+   259.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   251.75,
+   271.55,
+   259.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   251.75,
+   301.97,
+   259.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "(2)",
+  "bbox": [
+   74.28,
+   260.39,
+   85.74,
+   267.95
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "交流道之有無及接近交流道之",
+  "bbox": [
+   99.38,
+   262.79,
+   199.1,
+   270.35
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   267.16,
+   341.17,
+   276.16
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   213.77,
+   267.71,
+   217.55,
+   275.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   237.77,
+   267.71,
+   245.33,
+   275.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   267.77,
+   267.71,
+   271.55,
+   275.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   294.41,
+   267.71,
+   301.97,
+   275.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "程度",
+  "bbox": [
+   99.38,
+   272.63,
+   114.62,
+   280.19
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   283.12,
+   341.17,
+   292.12
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "區段內道路規劃及闢建程度",
+  "bbox": [
+   99.38,
+   283.67,
+   191.42,
+   291.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   283.67,
+   217.55,
+   291.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   283.67,
+   245.33,
+   291.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   283.67,
+   271.55,
+   291.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   283.67,
+   301.97,
+   291.23
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   294.4,
+   313.31,
+   303.4
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   294.88,
+   325.51,
+   303.88
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百分比小計",
+  "bbox": [
+   99.38,
+   294.95,
+   137.66,
+   302.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   306.64,
+   341.17,
+   315.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "排水之良否",
+  "bbox": [
+   99.38,
+   307.19,
+   137.66,
+   314.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   213.77,
+   307.19,
+   217.55,
+   314.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "稍優",
+  "bbox": [
+   233.93,
+   307.19,
+   249.17,
+   314.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   267.77,
+   307.19,
+   271.55,
+   314.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "稍優",
+  "bbox": [
+   290.57,
+   307.19,
+   305.81,
+   314.75
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "自然條件",
+  "bbox": [
+   64.68,
+   313.55,
+   95.28,
+   321.11
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   318.4,
+   341.17,
+   327.4
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "地勢",
+  "bbox": [
+   99.38,
+   318.95,
+   114.62,
+   326.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   318.95,
+   217.55,
+   326.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   318.95,
+   245.33,
+   326.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   318.95,
+   271.55,
+   326.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   318.95,
+   301.97,
+   326.51
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "(3)",
+  "bbox": [
+   74.28,
+   323.39,
+   85.74,
+   330.95
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   329.68,
+   313.31,
+   338.68
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   330.16,
+   325.51,
+   339.16
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百分比小計",
+  "bbox": [
+   99.38,
+   330.23,
+   137.66,
+   337.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "接近市場之程度（傳統市場、",
+  "bbox": [
+   99.38,
+   341.77,
+   199.1,
+   349.33
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   346.14,
+   341.17,
+   355.14
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   346.69,
+   217.55,
+   354.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   346.69,
+   245.33,
+   354.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   346.69,
+   271.55,
+   354.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   346.69,
+   301.97,
+   354.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "超級市場、超大型購物中心）",
+  "bbox": [
+   99.38,
+   351.61,
+   199.1,
+   359.17
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "接近公園（里鄰公園、一般公",
+  "bbox": [
+   99.38,
+   361.93,
+   199.1,
+   369.49
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   366.3,
+   341.17,
+   375.3
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   366.85,
+   217.55,
+   374.41
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   366.85,
+   245.33,
+   374.41
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   366.85,
+   271.55,
+   374.41
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   366.85,
+   301.97,
+   374.41
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "公共建設",
+  "bbox": [
+   64.68,
+   369.01,
+   95.28,
+   376.57
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "園）、廣場、徒步區之程度",
+  "bbox": [
+   99.38,
+   371.77,
+   191.42,
+   379.33
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "(4)",
+  "bbox": [
+   74.28,
+   378.85,
+   85.74,
+   386.41
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   382.26,
+   341.17,
+   391.26
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "接近觀光遊憩設施之程度",
+  "bbox": [
+   99.38,
+   382.81,
+   183.74,
+   390.37
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   382.81,
+   217.55,
+   390.37
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   382.81,
+   245.33,
+   390.37
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   382.81,
+   271.55,
+   390.37
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   382.81,
+   301.97,
+   390.37
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   394.02,
+   341.17,
+   403.02
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "停車場地之便利程度",
+  "bbox": [
+   99.38,
+   394.57,
+   168.38,
+   402.13
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   213.77,
+   394.57,
+   217.55,
+   402.13
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "稍優",
+  "bbox": [
+   233.93,
+   394.57,
+   249.17,
+   402.13
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   267.77,
+   394.57,
+   271.55,
+   402.13
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "稍優",
+  "bbox": [
+   290.57,
+   394.57,
+   305.81,
+   402.13
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   405.3,
+   313.31,
+   414.3
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   405.78,
+   325.51,
+   414.78
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百分比小計",
+  "bbox": [
+   99.38,
+   405.85,
+   137.66,
+   413.41
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "電業設施及公用氣體燃料設施",
+  "bbox": [
+   99.38,
+   417.37,
+   199.1,
+   424.93
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   421.74,
+   341.17,
+   430.74
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   213.77,
+   422.29,
+   217.55,
+   429.85
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   237.77,
+   422.29,
+   245.33,
+   429.85
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   267.77,
+   422.29,
+   271.55,
+   429.85
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   294.41,
+   422.29,
+   301.97,
+   429.85
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "之有無及接近程度",
+  "bbox": [
+   99.38,
+   427.21,
+   160.7,
+   434.77
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   437.7,
+   341.17,
+   446.7
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "殯葬設施之有無及接近程度",
+  "bbox": [
+   99.38,
+   438.25,
+   191.42,
+   445.81
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   213.77,
+   438.25,
+   217.55,
+   445.81
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   237.77,
+   438.25,
+   245.33,
+   445.81
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   267.77,
+   438.25,
+   271.55,
+   445.81
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   294.41,
+   438.25,
+   301.97,
+   445.81
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "特殊設施",
+  "bbox": [
+   64.68,
+   438.73,
+   95.28,
+   446.29
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "(5)",
+  "bbox": [
+   74.28,
+   448.57,
+   85.74,
+   456.13
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "廢棄物處理設施之有無及接近",
+  "bbox": [
+   99.38,
+   449.29,
+   199.1,
+   456.85
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   453.66,
+   341.17,
+   462.66
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   454.21,
+   217.55,
+   461.77
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   454.21,
+   245.33,
+   461.77
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   454.21,
+   271.55,
+   461.77
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   454.21,
+   301.97,
+   461.77
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "程度",
+  "bbox": [
+   99.38,
+   459.13,
+   114.62,
+   466.69
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   469.14,
+   313.31,
+   478.14
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   469.62,
+   325.51,
+   478.62
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百分比小計",
+  "bbox": [
+   99.38,
+   469.69,
+   137.66,
+   477.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "水污染、噪音污染、廢氣污",
+  "bbox": [
+   99.38,
+   481.57,
+   191.42,
+   489.13
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   490.86,
+   341.17,
+   499.86
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "染、廢棄物污染等之有無及接",
+  "bbox": [
+   99.38,
+   491.41,
+   199.1,
+   498.97
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   491.41,
+   217.55,
+   498.97
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   491.41,
+   245.33,
+   498.97
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   491.41,
+   271.55,
+   498.97
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   491.41,
+   301.97,
+   498.97
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "環境污染",
+  "bbox": [
+   64.68,
+   491.89,
+   95.28,
+   499.45
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "近程度",
+  "bbox": [
+   99.38,
+   501.28,
+   122.3,
+   508.84
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "(6)",
+  "bbox": [
+   74.28,
+   501.76,
+   85.74,
+   509.32
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   511.77,
+   313.31,
+   520.77
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   512.25,
+   325.51,
+   521.25
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百分比小計",
+  "bbox": [
+   99.38,
+   512.8,
+   137.66,
+   520.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百貨公司之有無、數量、接近",
+  "bbox": [
+   99.38,
+   523.84,
+   199.1,
+   531.4
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   528.21,
+   341.17,
+   537.21
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   213.77,
+   528.76,
+   217.55,
+   536.32
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   237.77,
+   528.76,
+   245.33,
+   536.32
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   267.77,
+   528.76,
+   271.55,
+   536.32
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   294.41,
+   528.76,
+   301.97,
+   536.32
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "程度",
+  "bbox": [
+   99.38,
+   533.68,
+   114.62,
+   541.24
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "金融機構之有無、數量、接近",
+  "bbox": [
+   99.38,
+   544.0,
+   199.1,
+   551.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   548.37,
+   341.17,
+   557.37
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   213.77,
+   548.92,
+   217.55,
+   556.48
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "稍優",
+  "bbox": [
+   233.93,
+   548.92,
+   249.17,
+   556.48
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "2",
+  "bbox": [
+   267.77,
+   548.92,
+   271.55,
+   556.48
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "稍優",
+  "bbox": [
+   290.57,
+   548.92,
+   305.81,
+   556.48
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "程度",
+  "bbox": [
+   99.38,
+   553.84,
+   114.62,
+   561.4
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "娛樂設施之有無、數量、接近",
+  "bbox": [
+   99.38,
+   564.16,
+   199.1,
+   571.72
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "工商活動",
+  "bbox": [
+   64.68,
+   566.32,
+   95.28,
+   573.88
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   568.53,
+   341.17,
+   577.53
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   213.77,
+   569.08,
+   217.55,
+   576.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   237.77,
+   569.08,
+   245.33,
+   576.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "5",
+  "bbox": [
+   267.77,
+   569.08,
+   271.55,
+   576.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "劣",
+  "bbox": [
+   294.41,
+   569.08,
+   301.97,
+   576.64
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "程度",
+  "bbox": [
+   99.38,
+   574.0,
+   114.62,
+   581.56
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "(7)",
+  "bbox": [
+   74.28,
+   576.16,
+   85.74,
+   583.72
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "大型展示中心或觀光飯店之有",
+  "bbox": [
+   99.38,
+   584.32,
+   199.1,
+   591.88
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   588.69,
+   341.17,
+   597.69
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   213.77,
+   589.24,
+   217.55,
+   596.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "普通",
+  "bbox": [
+   233.93,
+   589.24,
+   249.17,
+   596.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "3",
+  "bbox": [
+   267.77,
+   589.24,
+   271.55,
+   596.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "普通",
+  "bbox": [
+   290.57,
+   589.24,
+   305.81,
+   596.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "無、數量、接近程度",
+  "bbox": [
+   99.38,
+   594.16,
+   168.38,
+   601.72
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   604.65,
+   341.17,
+   613.65
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "顧客通行量之多寡",
+  "bbox": [
+   99.38,
+   605.2,
+   160.7,
+   612.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   605.2,
+   217.55,
+   612.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   605.2,
+   245.33,
+   612.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   605.2,
+   271.55,
+   612.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   605.2,
+   301.97,
+   612.76
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   322.99,
+   616.41,
+   341.17,
+   625.41
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "店舖之毗連狀態",
+  "bbox": [
+   99.38,
+   616.96,
+   153.02,
+   624.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   213.77,
+   616.96,
+   217.55,
+   624.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   237.77,
+   616.96,
+   245.33,
+   624.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "1",
+  "bbox": [
+   267.77,
+   616.96,
+   271.55,
+   624.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "優",
+  "bbox": [
+   294.41,
+   616.96,
+   301.97,
+   624.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   627.69,
+   313.31,
+   636.69
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   628.17,
+   325.51,
+   637.17
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百分比小計",
+  "bbox": [
+   99.38,
+   628.24,
+   137.66,
+   635.8
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "其他影響",
+  "bbox": [
+   64.68,
+   640.96,
+   95.28,
+   648.52
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "因素(8)",
+  "bbox": [
+   66.6,
+   650.8,
+   93.39,
+   658.36
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   651.21,
+   313.31,
+   660.21
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   651.69,
+   325.51,
+   660.69
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "百分比小計",
+  "bbox": [
+   99.38,
+   651.76,
+   137.66,
+   659.32
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "影響地價",
+  "bbox": [
+   64.68,
+   664.98,
+   95.28,
+   672.54
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "0.00",
+  "bbox": [
+   295.13,
+   673.79,
+   313.31,
+   682.79
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "VALUE_STANDALONE"
+ },
+ {
+  "text": "％",
+  "bbox": [
+   316.51,
+   674.27,
+   325.51,
+   683.27
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "=(1)+(2)+(3)+(4)+(5)+(6)+(7)+(8)",
+  "bbox": [
+   99.38,
+   674.34,
+   222.2,
+   681.9
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "區域因素",
+  "bbox": [
+   64.68,
+   674.82,
+   95.28,
+   682.38
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "總修正數",
+  "bbox": [
+   64.68,
+   684.66,
+   95.28,
+   692.22
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 7.56,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "比準地或各比較標的",
+  "bbox": [
+   111.26,
+   705.95,
+   193.22,
+   714.95
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "備註欄",
+  "bbox": [
+   66.72,
+   716.03,
+   93.96,
+   725.03
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "全案",
+  "bbox": [
+   143.18,
+   731.39,
+   161.3,
+   740.39
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ },
+ {
+  "text": "不動產估價師：",
+  "bbox": [
+   408.07,
+   760.31,
+   471.79,
+   769.31
+  ],
+  "font": "DFKaiShu-SB-Estd-BF",
+  "size": 9.0,
+  "classification": "STATIC_LABEL"
+ }
+]

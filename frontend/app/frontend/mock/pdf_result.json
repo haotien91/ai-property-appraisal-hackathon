@@ -1,0 +1,14 @@
+{
+  "case_no": "1140901-99-001",
+  "generated_at": "2026-09-12T22:54:20.278931",
+  "forms": {
+    "official_form": {
+      "pdf_url": "frontend/mock/pdf/shulin_official_six_page_v1.pdf",
+      "title": "官方六頁式查估書表（表3x4+表5-1+表4）"
+    }
+  },
+  "pdf_url": "frontend/mock/pdf/shulin_official_six_page_v1.pdf",
+  "official_pdf_url": "frontend/mock/pdf/shulin_official_six_page_v1.pdf",
+  "official_pdf_status": "READY",
+  "official_pdf_page_count": 6
+}

@@ -1,0 +1,3 @@
+rule_id_prefix,grade,grade_code,grade_label,lower_bound,upper_bound,lower_inclusive,upper_inclusive,anomaly_flag
+REG-ZONING_INSIDE_OUTSIDE,優,1,都市計畫內,,,,,
+REG-ZONING_INSIDE_OUTSIDE,劣,5,都市計畫外,,,,,
