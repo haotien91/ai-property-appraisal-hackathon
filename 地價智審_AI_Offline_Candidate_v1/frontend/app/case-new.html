@@ -17,7 +17,7 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css?v=20260912-spacing-4" rel="stylesheet">
+    <link href="css/style.css?v=20260912-brand-6" rel="stylesheet">
 
     <style>
         .case-create-grid {
@@ -253,6 +253,66 @@
                 width: 100%;
             }
         }
+        /* Compact desktop workspace: keep both steps and the action in view. */
+        @media (min-width: 992px) {
+            body.case-create-page .app-shell {
+                padding: 14px 0 28px;
+                height: calc(100dvh - 76px);
+                display: flex;
+            }
+            .case-create-page .app-shell > .container { display: flex; flex-direction: column; min-height: 0; }
+            #newCaseForm { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+            .case-create-grid { flex: 1; min-height: 0; }
+            .case-panel { display: flex; flex-direction: column; min-height: 0; }
+            .case-panel > .row { flex: 1; align-content: space-between; }
+            .case-panel .upload-box { flex: 1; }
+            .case-panel #segmentScope { height: clamp(64px, 13dvh, 150px); }
+            body.case-create-page:has(.app-navbar.position-fixed) .app-shell {
+                padding-top: 90px;
+            }
+            .case-create-page .app-stepper {
+                margin-bottom: 14px;
+                padding-bottom: 10px;
+            }
+            .case-create-grid { gap: 16px; }
+            .case-panel { padding: clamp(16px, 2.4dvh, 26px) 20px; }
+            .panel-kicker { font-size: .72rem; margin-bottom: 4px; }
+            .panel-title { font-size: 1.05rem; margin-bottom: 6px; }
+            .case-panel .section-text { font-size: .82rem; line-height: 1.5; margin-bottom: 10px; }
+            .upload-box { min-height: 76px; margin-top: 10px; padding: 12px 50px 12px 14px; gap: 12px; }
+            .upload-icon { flex-basis: 36px; width: 36px; height: 36px; font-size: 1rem; }
+            .upload-copy strong { font-size: .9rem; margin-bottom: 2px; }
+            .upload-copy span { font-size: .78rem; }
+            .flow-hint { margin-top: 10px; gap: 8px; }
+            .flow-hint-item { padding: 8px 4px; font-size: .76rem; }
+            #mockNotice { padding: 8px 10px; margin-top: 10px !important; font-size: .76rem; line-height: 1.5; }
+            .extraction-status { min-height: 32px; padding: 6px 10px; margin-bottom: 10px; font-size: .8rem; }
+            .case-panel .row { --bs-gutter-x: 12px; --bs-gutter-y: 8px; }
+            .case-panel .form-label { font-size: .82rem; margin-bottom: 4px; }
+            .case-panel .form-control { font-size: .82rem; padding: 6px 10px; }
+            #segmentScope { height: 64px; min-height: 64px; }
+            .case-submit-wrap { margin-top: 12px; }
+            .case-submit-wrap .btn { min-width: 0; padding: 7px 14px; font-size: .8rem; }
+            #createResult:empty { display: none; }
+        }
+        .upload-copy .appraisal-file-list { max-height: 90px; overflow-y: auto; pointer-events: auto; }
+        .upload-copy .appraisal-file-row { display: flex; align-items: center; gap: 8px; padding-top: 4px; }
+        .appraisal-file-row > span { flex: 1; min-width: 0; }
+        .appraisal-file-row button { flex-shrink: 0; border: 1px solid var(--ai-border); border-radius: 5px; background: #151517; color: #fff; width: 28px; height: 28px; font-size: 20px; line-height: 1; }
+        .appraisal-file-row button:hover, .appraisal-file-row button:focus-visible { border-color: #35c46a; outline: 1px solid #35c46a; }
+        .selected-files { margin-top: 12px; padding: 12px; border: 1px solid var(--ai-border); border-radius: 8px; background: #151517; }
+        .selected-files-heading { display: flex; justify-content: space-between; color: #efeff0; font-size: .85rem; font-weight: 600; margin-bottom: 8px; }
+        .selected-files-heading span, .selected-files-empty { color: var(--ai-muted); font-size: .78rem; }
+        .selected-files-empty { margin: 0; }
+        .selected-files .appraisal-file-list { overflow-y: auto; max-height: 150px; overscroll-behavior: contain; }
+        .selected-files .appraisal-file-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; color: #dce5de; font-size: .8rem; }
+        .selected-files .appraisal-file-row > span { overflow-wrap: anywhere; }
+        @media (min-width: 992px) {
+            .case-panel .upload-box { flex: 1 0 76px; }
+            .selected-files { flex: 0 0 124px; height: 124px; min-height: 0; display: flex; flex-direction: column; }
+            .selected-files-heading { flex-shrink: 0; }
+            .selected-files .appraisal-file-list { flex: 1; min-height: 0; max-height: 76px; overflow-y: auto; scrollbar-gutter: stable; }
+        }
     </style>
 
     <script src="js/config.js"></script>
@@ -260,11 +320,11 @@
     <script src="js/case-context.js"></script>
 </head>
 
-<body>
+<body class="case-create-page">
     <div class="container-fluid p-0">
         <nav class="navbar navbar-dark app-navbar" aria-label="網站標誌">
             <a href="index.html" class="navbar-brand">
-                <h2 class="mb-0 text-primary"><i class="fa-solid fa-landmark me-2" aria-hidden="true"></i>地價智審 AI</h2>
+                <i class="fa-solid fa-landmark" aria-hidden="true"></i><span>地價智審 <b>AI</b></span>
             </a>
         </nav>
     </div>
@@ -272,29 +332,29 @@
     <section class="app-shell">
         <div class="container">
             <div class="app-stepper">
-                <a href="case-new.html?ui=20260912-5" class="active" data-preserve-case><span class="step-num">1</span>建立案件</a>
-                <a href="pdf-preview.html?ui=20260912-5" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
-                <a href="result.html?ui=20260912-5" data-preserve-case><span class="step-num">3</span>案件結果</a>
+                <a href="case-new.html?ui=file-list-13" class="active" data-preserve-case><span class="step-num">1</span>建立案件</a>
+                <a href="pdf-preview.html?ui=workspace-10" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="result.html?ui=20260912-6" data-preserve-case><span class="step-num">3</span>案件結果</a>
             </div>
 
-            <h2 class="section-title" style="font-size:1.8rem;">建立案件</h2>
-            <p class="section-text mb-4">上傳比賽方提供的查估書表與評價基準明細表。系統擷取案件基本資料後，確認即可送往後端完成後續計算與產表。</p>
+
 
             <form id="newCaseForm">
                 <div class="case-create-grid">
                     <section class="case-panel">
                         <div class="panel-kicker">Step 1 · Documents</div>
-                        <h3 class="panel-title">上傳比賽文件</h3>
-                        <p class="section-text mb-0">請上傳同一案件對應的兩份 PDF。正式版將由後端文件理解流程擷取欄位與評價規則。</p>
+                        <h3 class="panel-title">上傳文件</h3>
+                        <p class="section-text mb-0">請選取同一案件的 1 份以上查估書表 PDF，以及 1 份評價基準明細表。正式版將由後端文件理解流程擷取欄位與評價規則。</p>
 
                         <label class="upload-box" id="appraisalUploadBox">
                             <span class="upload-icon"><i class="fa-solid fa-file-pdf"></i></span>
                             <span class="upload-copy">
                                 <strong>查估書表</strong>
-                                <span id="appraisalFileName">點擊或拖曳上傳 PDF</span>
+                                <span id="appraisalFileName">點擊或拖曳加入 PDF（可多選／分次加入）</span>
+
                             </span>
-                            <input id="appraisalFile" name="appraisal_file" type="file" accept="application/pdf,.pdf" required>
-                            <button type="button" class="upload-clear" id="clearAppraisalFile" aria-label="移除查估書表" title="移除並重新選擇">
+                            <input id="appraisalFile" name="appraisal_file" multiple type="file" accept="application/pdf,.pdf" required>
+                            <button type="button" class="upload-clear" id="clearAppraisalFile" aria-label="移除全部查估書表" title="移除全部查估書表">
                                 <span aria-hidden="true">×</span>
                             </button>
                         </label>
@@ -311,15 +371,10 @@
                             </button>
                         </label>
 
-                        <div class="flow-hint">
-                            <div class="flow-hint-item"><i class="fa-solid fa-file-import"></i>文件擷取</div>
-                            <div class="flow-hint-item"><i class="fa-solid fa-gears"></i>規則與計算</div>
-                            <div class="flow-hint-item"><i class="fa-solid fa-file-circle-check"></i>產出三張表</div>
-                        </div>
-
-                        <div class="alert alert-warning mt-3 mb-0" style="background:rgba(255,176,32,.1);border-color:rgba(255,176,32,.3);color:#ffb020;display:none;" id="mockNotice">
-                            <i class="fa-solid fa-circle-info me-2"></i>目前為 Mock Mode：上傳後會以 Golden Case 模擬文件擷取與後續分析，尚未真的把 PDF 傳給後端。
-                        </div>
+                        <section class="selected-files" aria-label="已選取的查估書表">
+                            <div class="selected-files-heading">已選取檔案 <span id="appraisalCount">0 份</span></div>
+                            <div id="appraisalFileList" class="appraisal-file-list" aria-live="polite"><p class="selected-files-empty">尚未選取查估書表，可多選或分次加入。</p></div>
+                        </section>
                     </section>
 
                     <section class="case-panel">
@@ -329,7 +384,7 @@
 
                         <div id="extractionStatus" class="extraction-status">
                             <i class="fa-solid fa-circle-info"></i>
-                            <span>等待上傳兩份文件</span>
+                            <span>請選取查估書表與評價基準明細表</span>
                         </div>
 
                         <div class="row g-3">
@@ -367,17 +422,6 @@
         </div>
     </section>
 
-    <footer class="container-fluid bg-dark text-light footer py-5">
-        <div class="container text-center py-4">
-            <a href="index.html" class="text-decoration-none">
-                <h2 class="footer-brand mb-3"><i class="fa-solid fa-landmark text-primary me-2"></i>地價智審 AI</h2>
-            </a>
-            <p class="footer-copy mb-2">2026 新北市 AI 智慧城市黑客松｜AI 輔助不動產估價案件審查</p>
-            <p class="footer-copy mb-3">AI 文件理解 × 評價規則引擎 × 數值重算 × 跨表勾稽 × 人工覆核</p>
-        </div>
-    </footer>
-
-    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -393,24 +437,61 @@
         const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
         document.getElementById('modeIndicator').textContent = mode;
         CaseContext.applyCaseQueryToLinks();
-        if (mode === 'mock') document.getElementById('mockNotice').style.display = 'block';
+
 
         const appraisalFile = document.getElementById('appraisalFile');
         const criteriaFile = document.getElementById('criteriaFile');
         const submitBtn = document.getElementById('submitCaseBtn');
         const extractionStatus = document.getElementById('extractionStatus');
         let extractionVersion = 0;
+        let selectedAppraisals = [];
 
         function setUploadState(input, boxId, fileNameId) {
             const box = document.getElementById(boxId);
             const name = document.getElementById(fileNameId);
             if (input.files && input.files[0]) {
                 box.classList.add('has-file');
-                name.textContent = '✓ 已選取：' + input.files[0].name;
+                name.textContent = input.multiple ? '✓ 已選取 ' + input.files.length + ' 份查估書表（點擊可繼續加入）' : '✓ 已選取：' + input.files[0].name;
             } else {
                 box.classList.remove('has-file');
-                name.textContent = '點擊或拖曳上傳 PDF';
+                name.textContent = input.multiple ? '點擊或拖曳加入 PDF（可多選／分次加入）' : '點擊或拖曳上傳 PDF';
             }
+        }
+
+        function renderAppraisalFiles() {
+            const list = document.getElementById('appraisalFileList');
+            list.replaceChildren();
+            document.getElementById('appraisalCount').textContent = appraisalFile.files.length + ' 份';
+            if (!appraisalFile.files.length) {
+                const empty = document.createElement('p');
+                empty.className = 'selected-files-empty';
+                empty.textContent = '尚未選取查估書表，可多選或分次加入。';
+                list.append(empty);
+            }
+            Array.from(appraisalFile.files).forEach((file, index) => {
+                const row = document.createElement('span');
+                row.className = 'appraisal-file-row';
+                const name = document.createElement('span');
+                name.textContent = file.name;
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.textContent = '×';
+                remove.setAttribute('aria-label', '移除 ' + file.name);
+                remove.addEventListener('click', event => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const remaining = new DataTransfer();
+                    Array.from(appraisalFile.files).forEach((item, i) => {
+                        if (i !== index) remaining.items.add(item);
+                    });
+                    appraisalFile.files = remaining.files;
+                    selectedAppraisals = Array.from(remaining.files);
+                    extractWhenReady();
+                    appraisalFile.focus();
+                });
+                row.append(name, remove);
+                list.append(row);
+            });
         }
 
         function applyExtractedMetadata(data) {
@@ -428,6 +509,7 @@
             const version = ++extractionVersion;
             setUploadState(appraisalFile, 'appraisalUploadBox', 'appraisalFileName');
             setUploadState(criteriaFile, 'criteriaUploadBox', 'criteriaFileName');
+            renderAppraisalFiles();
             ['caseNo', 'segmentCode', 'district', 'landUseType', 'segmentScope'].forEach(id => {
                 document.getElementById(id).value = '';
             });
@@ -435,7 +517,7 @@
 
             if (!(appraisalFile.files[0] && criteriaFile.files[0])) {
                 extractionStatus.className = 'extraction-status';
-                extractionStatus.innerHTML = '<i class="fa-solid fa-circle-info"></i><span>等待上傳兩份文件</span>';
+                extractionStatus.innerHTML = '<i class="fa-solid fa-circle-info"></i><span>請選取查估書表與評價基準明細表</span>';
                 submitBtn.disabled = true;
                 return;
             }
@@ -446,7 +528,7 @@
 
             try {
                 if (typeof Api.extractCaseMetadata === 'function') {
-                    const extracted = await Api.extractCaseMetadata(appraisalFile.files[0], criteriaFile.files[0]);
+                    const extracted = await Api.extractCaseMetadata(Array.from(appraisalFile.files), criteriaFile.files[0]);
                     if (version !== extractionVersion) return;
                     applyExtractedMetadata(extracted);
                     return;
@@ -478,12 +560,23 @@
             event.preventDefault();
             event.stopPropagation();
             input.value = '';
+            if (input === appraisalFile) selectedAppraisals = [];
             setUploadState(input, boxId, fileNameId);
             extractWhenReady();
             input.focus();
         }
 
-        appraisalFile.addEventListener('change', extractWhenReady);
+        appraisalFile.addEventListener('change', () => {
+            const combined = new DataTransfer();
+            const seen = new Set();
+            [...selectedAppraisals, ...Array.from(appraisalFile.files)].forEach(file => {
+                const key = JSON.stringify([file.name, file.size, file.lastModified]);
+                if (!seen.has(key)) { combined.items.add(file); seen.add(key); }
+            });
+            appraisalFile.files = combined.files;
+            selectedAppraisals = Array.from(combined.files);
+            extractWhenReady();
+        });
         criteriaFile.addEventListener('change', extractWhenReady);
 
         document.getElementById('clearAppraisalFile').addEventListener('click', (event) => {
@@ -512,7 +605,7 @@
             try {
                 let created;
                 if (typeof Api.createCaseWithDocuments === 'function') {
-                    created = await Api.createCaseWithDocuments(payload, appraisalFile.files[0], criteriaFile.files[0]);
+                    created = await Api.createCaseWithDocuments(payload, Array.from(appraisalFile.files), criteriaFile.files[0]);
                 } else {
                     created = await Api.createCase(payload);
                 }

@@ -453,11 +453,35 @@
 
         .app-navbar {
             justify-content: center;
+            height: 76px;
             padding: 16px 20px;
+            background: #151517;
+            border-bottom-color: #343437;
+        }
+
+        .app-navbar.position-fixed {
+            height: 60px;
+            background: #151517 !important;
         }
 
         .app-navbar .navbar-brand {
             margin: 0;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #efeff0;
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .app-navbar .navbar-brand i,
+        .app-navbar .navbar-brand b {
+            color: #e41779;
+        }
+
+        @media (max-width: 1000px) {
+            .app-navbar .navbar-brand { font-size: 17px; }
         }
 
         .navbar-brand h2 {
@@ -916,7 +940,7 @@
 
         /* Reserve space for the centered header when it leaves normal flow. */
         body:has(.app-navbar.position-fixed) .app-shell {
-            padding-top: 116px;
+            padding-top: 112px;
         }
 
         .app-stepper {

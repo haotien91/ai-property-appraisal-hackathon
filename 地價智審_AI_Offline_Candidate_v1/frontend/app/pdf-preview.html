@@ -17,7 +17,7 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css?v=20260912-spacing-4" rel="stylesheet">
+    <link href="css/style.css?v=20260912-brand-6" rel="stylesheet">
 
     <style>
         .workspace-grid {
@@ -26,6 +26,28 @@
             gap: 18px;
             align-items: stretch;
         }
+/* 下載按鈕：綠色 outline 風格 */
+.download-row .btn-download {
+    color: #34d399;                      /* 綠色文字 */
+    background: rgba(52, 211, 153, .06); /* 極淡綠底,近乎透明 */
+    border: 1px solid rgba(52, 211, 153, .55); /* 綠色描邊 */
+    font-weight: 700;
+    transition: .18s ease;
+}
+
+.download-row .btn-download:hover {
+    color: #fff;
+    background: rgba(52, 211, 153, .16);
+    border-color: #34d399;
+}
+
+.download-row .btn-download:disabled,
+.download-row .btn-download[disabled] {
+    color: var(--ai-muted);
+    background: rgba(255,255,255,.025);
+    border-color: var(--ai-border);
+    opacity: .7;
+}
 
         .workspace-panel {
             min-width: 0;
@@ -240,6 +262,28 @@
                 width: 100%;
             }
         }
+        @media (min-width: 992px) {
+            body.pdf-workspace-page .app-shell { height: calc(100dvh - 76px); padding: 14px 0 28px; }
+            .pdf-workspace-page .app-shell > .container-fluid { height: 100%; display: flex; flex-direction: column; }
+            .pdf-workspace-page .app-stepper { flex-shrink: 0; margin-bottom: 14px; padding-bottom: 10px; }
+            #content { flex: 1; min-height: 0; }
+            #content:not([style*="display:none"]):not([style*="display: none"]) { display: flex !important; flex-direction: column; }
+            .workspace-grid { flex: 1; min-height: 0; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+            .workspace-panel { display: flex; flex-direction: column; min-height: 0; }
+            .workspace-header { padding: 10px 14px; flex-shrink: 0; }
+            .workspace-header .btn { padding: 7px 10px; font-size: .78rem; }
+            .workspace-subtitle { font-size: .76rem; }
+            .pdf-switcher, .download-row { padding: 8px; gap: 6px; flex-shrink: 0; }
+            .pdf-switch-btn { min-height: 36px; font-size: .74rem; padding: 5px; }
+            .download-row .btn { min-height: 32px; padding: 5px; font-size: .72rem; }
+            .pdf-viewer-frame { flex: 1; min-height: 0; height: 0; }
+            .chat-messages { min-height: 0; padding: 12px; overscroll-behavior: contain; }
+            .chat-context { padding: 7px 12px; flex-shrink: 0; }
+            .chat-input-wrap { padding: 10px 12px; flex-shrink: 0; }
+            .chat-note { padding: 0 12px 8px; font-size: .72rem; flex-shrink: 0; }
+            .page-actions { margin-top: 10px; flex-shrink: 0; }
+            .page-actions .btn { padding: 7px 14px; font-size: .8rem; }
+        }
     </style>
 
     <script src="js/config.js"></script>
@@ -247,11 +291,11 @@
     <script src="js/case-context.js"></script>
 </head>
 
-<body>
+<body class="pdf-workspace-page">
     <div class="container-fluid p-0">
         <nav class="navbar navbar-dark app-navbar" aria-label="網站標誌">
             <a href="index.html" class="navbar-brand">
-                <h2 class="mb-0 text-primary"><i class="fa-solid fa-landmark me-2" aria-hidden="true"></i>地價智審 AI</h2>
+                <i class="fa-solid fa-landmark" aria-hidden="true"></i><span>地價智審 <b>AI</b></span>
             </a>
         </nav>
     </div>
@@ -259,13 +303,10 @@
     <section class="app-shell">
         <div class="container-fluid px-3 px-lg-5">
             <div class="app-stepper">
-                <a href="case-new.html?ui=20260912-5" class="done" data-preserve-case><span class="step-num">1</span>建立案件</a>
-                <a href="pdf-preview.html?ui=20260912-5" class="active" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
-                <a href="result.html?ui=20260912-5" data-preserve-case><span class="step-num">3</span>案件結果</a>
+                <a href="case-new.html?ui=file-list-13" class="done" data-preserve-case><span class="step-num">1</span>建立案件</a>
+                <a href="pdf-preview.html?ui=workspace-10" class="active" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="result.html?ui=20260912-6" data-preserve-case><span class="step-num">3</span>案件結果</a>
             </div>
-
-            <h2 class="section-title" style="font-size:1.8rem;">PDF 預覽與 AI 問答</h2>
-            <p class="section-text mb-4">左側查看系統產出的三張核心書表；右側可針對目前案件、目前書表與計算結果提出問題。</p>
 
             <div id="loadingState" class="state-loading"><div class="spinner-border"></div></div>
 
@@ -313,7 +354,7 @@
                 </div>
 
                 <div class="page-actions">
-                    <a href="result.html?ui=20260912-5" class="btn btn-ai-primary" data-preserve-case>
+                    <a href="result.html?ui=20260912-6" class="btn btn-ai-primary" data-preserve-case>
                         查看案件結果 <i class="fa-solid fa-arrow-right ms-2"></i>
                     </a>
                 </div>
@@ -321,14 +362,6 @@
         </div>
     </section>
 
-    <footer class="container-fluid bg-dark text-light footer py-5">
-        <div class="container text-center py-4">
-            <a href="index.html" class="text-decoration-none">
-                <h2 class="footer-brand mb-3"><i class="fa-solid fa-landmark text-primary me-2"></i>地價智審 AI</h2>
-            </a>
-            <p class="footer-copy mb-2">2026 新北市 AI 智慧城市黑客松｜AI 輔助不動產估價案件審查</p>
-        </div>
-    </footer>
 
     <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
 
@@ -420,11 +453,12 @@
                 }).join('');
 
                 document.getElementById('downloadLinks').innerHTML = FORM_DEFS.map(def => {
-                    const f = forms[def.key];
-                    return f.url
-                        ? `<a href="${f.url}" target="_blank" rel="noopener" class="btn btn-ai-primary"><i class="fa-solid fa-download me-1"></i>${def.label}</a>`
-                        : `<button class="btn btn-ai-primary" disabled>${def.label}</button>`;
-                }).join('');
+    const f = forms[def.key];
+    return f.url
+        ? `<a href="${f.url}" target="_blank" rel="noopener" class="btn btn-download"><i class="fa-solid fa-download me-1"></i>${def.label}</a>`
+        : `<button class="btn btn-download" disabled>${def.label}</button>`;
+}).join('');
+
 
                 function selectForm(key) {
                     const form = forms[key];

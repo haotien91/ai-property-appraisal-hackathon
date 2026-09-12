@@ -6,9 +6,9 @@
   const root = document.getElementById('case-library');
   if (!root) return;
   const districts = window.NTPC_DISTRICTS || [];
-  const group = (id, section, landUse) => ({id, section, landUse, inputs:2});
+  const group = (id, section, landUse) => ({id, name:section, section, sections:[section], landUse, inputs:2});
   const demoCases = [
-    ['sl-01','樹林區','樹人街周邊住宅用地查估案','1110901-99-001',[group('01','P002-00','第一種住宅區'),group('02','P003-00','第一種住宅區'),group('03','P004-00','第一種住宅區'),group('04','P005-00','第一種住宅區')]],
+    ['sl-01','樹林區','樹人街周邊住宅用地查估案','1110901-99-001',[{...group('01','P002-00','普通住宅用地'),name:'住宅用地查估',sections:['P002-00','P003-00','P004-00','P001-00']}]],
     ['sl-02','樹林區','東榮街住宅用地查估案','1110901-99-002',[group('01','P003-00','第一種住宅區')]],
     ['sl-03','樹林區','啟智街捷運開發區查估案','1110901-99-003',[group('01','P005-00','捷運開發區'),group('02','P006-00','捷運開發區')]],
     ['sl-04','樹林區','鎮前街周邊查估案','1110901-99-004',[group('01','P004-00','第一種住宅區'),group('02','P004-01','第一種住宅區'),group('03','P004-02','第一種住宅區')]],
@@ -27,16 +27,32 @@
   const $=id=>document.getElementById(id);
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const count=d=>cases.filter(c=>c.district===d).length;
-  const sections=c=>c.groups.map(g=>g.section);
+  const sections=c=>c.groups.flatMap(g=>g.sections);
   $('cl-district-select').innerHTML='<option value="">選擇行政區</option>'+districts.map(d=>`<option value="${esc(d.name)}">${esc(d.name)}${count(d.name)?" · 有案件":""}</option>`).join('');
   $('cl-district-select').value=selected;
-  $('cl-map').innerHTML='<text x="218" y="205" class="cl-city-label">臺北市</text>'+districts.map(d=>`<path class="cl-district ${count(d.name)?'has-cases':''}" d="${d.path}" data-district="${d.name}" role="button" tabindex="0" aria-label="${d.name}，${count(d.name)?'有案件':'尚無案件'}" aria-pressed="false"><title>${d.name} · ${count(d.name)?'有案件':'尚無案件'}</title></path>`).join('')+districts.filter(d=>d.area>900).map(d=>`<text x="${d.x}" y="${d.y}" class="cl-map-label" data-label="${d.name}">${d.name.replace('區','')}</text>`).join('');
+  $('cl-map').innerHTML='<text x="218" y="205" class="cl-city-label">臺北市</text>'+districts.map(d=>`<path class="cl-district ${count(d.name)?'has-cases':''}" d="${d.path}" data-district="${d.name}" role="button" tabindex="0" aria-label="${d.name}，${count(d.name)?'有案件':'尚無案件'}" aria-pressed="false"><title>${d.name} · ${count(d.name)?'有案件':'尚無案件'}</title></path>`).join('')+districts.map(d=>`<text x="${d.x}" y="${d.y}" class="cl-map-label" data-label="${d.name}">${d.name.replace('區','')}</text>`).join('');
+  let shelfMotion=0;
+  function syncDivider(showShelf,wasOpen){
+    if(showShelf&&wasOpen)return;
+    const token=++shelfMotion;
+    $('cl-divider').hidden=true;
+    if(!showShelf)return;
+    requestAnimationFrame(async()=>{
+      const panels=[$('cl-map-panel'),$('cl-shelf-panel')];
+      // Flush styles so the transition list includes this entry, including its delay.
+      panels.forEach(panel=>getComputedStyle(panel).transform);
+      await Promise.allSettled(panels.flatMap(panel=>panel.getAnimations().map(animation=>animation.finished)));
+      if(token===shelfMotion&&root.classList.contains('has-shelf'))$('cl-divider').hidden=false;
+    });
+  }
   function render(){
     const searching=Boolean(query);
     const showShelf=Boolean(selected)||searching;
     $('cl-map-panel').hidden=false;
+    const wasOpen=root.classList.contains('has-shelf');
     root.classList.toggle('has-shelf',showShelf);
-    $('cl-divider').hidden=!showShelf;
+    $('cl-intro').setAttribute('aria-hidden',String(showShelf));
+    syncDivider(showShelf,wasOpen);
     $('cl-map-panel').inert=showShelf && window.matchMedia('(max-width: 760px)').matches;
     $('cl-shelf-panel').hidden=false;
     $('cl-shelf-panel').inert=!showShelf;
@@ -72,20 +88,22 @@
   $('cl-map').addEventListener('keydown',e=>{if(e.target.dataset.district && ['Enter',' '].includes(e.key)){e.preventDefault();choose(e.target.dataset.district);}});
   $('cl-district-select').addEventListener('change',e=>choose(e.target.value));
   $('cl-search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render();});
-  function openCase(id,button){active=cases.find(c=>c.id===id);opener=button;renderDetail();$('cl-dialog').showModal();}
+  function enterGroup(groupId){
+    if($('cl-dialog').open)$('cl-dialog').close();
+    window.GroupWorkspace.open(active,groupId,()=>{(root.querySelector(`[data-case="${active.id}"]`)||opener)?.focus({preventScroll:true});});
+  }
+  function openCase(id,button){active=cases.find(c=>c.id===id);opener=button;if(active.groups.length===1){enterGroup(active.groups[0].id);return;}renderDetail();$('cl-dialog').showModal();}
   function renderDetail(){
     const c=active;
     $('cl-detail-title').textContent=c.name;
     $('cl-detail-district').textContent=c.district+' / 案件卷宗';
     $('cl-detail-meta').innerHTML=`<dt>正式案號</dt><dd>${esc(c.number)}</dd>`;
     $('cl-group-count').textContent=`${c.groups.length} 組`;
-    $('cl-detail-groups').innerHTML=c.groups.map(g=>{
-      const outputs=['地價區段勘查表','比較法調查估價表','影響地價區域因素分析明細表'];
-      return `<details class="cl-group"><summary><span><b>${esc(g.name || g.section)}</b><small>${esc(g.landUse)}</small></span><span class="cl-group-summary"><i aria-hidden="true">⌄</i></span></summary><div class="cl-group-content"><p class="cl-group-date">估價基準日 · ${c.number.slice(0,3)} 年 09 月 01 日</p><h4>來源資料</h4><p class="cl-source-placeholder">已提供 2 份資料 · 示範未提供檔名</p><h4>產出書表</h4>${`<ul class="cl-output-list">${outputs.map(name=>`<li><span>${esc(name)}</span></li>`).join('')}</ul>`}</div></details>`;
-    }).join('');
+    $('cl-detail-groups').innerHTML=c.groups.map(g=>`<button type="button" class="gw-group-link" data-open-group="${esc(g.id)}"><span><b>${esc(g.name||g.section)}</b><small>${esc(g.landUse)}</small></span><span aria-hidden="true">→</span></button>`).join('');
     $('cl-rename-form').hidden=true;
     $('cl-title-area').hidden=false;
   }
+  $('cl-detail-groups').addEventListener('click',e=>{const button=e.target.closest('[data-open-group]');if(button)enterGroup(button.dataset.openGroup);});
   $('cl-close').addEventListener('click',()=>$('cl-dialog').close());
   $('cl-dialog').addEventListener('click',e=>{if(e.target===$('cl-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left)e.target.close();}});
   $('cl-dialog').addEventListener('close',()=>{const replacement=root.querySelector(`[data-case="${active?.id}"]`);(replacement||opener)?.focus();});
