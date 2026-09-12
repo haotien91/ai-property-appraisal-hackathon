@@ -73,7 +73,7 @@
 
 .navbar .navbar-nav .nav-link {
     margin-right: 25px;
-    padding: 40px 0;
+    padding: 20px 0;
     color: var(--bs-white);
     font-size: 17px;
     text-transform: uppercase;
@@ -101,7 +101,7 @@
 
 @media (min-width: 992px) {
     .navbar.bg-dark .navbar-nav .nav-link {
-        padding: 20px 0;
+        padding: 10px 0;
     }
 
     .navbar .nav-item .dropdown-menu {
@@ -439,9 +439,25 @@
 
         .navbar {
             position: relative;
+            padding-top: 12px;
+            padding-bottom: 12px;
             z-index: 1000;
             background: rgba(8, 8, 10, 0.96);
             border-bottom: 1px solid var(--ai-border);
+        }
+
+        .navbar.position-fixed {
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        .app-navbar {
+            justify-content: center;
+            padding: 16px 20px;
+        }
+
+        .app-navbar .navbar-brand {
+            margin: 0;
         }
 
         .navbar-brand h2 {
@@ -894,8 +910,18 @@
             padding-top: 200px;
         }
 
+        body:has(.app-navbar) .app-shell {
+            padding-top: 36px;
+        }
+
+        /* Reserve space for the centered header when it leaves normal flow. */
+        body:has(.app-navbar.position-fixed) .app-shell {
+            padding-top: 116px;
+        }
+
         .app-stepper {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 32px;
@@ -1126,4 +1152,3 @@
                 padding: 20px;
             }
         }
-    

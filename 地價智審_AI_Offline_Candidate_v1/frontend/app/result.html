@@ -17,7 +17,7 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css?v=20260912-spacing-4" rel="stylesheet">
 
     <style>
         .result-hero {
@@ -96,30 +96,19 @@
 
 <body>
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h2 class="mb-0 text-primary"><i class="fa-solid fa-landmark me-2"></i>地價智審 AI</h2>
+        <nav class="navbar navbar-dark app-navbar" aria-label="網站標誌">
+            <a href="index.html" class="navbar-brand">
+                <h2 class="mb-0 text-primary"><i class="fa-solid fa-landmark me-2" aria-hidden="true"></i>地價智審 AI</h2>
             </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link">首頁</a>
-                    <a href="case-new.html" class="nav-item nav-link">建立案件</a>
-                    <a href="pdf-preview.html" class="nav-item nav-link" data-preserve-case>PDF 預覽</a>
-                    <a href="result.html" class="nav-item nav-link active" data-preserve-case>案件結果</a>
-                </div>
-            </div>
         </nav>
     </div>
 
     <section class="app-shell">
         <div class="container">
             <div class="app-stepper">
-                <a href="case-new.html" class="done" data-preserve-case><span class="step-num">1</span>建立案件</a>
-                <a href="pdf-preview.html" class="done" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
-                <a href="result.html" class="active" data-preserve-case><span class="step-num">3</span>案件結果</a>
+                <a href="case-new.html?ui=20260912-5" class="done" data-preserve-case><span class="step-num">1</span>建立案件</a>
+                <a href="pdf-preview.html?ui=20260912-5" class="done" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="result.html?ui=20260912-5" class="active" data-preserve-case><span class="step-num">3</span>案件結果</a>
             </div>
 
             <h2 class="section-title" style="font-size:1.8rem;">案件結果</h2>
@@ -137,10 +126,10 @@
                 <div id="reviewSummary" class="summary-grid"></div>
 
                 <div class="result-actions">
-                    <a href="pdf-preview.html" class="btn btn-ai-primary" data-preserve-case>
+                    <a href="pdf-preview.html?ui=20260912-5" class="btn btn-ai-primary" data-preserve-case>
                         <i class="fa-solid fa-file-pdf me-2"></i>返回 PDF 與 AI 問答
                     </a>
-                    <a href="case-new.html" class="btn btn-ai-outline">
+                    <a href="case-new.html?ui=20260912-5" class="btn btn-ai-outline">
                         <i class="fa-solid fa-plus me-2"></i>建立新案件
                     </a>
                 </div>

@@ -17,7 +17,7 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css?v=20260912-spacing-4" rel="stylesheet">
 
     <style>
         .case-create-grid {
@@ -73,7 +73,8 @@
         .upload-box.has-file,
         .upload-box.has-file:hover {
             border-color: #35c46a;
-            background: rgba(53,196,106,.08);
+            border-style: solid;
+            background: rgba(53,196,106,.14);
             box-shadow: 0 0 0 1px rgba(53,196,106,.08) inset;
         }
 
@@ -159,6 +160,16 @@
             border-color: #ff4268;
             background: rgba(255,66,104,.18);
             transform: scale(1.04);
+        }
+
+        .upload-clear:focus-visible,
+        .upload-box:has(input:focus-visible) {
+            outline: 2px solid #35c46a;
+            outline-offset: 3px;
+        }
+
+        .upload-clear span {
+            font: 24px/1 sans-serif;
         }
 
         .extraction-status {
@@ -251,34 +262,19 @@
 
 <body>
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h2 class="mb-0 text-primary"><i class="fa-solid fa-landmark me-2"></i>地價智審 AI</h2>
+        <nav class="navbar navbar-dark app-navbar" aria-label="網站標誌">
+            <a href="index.html" class="navbar-brand">
+                <h2 class="mb-0 text-primary"><i class="fa-solid fa-landmark me-2" aria-hidden="true"></i>地價智審 AI</h2>
             </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link">首頁</a>
-                    <a href="case-new.html" class="nav-item nav-link active">建立案件</a>
-                    <a href="result.html" class="nav-item nav-link" data-preserve-case>案件結果</a>
-                </div>
-                <div class="d-none d-lg-flex">
-                    <a class="btn btn-outline-primary border-2" href="case-new.html">
-                        <i class="fa-solid fa-plus me-1"></i> 建立案件
-                    </a>
-                </div>
-            </div>
         </nav>
     </div>
 
     <section class="app-shell">
         <div class="container">
             <div class="app-stepper">
-                <a href="case-new.html" class="active" data-preserve-case><span class="step-num">1</span>建立案件</a>
-                <a href="pdf-preview.html" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
-                <a href="result.html" data-preserve-case><span class="step-num">3</span>案件結果</a>
+                <a href="case-new.html?ui=20260912-5" class="active" data-preserve-case><span class="step-num">1</span>建立案件</a>
+                <a href="pdf-preview.html?ui=20260912-5" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="result.html?ui=20260912-5" data-preserve-case><span class="step-num">3</span>案件結果</a>
             </div>
 
             <h2 class="section-title" style="font-size:1.8rem;">建立案件</h2>
@@ -299,7 +295,7 @@
                             </span>
                             <input id="appraisalFile" name="appraisal_file" type="file" accept="application/pdf,.pdf" required>
                             <button type="button" class="upload-clear" id="clearAppraisalFile" aria-label="移除查估書表" title="移除並重新選擇">
-                                <i class="fa-solid fa-xmark"></i>
+                                <span aria-hidden="true">×</span>
                             </button>
                         </label>
 
@@ -311,7 +307,7 @@
                             </span>
                             <input id="criteriaFile" name="criteria_file" type="file" accept="application/pdf,.pdf" required>
                             <button type="button" class="upload-clear" id="clearCriteriaFile" aria-label="移除評價基準明細表" title="移除並重新選擇">
-                                <i class="fa-solid fa-xmark"></i>
+                                <span aria-hidden="true">×</span>
                             </button>
                         </label>
 
@@ -403,13 +399,14 @@
         const criteriaFile = document.getElementById('criteriaFile');
         const submitBtn = document.getElementById('submitCaseBtn');
         const extractionStatus = document.getElementById('extractionStatus');
+        let extractionVersion = 0;
 
         function setUploadState(input, boxId, fileNameId) {
             const box = document.getElementById(boxId);
             const name = document.getElementById(fileNameId);
             if (input.files && input.files[0]) {
                 box.classList.add('has-file');
-                name.textContent = '已上傳：' + input.files[0].name;
+                name.textContent = '✓ 已選取：' + input.files[0].name;
             } else {
                 box.classList.remove('has-file');
                 name.textContent = '點擊或拖曳上傳 PDF';
@@ -428,8 +425,13 @@
         }
 
         async function extractWhenReady() {
+            const version = ++extractionVersion;
             setUploadState(appraisalFile, 'appraisalUploadBox', 'appraisalFileName');
             setUploadState(criteriaFile, 'criteriaUploadBox', 'criteriaFileName');
+            ['caseNo', 'segmentCode', 'district', 'landUseType', 'segmentScope'].forEach(id => {
+                document.getElementById(id).value = '';
+            });
+            document.getElementById('createResult').innerHTML = '';
 
             if (!(appraisalFile.files[0] && criteriaFile.files[0])) {
                 extractionStatus.className = 'extraction-status';
@@ -445,12 +447,14 @@
             try {
                 if (typeof Api.extractCaseMetadata === 'function') {
                     const extracted = await Api.extractCaseMetadata(appraisalFile.files[0], criteriaFile.files[0]);
+                    if (version !== extractionVersion) return;
                     applyExtractedMetadata(extracted);
                     return;
                 }
 
                 if (mode === 'mock') {
                     await new Promise(resolve => setTimeout(resolve, 650));
+                    if (version !== extractionVersion) return;
                     applyExtractedMetadata({
                         case_no: '1140901-99-001',
                         segment_code: 'P002-00',
@@ -464,6 +468,7 @@
                 extractionStatus.className = 'extraction-status';
                 extractionStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i><span>文件擷取 API 尚未串接，請先由後端提供 extractCaseMetadata。</span>';
             } catch (error) {
+                if (version !== extractionVersion) return;
                 extractionStatus.className = 'extraction-status';
                 extractionStatus.innerHTML = '<i class="fa-solid fa-circle-xmark"></i><span>文件擷取失敗，請重新上傳或稍後再試。</span>';
             }
@@ -475,6 +480,7 @@
             input.value = '';
             setUploadState(input, boxId, fileNameId);
             extractWhenReady();
+            input.focus();
         }
 
         appraisalFile.addEventListener('change', extractWhenReady);
