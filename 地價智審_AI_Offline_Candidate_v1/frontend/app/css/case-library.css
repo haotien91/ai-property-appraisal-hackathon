@@ -60,3 +60,18 @@ body{margin:0;background:var(--cl-bg)!important;color:#f1f1f2;font-family:"Noto 
 .cl-resizing .cl-map-panel,.cl-resizing .cl-map{transition:none!important}
 @media(min-width:761px){.has-shelf .cl-map-panel{width:var(--cl-split,32%)}.cl-shelf-panel{left:var(--cl-split,32%)}}
 @media(max-width:760px){.cl-divider{display:none!important}}
+
+/* Two-stage entry: guide exits, then map and shelf travel left together. */
+.cl-intro{position:absolute;left:12%;top:50%;width:27%;transform:translateY(-50%);opacity:1;transition:transform 200ms ease 450ms,opacity 200ms ease 450ms;pointer-events:none}
+.cl-intro h1{font-size:clamp(38px,4.8vw,76px);font-weight:600;line-height:1.2;letter-spacing:.02em;color:#f1f1f2;margin:0 0 24px}
+.cl-intro h1 span{color:#e578aa}.cl-intro p{font-size:clamp(14px,1.2vw,18px);line-height:1.9;color:#a6a6ad;margin:0}.cl-intro-arrow{display:block;margin-top:28px;font-size:32px;color:#bda4b0}
+.has-shelf .cl-intro{transform:translate(-80px,-50%);opacity:0;transition-delay:0s}
+.cl-map-panel{width:62%;margin-left:34%;padding:12px 18px;transition:width 450ms cubic-bezier(.4,0,.2,1),margin-left 450ms cubic-bezier(.4,0,.2,1)}
+.cl-map{height:calc(100dvh - 144px);max-width:none;min-height:390px;margin:0 auto;transition:none}
+.has-shelf .cl-map-panel{margin-left:0;transition-delay:200ms}
+.has-shelf .cl-map{height:calc(100dvh - 144px);min-height:390px}
+.cl-shelf-panel{transition:transform 450ms cubic-bezier(.4,0,.2,1),visibility 0s linear 450ms}
+.has-shelf .cl-shelf-panel{transition:transform 450ms cubic-bezier(.4,0,.2,1) 200ms,visibility 0s 200ms}
+.cl-divider{opacity:1;transition:none}
+.cl-resizing .cl-map-panel{transition:none!important}
+@media(max-width:760px){.cl-intro{position:relative;left:auto;top:auto;width:auto;padding:24px 20px 8px;transform:none;transition:none}.cl-intro h1{font-size:30px;margin-bottom:10px}.cl-intro h1 br{display:none}.cl-intro p br{display:none}.cl-intro-arrow{display:none}.has-shelf .cl-intro{display:none}.cl-map-panel{width:100%;margin-left:0;padding:12px}.cl-map{height:calc(100dvh - 290px);min-height:360px}.has-shelf .cl-map-panel{width:100%}.has-shelf .cl-shelf-panel{transition-delay:0s}}

@@ -32,6 +32,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <link href="css/case-library.css" rel="stylesheet">
+    <link href="css/group-workspace.css" rel="stylesheet">
 
     <style>
         body{background:#0b0b0d;font-family:"Noto Sans TC",sans-serif}
@@ -50,8 +51,11 @@
                     <a class="cl-add" href="case-new.html">＋ 建立案件</a>
                 </div>
                 <div class="cl-main">
+                    <div class="cl-intro" id="cl-intro">
+                        <h1>選擇<br><span>行政區</span></h1>
+                        <p>開啟案件，查看書表與計算依據。</p>
+                    </div>
                     <div class="cl-map-panel" id="cl-map-panel">
-                        <div class="cl-map-top"><span>選擇行政區</span><span>新北市</span></div>
                         <svg id="cl-map" class="cl-map" viewBox="14 14 580 560" role="group" aria-label="新北市行政區地圖，可用鍵盤或上方選單選擇行政區"></svg>
 
 
@@ -95,6 +99,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="data/ntpc-districts.js"></script>
+    <script src="js/group-workspace.js"></script>
     <script src="js/case-library.js"></script>
 </body>
 
