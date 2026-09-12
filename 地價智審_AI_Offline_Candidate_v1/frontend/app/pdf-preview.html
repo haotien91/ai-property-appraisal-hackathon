@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-
 <head>
     <meta charset="utf-8">
-    <title>PDF預覽｜地價智審 AI</title>
+    <title>PDF 預覽｜地價智審 AI</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="地價智審 AI, 不動產估價, AI 審查" name="keywords">
-    <meta content="AI 輔助不動產估價案件審查系統" name="description">
+    <meta content="地價智審 AI, PDF 預覽, AI 問答" name="keywords">
+    <meta content="預覽查估書表並使用 AI 問答理解估價結果。" name="description">
 
     <link href="img/favicon.ico" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,104 +20,201 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-        .pdf-preview-card {
-            padding: 24px;
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .workspace-panel {
+            min-width: 0;
+            border: 1px solid var(--ai-border);
+            border-radius: 12px;
+            background: var(--ai-panel);
+            overflow: hidden;
+        }
+
+        .workspace-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--ai-border);
+            background: rgba(255,255,255,.025);
+        }
+
+        .workspace-title {
+            margin: 0;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .workspace-subtitle {
+            margin: 4px 0 0;
+            color: var(--ai-muted);
+            font-size: .82rem;
         }
 
         .pdf-switcher {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-            margin-bottom: 18px;
+            gap: 8px;
+            padding: 14px;
+            border-bottom: 1px solid var(--ai-border);
         }
 
         .pdf-switch-btn {
-            width: 100%;
-            min-height: 52px;
-            border: 1px solid rgba(255, 255, 255, .14);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, .035);
-            color: #d8d8df;
+            min-height: 44px;
+            border: 1px solid var(--ai-border);
+            border-radius: 8px;
+            background: rgba(255,255,255,.025);
+            color: var(--ai-muted);
             font-weight: 700;
+            font-size: .86rem;
             transition: .2s ease;
         }
 
-        .pdf-switch-btn:hover {
-            border-color: rgba(255, 20, 127, .65);
-            color: #fff;
-            transform: translateY(-1px);
-        }
-
+        .pdf-switch-btn:hover,
         .pdf-switch-btn.active {
             color: #fff;
-            background: rgba(255, 20, 127, .16);
             border-color: var(--ai-accent);
-            box-shadow: 0 0 0 1px rgba(255, 20, 127, .18) inset;
-        }
-
-        .pdf-viewer-shell {
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, .12);
-            border-radius: 12px;
-            background: #202024;
-        }
-
-        .pdf-viewer-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 13px 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, .1);
-            background: rgba(255, 255, 255, .03);
-        }
-
-        .pdf-viewer-title {
-            margin: 0;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 700;
+            background: var(--ai-accent-soft);
         }
 
         .pdf-viewer-frame {
             display: block;
             width: 100%;
-            height: 760px;
+            height: 680px;
             border: 0;
             background: #fff;
         }
 
-        .pdf-download-grid {
+        .download-row {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
+            gap: 8px;
+            padding: 14px;
+            border-top: 1px solid var(--ai-border);
         }
 
-        .pdf-download-grid .btn {
+        .download-row .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 50px;
+            min-height: 42px;
+            padding: 9px 12px;
+            font-size: .84rem;
             white-space: normal;
-            line-height: 1.35;
+            line-height: 1.3;
         }
 
-        .pdf-fallback-note {
-            display: none;
-            margin-top: 14px;
-            padding: 10px 12px;
-            border: 1px solid rgba(255, 176, 32, .3);
-            border-radius: 8px;
-            background: rgba(255, 176, 32, .08);
+        .chat-panel {
+            display: flex;
+            flex-direction: column;
+            min-height: 790px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px;
+            background: linear-gradient(180deg, rgba(255,255,255,.012), transparent);
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 14px;
+        }
+
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+
+        .chat-bubble {
+            max-width: 82%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            line-height: 1.65;
+            font-size: .92rem;
+            white-space: pre-wrap;
+        }
+
+        .chat-message.ai .chat-bubble {
+            color: #e9e9ed;
+            background: #1d1d22;
+            border: 1px solid var(--ai-border);
+            border-top-left-radius: 4px;
+        }
+
+        .chat-message.user .chat-bubble {
+            color: #fff;
+            background: var(--ai-accent);
+            border-top-right-radius: 4px;
+        }
+
+        .chat-context {
+            padding: 10px 14px;
+            border-top: 1px solid var(--ai-border);
+            border-bottom: 1px solid var(--ai-border);
+            color: var(--ai-muted);
+            font-size: .8rem;
+            background: rgba(255,255,255,.018);
+        }
+
+        .chat-input-wrap {
+            display: grid;
+            grid-template-columns: minmax(0,1fr) auto;
+            gap: 10px;
+            padding: 14px;
+        }
+
+        .chat-input {
+            min-width: 0;
+            min-height: 46px;
+            resize: none;
+            border: 1px solid var(--ai-border);
+            border-radius: 10px;
+            padding: 11px 12px;
+            color: #fff;
+            background: #111114;
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: var(--ai-accent);
+        }
+
+        .chat-send {
+            min-width: 52px;
+            border: 0;
+            border-radius: 10px;
+            color: #fff;
+            background: var(--ai-accent);
+        }
+
+        .chat-note {
+            padding: 0 14px 14px;
             color: #ffb020;
-            font-size: .9rem;
-            text-align: left;
+            font-size: .78rem;
         }
 
-        @media (max-width: 991.98px) {
-            .pdf-switcher,
-            .pdf-download-grid {
+        .page-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 1199.98px) {
+            .workspace-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .chat-panel {
+                min-height: 620px;
             }
 
             .pdf-viewer-frame {
@@ -126,18 +222,26 @@
             }
         }
 
-        @media (max-width: 575.98px) {
-            .pdf-preview-card {
-                padding: 16px;
+        @media (max-width: 767.98px) {
+            .pdf-switcher,
+            .download-row {
+                grid-template-columns: 1fr;
             }
 
             .pdf-viewer-frame {
                 height: 520px;
             }
+
+            .chat-panel {
+                min-height: 560px;
+            }
+
+            .page-actions .btn {
+                width: 100%;
+            }
         }
     </style>
 
-    <!-- Loaded early (before body scripts) so Api/APP_CONFIG exist before any page-specific inline script runs -->
     <script src="js/config.js"></script>
     <script src="js/api.js"></script>
     <script src="js/case-context.js"></script>
@@ -147,9 +251,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
             <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h2 class="mb-0 text-primary">
-                    <i class="fa-solid fa-landmark me-2"></i>地價智審 AI
-                </h2>
+                <h2 class="mb-0 text-primary"><i class="fa-solid fa-landmark me-2"></i>地價智審 AI</h2>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -157,235 +259,237 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link">首頁</a>
-                    <a href="case.html" class="nav-item nav-link ">案件列表</a>
-                    <a href="review.html" class="nav-item nav-link ">智慧審查</a>
-                </div>
-                <div class="d-none d-lg-flex">
-                    <a class="btn btn-outline-primary border-2" href="case-new.html">
-                        <i class="fa-solid fa-plus me-1"></i> 建立案件
-                    </a>
+                    <a href="case-new.html" class="nav-item nav-link">建立案件</a>
+                    <a href="pdf-preview.html" class="nav-item nav-link active" data-preserve-case>PDF 預覽</a>
+                    <a href="result.html" class="nav-item nav-link" data-preserve-case>案件結果</a>
                 </div>
             </div>
         </nav>
     </div>
-<section class="app-shell"><div class="container"><div class="app-stepper"><a href="case.html" class="done" data-preserve-case><span class="step-num">1</span>案件列表</a><a href="case-new.html" class="done" data-preserve-case><span class="step-num">2</span>建立案件</a><a href="data.html" class="done" data-preserve-case><span class="step-num">3</span>資料收集</a><a href="analysis.html" class="done" data-preserve-case><span class="step-num">4</span>因素分析</a><a href="form-fill.html" class="done" data-preserve-case><span class="step-num">5</span>書表填寫</a><a href="pdf-preview.html" class="active" data-preserve-case><span class="step-num">6</span>PDF預覽</a><a href="document-review.html" class="" data-preserve-case><span class="step-num"><i class="fa-solid fa-file-import"></i></span>文件上傳（選用）</a><a href="review.html" class="" data-preserve-case><span class="step-num">7</span>智慧審查</a><a href="result.html" class="" data-preserve-case><span class="step-num">8</span>案件結果</a></div>
-<h2 class="section-title" style="font-size:1.8rem;">PDF 預覽</h2>
-<p class="section-text mb-4">預覽本案件產出的三張核心查估書表，並可分別下載各表 PDF。</p>
-<div id="loadingState" class="state-loading"><div class="spinner-border"></div></div>
-<div id="content" style="display:none;">
-  <div class="app-card pdf-preview-card">
-    <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-      <div>
-        <div class="d-flex align-items-center gap-2 mb-1">
-          <i class="fa-solid fa-file-pdf fa-2x" style="color:var(--ai-accent);"></i>
-          <h4 class="mb-0 text-light">查估書表預覽</h4>
+
+    <section class="app-shell">
+        <div class="container-fluid px-3 px-lg-5">
+            <div class="app-stepper">
+                <a href="case-new.html" class="done" data-preserve-case><span class="step-num">1</span>建立案件</a>
+                <a href="pdf-preview.html" class="active" data-preserve-case><span class="step-num">2</span>PDF 預覽</a>
+                <a href="result.html" data-preserve-case><span class="step-num">3</span>案件結果</a>
+            </div>
+
+            <h2 class="section-title" style="font-size:1.8rem;">PDF 預覽與 AI 問答</h2>
+            <p class="section-text mb-4">左側查看系統產出的三張核心書表；右側可針對目前案件、目前書表與計算結果提出問題。</p>
+
+            <div id="loadingState" class="state-loading"><div class="spinner-border"></div></div>
+
+            <div id="content" style="display:none;">
+                <div class="workspace-grid">
+                    <section class="workspace-panel">
+                        <div class="workspace-header">
+                            <div>
+                                <h3 class="workspace-title"><i class="fa-solid fa-file-pdf me-2" style="color:var(--ai-accent);"></i>查估書表</h3>
+                                <p id="activeFormTitle" class="workspace-subtitle">地價區段勘查表</p>
+                            </div>
+                            <a id="openCurrentPdf" class="btn btn-ai-outline btn-sm" target="_blank" rel="noopener">
+                                <i class="fa-solid fa-up-right-from-square me-1"></i>另開 PDF
+                            </a>
+                        </div>
+
+                        <div id="previewTabs" class="pdf-switcher"></div>
+                        <iframe id="pdfViewer" class="pdf-viewer-frame" title="查估書表 PDF 預覽"></iframe>
+                        <div id="downloadLinks" class="download-row"></div>
+                    </section>
+
+                    <section class="workspace-panel chat-panel">
+                        <div class="workspace-header">
+                            <div>
+                                <h3 class="workspace-title"><i class="fa-solid fa-comments me-2" style="color:var(--ai-accent);"></i>AI 案件助理</h3>
+                                <p class="workspace-subtitle">詢問評價基準、修正率、計算過程與最終價格</p>
+                            </div>
+                            <span class="badge-manual">LLM 待串接</span>
+                        </div>
+
+                        <div id="chatMessages" class="chat-messages">
+                            <div class="chat-message ai">
+                                <div class="chat-bubble">您好，我可以協助解釋這個案件的查估書表、評價基準與計算結果。\n\n例如你可以問：\n• 為什麼這個因素判定為「普通」？\n• 這個修正率是怎麼得到的？\n• 最終比較價格如何計算？</div>
+                            </div>
+                        </div>
+
+                        <div id="chatContext" class="chat-context">目前檢視：地價區段勘查表</div>
+
+                        <form id="chatForm" class="chat-input-wrap">
+                            <textarea id="chatInput" class="chat-input" rows="1" placeholder="針對目前案件提出問題..." required></textarea>
+                            <button id="chatSend" class="chat-send" type="submit" aria-label="送出問題"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                        <div id="chatNote" class="chat-note">目前前端已完成對話介面；正式回答需串接後端 LLM API。</div>
+                    </section>
+                </div>
+
+                <div class="page-actions">
+                    <a href="result.html" class="btn btn-ai-primary" data-preserve-case>
+                        查看案件結果 <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <p id="fallbackNotice" class="section-text mb-0"></p>
-      </div>
-      <div id="pageCounts" class="section-text text-end"></div>
-    </div>
+    </section>
 
-    <div id="previewTabs" class="pdf-switcher" aria-label="切換查估書表預覽"></div>
-
-    <div class="pdf-viewer-shell">
-      <div class="pdf-viewer-header">
-        <p id="activeFormTitle" class="pdf-viewer-title">地價區段勘查表</p>
-        <a id="openCurrentPdf" class="btn btn-ai-outline btn-sm" target="_blank" rel="noopener">
-          <i class="fa-solid fa-up-right-from-square me-1"></i>另開 PDF
-        </a>
-      </div>
-      <iframe id="pdfViewer" class="pdf-viewer-frame" title="查估書表 PDF 預覽"></iframe>
-    </div>
-
-    <div id="combinedFallbackNote" class="pdf-fallback-note">
-      <i class="fa-solid fa-circle-info me-2"></i>
-      目前 Mock 資料中的「影響地價區域因素分析明細表」與「比較法調查估價表」仍共用既有整合 PDF；此頁已支援三份獨立 PDF，後續只要 API / Mock 各自提供兩份 URL，就會自動切換成真正分開的預覽與下載。
-    </div>
-
-    <div class="mt-4 mb-2">
-      <h5 class="text-light mb-3"><i class="fa-solid fa-download me-2" style="color:var(--ai-accent);"></i>下載書表</h5>
-      <div id="downloadLinks" class="pdf-download-grid"></div>
-    </div>
-  </div>
-  <a href="review.html" class="btn btn-ai-outline mt-3" data-preserve-case><i class="fa-solid fa-arrow-right me-2"></i>執行智慧審查</a>
-</div>
-<script>
-(async () => {
-    const caseNo = CaseContext.currentCaseNo();
-    if (!caseNo) {
-        document.getElementById('loadingState').innerHTML = '<div class="state-error">缺少案號（case_no），請從案件列表或建立案件重新進入。</div>';
-        return;
-    }
-
-    const FORM_DEFS = [
-        { key: 'table1', label: '地價區段勘查表', shortLabel: '表1', icon: 'fa-map-location-dot' },
-        { key: 'table5_2', label: '影響地價區域因素分析明細表', shortLabel: '表5-2', icon: 'fa-table-list' },
-        { key: 'table4', label: '比較法調查估價表', shortLabel: '表4', icon: 'fa-calculator' },
-    ];
-
-    function cleanFormName(value) {
-        return String(value || '').replace(/\s/g, '').replace(/[（）()]/g, '').toLowerCase();
-    }
-
-    function withPdfViewerOptions(url) {
-        if (!url) return '';
-        return `${url}${url.includes('#') ? '&' : '#'}toolbar=1&navpanes=0&view=FitH`;
-    }
-
-    try {
-        const d = await Api.getPdf(caseNo);
-        document.getElementById('loadingState').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
-        document.getElementById('fallbackNotice').textContent = d.fallback_mode
-            ? '系統產出報表：' + d.fallback_reason
-            : '三張核心查估書表已就緒。';
-
-        const rawLinks = (d.pdf_urls && d.pdf_urls.length)
-            ? d.pdf_urls
-            : (d.pdf_url ? [{ form: '查估書表', url: d.pdf_url }] : []);
-
-        const exactTable1 = rawLinks.find(x => {
-            const n = cleanFormName(x.form);
-            return n === '表1' || n.includes('地價區段勘查表');
-        });
-        const exactTable5 = rawLinks.find(x => {
-            const n = cleanFormName(x.form);
-            return (n === '表5-2' || n.includes('影響地價區域因素分析明細表')) && !n.includes('表4');
-        });
-        const exactTable4 = rawLinks.find(x => {
-            const n = cleanFormName(x.form);
-            return (n === '表4' || n.includes('比較法調查估價表')) && !n.includes('表5-2');
-        });
-        const combined45 = rawLinks.find(x => {
-            const n = cleanFormName(x.form);
-            return n.includes('表4') && n.includes('表5-2');
-        });
-
-        const forms = {
-            table1: {
-                ...FORM_DEFS[0],
-                url: exactTable1 ? exactTable1.url : null,
-                fallbackCombined: false,
-            },
-            table5_2: {
-                ...FORM_DEFS[1],
-                url: exactTable5 ? exactTable5.url : (combined45 ? combined45.url : null),
-                fallbackCombined: !exactTable5 && !!combined45,
-            },
-            table4: {
-                ...FORM_DEFS[2],
-                url: exactTable4 ? exactTable4.url : (combined45 ? combined45.url : null),
-                fallbackCombined: !exactTable4 && !!combined45,
-            },
-        };
-
-        const hasCombinedFallback = forms.table5_2.fallbackCombined || forms.table4.fallbackCombined;
-        document.getElementById('combinedFallbackNote').style.display = hasCombinedFallback ? 'block' : 'none';
-
-        const pageCount = d.page_count || {};
-        const countParts = [];
-        if (pageCount['表1']) countParts.push(`表1：${pageCount['表1']}頁`);
-        if (pageCount['表5-2']) countParts.push(`表5-2：${pageCount['表5-2']}頁`);
-        if (pageCount['表4']) countParts.push(`表4：${pageCount['表4']}頁`);
-        if (!pageCount['表5-2'] && !pageCount['表4'] && pageCount['表4+表5-2']) {
-            countParts.push(`表4＋表5-2：${pageCount['表4+表5-2']}頁`);
-        }
-        document.getElementById('pageCounts').textContent = countParts.join('　');
-
-        const tabs = document.getElementById('previewTabs');
-        tabs.innerHTML = FORM_DEFS.map((def, index) => {
-            const f = forms[def.key];
-            const disabled = !f.url;
-            return `<button type="button" class="pdf-switch-btn${index === 0 ? ' active' : ''}" data-form-key="${def.key}" ${disabled ? 'disabled' : ''}>
-                <i class="fa-solid ${def.icon} me-2"></i>${def.label}
-            </button>`;
-        }).join('');
-
-        const downloads = document.getElementById('downloadLinks');
-        downloads.innerHTML = FORM_DEFS.map(def => {
-            const f = forms[def.key];
-            if (!f.url) {
-                return `<button type="button" class="btn btn-ai-primary" disabled>
-                    <i class="fa-solid fa-download me-2"></i>下載${def.label}
-                </button>`;
-            }
-            const fallbackTitle = f.fallbackCombined ? '目前 Mock 模式會下載表4＋表5-2整合 PDF' : `下載${def.label}`;
-            return `<a href="${f.url}" class="btn btn-ai-primary" target="_blank" rel="noopener" title="${fallbackTitle}">
-                <i class="fa-solid fa-download me-2"></i>下載${def.label}
-            </a>`;
-        }).join('');
-
-        function selectForm(key) {
-            const form = forms[key];
-            if (!form || !form.url) return;
-
-            document.querySelectorAll('.pdf-switch-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.formKey === key);
-            });
-
-            document.getElementById('activeFormTitle').textContent = form.label;
-            document.getElementById('pdfViewer').src = withPdfViewerOptions(form.url);
-            document.getElementById('openCurrentPdf').href = form.url;
-        }
-
-        tabs.addEventListener('click', (event) => {
-            const btn = event.target.closest('[data-form-key]');
-            if (!btn || btn.disabled) return;
-            selectForm(btn.dataset.formKey);
-        });
-
-        // 預設顯示第一張：表1 地價區段勘查表；若表1不存在才退到第一個可用PDF。
-        const initialKey = forms.table1.url
-            ? 'table1'
-            : FORM_DEFS.find(def => forms[def.key].url)?.key;
-
-        if (initialKey) {
-            selectForm(initialKey);
-        } else {
-            document.getElementById('pdfViewer').replaceWith(Object.assign(document.createElement('div'), {
-                className: 'state-error p-5',
-                textContent: 'PDF尚未產生',
-            }));
-            document.getElementById('openCurrentPdf').style.display = 'none';
-        }
-    } catch (e) {
-        document.getElementById('loadingState').innerHTML = '<div class="state-error">' + ((e && e.error && e.error.message) || 'PDF尚未產生') + '</div>';
-    }
-})();
-</script>
-</div></section>
     <footer class="container-fluid bg-dark text-light footer py-5">
         <div class="container text-center py-4">
             <a href="index.html" class="text-decoration-none">
                 <h2 class="footer-brand mb-3"><i class="fa-solid fa-landmark text-primary me-2"></i>地價智審 AI</h2>
             </a>
             <p class="footer-copy mb-2">2026 新北市 AI 智慧城市黑客松｜AI 輔助不動產估價案件審查</p>
-            <p class="footer-copy mb-3">AI 文件理解 × 評價規則引擎 × 數值重算 × 跨表勾稽 × 人工覆核</p>
-            <p class="mb-0 small">
-                Designed By <a class="border-bottom" href="https://htmlcodex.com" target="_blank" rel="noopener">HTML Codex</a>.
-                Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a>.
-            </p>
         </div>
     </footer>
-
-    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top">
-        <i class="bi bi-arrow-up"></i>
-    </a>
 
     <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        document.getElementById('modeIndicator').textContent = (window.APP_CONFIG || {}).MODE || 'unknown';
-        CaseContext.applyCaseQueryToLinks();
-    </script>
 
+    <script>
+        const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
+        document.getElementById('modeIndicator').textContent = mode;
+        CaseContext.applyCaseQueryToLinks();
+
+        const FORM_DEFS = [
+            { key: 'table1', label: '地價區段勘查表', icon: 'fa-map-location-dot' },
+            { key: 'table5_2', label: '影響地價區域因素分析明細表', icon: 'fa-table-list' },
+            { key: 'table4', label: '比較法調查估價表', icon: 'fa-calculator' },
+        ];
+
+        let activeFormKey = 'table1';
+        let activeFormLabel = FORM_DEFS[0].label;
+
+        function cleanFormName(value) {
+            return String(value || '').replace(/\s/g, '').replace(/[（）()]/g, '').toLowerCase();
+        }
+
+        function appendChat(role, text) {
+            const wrap = document.getElementById('chatMessages');
+            const item = document.createElement('div');
+            item.className = `chat-message ${role}`;
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble';
+            bubble.textContent = text;
+            item.appendChild(bubble);
+            wrap.appendChild(item);
+            wrap.scrollTop = wrap.scrollHeight;
+        }
+
+        function mockAnswer(question) {
+            const q = question.trim();
+            if (!q) return '請輸入問題。';
+            return `目前是前端 Mock 回覆。你正在檢視「${activeFormLabel}」。\n\n正式版會把這個問題、案件編號、目前 PDF、評價基準與後端計算追溯資料一起送給 LLM，再回傳有依據的說明。`;
+        }
+
+        (async () => {
+            const caseNo = CaseContext.currentCaseNo();
+            if (!caseNo) {
+                document.getElementById('loadingState').innerHTML = '<div class="state-error">缺少案號，請先建立案件。</div>';
+                return;
+            }
+
+            try {
+                const d = await Api.getPdf(caseNo);
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+
+                const rawLinks = (d.pdf_urls && d.pdf_urls.length)
+                    ? d.pdf_urls
+                    : (d.pdf_url ? [{ form: '查估書表', url: d.pdf_url }] : []);
+
+                const exactTable1 = rawLinks.find(x => {
+                    const n = cleanFormName(x.form);
+                    return n === '表1' || n.includes('地價區段勘查表');
+                });
+                const exactTable5 = rawLinks.find(x => {
+                    const n = cleanFormName(x.form);
+                    return (n === '表5-2' || n.includes('影響地價區域因素分析明細表')) && !n.includes('表4');
+                });
+                const exactTable4 = rawLinks.find(x => {
+                    const n = cleanFormName(x.form);
+                    return (n === '表4' || n.includes('比較法調查估價表')) && !n.includes('表5-2');
+                });
+                const combined45 = rawLinks.find(x => {
+                    const n = cleanFormName(x.form);
+                    return n.includes('表4') && n.includes('表5-2');
+                });
+
+                const forms = {
+                    table1: { ...FORM_DEFS[0], url: exactTable1 ? exactTable1.url : null },
+                    table5_2: { ...FORM_DEFS[1], url: exactTable5 ? exactTable5.url : (combined45 ? combined45.url : null) },
+                    table4: { ...FORM_DEFS[2], url: exactTable4 ? exactTable4.url : (combined45 ? combined45.url : null) },
+                };
+
+                const tabs = document.getElementById('previewTabs');
+                tabs.innerHTML = FORM_DEFS.map((def, index) => {
+                    const f = forms[def.key];
+                    return `<button type="button" class="pdf-switch-btn${index === 0 ? ' active' : ''}" data-form-key="${def.key}" ${!f.url ? 'disabled' : ''}>
+                        <i class="fa-solid ${def.icon} me-1"></i>${def.label}
+                    </button>`;
+                }).join('');
+
+                document.getElementById('downloadLinks').innerHTML = FORM_DEFS.map(def => {
+                    const f = forms[def.key];
+                    return f.url
+                        ? `<a href="${f.url}" target="_blank" rel="noopener" class="btn btn-ai-primary"><i class="fa-solid fa-download me-1"></i>${def.label}</a>`
+                        : `<button class="btn btn-ai-primary" disabled>${def.label}</button>`;
+                }).join('');
+
+                function selectForm(key) {
+                    const form = forms[key];
+                    if (!form || !form.url) return;
+                    activeFormKey = key;
+                    activeFormLabel = form.label;
+                    document.querySelectorAll('.pdf-switch-btn').forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.formKey === key);
+                    });
+                    document.getElementById('activeFormTitle').textContent = form.label;
+                    document.getElementById('pdfViewer').src = `${form.url}#toolbar=1&navpanes=0&view=FitH`;
+                    document.getElementById('openCurrentPdf').href = form.url;
+                    document.getElementById('chatContext').textContent = `目前檢視：${form.label}`;
+                }
+
+                tabs.addEventListener('click', event => {
+                    const btn = event.target.closest('[data-form-key]');
+                    if (!btn || btn.disabled) return;
+                    selectForm(btn.dataset.formKey);
+                });
+
+                const initial = forms.table1.url ? 'table1' : FORM_DEFS.find(def => forms[def.key].url)?.key;
+                if (initial) selectForm(initial);
+            } catch (error) {
+                document.getElementById('loadingState').innerHTML = '<div class="state-error">PDF 尚未產生或載入失敗。</div>';
+            }
+        })();
+
+        document.getElementById('chatForm').addEventListener('submit', async event => {
+            event.preventDefault();
+            const input = document.getElementById('chatInput');
+            const question = input.value.trim();
+            if (!question) return;
+
+            appendChat('user', question);
+            input.value = '';
+
+            try {
+                const caseNo = CaseContext.currentCaseNo();
+                if (typeof Api.askCaseAssistant === 'function') {
+                    const response = await Api.askCaseAssistant({
+                        case_no: caseNo,
+                        form: activeFormKey,
+                        question,
+                    });
+                    appendChat('ai', response.answer || '目前沒有可顯示的回答。');
+                } else {
+                    await new Promise(resolve => setTimeout(resolve, 450));
+                    appendChat('ai', mockAnswer(question));
+                }
+            } catch (error) {
+                appendChat('ai', 'AI 問答服務目前無法使用，請稍後再試。');
+            }
+        });
+    </script>
 </body>
 </html>
