@@ -613,8 +613,10 @@
                 let created;
                 if (typeof Api.createCaseWithDocuments === 'function') {
                     created = await Api.createCaseWithDocuments(payload, Array.from(appraisalFile.files), criteriaFile.files[0]);
-                } else {
+                } else if (mode === 'mock') {
                     created = await Api.createCase(payload);
+                } else {
+                    throw new Error('文件生成服務尚未接上，案件尚未建立。');
                 }
 
                 CaseContext.setCurrentCaseNo(created.case_no || payload.case_no);
@@ -625,7 +627,10 @@
             } catch (error) {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles me-2"></i>建立案件並開始分析';
-                resultDiv.innerHTML = `<div class="state-error">${(error && error.error && error.error.message) || '建立案件失敗'}</div>`;
+                const message = document.createElement('div');
+                message.className = 'state-error';
+                message.textContent = (error && error.error && error.error.message) || error.message || '建立案件失敗';
+                resultDiv.replaceChildren(message);
             }
         });
     </script>

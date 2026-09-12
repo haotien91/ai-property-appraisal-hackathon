@@ -8,6 +8,9 @@ import test_import
 from test_import import fixture
 from splitter import encode
 from deliver_generated import deliver_generated
+from deliver_generated import main
+import tempfile
+from pathlib import Path
 
 
 def generated_files():
@@ -19,6 +22,28 @@ def generated_files():
            {'kind':'regional_factors','page_start':3,'page_end':3},
            {'kind':'comparison','page_start':4,'page_end':4}]
     return encode(fixture()),pdf.getvalue(),pages
+
+
+class ProducerCommandTests(unittest.TestCase):
+    def test_command_passes_original_outputs_and_saves_identifiers(self):
+        bundle,pdf,pages=generated_files()
+        job='22222222-2222-4222-8222-222222222222'
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            (root/'bundle.json').write_bytes(bundle)
+            (root/'forms.pdf').write_bytes(pdf)
+            (root/'pages.json').write_text(json.dumps(pages))
+            result={'case_id':'case','group_id':'group','run_id':'run','status':'imported','pdf_complete':True}
+            with patch('deliver_generated.deliver_generated',return_value=result) as delivery, \
+                 patch('client.Client') as client, patch('builtins.print'):
+                main(['--endpoint','https://example.invalid','--bundle',str(root/'bundle.json'),
+                      '--pdf',str(root/'forms.pdf'),'--page-map',str(root/'pages.json'),
+                      '--generation-id',job,'--result',str(root/'result.json')])
+            self.assertEqual(delivery.call_args.args,(client.return_value,bundle,pdf,pages,job))
+            saved=json.loads((root/'result.json').read_text())
+            self.assertEqual(saved['generation_id'],job)
+            self.assertEqual(saved['run_id'],'run')
+            self.assertNotIn('url',saved)
 
 
 @mock_aws

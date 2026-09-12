@@ -223,6 +223,24 @@ result = deliver_generated(
 `pages` 使用 export.page_layout 的輸出。共用 helper 驗證頁碼、切成三類 PDF、上傳並 complete。
 輸入無效時不開始匯入。AWS 使用 execution role，不傳 access key；本機測試才用 profile。
 
+隊友也可在生成程式結尾執行下列命令，直接使用已部署的案件庫 API，無需部署 PDF renderer：
+
+```bash
+python services/artifact-import/deliver_generated.py \
+  --endpoint https://zyte6qrr2k.execute-api.us-west-2.amazonaws.com \
+  --bundle /path/to/generated.json \
+  --pdf /path/to/generated.pdf \
+  --page-map /path/to/artifact-pages.json \
+  --generation-id "$GENERATION_ID" \
+  --case-id "$CASE_ID" --group-id "$GROUP_ID" \
+  --result /path/to/import-result.json
+```
+
+`GENERATION_ID` 是生成任務保存的 UUID，失敗重試沿用原值與原檔案。新案件可省略
+`--case-id` 和 `--group-id`；既有案件的新組只傳 `--case-id`。回傳檔包含案件、組、版本 UUID
+和 `pdf_complete`，不含下載網址或憑證。本機可加 `--profile hackathon`。
+這是**生成後交付入口**，不會從原始題目執行 OCR 或填表。IAM 角色仍須與讀取端使用同一工作區。
+
 **部署界線：** 現有 artifact API 按呼叫角色隔離 workspace。新的 Lambda 執行角色不能假設與
 目前 WSParticipantRole 案件庫共用資料；正式部署前必須統一應用後端的讀寫角色/工作區設定。
 本次未更改現有 AWS，也未把原始文件上傳頁串至部署完成的 generation worker。

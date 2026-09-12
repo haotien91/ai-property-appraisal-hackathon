@@ -43,3 +43,42 @@ def deliver_generated(client, bundle_bytes, pdf_bytes, pages, idempotency_key, *
         if not group_id and group_name:
             client.call('PATCH','/v1/groups/'+result['group_id'],{'name':group_name.strip()})
         return {k:result[k] for k in ('case_id','group_id','run_id','status','pdf_complete')}
+
+
+def main(argv=None):
+    """Producer command: upload existing outputs without re-running generation."""
+    import argparse
+    import uuid
+    from client import Client
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--endpoint', required=True)
+    parser.add_argument('--profile')
+    parser.add_argument('--region', default='us-west-2')
+    parser.add_argument('--bundle', required=True)
+    parser.add_argument('--pdf', required=True)
+    parser.add_argument('--page-map', required=True)
+    parser.add_argument('--generation-id', required=True, type=uuid.UUID)
+    parser.add_argument('--case-id', type=uuid.UUID)
+    parser.add_argument('--group-id', type=uuid.UUID)
+    parser.add_argument('--result', required=True)
+    args = parser.parse_args(argv)
+    if args.group_id and not args.case_id:
+        parser.error('--group-id requires --case-id')
+    # Read all producer files before making any AWS request.
+    bundle = Path(args.bundle).read_bytes()
+    pdf = Path(args.pdf).read_bytes()
+    pages = json.loads(Path(args.page_map).read_text())
+    result = deliver_generated(
+        Client(args.endpoint, args.profile, args.region), bundle, pdf, pages,
+        str(args.generation_id),
+        case_id=str(args.case_id) if args.case_id else None,
+        group_id=str(args.group_id) if args.group_id else None,
+    )
+    result['generation_id'] = str(args.generation_id)
+    Path(args.result).write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
+    print(json.dumps(result, ensure_ascii=False))
+    return result
+
+
+if __name__ == '__main__':
+    main()
