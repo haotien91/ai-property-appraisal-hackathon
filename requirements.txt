@@ -16,3 +16,7 @@ opencv-python-headless==4.13.0.92
 fastapi==0.136.1
 uvicorn==0.46.0
 pydantic==2.13.3
+
+# 只有要呼叫 Amazon Bedrock（llm_provider.py）才需要。
+# 只用 render 階段、或自行提供 llm callable 的話可拿掉。
+boto3>=1.35.0

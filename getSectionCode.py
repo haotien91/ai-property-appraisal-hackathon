@@ -528,12 +528,19 @@ def _command_run(args: argparse.Namespace) -> int:
     if args.llm_response_file:
         llm_response = _read_text(None, args.llm_response_file, "--llm-response-file")
 
-    if llm_response is None:
-        # 還沒接 LLM 時，先把 prompt 印出來讓使用者貼去問，再用
+    llm = None
+    if llm_response is None and args.llm:
+        from llm_provider import make_llm
+
+        llm = make_llm(args.llm, model_id=args.model_id, region=args.region)
+
+    if llm_response is None and llm is None:
+        # 兩者都沒給時只印 prompt，讓使用者手動貼去問模型，再用
         # --llm-response-file 回來跑完後半段。
         context = resolve_section(args.lon, args.lat)
         print(f"段籍查詢結果：{context.summary}")
-        print("\n尚未接上 LLM。請把下列 prompt 送給模型，再用")
+        print("\n未指定 --llm 也未提供 --llm-response-file，只產生 prompt。")
+        print("接 Bedrock 請加 --llm bedrock，或把模型回覆存檔後用")
         print("  --llm-response-file <回覆檔> 重跑本指令完成出圖。\n")
         print(build_prompt(context, basic_info, description))
         return 0
@@ -544,6 +551,7 @@ def _command_run(args: argparse.Namespace) -> int:
         basic_info,
         description,
         zone_code=args.zone_code,
+        llm=llm,
         llm_response=llm_response,
         archive_root=args.archive_root,
         county=args.county,
@@ -619,8 +627,21 @@ def build_arg_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--description-file", help="描述檔案，- 為 stdin")
     run_parser.add_argument("--zone-code", help="區段編號，例 P001-00")
     run_parser.add_argument(
+        "--llm",
+        choices=("bedrock", "echo"),
+        help="呼叫哪個 LLM。bedrock 需設定 AWS_REGION 與 BEDROCK_MODEL_ID",
+    )
+    run_parser.add_argument(
+        "--model-id",
+        help="Bedrock model id，未給則讀環境變數 BEDROCK_MODEL_ID",
+    )
+    run_parser.add_argument(
+        "--region",
+        help="Bedrock 區域，未給則讀環境變數 AWS_REGION",
+    )
+    run_parser.add_argument(
         "--llm-response-file",
-        help="LLM 回覆檔案；未提供時只印 prompt 不出圖",
+        help="已有的 LLM 回覆檔案；與 --llm 二選一，兩者都不給則只印 prompt",
     )
     run_parser.add_argument(
         "--archive-root",

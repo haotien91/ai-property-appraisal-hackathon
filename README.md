@@ -104,8 +104,47 @@ result = run_pipeline(
 )
 ```
 
-LLM 是可注入的 callable，廠商細節請寫在獨立的 `llm_provider.py`，
-不要塞進 `getSectionCode.py`。
+LLM 是可注入的 callable（`llm(prompt: str) -> str`），實作放在 `llm_provider.py`。
+
+### 接 Amazon Bedrock
+
+用 Converse API，無伺服器、按 token 計費。需要的 IAM 權限只有
+`bedrock:InvokeModel`。憑證由 boto3 依標準順序解析，在 ECS/Fargate 上用
+task role 即可，不要把金鑰寫進程式。
+
+```bash
+pip install boto3
+
+$env:AWS_REGION="us-east-1"
+$env:BEDROCK_MODEL_ID="<model id>"     # aws bedrock list-foundation-models 可查
+
+python llm_provider.py                  # 煙霧測試，確認憑證與 model id
+```
+
+```python
+from getSectionCode import run_pipeline
+from llm_provider import make_bedrock_llm
+
+result = run_pipeline(
+    longitude, latitude, basic_info, section_description,
+    zone_code="P001-00",
+    llm=make_bedrock_llm(),      # 讀 AWS_REGION 與 BEDROCK_MODEL_ID
+)
+```
+
+CLI 直接接：
+
+```bash
+python getSectionCode.py run --lon 121.416165 --lat 24.982979 \
+  --basic-info "..." --description "..." --zone-code P001-00 --llm bedrock
+```
+
+`temperature` 預設 0.0 —— 產生結構化 JSON 要低隨機性，否則同樣輸入會拆出
+不同結果。
+
+重試策略區分兩種失敗：限流／逾時會指數退避重試（帶抖動），而
+`ValidationException`（model id 打錯）、`AccessDeniedException`（IAM 沒開）、
+`max_tokens` 截斷都是確定性失敗，直接拋出不浪費時間重試。
 
 CLI 逐步執行（還沒接 LLM 時）：
 
@@ -187,6 +226,9 @@ GET  /healthz           → 就緒狀態與快取統計
 | `ZONE_MAP_ARCHIVE` | `artifacts` | 產出檔案庫根目錄 |
 | `ZONE_MAP_FONT` | 自動偵測 | 指定中文字型檔 |
 | `ZONE_MAP_API_KEYS` | 空（不驗證） | API key，逗號分隔 |
+| `AWS_REGION` | 無 | Bedrock 區域 |
+| `BEDROCK_MODEL_ID` | 無 | Bedrock model id |
+| `LLM_PROVIDER` | `bedrock` | `bedrock` 或 `echo`（測試用，不連網） |
 | `NLSC_TILE_WORKERS` | `4` | 圖磚並行抓取數 |
 | `ROAD_CACHE_CELL_DEGREES` | `0.02` | 路網網格邊長（度） |
 
@@ -230,4 +272,5 @@ GET  /healthz           → 就緒狀態與快取統計
 | `zone_map_api.py` | FastAPI 服務 |
 | `prewarm_tiles.py` | 圖磚與路網預熱 |
 | `nlsc_http.py` | NLSC 的 TLS 相容 adapter 與 Overpass 請求標頭 |
+| `llm_provider.py` | Amazon Bedrock Converse API 呼叫與重試策略 |
 | `boundary_core/` | 路名正規化、道路解析、方位檢核的底層工具 |
