@@ -49,7 +49,8 @@ EC2 執行角色使用獨立的 API workspace，不會自動合併 WSParticipant
 
 每次問答提供同一 JSON 快照给 InvokeHarness，關閉舊 Excel 工具；不經 PDF OCR/RAG。
 目前整份 JSON 送入上下文，最大 1.5 MB，未實作按欄位取用；大案件有較高 token 成本。
-官方手冊工具暫未開放，回答不能冒稱已查證手冊。
+官方手冊透過既有 Harness Gateway 的 Retrieve 工具檢索；僅允許 @manual_kb/manual-kb___Retrieve，舊 Excel 工具維持關閉。案件數值以本次資料為準，對使用者以書表、區段及中文欄位說明，不顯示 JSON 路徑。
+工具允許清單格式：https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-tools.html
 版本改變時捨棄舊歷史；每次使用新 runtime session，前端明確帶入同版本歷史。
 
 指定 Harness 的 IAM 需同時有 InvokeHarness、InvokeAgentRuntime；精確資源與

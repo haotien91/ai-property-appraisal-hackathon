@@ -27,7 +27,7 @@
     "harness_arn": "arn:aws:bedrock-agentcore:us-west-2:137336531963:harness/landvalue_reviewer-TQFO5aF6MH",
     "input": "current_generated_json",
     "legacy_excel_tools_enabled": false,
-    "manual_retrieval_enabled": false,
+    "manual_retrieval_enabled": true,
     "first_live_answer_seconds": 9,
     "json_import_verified": true
   }

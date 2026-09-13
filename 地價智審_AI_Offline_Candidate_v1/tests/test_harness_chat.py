@@ -29,7 +29,22 @@ def test_wrong_version_discards_history_and_disables_legacy_tools():
     with patch.object(chat,'publish',return_value={'version':'v','run_id':'r'}), patch.object(chat.boto3,'client',return_value=runtime), patch.dict(os.environ,{'HARNESS_ARN':'test'}):
         result=chat.ask(s,{'case_no':'A','question':'price?','version':'old','history':[{'role':'assistant','text':'WRONG_CASE_VALUE'}]})
     args=runtime.invoke_harness.call_args.kwargs
-    assert args['tools']==[] and args['allowedTools']==[]
+    assert args['tools'][0]['name']=='manual_kb'
+    assert args['allowedTools']==['@manual_kb/manual-kb___Retrieve']
     assert 'WRONG_CASE_VALUE' not in json.dumps(args['messages'])
     assert '123.4500' in args['messages'][-1]['content'][0]['text']
     assert result['answer']=='123.4500'
+
+
+def test_only_final_assistant_response_is_shown():
+    runtime = Mock()
+    runtime.invoke_harness.return_value = {'stream': [
+        {'messageStart': {'role': 'assistant'}},
+        {'contentBlockDelta': {'delta': {'text': '正在搜尋'}}},
+        {'messageStart': {'role': 'user'}},
+        {'contentBlockDelta': {'delta': {'text': '工具原始資料'}}},
+        {'messageStart': {'role': 'assistant'}},
+        {'contentBlockDelta': {'delta': {'text': '手冊依據'}}},
+    ]}
+    with patch.object(chat, 'publish', return_value={'version': 'v'}), patch.object(chat.boto3, 'client', return_value=runtime), patch.dict(os.environ, {'HARNESS_ARN': 'test'}):
+        assert chat.ask(service(), {'case_no': 'A', 'question': '手冊規定？'})['answer'] == '手冊依據'

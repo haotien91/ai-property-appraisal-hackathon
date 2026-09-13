@@ -171,6 +171,23 @@
             border-top-left-radius: 4px;
         }
 
+        .chat-message.ai { min-width: 0; }
+        .chat-bubble.chat-markdown { white-space: normal; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+        .chat-markdown p { margin: 0 0 .8em; }
+        .chat-markdown :is(h1, h2, h3, h4, h5, h6) { font-size: 1.05em; font-weight: 700; line-height: 1.5; margin: 1.1em 0 .5em; color: #fff; }
+        .chat-markdown > :first-child { margin-top: 0; }
+        .chat-markdown > :last-child { margin-bottom: 0; }
+        .chat-markdown :is(ul, ol) { padding-left: 1.4em; margin: .5em 0 .8em; }
+        .chat-markdown li { margin: .3em 0; }
+        .chat-markdown blockquote { border-left: 3px solid #777; padding-left: .8em; margin: .8em 0; color: #c3c3ce; }
+        .chat-markdown code { color: #e5bad2; font-size: .9em; }
+        .chat-markdown pre { overflow-x: auto; white-space: pre; background: #141417; padding: .7em; border-radius: 6px; }
+        .chat-table-scroll { max-width: 100%; overflow-x: auto; margin: .8em 0; }
+        .chat-markdown table { border-collapse: collapse; font-size: .9em; width: 100%; min-width: 360px; }
+        .chat-markdown :is(th, td) { border: 1px solid #45454d; padding: .5em .65em; vertical-align: top; }
+        .chat-markdown th { background: #303038; }
+        .chat-markdown a { color: #f4a4cc; }
+
         .chat-message.user .chat-bubble {
             color: #fff;
             background: var(--ai-accent);
@@ -379,12 +396,11 @@
                                 <h3 class="workspace-title"><i class="fa-solid fa-comments me-2" style="color:var(--ai-accent);"></i>AI 案件助理</h3>
                                 <p class="workspace-subtitle">詢問評價基準、修正率、計算過程與最終價格</p>
                             </div>
-                            <span class="badge-manual">Claude · 案件 JSON</span>
                         </div>
 
                         <div id="chatMessages" class="chat-messages">
                             <div class="chat-message ai">
-                                <div class="chat-bubble">您好，我可以協助解釋這個案件的查估書表、評價基準與計算結果。\n\n例如你可以問：\n• 為什麼這個因素判定為「普通」？\n• 這個修正率是怎麼得到的？\n• 最終比較價格如何計算？</div>
+                                <div class="chat-bubble chat-markdown"><p>您好，我可以協助解釋這個案件的查估書表、評價基準與計算結果。</p><p>例如你可以問：</p><ul><li>為什麼這個因素判定為「普通」？</li><li>這個修正率是怎麼得到的？</li><li>最終比較價格如何計算？</li></ul></div>
                             </div>
                         </div>
 
@@ -394,7 +410,6 @@
                             <textarea id="chatInput" class="chat-input" rows="1" placeholder="針對目前案件提出問題..." required></textarea>
                             <button id="chatSend" class="chat-send" type="submit" aria-label="送出問題"><i class="fa-solid fa-paper-plane"></i></button>
                         </form>
-                        <div id="chatNote" class="chat-note">依本案件 JSON 回答；缺少資料時會明確說明。</div>
                     </section>
                 </div>
 
@@ -412,6 +427,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/vendor/marked.min.js"></script>
+    <script src="js/vendor/purify.min.js"></script>
 
     <script>
         const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
@@ -440,7 +457,25 @@
             item.className = `chat-message ${role}`;
             const bubble = document.createElement('div');
             bubble.className = 'chat-bubble';
-            bubble.textContent = text;
+            if (role === 'ai' && window.marked && window.DOMPurify) {
+                bubble.classList.add('chat-markdown');
+                bubble.innerHTML = DOMPurify.sanitize(marked.parse(String(text), { gfm: true, breaks: true }), {
+                    ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'del', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code', 'hr', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'a'],
+                    ALLOWED_ATTR: ['href', 'title', 'start']
+                });
+                bubble.querySelectorAll('table').forEach(table => {
+                    const scroll = document.createElement('div');
+                    scroll.className = 'chat-table-scroll';
+                    table.replaceWith(scroll);
+                    scroll.appendChild(table);
+                });
+                bubble.querySelectorAll('a').forEach(link => {
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                });
+            } else {
+                bubble.textContent = text;
+            }
             item.appendChild(bubble);
             wrap.appendChild(item);
             wrap.scrollTop = wrap.scrollHeight;
