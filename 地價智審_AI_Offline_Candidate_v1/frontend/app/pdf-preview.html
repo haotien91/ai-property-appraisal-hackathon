@@ -379,7 +379,7 @@
                                 <h3 class="workspace-title"><i class="fa-solid fa-comments me-2" style="color:var(--ai-accent);"></i>AI 案件助理</h3>
                                 <p class="workspace-subtitle">詢問評價基準、修正率、計算過程與最終價格</p>
                             </div>
-                            <span class="badge-manual">LLM 待串接</span>
+                            <span class="badge-manual">Claude · 案件 JSON</span>
                         </div>
 
                         <div id="chatMessages" class="chat-messages">
@@ -394,7 +394,7 @@
                             <textarea id="chatInput" class="chat-input" rows="1" placeholder="針對目前案件提出問題..." required></textarea>
                             <button id="chatSend" class="chat-send" type="submit" aria-label="送出問題"><i class="fa-solid fa-paper-plane"></i></button>
                         </form>
-                        <div id="chatNote" class="chat-note">目前前端已完成對話介面；正式回答需串接後端 LLM API。</div>
+                        <div id="chatNote" class="chat-note">依本案件 JSON 回答；缺少資料時會明確說明。</div>
                     </section>
                 </div>
 
@@ -582,12 +582,17 @@
             }
         })();
 
+        let chatVersion = null;
+        const chatHistory = [];
         document.getElementById('chatForm').addEventListener('submit', async event => {
             event.preventDefault();
             const input = document.getElementById('chatInput');
             const question = input.value.trim();
             if (!question) return;
 
+            const send = document.getElementById('chatSend');
+            if (send.disabled) return;
+            send.disabled = true;
             appendChat('user', question);
             input.value = '';
 
@@ -597,15 +602,20 @@
                     const response = await Api.askCaseAssistant({
                         case_no: caseNo,
                         form: activeFormKey,
-                        question,
+                        question, version: chatVersion, history: chatHistory,
                     });
+                    if (chatVersion !== response.version) chatHistory.length = 0;
+                    chatVersion = response.version;
+                    chatHistory.push({role:'user',text:question},{role:'assistant',text:response.answer});
+                    if (chatHistory.length > 8) chatHistory.splice(0,chatHistory.length-8);
                     appendChat('ai', response.answer || '目前沒有可顯示的回答。');
                 } else {
-                    await new Promise(resolve => setTimeout(resolve, 450));
-                    appendChat('ai', mockAnswer(question));
+                    throw new Error('Harness API unavailable');
                 }
             } catch (error) {
                 appendChat('ai', 'AI 問答服務目前無法使用，請稍後再試。');
+            } finally {
+                send.disabled = false;
             }
         });
     </script>

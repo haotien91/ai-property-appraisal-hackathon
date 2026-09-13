@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "bedrock-agentcore:InvokeHarness",
+        "bedrock-agentcore:InvokeAgentRuntime"
+      ],
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:137336531963:harness/landvalue_reviewer-TQFO5aF6MH"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "execute-api:Invoke",
+      "Resource": [
+        "arn:aws:execute-api:us-west-2:137336531963:zyte6qrr2k/$default/POST/v1/cases",
+        "arn:aws:execute-api:us-west-2:137336531963:zyte6qrr2k/$default/POST/v1/cases/*/groups",
+        "arn:aws:execute-api:us-west-2:137336531963:zyte6qrr2k/$default/POST/v1/imports",
+        "arn:aws:execute-api:us-west-2:137336531963:zyte6qrr2k/$default/POST/v1/imports/*/complete",
+        "arn:aws:execute-api:us-west-2:137336531963:zyte6qrr2k/$default/GET/v1/imports/*"
+      ]
+    }
+  ]
+}

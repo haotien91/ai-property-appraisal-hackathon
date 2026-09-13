@@ -78,6 +78,9 @@ API_BRIDGE = r'''
   };
   // Keep APP_CONFIG and the visible frontend exactly as shipped. Replace the
   // data methods at runtime so every existing page reads this local backend.
+  global.Api.askCaseAssistant = function (payload) {
+    return localJson("/api/chat", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)});
+  };
   global.Api.listCases = function () { return localJson("/api/cases"); };
   global.Api.getCase = function (caseNo) { return localJson("/api/cases/" + encodeURIComponent(caseNo)); };
   global.Api.getPdf = function (caseNo) { return localJson("/api/cases/" + encodeURIComponent(caseNo) + "/pdf"); };
@@ -274,6 +277,17 @@ class AppHandler(SimpleHTTPRequestHandler):
         parsed = urlparse(self.path)
         path = unquote(parsed.path)
         try:
+            if path == "/api/chat":
+                from backend.harness_chat import ask
+                payload, _, _ = self._parts()
+                try:
+                    self._json(ask(self.service, payload))
+                except (KeyError, ValueError):
+                    raise
+                except Exception as exc:
+                    print("Harness request failed: " + type(exc).__name__, flush=True)
+                    self._error(HTTPStatus.BAD_GATEWAY, "HARNESS_UNAVAILABLE", "AI 服務暫時無法回覆，請稍後重試。")
+                return
             if path == "/api/local/extract-metadata":
                 _payload, appraisals, criteria = self._parts()
                 if not appraisals or not criteria:

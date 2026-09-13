@@ -11,6 +11,8 @@ WorkingDirectory=/opt/ntpc/app
 Environment=APP_MODE=local
 Environment=AWS_DEFAULT_REGION=us-west-2
 Environment=AWS_REGION=us-west-2
+Environment=HARNESS_ARN=arn:aws:bedrock-agentcore:us-west-2:137336531963:harness/landvalue_reviewer-TQFO5aF6MH
+Environment=ARTIFACT_API_URL=https://zyte6qrr2k.execute-api.us-west-2.amazonaws.com
 Environment=PYTHONUNBUFFERED=1
 Environment=PYTHONDONTWRITEBYTECODE=1
 Environment=PUBLIC_DATA_CACHE_DIR=/var/lib/ntpc/public-cache
