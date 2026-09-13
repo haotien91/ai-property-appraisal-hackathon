@@ -27,14 +27,30 @@ SageMaker realtime endpoint 是「開著就計費」的 GPU 實例。本專案�
 呼叫 LLM 一次，且是使用者觸發式，絕大多數時間閒置。Bedrock 按 token 計費，
 沒呼叫就不花錢。
 
-環境變數
--------
+設定（非機密，可以放環境變數）
+--------------------------
     AWS_REGION          Bedrock 區域，例 us-east-1
-    BEDROCK_MODEL_ID    模型 ID
+    BEDROCK_MODEL_ID    模型 ID，例 global.amazon.nova-2-lite-v1:0
     LLM_PROVIDER        bedrock | echo（預設 bedrock）
+    AWS_PROFILE         本機開發用的 ~/.aws profile 名稱（正式環境不要設）
 
-憑證由 boto3 依標準順序解析（環境變數 → ~/.aws → IAM Role）。
-在 ECS/Fargate 上請用 task role，不要把金鑰寫進程式或環境變數。
+憑證（機密，不要放環境變數）
+-------------------------
+本模組不接收憑證參數。boto3 會依序自動解析：
+
+    1. 環境變數 AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY / AWS_SESSION_TOKEN
+    2. ~/.aws/credentials 的 profile
+    3. 容器憑證供應者（ECS / Fargate 的 task role）
+    4. EC2 instance metadata（instance profile）
+
+部署到 ECS/Fargate 請走第 3 條 —— **機器上不存在任何長期金鑰**，
+由 IAM task role 提供自動輪替的臨時憑證。這是唯一該用的方式。
+
+不要把 AWS_ACCESS_KEY_ID 寫進 ECS task definition 的 environment：
+那個欄位在 console 與 describe-task-definition 都看得到，等於明文外洩。
+真的需要長期金鑰時（例如在 AWS 之外執行）才用 Secrets Manager，
+並透過 task definition 的 secrets 欄位注入。
+
 需要的 IAM 權限只有 bedrock:InvokeModel。
 """
 
@@ -74,6 +90,12 @@ _RETRYABLE_ERROR_NAMES = {
     "ReadTimeoutError",
     "EndpointConnectionError",
 }
+
+
+# 跨區推論（CRIS）的地區前綴。Nova 2 等模型在美國以外呼叫時，
+# 裸的 model id 會被拒，必須改用帶前綴的 inference profile id，
+# 例如 amazon.nova-2-lite-v1:0 → global.amazon.nova-2-lite-v1:0
+_CRIS_PREFIXES = ("global", "us", "eu", "apac", "jp")
 
 
 class TransientLlmError(RuntimeError):
@@ -152,6 +174,7 @@ def make_bedrock_llm(
     model_id: str | None = None,
     *,
     region: str | None = None,
+    profile: str | None = None,
     system_prompt: str = DEFAULT_SYSTEM_PROMPT,
     temperature: float = DEFAULT_TEMPERATURE,
     max_tokens: int = DEFAULT_MAX_TOKENS,
@@ -160,6 +183,17 @@ def make_bedrock_llm(
     client=None,
 ) -> LlmCallable:
     """建立呼叫 Bedrock Converse API 的函式。
+
+    憑證不由本函式接收，也不應該由本函式接收。boto3 會依序自動解析：
+
+        1. 環境變數 AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY / AWS_SESSION_TOKEN
+        2. ~/.aws/credentials 的 profile（本機開發建議用這個）
+        3. 容器憑證供應者（ECS/Fargate 的 task role）
+        4. EC2 instance metadata（instance profile）
+
+    部署到 ECS/Fargate 時走第 3 條，機器上不存在任何長期金鑰，
+    也不需要輪替。這是唯一該用的方式。
+    profile 參數只是本機開發的便利選項，正式環境請留空。
 
     client 可注入自訂的 boto3 client，方便測試或指定 endpoint_url。
     """
@@ -178,16 +212,22 @@ def make_bedrock_llm(
     if not resolved_region:
         raise ValueError("請提供 region 或設定環境變數 AWS_REGION")
 
-    runtime = client or boto3.client(
-        "bedrock-runtime",
-        region_name=resolved_region,
-        # 關掉 botocore 內建重試，改由 _with_retry 統一處理，
-        # 否則兩層重試相乘，最壞情況會等非常久。
-        config=Config(
-            retries={"max_attempts": 1},
-            read_timeout=read_timeout_seconds,
-        ),
-    )
+    resolved_profile = profile or os.environ.get("AWS_PROFILE")
+
+    if client is None:
+        session = boto3.Session(
+            profile_name=resolved_profile, region_name=resolved_region
+        )
+        client = session.client(
+            "bedrock-runtime",
+            # 關掉 botocore 內建重試，改由 _with_retry 統一處理，
+            # 否則兩層重試相乘，最壞情況會等非常久。
+            config=Config(
+                retries={"max_attempts": 1},
+                read_timeout=read_timeout_seconds,
+            ),
+        )
+    runtime = client
 
     def call(prompt: str) -> str:
         response = runtime.converse(
@@ -252,27 +292,148 @@ def make_llm(provider: str | None = None, **kwargs) -> LlmCallable:
     )
 
 
+def describe_credentials(region: str | None = None) -> dict:
+    """回報 boto3 實際解析到的憑證來源與身分，不輸出祕密值。
+
+    診斷 AccessDenied 時第一個要確認的就是「我到底用了哪一組憑證」。
+    boto3 會依序找環境變數、~/.aws/credentials、~/.aws/config 的 profile、
+    容器或 EC2 的 IAM Role，很容易以為在用 A 其實在用 B。
+    """
+
+    import boto3
+    from botocore.exceptions import BotoCoreError, ClientError
+
+    session = boto3.Session(region_name=region or os.environ.get("AWS_REGION"))
+    report: dict = {
+        "region": session.region_name,
+        "profile": session.profile_name,
+    }
+
+    credentials = session.get_credentials()
+    if credentials is None:
+        report["credential_source"] = None
+        report["problem"] = (
+            "boto3 找不到任何憑證。請設定 AWS_ACCESS_KEY_ID 與 "
+            "AWS_SECRET_ACCESS_KEY，或執行 aws configure"
+        )
+        return report
+
+    # botocore 用 method 標示來源：env、shared-credentials-file、
+    # assume-role、iam-role、container-role…
+    report["credential_source"] = credentials.method
+    frozen = credentials.get_frozen_credentials()
+    report["access_key_id"] = frozen.access_key[:4] + "…" + frozen.access_key[-4:]
+    report["has_session_token"] = bool(frozen.token)
+
+    try:
+        identity = session.client("sts").get_caller_identity()
+        report["account"] = identity["Account"]
+        report["arn"] = identity["Arn"]
+    except (ClientError, BotoCoreError) as exc:
+        report["problem"] = f"憑證存在但 STS 驗證失敗：{exc}"
+
+    return report
+
+
+def _explain_bedrock_error(exc: BaseException, model_id: str, region: str) -> str:
+    """把 Bedrock 的錯誤碼翻成可操作的下一步。"""
+
+    code = getattr(exc, "response", {}).get("Error", {}).get("Code", "")
+    name = code or type(exc).__name__
+
+    if name == "ValidationException":
+        message = str(exc)
+        # Nova 2 等模型在美國以外必須用 CRIS：裸 model id 會被拒。
+        if "inference profile" in message or "on-demand" in message:
+            # 前綴是加在完整 model id 之前，不是取代廠商名：
+            # amazon.nova-2-lite-v1:0 → global.amazon.nova-2-lite-v1:0
+            base = model_id
+            for existing in _CRIS_PREFIXES:
+                if base.startswith(f"{existing}."):
+                    base = base[len(existing) + 1 :]
+                    break
+            options = "\n".join(
+                f"    {prefix}.{base}" for prefix in _CRIS_PREFIXES
+            )
+            return (
+                f"model id「{model_id}」不支援在 {region} 直接隨需呼叫。\n"
+                "  這類模型需要跨區推論設定（CRIS），請改用下列任一種：\n"
+                f"{options}\n"
+                "  可用 `aws bedrock list-inference-profiles --region "
+                f"{region}` 查詢實際可用的 profile id"
+            )
+        return f"參數有誤：{message}"
+
+    if name == "AccessDeniedException":
+        return (
+            f"沒有權限呼叫「{model_id}」。兩件事都要確認：\n"
+            "    1. IAM 政策是否允許 bedrock:InvokeModel\n"
+            "    2. Bedrock console 的 Model access 是否已開啟該模型\n"
+            "       （第一次使用需手動申請啟用）"
+        )
+
+    if name == "ResourceNotFoundException":
+        return (
+            f"在 {region} 找不到「{model_id}」。請確認 model id 拼寫，"
+            f"或用 `aws bedrock list-foundation-models --region {region}` 查詢"
+        )
+
+    if name == "ThrottlingException":
+        return "被限流。程式已內建退避重試，若持續發生請申請提高配額"
+
+    if name in {"UnrecognizedClientException", "InvalidSignatureException"}:
+        return (
+            "憑證無效或已失效。若用臨時憑證請確認 AWS_SESSION_TOKEN 也設了，"
+            "且尚未過期"
+        )
+
+    return f"{name}: {exc}"
+
+
 if __name__ == "__main__":
     # 煙霧測試：實際打一次 Bedrock，確認憑證、region、model id 都對。
+    #   $env:AWS_ACCESS_KEY_ID="..."
+    #   $env:AWS_SECRET_ACCESS_KEY="..."
+    #   $env:AWS_SESSION_TOKEN="..."        # 臨時憑證才需要
     #   $env:AWS_REGION="us-east-1"
-    #   $env:BEDROCK_MODEL_ID="<model id>"
+    #   $env:BEDROCK_MODEL_ID="global.amazon.nova-2-lite-v1:0"
     #   python llm_provider.py
     import sys
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    print(f"AWS_REGION       = {os.environ.get('AWS_REGION')}")
-    print(f"BEDROCK_MODEL_ID = {os.environ.get('BEDROCK_MODEL_ID')}")
+
+    region_env = os.environ.get("AWS_REGION")
+    model_env = os.environ.get("BEDROCK_MODEL_ID")
+    print("=== 設定 ===")
+    print(f"  AWS_REGION       = {region_env}")
+    print(f"  BEDROCK_MODEL_ID = {model_env}")
+
+    print("\n=== 憑證 ===")
+    try:
+        for key, value in describe_credentials().items():
+            print(f"  {key:18s} = {value}")
+    except ImportError:
+        print("  未安裝 boto3，請先 pip install boto3", file=sys.stderr)
+        raise SystemExit(1)
+    except Exception as exc:  # noqa: BLE001 - 診斷用，任何問題都要看到
+        print(f"  憑證檢查失敗：{exc}", file=sys.stderr)
+
+    print("\n=== 呼叫 ===")
     try:
         llm = make_llm()
     except Exception as exc:  # noqa: BLE001 - 設定錯誤要講清楚
-        print(f"\n建立 LLM 失敗：{exc}", file=sys.stderr)
+        print(f"  建立失敗：{exc}", file=sys.stderr)
         raise SystemExit(1)
 
     question = sys.argv[1] if len(sys.argv) > 1 else "只回覆 OK 兩個字。"
-    print(f"prompt = {question}")
-    print("-" * 50)
+    print(f"  prompt = {question}")
+    print("-" * 60)
     try:
         print(llm(question))
     except Exception as exc:  # noqa: BLE001
-        print(f"\n呼叫失敗：{type(exc).__name__}: {exc}", file=sys.stderr)
+        print(
+            "\n呼叫失敗：\n  "
+            + _explain_bedrock_error(exc, model_env or "?", region_env or "?"),
+            file=sys.stderr,
+        )
         raise SystemExit(1)

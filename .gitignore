@@ -5,6 +5,15 @@ __pycache__/
 .venv/
 venv/
 
+# --- 憑證，絕對不能進 repo ---------------------------------------------------
+.env
+.env.*
+!.env.example
+credentials.json
+*.pem
+*.key
+.aws/
+
 # --- 地理參考資料（不進 repo）-------------------------------------------------
 # 新北市使用分區 shapefile 合計 179 MB，單一 .shp 就 162 MB，
 # 超過 GitHub 的 100 MB 硬限制。轉 GeoParquet 可壓到 63 MB，

@@ -109,17 +109,26 @@ LLM 是可注入的 callable（`llm(prompt: str) -> str`），實作放在 `llm_
 ### 接 Amazon Bedrock
 
 用 Converse API，無伺服器、按 token 計費。需要的 IAM 權限只有
-`bedrock:InvokeModel`。憑證由 boto3 依標準順序解析，在 ECS/Fargate 上用
-task role 即可，不要把金鑰寫進程式。
+`bedrock:InvokeModel`。
 
-```bash
+憑證放哪裡、ECS task role 怎麼設、常見錯誤怎麼排除，見
+[docs/CREDENTIALS.md](docs/CREDENTIALS.md)。摘要：**部署到 AWS 上時一把金鑰
+都不要有**，用 IAM task role；本機開發用 `~/.aws` 的 profile，不要用
+PowerShell 環境變數存 secret。
+
+```powershell
 pip install boto3
 
+aws configure --profile hackathon        # 金鑰只存在 ~/.aws，不會誤 commit
+$env:AWS_PROFILE="hackathon"
 $env:AWS_REGION="us-east-1"
-$env:BEDROCK_MODEL_ID="<model id>"     # aws bedrock list-foundation-models 可查
+$env:BEDROCK_MODEL_ID="global.amazon.nova-2-lite-v1:0"
 
-python llm_provider.py                  # 煙霧測試，確認憑證與 model id
+python llm_provider.py                    # 煙霧測試，會回報實際用到哪組憑證
 ```
+
+Nova 2 等模型在美國以外呼叫時，裸的 `amazon.nova-2-lite-v1:0` 會被拒，
+需要跨區推論的 profile id（`global.` / `us.` / `eu.` / `apac.` 前綴）。
 
 ```python
 from getSectionCode import run_pipeline
@@ -229,6 +238,10 @@ GET  /healthz           → 就緒狀態與快取統計
 | `AWS_REGION` | 無 | Bedrock 區域 |
 | `BEDROCK_MODEL_ID` | 無 | Bedrock model id |
 | `LLM_PROVIDER` | `bedrock` | `bedrock` 或 `echo`（測試用，不連網） |
+| `AWS_PROFILE` | 無 | 本機開發用的 `~/.aws` profile；正式環境不要設 |
+
+以上都是**非機密設定**，可以放環境變數或 `.env`（見 `.env.example`）。
+AWS 憑證不在此列，見 [docs/CREDENTIALS.md](docs/CREDENTIALS.md)。
 | `NLSC_TILE_WORKERS` | `4` | 圖磚並行抓取數 |
 | `ROAD_CACHE_CELL_DEGREES` | `0.02` | 路網網格邊長（度） |
 
