@@ -416,22 +416,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_land_area.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J9:J9",
-  "rect": [
-   448.2099914550781,
-   128.7286376953125,
-   480.6710066594997,
-   143.0
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_land_area.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K9:M9",
@@ -448,22 +432,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_land_area.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N9:N9",
-  "rect": [
-   610.0900268554688,
-   128.7286376953125,
-   642.5785902007287,
-   143.0
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_land_area.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O9:Q9",
@@ -477,6 +445,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_land_area.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J9:J9",
+  "rect": [
+   448.2099914550781,
+   128.7286376953125,
+   480.6710066594997,
+   143.0
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_land_area.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N9:N9",
+  "rect": [
+   610.0900268554688,
+   128.7286376953125,
+   642.5785902007287,
+   143.0
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -528,22 +528,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_land_width.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J10:J10",
-  "rect": [
-   448.2099914550781,
-   143.0,
-   480.6710066594997,
-   157.27999877929688
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_land_width.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K10:M10",
@@ -560,22 +544,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_land_width.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N10:N10",
-  "rect": [
-   610.0900268554688,
-   143.0,
-   642.5785902007287,
-   157.27999877929688
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_land_width.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O10:Q10",
@@ -589,6 +557,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_land_width.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J10:J10",
+  "rect": [
+   448.2099914550781,
+   143.0,
+   480.6710066594997,
+   157.27999877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_land_width.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N10:N10",
+  "rect": [
+   610.0900268554688,
+   143.0,
+   642.5785902007287,
+   157.27999877929688
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -640,22 +640,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_land_depth.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J11:J11",
-  "rect": [
-   448.2099914550781,
-   157.27999877929688,
-   480.6710066594997,
-   171.55999755859375
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_land_depth.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K11:M11",
@@ -672,22 +656,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_land_depth.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N11:N11",
-  "rect": [
-   610.0900268554688,
-   157.27999877929688,
-   642.5785902007287,
-   171.55999755859375
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_land_depth.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O11:Q11",
@@ -701,6 +669,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_land_depth.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J11:J11",
+  "rect": [
+   448.2099914550781,
+   157.27999877929688,
+   480.6710066594997,
+   171.55999755859375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_land_depth.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N11:N11",
+  "rect": [
+   610.0900268554688,
+   157.27999877929688,
+   642.5785902007287,
+   171.55999755859375
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -752,22 +752,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_land_shape.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J12:J12",
-  "rect": [
-   448.2099914550781,
-   171.55999755859375,
-   480.6710066594997,
-   185.8699951171875
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_land_shape.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K12:M12",
@@ -784,22 +768,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_land_shape.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N12:N12",
-  "rect": [
-   610.0900268554688,
-   171.55999755859375,
-   642.5785902007287,
-   185.8699951171875
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_land_shape.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O12:Q12",
@@ -813,6 +781,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_land_shape.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J12:J12",
+  "rect": [
+   448.2099914550781,
+   171.55999755859375,
+   480.6710066594997,
+   185.8699951171875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_land_shape.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N12:N12",
+  "rect": [
+   610.0900268554688,
+   171.55999755859375,
+   642.5785902007287,
+   185.8699951171875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -864,22 +864,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_street_frontage.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J13:J13",
-  "rect": [
-   448.2099914550781,
-   185.8699951171875,
-   480.6710066594997,
-   200.15000915527344
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_street_frontage.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K13:M13",
@@ -896,22 +880,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_street_frontage.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N13:N13",
-  "rect": [
-   610.0900268554688,
-   185.8699951171875,
-   642.5785902007287,
-   200.15000915527344
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_street_frontage.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O13:Q13",
@@ -925,6 +893,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_street_frontage.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J13:J13",
+  "rect": [
+   448.2099914550781,
+   185.8699951171875,
+   480.6710066594997,
+   200.15000915527344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_street_frontage.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N13:N13",
+  "rect": [
+   610.0900268554688,
+   185.8699951171875,
+   642.5785902007287,
+   200.15000915527344
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -976,22 +976,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_terrain_form4.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J14:J14",
-  "rect": [
-   448.2099914550781,
-   200.15000915527344,
-   480.6710066594997,
-   214.47000630696616
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_terrain_form4.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K14:M14",
@@ -1008,22 +992,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_terrain_form4.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N14:N14",
-  "rect": [
-   610.0900268554688,
-   200.15000915527344,
-   642.5785902007287,
-   214.47000630696616
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_terrain_form4.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O14:Q14",
@@ -1037,6 +1005,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_terrain_form4.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J14:J14",
+  "rect": [
+   448.2099914550781,
+   200.15000915527344,
+   480.6710066594997,
+   214.47000630696616
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_terrain_form4.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N14:N14",
+  "rect": [
+   610.0900268554688,
+   200.15000915527344,
+   642.5785902007287,
+   214.47000630696616
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -1088,22 +1088,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_road_type.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J15:J15",
-  "rect": [
-   448.2099914550781,
-   214.47000630696616,
-   480.6710066594997,
-   230.99002075195312
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_road_type.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K15:M15",
@@ -1117,22 +1101,6 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
-  "kind": "text"
- },
- {
-  "field_id": "individual.individual_road_type.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N15:N15",
-  "rect": [
-   610.0900268554688,
-   214.47000630696616,
-   642.5785902007287,
-   230.99002075195312
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -1152,6 +1120,38 @@
   "kind": "text"
  },
  {
+  "field_id": "individual.individual_road_type.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J15:J15",
+  "rect": [
+   448.2099914550781,
+   214.47000630696616,
+   480.6710066594997,
+   230.99002075195312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_road_type.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N15:N15",
+  "rect": [
+   610.0900268554688,
+   214.47000630696616,
+   642.5785902007287,
+   230.99002075195312
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
   "field_id": "individual.individual_road_type.comp3_pct",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "R15:R15",
@@ -1168,17 +1168,49 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_frontage_road_width.base_raw",
+  "field_id": "individual.individual_frontage_road_width.base_name",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "D16:F16",
+  "source_cell": "D16:D16",
   "rect": [
    187.5920685840254,
    230.99002075195312,
-   318.78128000033104,
+   253.0399932861328,
+   247.5496826171875
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_frontage_road_width.base_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "E16:E16",
+  "rect": [
+   253.0399932861328,
+   230.99002075195312,
+   289.19000854492185,
    247.5496826171875
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_frontage_road_width.comp1_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "G16:G16",
+  "rect": [
+   318.78128000033104,
+   230.99002075195312,
+   384.2355651855469,
+   247.5496826171875
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
   "formatter": "str",
   "kind": "text"
@@ -1186,16 +1218,80 @@
  {
   "field_id": "individual.individual_frontage_road_width.comp1_raw",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "G16:I16",
+  "source_cell": "H16:H16",
   "rect": [
-   318.78128000033104,
+   384.2355651855469,
    230.99002075195312,
-   448.2099914550781,
+   420.3555636935764,
    247.5496826171875
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_frontage_road_width.comp2_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "K16:K16",
+  "rect": [
+   480.6710066594997,
+   230.99002075195312,
+   546.1300048828125,
+   247.5496826171875
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_frontage_road_width.comp2_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "L16:L16",
+  "rect": [
+   546.1300048828125,
+   230.99002075195312,
+   582.2566663953993,
+   247.5496826171875
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_frontage_road_width.comp3_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "O16:O16",
+  "rect": [
+   642.5785902007287,
+   230.99002075195312,
+   708.0399780273438,
+   247.5496826171875
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_frontage_road_width.comp3_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "P16:P16",
+  "rect": [
+   708.0399780273438,
+   230.99002075195312,
+   744.1666463216146,
+   247.5496826171875
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
   "formatter": "str",
   "kind": "text"
  },
@@ -1216,22 +1312,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_frontage_road_width.comp2_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "K16:M16",
-  "rect": [
-   480.6710066594997,
-   230.99002075195312,
-   610.0900268554688,
-   247.5496826171875
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_frontage_road_width.comp2_pct",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "N16:N16",
@@ -1245,22 +1325,6 @@
   "min_font_size": 5.5,
   "align": "right",
   "formatter": "pct_signed",
-  "kind": "text"
- },
- {
-  "field_id": "individual.individual_frontage_road_width.comp3_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "O16:Q16",
-  "rect": [
-   642.5785902007287,
-   230.99002075195312,
-   772.0,
-   247.5496826171875
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
   "kind": "text"
  },
  {
@@ -1280,17 +1344,49 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_school_proximity.base_raw",
+  "field_id": "individual.individual_school_proximity.base_name",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "D17:F17",
+  "source_cell": "D17:D17",
   "rect": [
    187.5920685840254,
    247.5496826171875,
-   318.78128000033104,
+   253.0399932861328,
+   261.83001708984375
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_school_proximity.base_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "E17:E17",
+  "rect": [
+   253.0399932861328,
+   247.5496826171875,
+   289.19000854492185,
    261.83001708984375
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_school_proximity.comp1_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "G17:G17",
+  "rect": [
+   318.78128000033104,
+   247.5496826171875,
+   384.2355651855469,
+   261.83001708984375
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
   "formatter": "str",
   "kind": "text"
@@ -1298,16 +1394,80 @@
  {
   "field_id": "individual.individual_school_proximity.comp1_raw",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "G17:I17",
+  "source_cell": "H17:H17",
   "rect": [
-   318.78128000033104,
+   384.2355651855469,
    247.5496826171875,
-   448.2099914550781,
+   420.3555636935764,
    261.83001708984375
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_school_proximity.comp2_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "K17:K17",
+  "rect": [
+   480.6710066594997,
+   247.5496826171875,
+   546.1300048828125,
+   261.83001708984375
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_school_proximity.comp2_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "L17:L17",
+  "rect": [
+   546.1300048828125,
+   247.5496826171875,
+   582.2566663953993,
+   261.83001708984375
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_school_proximity.comp3_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "O17:O17",
+  "rect": [
+   642.5785902007287,
+   247.5496826171875,
+   708.0399780273438,
+   261.83001708984375
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_school_proximity.comp3_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "P17:P17",
+  "rect": [
+   708.0399780273438,
+   247.5496826171875,
+   744.1666463216146,
+   261.83001708984375
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
   "formatter": "str",
   "kind": "text"
  },
@@ -1328,22 +1488,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_school_proximity.comp2_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "K17:M17",
-  "rect": [
-   480.6710066594997,
-   247.5496826171875,
-   610.0900268554688,
-   261.83001708984375
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_school_proximity.comp2_pct",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "N17:N17",
@@ -1357,22 +1501,6 @@
   "min_font_size": 5.5,
   "align": "right",
   "formatter": "pct_signed",
-  "kind": "text"
- },
- {
-  "field_id": "individual.individual_school_proximity.comp3_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "O17:Q17",
-  "rect": [
-   642.5785902007287,
-   247.5496826171875,
-   772.0,
-   261.83001708984375
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
   "kind": "text"
  },
  {
@@ -1392,17 +1520,49 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_market_proximity.base_raw",
+  "field_id": "individual.individual_market_proximity.base_name",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "D18:F18",
+  "source_cell": "D18:D18",
   "rect": [
    187.5920685840254,
    261.83001708984375,
-   318.78128000033104,
+   253.0399932861328,
+   276.1100158691406
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_market_proximity.base_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "E18:E18",
+  "rect": [
+   253.0399932861328,
+   261.83001708984375,
+   289.19000854492185,
    276.1100158691406
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_market_proximity.comp1_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "G18:G18",
+  "rect": [
+   318.78128000033104,
+   261.83001708984375,
+   384.2355651855469,
+   276.1100158691406
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
   "formatter": "str",
   "kind": "text"
@@ -1410,16 +1570,80 @@
  {
   "field_id": "individual.individual_market_proximity.comp1_raw",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "G18:I18",
+  "source_cell": "H18:H18",
   "rect": [
-   318.78128000033104,
+   384.2355651855469,
    261.83001708984375,
-   448.2099914550781,
+   420.3555636935764,
    276.1100158691406
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_market_proximity.comp2_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "K18:K18",
+  "rect": [
+   480.6710066594997,
+   261.83001708984375,
+   546.1300048828125,
+   276.1100158691406
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_market_proximity.comp2_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "L18:L18",
+  "rect": [
+   546.1300048828125,
+   261.83001708984375,
+   582.2566663953993,
+   276.1100158691406
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_market_proximity.comp3_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "O18:O18",
+  "rect": [
+   642.5785902007287,
+   261.83001708984375,
+   708.0399780273438,
+   276.1100158691406
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_market_proximity.comp3_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "P18:P18",
+  "rect": [
+   708.0399780273438,
+   261.83001708984375,
+   744.1666463216146,
+   276.1100158691406
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
   "formatter": "str",
   "kind": "text"
  },
@@ -1440,22 +1664,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_market_proximity.comp2_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "K18:M18",
-  "rect": [
-   480.6710066594997,
-   261.83001708984375,
-   610.0900268554688,
-   276.1100158691406
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_market_proximity.comp2_pct",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "N18:N18",
@@ -1469,22 +1677,6 @@
   "min_font_size": 5.5,
   "align": "right",
   "formatter": "pct_signed",
-  "kind": "text"
- },
- {
-  "field_id": "individual.individual_market_proximity.comp3_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "O18:Q18",
-  "rect": [
-   642.5785902007287,
-   261.83001708984375,
-   772.0,
-   276.1100158691406
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
   "kind": "text"
  },
  {
@@ -1504,17 +1696,49 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_park_proximity.base_raw",
+  "field_id": "individual.individual_park_proximity.base_name",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "D19:F19",
+  "source_cell": "D19:D19",
   "rect": [
    187.5920685840254,
    276.1100158691406,
-   318.78128000033104,
+   253.0399932861328,
+   290.3900146484375
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_park_proximity.base_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "E19:E19",
+  "rect": [
+   253.0399932861328,
+   276.1100158691406,
+   289.19000854492185,
    290.3900146484375
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_park_proximity.comp1_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "G19:G19",
+  "rect": [
+   318.78128000033104,
+   276.1100158691406,
+   384.2355651855469,
+   290.3900146484375
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
   "formatter": "str",
   "kind": "text"
@@ -1522,16 +1746,80 @@
  {
   "field_id": "individual.individual_park_proximity.comp1_raw",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "G19:I19",
+  "source_cell": "H19:H19",
   "rect": [
-   318.78128000033104,
+   384.2355651855469,
    276.1100158691406,
-   448.2099914550781,
+   420.3555636935764,
    290.3900146484375
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_park_proximity.comp2_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "K19:K19",
+  "rect": [
+   480.6710066594997,
+   276.1100158691406,
+   546.1300048828125,
+   290.3900146484375
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_park_proximity.comp2_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "L19:L19",
+  "rect": [
+   546.1300048828125,
+   276.1100158691406,
+   582.2566663953993,
+   290.3900146484375
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_park_proximity.comp3_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "O19:O19",
+  "rect": [
+   642.5785902007287,
+   276.1100158691406,
+   708.0399780273438,
+   290.3900146484375
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_park_proximity.comp3_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "P19:P19",
+  "rect": [
+   708.0399780273438,
+   276.1100158691406,
+   744.1666463216146,
+   290.3900146484375
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
   "formatter": "str",
   "kind": "text"
  },
@@ -1552,22 +1840,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_park_proximity.comp2_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "K19:M19",
-  "rect": [
-   480.6710066594997,
-   276.1100158691406,
-   610.0900268554688,
-   290.3900146484375
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_park_proximity.comp2_pct",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "N19:N19",
@@ -1581,22 +1853,6 @@
   "min_font_size": 5.5,
   "align": "right",
   "formatter": "pct_signed",
-  "kind": "text"
- },
- {
-  "field_id": "individual.individual_park_proximity.comp3_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "O19:Q19",
-  "rect": [
-   642.5785902007287,
-   276.1100158691406,
-   772.0,
-   290.3900146484375
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
   "kind": "text"
  },
  {
@@ -1616,17 +1872,49 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_station_proximity.base_raw",
+  "field_id": "individual.individual_station_proximity.base_name",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "D20:F20",
+  "source_cell": "D20:D20",
   "rect": [
    187.5920685840254,
    290.3900146484375,
-   318.78128000033104,
+   253.0399932861328,
+   304.6700134277344
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_station_proximity.base_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "E20:E20",
+  "rect": [
+   253.0399932861328,
+   290.3900146484375,
+   289.19000854492185,
    304.6700134277344
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_station_proximity.comp1_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "G20:G20",
+  "rect": [
+   318.78128000033104,
+   290.3900146484375,
+   384.2355651855469,
+   304.6700134277344
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
   "formatter": "str",
   "kind": "text"
@@ -1634,16 +1922,80 @@
  {
   "field_id": "individual.individual_station_proximity.comp1_raw",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "G20:I20",
+  "source_cell": "H20:H20",
   "rect": [
-   318.78128000033104,
+   384.2355651855469,
    290.3900146484375,
-   448.2099914550781,
+   420.3555636935764,
    304.6700134277344
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_station_proximity.comp2_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "K20:K20",
+  "rect": [
+   480.6710066594997,
+   290.3900146484375,
+   546.1300048828125,
+   304.6700134277344
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_station_proximity.comp2_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "L20:L20",
+  "rect": [
+   546.1300048828125,
+   290.3900146484375,
+   582.2566663953993,
+   304.6700134277344
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_station_proximity.comp3_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "O20:O20",
+  "rect": [
+   642.5785902007287,
+   290.3900146484375,
+   708.0399780273438,
+   304.6700134277344
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_station_proximity.comp3_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "P20:P20",
+  "rect": [
+   708.0399780273438,
+   290.3900146484375,
+   744.1666463216146,
+   304.6700134277344
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
   "formatter": "str",
   "kind": "text"
  },
@@ -1664,22 +2016,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_station_proximity.comp2_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "K20:M20",
-  "rect": [
-   480.6710066594997,
-   290.3900146484375,
-   610.0900268554688,
-   304.6700134277344
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_station_proximity.comp2_pct",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "N20:N20",
@@ -1693,22 +2029,6 @@
   "min_font_size": 5.5,
   "align": "right",
   "formatter": "pct_signed",
-  "kind": "text"
- },
- {
-  "field_id": "individual.individual_station_proximity.comp3_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "O20:Q20",
-  "rect": [
-   642.5785902007287,
-   290.3900146484375,
-   772.0,
-   304.6700134277344
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
   "kind": "text"
  },
  {
@@ -1728,17 +2048,49 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_commercial_district_proximity.base_raw",
+  "field_id": "individual.individual_commercial_district_proximity.base_name",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "D21:F21",
+  "source_cell": "D21:D21",
   "rect": [
    187.5920685840254,
    304.6700134277344,
-   318.78128000033104,
+   253.0399932861328,
+   318.96538602388824
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_commercial_district_proximity.base_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "E21:E21",
+  "rect": [
+   253.0399932861328,
+   304.6700134277344,
+   289.19000854492185,
    318.96538602388824
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_commercial_district_proximity.comp1_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "G21:G21",
+  "rect": [
+   318.78128000033104,
+   304.6700134277344,
+   384.2355651855469,
+   318.96538602388824
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
   "formatter": "str",
   "kind": "text"
@@ -1746,16 +2098,80 @@
  {
   "field_id": "individual.individual_commercial_district_proximity.comp1_raw",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "G21:I21",
+  "source_cell": "H21:H21",
   "rect": [
-   318.78128000033104,
+   384.2355651855469,
    304.6700134277344,
-   448.2099914550781,
+   420.3555636935764,
    318.96538602388824
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_commercial_district_proximity.comp2_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "K21:K21",
+  "rect": [
+   480.6710066594997,
+   304.6700134277344,
+   546.1300048828125,
+   318.96538602388824
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_commercial_district_proximity.comp2_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "L21:L21",
+  "rect": [
+   546.1300048828125,
+   304.6700134277344,
+   582.2566663953993,
+   318.96538602388824
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_commercial_district_proximity.comp3_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "O21:O21",
+  "rect": [
+   642.5785902007287,
+   304.6700134277344,
+   708.0399780273438,
+   318.96538602388824
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_commercial_district_proximity.comp3_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "P21:P21",
+  "rect": [
+   708.0399780273438,
+   304.6700134277344,
+   744.1666463216146,
+   318.96538602388824
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
   "formatter": "str",
   "kind": "text"
  },
@@ -1776,22 +2192,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_commercial_district_proximity.comp2_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "K21:M21",
-  "rect": [
-   480.6710066594997,
-   304.6700134277344,
-   610.0900268554688,
-   318.96538602388824
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_commercial_district_proximity.comp2_pct",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "N21:N21",
@@ -1805,22 +2205,6 @@
   "min_font_size": 5.5,
   "align": "right",
   "formatter": "pct_signed",
-  "kind": "text"
- },
- {
-  "field_id": "individual.individual_commercial_district_proximity.comp3_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "O21:Q21",
-  "rect": [
-   642.5785902007287,
-   304.6700134277344,
-   772.0,
-   318.96538602388824
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
   "kind": "text"
  },
  {
@@ -1840,17 +2224,49 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_nuisance_facility.base_raw",
+  "field_id": "individual.individual_nuisance_facility.base_name",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "D22:F22",
+  "source_cell": "D22:D22",
   "rect": [
    187.5920685840254,
    318.96538602388824,
-   318.78128000033104,
+   253.0399932861328,
+   335.5299987792969
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_nuisance_facility.base_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "E22:E22",
+  "rect": [
+   253.0399932861328,
+   318.96538602388824,
+   289.19000854492185,
    335.5299987792969
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_nuisance_facility.comp1_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "G22:G22",
+  "rect": [
+   318.78128000033104,
+   318.96538602388824,
+   384.2355651855469,
+   335.5299987792969
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
   "formatter": "str",
   "kind": "text"
@@ -1858,16 +2274,80 @@
  {
   "field_id": "individual.individual_nuisance_facility.comp1_raw",
   "source_sheet": "表4比較法調查估價表",
-  "source_cell": "G22:I22",
+  "source_cell": "H22:H22",
   "rect": [
-   318.78128000033104,
+   384.2355651855469,
    318.96538602388824,
-   448.2099914550781,
+   420.3555636935764,
    335.5299987792969
   ],
   "font_size": 7.5,
   "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_nuisance_facility.comp2_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "K22:K22",
+  "rect": [
+   480.6710066594997,
+   318.96538602388824,
+   546.1300048828125,
+   335.5299987792969
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
   "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_nuisance_facility.comp2_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "L22:L22",
+  "rect": [
+   546.1300048828125,
+   318.96538602388824,
+   582.2566663953993,
+   335.5299987792969
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_nuisance_facility.comp3_name",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "O22:O22",
+  "rect": [
+   642.5785902007287,
+   318.96538602388824,
+   708.0399780273438,
+   335.5299987792969
+  ],
+  "font_size": 7,
+  "min_font_size": 4,
+  "align": "left",
+  "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_nuisance_facility.comp3_raw",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "P22:P22",
+  "rect": [
+   708.0399780273438,
+   318.96538602388824,
+   744.1666463216146,
+   335.5299987792969
+  ],
+  "font_size": 7.5,
+  "min_font_size": 5.5,
+  "align": "center",
   "formatter": "str",
   "kind": "text"
  },
@@ -1888,22 +2368,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_nuisance_facility.comp2_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "K22:M22",
-  "rect": [
-   480.6710066594997,
-   318.96538602388824,
-   610.0900268554688,
-   335.5299987792969
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_nuisance_facility.comp2_pct",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "N22:N22",
@@ -1917,22 +2381,6 @@
   "min_font_size": 5.5,
   "align": "right",
   "formatter": "pct_signed",
-  "kind": "text"
- },
- {
-  "field_id": "individual.individual_nuisance_facility.comp3_raw",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "O22:Q22",
-  "rect": [
-   642.5785902007287,
-   318.96538602388824,
-   772.0,
-   335.5299987792969
-  ],
-  "font_size": 7.5,
-  "min_font_size": 5.5,
-  "align": "left",
-  "formatter": "str",
   "kind": "text"
  },
  {
@@ -1984,22 +2432,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_parking_convenience.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J23:J23",
-  "rect": [
-   448.2099914550781,
-   335.5299987792969,
-   480.6710066594997,
-   352.10459681919644
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_parking_convenience.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K23:M23",
@@ -2016,22 +2448,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_parking_convenience.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N23:N23",
-  "rect": [
-   610.0900268554688,
-   335.5299987792969,
-   642.5785902007287,
-   352.10459681919644
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_parking_convenience.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O23:Q23",
@@ -2045,6 +2461,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_parking_convenience.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J23:J23",
+  "rect": [
+   448.2099914550781,
+   335.5299987792969,
+   480.6710066594997,
+   352.10459681919644
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_parking_convenience.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N23:N23",
+  "rect": [
+   610.0900268554688,
+   335.5299987792969,
+   642.5785902007287,
+   352.10459681919644
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -2096,22 +2544,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_zoning_designation.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J24:J24",
-  "rect": [
-   448.2099914550781,
-   352.10459681919644,
-   480.6710066594997,
-   366.3699951171875
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_zoning_designation.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K24:M24",
@@ -2128,22 +2560,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_zoning_designation.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N24:N24",
-  "rect": [
-   610.0900268554688,
-   352.10459681919644,
-   642.5785902007287,
-   366.3699951171875
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_zoning_designation.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O24:Q24",
@@ -2157,6 +2573,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_zoning_designation.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J24:J24",
+  "rect": [
+   448.2099914550781,
+   352.10459681919644,
+   480.6710066594997,
+   366.3699951171875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_zoning_designation.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N24:N24",
+  "rect": [
+   610.0900268554688,
+   352.10459681919644,
+   642.5785902007287,
+   366.3699951171875
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -2208,22 +2656,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_building_coverage_ratio.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J25:J25",
-  "rect": [
-   448.2099914550781,
-   366.3699951171875,
-   480.6710066594997,
-   380.6500244140625
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_building_coverage_ratio.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K25:M25",
@@ -2240,22 +2672,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_building_coverage_ratio.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N25:N25",
-  "rect": [
-   610.0900268554688,
-   366.3699951171875,
-   642.5785902007287,
-   380.6500244140625
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_building_coverage_ratio.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O25:Q25",
@@ -2269,6 +2685,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_building_coverage_ratio.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J25:J25",
+  "rect": [
+   448.2099914550781,
+   366.3699951171875,
+   480.6710066594997,
+   380.6500244140625
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_building_coverage_ratio.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N25:N25",
+  "rect": [
+   610.0900268554688,
+   366.3699951171875,
+   642.5785902007287,
+   380.6500244140625
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -2320,22 +2768,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_floor_area_ratio.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J26:J26",
-  "rect": [
-   448.2099914550781,
-   380.6500244140625,
-   480.6710066594997,
-   394.92999267578125
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_floor_area_ratio.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K26:M26",
@@ -2352,22 +2784,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_floor_area_ratio.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N26:N26",
-  "rect": [
-   610.0900268554688,
-   380.6500244140625,
-   642.5785902007287,
-   394.92999267578125
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_floor_area_ratio.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O26:Q26",
@@ -2381,6 +2797,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_floor_area_ratio.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J26:J26",
+  "rect": [
+   448.2099914550781,
+   380.6500244140625,
+   480.6710066594997,
+   394.92999267578125
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_floor_area_ratio.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N26:N26",
+  "rect": [
+   610.0900268554688,
+   380.6500244140625,
+   642.5785902007287,
+   394.92999267578125
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -2432,22 +2880,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_construction_restriction.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J27:J27",
-  "rect": [
-   448.2099914550781,
-   394.92999267578125,
-   480.6710066594997,
-   409.2127491344105
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_construction_restriction.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K27:M27",
@@ -2464,22 +2896,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_construction_restriction.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N27:N27",
-  "rect": [
-   610.0900268554688,
-   394.92999267578125,
-   642.5785902007287,
-   409.2127491344105
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_construction_restriction.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O27:Q27",
@@ -2493,6 +2909,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_construction_restriction.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J27:J27",
+  "rect": [
+   448.2099914550781,
+   394.92999267578125,
+   480.6710066594997,
+   409.2127491344105
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_construction_restriction.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N27:N27",
+  "rect": [
+   610.0900268554688,
+   394.92999267578125,
+   642.5785902007287,
+   409.2127491344105
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {
@@ -2544,22 +2992,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_other.comp1_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "J28:J28",
-  "rect": [
-   448.2099914550781,
-   409.2127491344105,
-   480.6710066594997,
-   423.49691302959735
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_other.comp2_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "K28:M28",
@@ -2576,22 +3008,6 @@
   "kind": "text"
  },
  {
-  "field_id": "individual.individual_other.comp2_pct",
-  "source_sheet": "表4比較法調查估價表",
-  "source_cell": "N28:N28",
-  "rect": [
-   610.0900268554688,
-   409.2127491344105,
-   642.5785902007287,
-   423.49691302959735
-  ],
-  "font_size": 8.5,
-  "min_font_size": 5.5,
-  "align": "right",
-  "formatter": "pct_signed",
-  "kind": "text"
- },
- {
   "field_id": "individual.individual_other.comp3_raw",
   "source_sheet": "表4比較法調查估價表",
   "source_cell": "O28:Q28",
@@ -2605,6 +3021,38 @@
   "min_font_size": 5.5,
   "align": "left",
   "formatter": "str",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_other.comp1_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "J28:J28",
+  "rect": [
+   448.2099914550781,
+   409.2127491344105,
+   480.6710066594997,
+   423.49691302959735
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
+  "kind": "text"
+ },
+ {
+  "field_id": "individual.individual_other.comp2_pct",
+  "source_sheet": "表4比較法調查估價表",
+  "source_cell": "N28:N28",
+  "rect": [
+   610.0900268554688,
+   409.2127491344105,
+   642.5785902007287,
+   423.49691302959735
+  ],
+  "font_size": 8.5,
+  "min_font_size": 5.5,
+  "align": "right",
+  "formatter": "pct_signed",
   "kind": "text"
  },
  {

@@ -1070,5 +1070,991 @@
   "align": "left",
   "formatter": "str",
   "kind": "checkbox_multiselect"
+ },
+ {
+  "field_id": "grade_code.regional_zoning_inside_outside",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B4:B4",
+  "rect": [
+   34.6,
+   81.58495538884944,
+   46.3,
+   95.8399658203125
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_zoning_inside_outside",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C4:C4",
+  "rect": [
+   46.3,
+   81.58495538884944,
+   58.1,
+   95.8399658203125
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_land_use_zone",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B5:B5",
+  "rect": [
+   34.6,
+   95.8399658203125,
+   46.3,
+   110.1199951171875
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_land_use_zone",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C5:C5",
+  "rect": [
+   46.3,
+   95.8399658203125,
+   58.1,
+   110.1199951171875
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_building_coverage_ratio",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B6:B6",
+  "rect": [
+   34.6,
+   110.1199951171875,
+   46.3,
+   124.39996337890625
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_building_coverage_ratio",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C6:C6",
+  "rect": [
+   46.3,
+   110.1199951171875,
+   58.1,
+   124.39996337890625
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_floor_area_ratio",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B7:B7",
+  "rect": [
+   34.6,
+   124.39996337890625,
+   46.3,
+   138.67999267578125
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_floor_area_ratio",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C7:C7",
+  "rect": [
+   46.3,
+   124.39996337890625,
+   58.1,
+   138.67999267578125
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_construction_prohibited",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B8:B8",
+  "rect": [
+   34.6,
+   138.67999267578125,
+   46.3,
+   152.9599609375
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_construction_prohibited",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C8:C8",
+  "rect": [
+   46.3,
+   138.67999267578125,
+   58.1,
+   152.9599609375
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_construction_restricted",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B9:B10",
+  "rect": [
+   34.6,
+   152.9599609375,
+   46.3,
+   181.5213484330611
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_construction_restricted",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C9:C10",
+  "rect": [
+   46.3,
+   152.9599609375,
+   58.1,
+   181.5213484330611
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_main_road_width",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B11:B11",
+  "rect": [
+   34.6,
+   181.5213484330611,
+   46.3,
+   195.8059875488281
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_main_road_width",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C11:C11",
+  "rect": [
+   46.3,
+   181.5213484330611,
+   58.1,
+   195.8059875488281
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_avg_road_width",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B12:B12",
+  "rect": [
+   34.6,
+   195.8059875488281,
+   46.3,
+   210.11097208658853
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_avg_road_width",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C12:C12",
+  "rect": [
+   46.3,
+   195.8059875488281,
+   58.1,
+   210.11097208658853
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_major_station_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B13:B16",
+  "rect": [
+   34.6,
+   210.11097208658853,
+   46.3,
+   267.22998046875
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_major_station_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C13:C16",
+  "rect": [
+   46.3,
+   210.11097208658853,
+   58.1,
+   267.22998046875
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_bus_stop_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B17:B18",
+  "rect": [
+   34.6,
+   267.22998046875,
+   46.3,
+   295.78997802734375
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_bus_stop_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C17:C18",
+  "rect": [
+   46.3,
+   267.22998046875,
+   58.1,
+   295.78997802734375
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_interchange_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B19:B19",
+  "rect": [
+   34.6,
+   295.78997802734375,
+   46.3,
+   310.1000061035156
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_interchange_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C19:C19",
+  "rect": [
+   46.3,
+   295.78997802734375,
+   58.1,
+   310.1000061035156
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_road_development_level",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B23:B23",
+  "rect": [
+   34.6,
+   352.9099655151367,
+   46.3,
+   367.1893191867405
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_road_development_level",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C23:C23",
+  "rect": [
+   46.3,
+   352.9099655151367,
+   58.1,
+   367.1893191867405
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_sunlight",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B24:B24",
+  "rect": [
+   34.6,
+   367.1893191867405,
+   46.3,
+   381.44885444641113
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_sunlight",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C24:C24",
+  "rect": [
+   46.3,
+   367.1893191867405,
+   58.1,
+   381.44885444641113
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_view",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B25:B25",
+  "rect": [
+   34.6,
+   381.44885444641113,
+   46.3,
+   395.7499771118164
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_view",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C25:C25",
+  "rect": [
+   46.3,
+   381.44885444641113,
+   58.1,
+   395.7499771118164
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_slope",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B26:B26",
+  "rect": [
+   34.6,
+   395.7499771118164,
+   46.3,
+   410.0299816131592
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_slope",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C26:C26",
+  "rect": [
+   46.3,
+   395.7499771118164,
+   58.1,
+   410.0299816131592
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_drainage_quality",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B27:B27",
+  "rect": [
+   34.6,
+   410.0299816131592,
+   46.3,
+   424.30999183654785
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_drainage_quality",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C27:C27",
+  "rect": [
+   46.3,
+   410.0299816131592,
+   58.1,
+   424.30999183654785
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_terrain",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B28:B28",
+  "rect": [
+   34.6,
+   424.30999183654785,
+   46.3,
+   438.58974266052246
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_terrain",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C28:C28",
+  "rect": [
+   46.3,
+   424.30999183654785,
+   58.1,
+   438.58974266052246
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_land_improvement",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B31:B32",
+  "rect": [
+   34.6,
+   467.16998799641925,
+   46.3,
+   495.72998046875
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_land_improvement",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C31:C32",
+  "rect": [
+   46.3,
+   467.16998799641925,
+   58.1,
+   495.72998046875
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_school_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B35:B38",
+  "rect": [
+   34.6,
+   524.2922159830729,
+   46.3,
+   581.4099731445312
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_school_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C35:C38",
+  "rect": [
+   46.3,
+   524.2922159830729,
+   58.1,
+   581.4099731445312
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_market_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B39:B41",
+  "rect": [
+   34.6,
+   581.4099731445312,
+   46.3,
+   624.2483970240543
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_market_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C39:C41",
+  "rect": [
+   46.3,
+   581.4099731445312,
+   58.1,
+   624.2483970240543
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_park_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "B42:B44",
+  "rect": [
+   34.6,
+   624.2483970240543,
+   46.3,
+   669.219970703125
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_park_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "C42:C44",
+  "rect": [
+   46.3,
+   624.2483970240543,
+   58.1,
+   669.219970703125
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_tourism_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "M4:M5",
+  "rect": [
+   299.3,
+   81.58495538884944,
+   311.0,
+   110.1199951171875
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_tourism_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "N4:N5",
+  "rect": [
+   311.0,
+   81.58495538884944,
+   321.7,
+   110.1199951171875
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_parking_convenience",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "M6:M7",
+  "rect": [
+   299.3,
+   110.1199951171875,
+   311.0,
+   138.67999267578125
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_parking_convenience",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "N6:N7",
+  "rect": [
+   311.0,
+   110.1199951171875,
+   321.7,
+   138.67999267578125
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_service_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "M8:M9",
+  "rect": [
+   299.3,
+   138.67999267578125,
+   311.0,
+   167.239990234375
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_service_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "N8:N9",
+  "rect": [
+   311.0,
+   138.67999267578125,
+   321.7,
+   167.239990234375
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_utility_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "M14:M17",
+  "rect": [
+   299.3,
+   224.3954833984375,
+   311.0,
+   281.510009765625
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_utility_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "N14:N17",
+  "rect": [
+   311.0,
+   224.3954833984375,
+   321.7,
+   281.510009765625
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_funeral_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "M18:M21",
+  "rect": [
+   299.3,
+   281.510009765625,
+   311.0,
+   338.6299743652344
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_funeral_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "N18:N21",
+  "rect": [
+   311.0,
+   281.510009765625,
+   321.7,
+   338.6299743652344
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_waste_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "M22:M24",
+  "rect": [
+   299.3,
+   338.6299743652344,
+   311.0,
+   381.44885444641113
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_waste_facility_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "N22:N24",
+  "rect": [
+   311.0,
+   338.6299743652344,
+   321.7,
+   381.44885444641113
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_pollution_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "M25:M29",
+  "rect": [
+   299.3,
+   381.44885444641113,
+   311.0,
+   452.8899831136068
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_pollution_proximity",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "N25:N29",
+  "rect": [
+   311.0,
+   381.44885444641113,
+   321.7,
+   452.8899831136068
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_code.regional_other",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "O40:O41",
+  "rect": [
+   321.7,
+   595.6584869384766,
+   332.4,
+   624.2483970240543
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
+ },
+ {
+  "field_id": "grade_count.regional_other",
+  "source_sheet": "表3區段勘查表",
+  "source_cell": "P40:P41",
+  "rect": [
+   332.4,
+   595.6584869384766,
+   345.5,
+   624.2483970240543
+  ],
+  "font_size": 7,
+  "min_font_size": 5.5,
+  "align": "center",
+  "formatter": "str",
+  "kind": "text",
+  "left_pad": 0
  }
 ]

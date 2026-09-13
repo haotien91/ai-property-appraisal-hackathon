@@ -39,6 +39,7 @@ from typing import Any, Dict, Optional
 import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
 
+from domain.grade_scales import grade_code, regional_grade_scales, table3_grade_values
 from export.models import CaseExportBundle
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -147,6 +148,8 @@ def export_table3_excel(bundle: CaseExportBundle, segment_code: str, out_path: s
 
     for field_id, raw_value in raw_by_field.items():
         _write(ws, mapping.get(field_id), raw_value)
+    for field_id, value in table3_grade_values(bundle.table5_1, segment_code, bundle.profile_id).items():
+        _write(ws, mapping.get(field_id), value)
 
     wb.save(out_path)
     after_sha = _sha256(TABLE3_SOURCE_XLSX)
@@ -165,6 +168,7 @@ def export_table51_excel(bundle: CaseExportBundle, out_path: str) -> None:
     ws = wb[TABLE51_SHEET]
 
     t51 = bundle.table5_1
+    scales = regional_grade_scales(bundle.profile_id or t51.get("rule_profile_id"))
     _write(ws, mapping.get("segment_code[base]"), t51.get("base_segment_code"))
 
     comp_slot = {1: "comp1", 2: "comp2", 3: "comp3"}
@@ -177,6 +181,10 @@ def export_table51_excel(bundle: CaseExportBundle, out_path: str) -> None:
         for fr in comp.get("factor_results", []):
             _write(ws, mapping.get(f"{fr['field_id']}.base_grade"), fr.get("base_grade"))
             _write(ws, mapping.get(f"{fr['field_id']}.{slot}_grade"), fr.get("comparable_grade"))
+            _write(ws, mapping.get(f"{fr['field_id']}.base_grade_code"),
+                   grade_code(scales, fr["field_id"], fr.get("base_grade")))
+            _write(ws, mapping.get(f"{fr['field_id']}.{slot}_grade_code"),
+                   grade_code(scales, fr["field_id"], fr.get("comparable_grade")))
             _write(ws, mapping.get(f"{fr['field_id']}.{slot}_pct"), fr.get("adjustment_pct"))
 
         for cs in comp.get("category_subtotals", []):
@@ -226,7 +234,12 @@ def export_table4_excel(bundle: CaseExportBundle, out_path: str) -> None:
         if comp.get("weight_status") == "HUMAN_CONFIRMED" or draft_weight:
             _write(ws, mapping.get(f"{slot}.weight_pct"), comp.get("weight_pct"))
 
+        labels = t4.get("condition_labels") or {}
         for fr in comp.get("individual_factor_results", []):
+            _write(ws, mapping.get(f"individual.{fr['field_id']}.base_name"),
+                   (labels.get(t4.get("base_segment_code")) or {}).get(fr["field_id"]))
+            _write(ws, mapping.get(f"individual.{fr['field_id']}.{slot}_name"),
+                   (labels.get(comp.get("comparable_segment_code")) or {}).get(fr["field_id"]))
             _write(ws, mapping.get(f"individual.{fr['field_id']}.base_raw"), fr.get("base_raw_value"))
             _write(ws, mapping.get(f"individual.{fr['field_id']}.{slot}_raw"), fr.get("comparable_raw_value"))
             _write(ws, mapping.get(f"individual.{fr['field_id']}.{slot}_pct"), fr.get("adjustment_pct"))

@@ -253,6 +253,33 @@ def test_table51_mapping_rows_sit_on_their_printed_labels():
     doc.close()
 
 
+def test_grade_numbers_follow_rule_matrix_positions():
+    from domain.grade_scales import regional_grade_scales, table3_grade_values
+    scales = regional_grade_scales("shulin_residential_2026")
+    assert scales["regional_zoning_inside_outside"] == {"優": 1, "劣": 2}
+    assert scales["regional_main_road_width"]["普通"] == 3
+    assert len(scales["regional_other"]) == 7
+    analysis = {"base_segment_code": "P001-00", "rule_profile_id": "shulin_residential_2026", "comparisons": [
+        {"comparable_segment_code": "P002-00", "factor_results": [
+            {"field_id": "regional_main_road_width", "base_grade": "優", "comparable_grade": "劣"}]}]}
+    assert table3_grade_values(analysis, "P001-00") == {
+        "grade_code.regional_main_road_width": 1, "grade_count.regional_main_road_width": 5}
+    assert table3_grade_values(analysis, "P002-00")["grade_code.regional_main_road_width"] == 5
+
+
+def test_grade_numbers_labels_and_condition_names_use_their_own_cells():
+    template = ROOT / "data/templates/shulin"
+    load = lambda name: {e["field_id"]: e["source_cell"] for e in json.loads((template / name).read_text("utf-8"))}
+    t51, t4, t3 = (load(f"shulin_table{n}_mapping.json") for n in ("51", "4", "3"))
+    assert (t51["regional_school_proximity.base_grade_code"], t51["regional_school_proximity.base_grade"]) == ("C27:C27", "D27:D27")
+    assert (t51["regional_school_proximity.comp1_grade_code"], t51["regional_school_proximity.comp1_grade"]) == ("E27:E27", "F27:F27")
+    assert (t4["individual.individual_school_proximity.base_name"], t4["individual.individual_school_proximity.base_raw"]) == ("D17:D17", "E17:E17")
+    assert (t4["individual.individual_school_proximity.comp3_name"], t4["individual.individual_school_proximity.comp3_raw"]) == ("O17:O17", "P17:P17")
+    assert t4["individual.individual_zoning_designation.base_raw"] == "D24:F24"
+    assert (t3["grade_code.regional_zoning_inside_outside"], t3["grade_count.regional_zoning_inside_outside"]) == ("B4:B4", "C4:C4")
+    assert t3["grade_code.regional_pollution_proximity"] == "M25:M29"
+
+
 def test_table3_every_facility_row_has_inside_outside_circles():
     import fitz
     from pdf.shulin_official_pdf_renderer import _table3_row_anchors

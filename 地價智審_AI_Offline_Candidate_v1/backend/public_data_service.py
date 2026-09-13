@@ -72,14 +72,17 @@ NUISANCE_DISTANCE_FIELDS = (
 FLAT_TERRAIN = {"極平坦堅硬", "平坦地", "平坦"}
 
 
-def individual_factor_inputs(result, catalog):
+def individual_factor_inputs(result, catalog, labels=None):
     """表4 individual factors that can be honestly derived for a segment.
 
     題目.pdf leaves every individual cell blank, so each value here is either
     the segment's own 表3 fixed value reused as the parcel's, or a public-map
     straight-line distance; every derivation is named in the evidence notes.
-    Parcel geometry (面積/寬度/深度/形狀/臨街) and 無尾巷 stay missing."""
+    Parcel geometry (面積/寬度/深度/形狀/臨街) and 無尾巷 stay missing.
+    `labels`, when given, receives field_id -> road/facility name for the
+    name cell printed beside each distance on 表4."""
     from domain.models import FactorInput, Evidence, SourceType
+    labels = {} if labels is None else labels
     provided = {f["field_id"]: f.get("raw_value") for f in result.get("request", {}).get("competition_provided_factors", [])}
     points = {p["field"]: p for p in result.get("points", []) if p.get("value") is not None}
     fixed_source = "題目.pdf 表3 區段固定值"
@@ -99,6 +102,9 @@ def individual_factor_inputs(result, catalog):
         if point:
             add(field_id, round(float(point["value"])), "M", SourceType.GIS_MEASUREMENT, point.get("source") or "公開圖資",
                 f"{label}：{point['field']} 自推估區段中心之直線距離，非步行距離；需人工複核")
+            name = points.get(point["field"].replace("_distance_m", "_name"))
+            if name and field_id in catalog:
+                labels[field_id] = str(name["value"])
 
     fixed = SourceType.COMPETITION_PROVIDED_FIXED
     derived = SourceType.AI_ASSISTED_FILL
@@ -118,6 +124,9 @@ def individual_factor_inputs(result, catalog):
     if width is not None:
         add("individual_frontage_road_width", width, "M", derived, fixed_source,
             "題目未提供宗地面前道路，以區段主要道路寬度推估；需人工複核")
+        road_name = result.get("request", {}).get("main_road_name")
+        if road_name:
+            labels["individual_frontage_road_width"] = road_name
         road_type = "主要道路" if float(width) >= 15 else "次要道路" if float(width) >= 8 else "巷道"
         add("individual_road_type", road_type, None, derived, fixed_source,
             f"依主要道路寬度 {width}M 推估（≥15M 主要、≥8M 次要、其餘巷道）；需人工複核")
@@ -309,7 +318,8 @@ class PublicDataService:
             [(code, index, fx.DISTRICT, fx.LAND_USE_TYPE, factors(code)) for index, code in enumerate(
                 ["P002-00", "P003-00", "P004-00"], 1)])
         catalog = build_individual_factor_catalog(ind)
-        individual = {code: individual_factor_inputs(segments[code], catalog) for code in segments}
+        condition_labels = {code: {} for code in segments}
+        individual = {code: individual_factor_inputs(segments[code], catalog, condition_labels[code]) for code in segments}
         table4engine = Table4AnalysisEngine(grade, adjust, CalculationEngine(), ind, allow_partial=True)
         comparisons = [table4engine.build_comparison(fx.CITY, fx.DISTRICT, fx.LAND_USE_TYPE, "P001-00",
             fx.DISTRICT, fx.LAND_USE_TYPE, c.comparable_segment_code, c.comparison_index,
@@ -318,7 +328,7 @@ class PublicDataService:
         table4 = table4engine.apply_suggested_weights(table4engine.build_analysis(case_no, PROFILE, "P001-00", comparisons))
         table51_remarks, table4_remarks = draft_remarks(table51, table4, segments)
         table51 = table51.model_copy(update={"remarks": table51_remarks})
-        table4 = table4.model_copy(update={"remarks": table4_remarks})
+        table4 = table4.model_copy(update={"remarks": table4_remarks, "condition_labels": condition_labels})
         return {"schema_version": "automatic-data-draft-1", "case_no": case_no, "profile_id": PROFILE,
                 "appraisal_base_date": fx4.APPRAISAL_BASE_DATE, "segments": segments,
                 "table51": table51.model_dump(mode="json"), "table4": table4.model_dump(mode="json"),

@@ -683,6 +683,9 @@ class Table4Analysis(BaseModel):
     base_comparison_price_basis: Optional[str] = None
     remarks: Dict[str, str] = Field(
         default_factory=dict, description="備註欄 text keyed base/comp1/comp2/comp3/whole_case")
+    condition_labels: Dict[str, Dict[str, str]] = Field(
+        default_factory=dict,
+        description="segment_code -> field_id -> 條件名稱 (road/facility name printed beside the distance)")
 
 
 # ---------------------------------------------------------------------------

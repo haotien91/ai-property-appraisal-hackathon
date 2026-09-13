@@ -388,8 +388,20 @@ def build_table3_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.P
 # runtime result). No regrading, no recalculation, no early averaging.
 # ---------------------------------------------------------------------------
 
+def _grade_scales():
+    import os
+    import sys
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if root not in sys.path:
+        sys.path.insert(0, root)
+    from domain import grade_scales
+    return grade_scales
+
+
 def build_table51_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.Page", table51_analysis) -> None:
     overlay.register(page)
+    grade_scales = _grade_scales()
+    scales = grade_scales.regional_grade_scales(getattr(table51_analysis, "rule_profile_id", None))
 
     base_code = table51_analysis.base_segment_code
     if "segment_code[base]" in mapping:
@@ -411,6 +423,10 @@ def build_table51_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.
             grade_entry = mapping.get(f"{fr.field_id}.{slot}_grade")
             if grade_entry is not None:
                 overlay.write(page, grade_entry, fr.comparable_grade)
+            for key, grade in (("base_grade_code", fr.base_grade), (f"{slot}_grade_code", fr.comparable_grade)):
+                code_entry = mapping.get(f"{fr.field_id}.{key}")
+                if code_entry is not None:
+                    overlay.write(page, code_entry, grade_scales.grade_code(scales, fr.field_id, grade))
             pct_entry = mapping.get(f"{fr.field_id}.{slot}_pct")
             if pct_entry is not None:
                 # requires_manual_review -> adjustment_pct is already None on
@@ -484,7 +500,13 @@ def build_table4_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.P
         if weight_entry is not None and (comparison.weight_status == "HUMAN_CONFIRMED" or draft_weight):
             overlay.write(page, weight_entry, comparison.weight_pct)
 
+        labels = getattr(table4_analysis, "condition_labels", None) or {}
         for fr in comparison.individual_factor_results:
+            for key, code in (("base_name", table4_analysis.base_segment_code),
+                              (f"{slot}_name", comparison.comparable_segment_code)):
+                name_entry = mapping.get(f"individual.{fr.field_id}.{key}")
+                if name_entry is not None:
+                    overlay.write(page, name_entry, (labels.get(code) or {}).get(fr.field_id))
             base_entry = mapping.get(f"individual.{fr.field_id}.base_raw")
             if base_entry is not None:
                 overlay.write(page, base_entry, fr.base_raw_value)
@@ -567,7 +589,9 @@ def render_shulin_official_six_page_pdf(
 
     for segment_code in TABLE3_PAGE_ORDER:
         page = final_doc[page_index_for_segment[segment_code]]
-        build_table3_page(overlay, table3_mapping, page, segment_code, table3_data_by_segment[segment_code])
+        grade_values = _grade_scales().table3_grade_values(table51_analysis, segment_code)
+        build_table3_page(overlay, table3_mapping, page, segment_code,
+                          {**grade_values, **table3_data_by_segment[segment_code]})
 
     build_table51_page(overlay, table51_mapping, final_doc[table51_page_index], table51_analysis)
 

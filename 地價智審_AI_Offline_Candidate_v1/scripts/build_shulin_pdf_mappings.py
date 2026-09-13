@@ -284,7 +284,56 @@ def build_table3_mapping() -> list:
         # rect below is the FULL line's own bbox for redaction+redraw.
         _entry("land_use_status", sheet, "Q44:V44", xs, ys, font_size=8, kind="checkbox_multiselect"),
     ]
+    # Narrow side columns: grade position in the 評價基準明細表 matrix, then
+    # the number of grades (「1 5」 in 查估書表範本.pdf).
+    for field_id, rows, code_col, count_col in _TABLE3_GRADE_CELLS:
+        for key, col in (("grade_code", code_col), ("grade_count", count_col)):
+            entries.append(_entry(f"{key}.{field_id}", sheet, f"{col}{rows[0]}:{col}{rows[1]}", xs, ys, align="center",
+                                  font_size=7, left_pad=0, x_span=_TABLE3_GRADE_COLUMN_SPANS[col]))
     return entries
+
+
+# The xlsx widths put these narrow borderless-header columns off the page, so
+# their horizontal spans are the blank PDF's own vertical ruling lines.
+_TABLE3_GRADE_COLUMN_SPANS = {
+    "B": (34.6, 46.3), "C": (46.3, 58.1),
+    "M": (299.3, 311.0), "N": (311.0, 321.7),
+    "O": (321.7, 332.4), "P": (332.4, 345.5),
+}
+
+
+# (regional field_id, (first row, last row), grade-number column, grade-count column)
+_TABLE3_GRADE_CELLS = [
+    ("regional_zoning_inside_outside", (4, 4), "B", "C"),
+    ("regional_land_use_zone", (5, 5), "B", "C"),
+    ("regional_building_coverage_ratio", (6, 6), "B", "C"),
+    ("regional_floor_area_ratio", (7, 7), "B", "C"),
+    ("regional_construction_prohibited", (8, 8), "B", "C"),
+    ("regional_construction_restricted", (9, 10), "B", "C"),
+    ("regional_main_road_width", (11, 11), "B", "C"),
+    ("regional_avg_road_width", (12, 12), "B", "C"),
+    ("regional_major_station_proximity", (13, 16), "B", "C"),
+    ("regional_bus_stop_proximity", (17, 18), "B", "C"),
+    ("regional_interchange_proximity", (19, 19), "B", "C"),
+    ("regional_road_development_level", (23, 23), "B", "C"),
+    ("regional_sunlight", (24, 24), "B", "C"),
+    ("regional_view", (25, 25), "B", "C"),
+    ("regional_slope", (26, 26), "B", "C"),
+    ("regional_drainage_quality", (27, 27), "B", "C"),
+    ("regional_terrain", (28, 28), "B", "C"),
+    ("regional_land_improvement", (31, 32), "B", "C"),
+    ("regional_school_proximity", (35, 38), "B", "C"),
+    ("regional_market_proximity", (39, 41), "B", "C"),
+    ("regional_park_proximity", (42, 44), "B", "C"),
+    ("regional_tourism_facility_proximity", (4, 5), "M", "N"),
+    ("regional_parking_convenience", (6, 7), "M", "N"),
+    ("regional_service_facility_proximity", (8, 9), "M", "N"),
+    ("regional_utility_facility_proximity", (14, 17), "M", "N"),
+    ("regional_funeral_facility_proximity", (18, 21), "M", "N"),
+    ("regional_waste_facility_proximity", (22, 24), "M", "N"),
+    ("regional_pollution_proximity", (25, 29), "M", "N"),
+    ("regional_other", (40, 41), "O", "P"),
+]
 
 
 # ---------------------------------------------------------------------------
@@ -382,12 +431,13 @@ def build_table51_mapping() -> list:
         _entry("segment_code[comp3]", sheet, "K3:M3", xs, ys, align="center"),
     ]
     for _cat, field_id, row in _TABLE51_FACTOR_ROWS:
-        entries.append(_entry(f"{field_id}.base_grade", sheet, f"C{row}:C{row}", xs, ys, align="center"))
-        entries.append(_entry(f"{field_id}.comp1_grade", sheet, f"E{row}:E{row}", xs, ys, align="center"))
+        # 優劣等級 spans two cells per column group: the matrix position
+        # number first (C/E/H/K), then the grade label (D/F/I/L).
+        for slot, code_col, label_col in (("base", "C", "D"), ("comp1", "E", "F"), ("comp2", "H", "I"), ("comp3", "K", "L")):
+            entries.append(_entry(f"{field_id}.{slot}_grade_code", sheet, f"{code_col}{row}:{code_col}{row}", xs, ys, align="center"))
+            entries.append(_entry(f"{field_id}.{slot}_grade", sheet, f"{label_col}{row}:{label_col}{row}", xs, ys, align="center"))
         entries.append(_entry(f"{field_id}.comp1_pct", sheet, f"G{row}:G{row}", xs, ys, align="right", formatter="pct_signed"))
-        entries.append(_entry(f"{field_id}.comp2_grade", sheet, f"H{row}:H{row}", xs, ys, align="center"))
         entries.append(_entry(f"{field_id}.comp2_pct", sheet, f"J{row}:J{row}", xs, ys, align="right", formatter="pct_signed"))
-        entries.append(_entry(f"{field_id}.comp3_grade", sheet, f"K{row}:K{row}", xs, ys, align="center"))
         entries.append(_entry(f"{field_id}.comp3_pct", sheet, f"M{row}:M{row}", xs, ys, align="right", formatter="pct_signed"))
 
     for cat, row in _TABLE51_SUBTOTAL_ROWS.items():
@@ -440,6 +490,14 @@ _TABLE4_INDIVIDUAL_ROWS = {
     "individual_floor_area_ratio": 26,  # FAR special policy -- see Task 6/7
     "individual_construction_restriction": 27,
     "individual_other": 28,
+}
+
+# Rows whose 條件 cells are split name | number | M (e.g. 金山國小 | 150 | M
+# in 查估書表範本.pdf), rather than one merged D:F text cell.
+_TABLE4_NAME_VALUE_ROWS = {
+    "individual_frontage_road_width", "individual_school_proximity", "individual_market_proximity",
+    "individual_park_proximity", "individual_station_proximity", "individual_commercial_district_proximity",
+    "individual_nuisance_facility",
 }
 
 # Per-comparable column groups (1-indexed openpyxl columns): condition
@@ -498,12 +556,18 @@ def build_table4_mapping() -> list:
 
     # 20 individual factor rows.
     for field_id, row in _TABLE4_INDIVIDUAL_ROWS.items():
-        entries.append(_entry(f"individual.{field_id}.base_raw", sheet, f"D{row}:F{row}", xs, ys, font_size=7.5))
-        entries.append(_entry(f"individual.{field_id}.comp1_raw", sheet, f"G{row}:I{row}", xs, ys, font_size=7.5))
+        for slot, (name_col, value_col, end_col) in (("base", ("D", "E", "F")), ("comp1", ("G", "H", "I")),
+                                                     ("comp2", ("K", "L", "M")), ("comp3", ("O", "P", "Q"))):
+            raw_key = "base_raw" if slot == "base" else f"{slot}_raw"
+            if field_id in _TABLE4_NAME_VALUE_ROWS:
+                # 條件 is three cells here: name | number | preprinted M.
+                name_key = "base_name" if slot == "base" else f"{slot}_name"
+                entries.append(_entry(f"individual.{field_id}.{name_key}", sheet, f"{name_col}{row}:{name_col}{row}", xs, ys, font_size=7, min_font_size=4))
+                entries.append(_entry(f"individual.{field_id}.{raw_key}", sheet, f"{value_col}{row}:{value_col}{row}", xs, ys, align="center", font_size=7.5))
+            else:
+                entries.append(_entry(f"individual.{field_id}.{raw_key}", sheet, f"{name_col}{row}:{end_col}{row}", xs, ys, font_size=7.5))
         entries.append(_entry(f"individual.{field_id}.comp1_pct", sheet, f"J{row}:J{row}", xs, ys, align="right", formatter="pct_signed"))
-        entries.append(_entry(f"individual.{field_id}.comp2_raw", sheet, f"K{row}:M{row}", xs, ys, font_size=7.5))
         entries.append(_entry(f"individual.{field_id}.comp2_pct", sheet, f"N{row}:N{row}", xs, ys, align="right", formatter="pct_signed"))
-        entries.append(_entry(f"individual.{field_id}.comp3_raw", sheet, f"O{row}:Q{row}", xs, ys, font_size=7.5))
         entries.append(_entry(f"individual.{field_id}.comp3_pct", sheet, f"R{row}:R{row}", xs, ys, align="right", formatter="pct_signed"))
 
     # Summary block: row29=合計(individual total), row30 left-half=調整絕對值加總,
