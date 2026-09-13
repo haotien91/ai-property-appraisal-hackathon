@@ -1,0 +1,26 @@
+[Unit]
+Description=NTPC appraisal application
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ntpc
+Group=ntpc
+WorkingDirectory=/opt/ntpc/app
+Environment=APP_MODE=local
+Environment=AWS_DEFAULT_REGION=us-west-2
+Environment=AWS_REGION=us-west-2
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PUBLIC_DATA_CACHE_DIR=/var/lib/ntpc/public-cache
+ExecStart=/opt/ntpc/venv/bin/python scripts/serve_app.py --host 127.0.0.1 --port 8124 --storage-dir /var/lib/ntpc/cases
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=30
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

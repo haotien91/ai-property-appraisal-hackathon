@@ -1,0 +1,25 @@
+{
+  "instance_id": "i-0baaf79192a5cbecb",
+  "region": "us-west-2",
+  "bucket": "ntpc-app-deploy-137336531963-us-west-2",
+  "key": "releases/ace1ba8f0611dc9ece87e20974c1d7af776b9ffc1147d75a2d295832e4a6a283.tar.gz",
+  "sha256": "ace1ba8f0611dc9ece87e20974c1d7af776b9ffc1147d75a2d295832e4a6a283",
+  "security_group": "sg-0b56eed54d1834920",
+  "profile": "ntpc-simplified-ec2",
+  "branch": "feature/simplified-workflow-ai-chat",
+  "source_base_commit": "d6d7cfb",
+  "status": "deployed",
+  "url": "http://16.146.151.38/index.html",
+  "verification": {
+    "homepage": 200,
+    "case_api": 200,
+    "metadata_extraction": true,
+    "generation_seconds": 121,
+    "pdf_pages": 6,
+    "pdf_bytes": 21573662,
+    "restart_pdf_unchanged": true
+  },
+  "runtime_patches": [
+    "install.sh healthcheck retries HTTP errors during nginx reload"
+  ]
+}

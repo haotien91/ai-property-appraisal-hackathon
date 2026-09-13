@@ -142,6 +142,11 @@ def _load_mapping(filename: str) -> Dict[str, dict]:
 # ---------------------------------------------------------------------------
 
 def _resolve_cjk_font_path() -> str:
+    configured = os.environ.get("CJK_FONT_PATH")
+    if configured:
+        if not os.path.isfile(configured):
+            raise FontUnavailableError("CJK_FONT_PATH must point to an existing CJK font file")
+        return configured
     candidates: List[str] = []
     if platform.system() == "Windows":
         candidates += [r"C:\Windows\Fonts\msjh.ttc", r"C:\Windows\Fonts\mingliu.ttc"]
