@@ -20,6 +20,15 @@
     <link href="css/style.css?v=20260912-brand-6" rel="stylesheet">
 
     <style>
+        #newCaseForm .form-control {
+            color: #202124;
+            -webkit-text-fill-color: #202124;
+        }
+        #newCaseForm .form-control::placeholder {
+            color: #69717b;
+            -webkit-text-fill-color: #69717b;
+            opacity: 1;
+        }
         /* This workflow page deliberately has no homepage photo or overlay. */
         body.case-create-page,
         body.case-create-page .app-shell {
@@ -331,7 +340,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-dark app-navbar" aria-label="網站標誌">
             <a href="index.html" class="navbar-brand">
-                <i class="fa-solid fa-landmark" aria-hidden="true"></i><span>地價智審 <b>AI</b></span>
+                <i class="fa-solid fa-landmark" aria-hidden="true"></i><span> 鳳梨戰士 - AI 輔助不動產估價案件審查 <b>AI</b></span>
             </a>
         </nav>
     </div>
@@ -450,6 +459,16 @@
         const criteriaFile = document.getElementById('criteriaFile');
         const submitBtn = document.getElementById('submitCaseBtn');
         const extractionStatus = document.getElementById('extractionStatus');
+        const metadataSource = document.createElement('select');
+        metadataSource.className = 'form-select mb-2';
+        metadataSource.setAttribute('aria-label', '選擇要填入的勘查表');
+        metadataSource.hidden = true;
+        extractionStatus.after(metadataSource);
+        let metadataRecords = [];
+        metadataSource.addEventListener('change', () => {
+            applyExtractedMetadata(metadataRecords[Number(metadataSource.value)]);
+            extractionStatus.textContent = '已填入選取的勘查表，未載明欄位請補填；請確認後送出。';
+        });
         let extractionVersion = 0;
         let selectedAppraisals = [];
 
@@ -509,11 +528,12 @@
             document.getElementById('segmentScope').value = data.segment_scope || '';
             extractionStatus.className = 'extraction-status ready';
             extractionStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i><span>案件資訊已擷取，請確認內容後送出</span>';
-            submitBtn.disabled = false;
+            submitBtn.disabled = !criteriaFile.files.length;
         }
 
         async function extractWhenReady() {
             const version = ++extractionVersion;
+            metadataSource.hidden = true;
             setUploadState(appraisalFile, 'appraisalUploadBox', 'appraisalFileName');
             setUploadState(criteriaFile, 'criteriaUploadBox', 'criteriaFileName');
             renderAppraisalFiles();
@@ -522,7 +542,7 @@
             });
             document.getElementById('createResult').innerHTML = '';
 
-            if (!(appraisalFile.files[0] && criteriaFile.files[0])) {
+            if (!appraisalFile.files[0]) {
                 extractionStatus.className = 'extraction-status';
                 extractionStatus.innerHTML = '<i class="fa-solid fa-circle-info"></i><span>請選取查估書表與評價基準明細表</span>';
                 submitBtn.disabled = true;
@@ -534,32 +554,49 @@
             submitBtn.disabled = true;
 
             try {
-                if (typeof Api.extractCaseMetadata === 'function') {
-                    const extracted = await Api.extractCaseMetadata(Array.from(appraisalFile.files), criteriaFile.files[0]);
-                    if (version !== extractionVersion) return;
-                    applyExtractedMetadata(extracted);
+                if (location.protocol === 'file:') throw new Error('請透過 http://localhost:8123/case-new.html 開啟此頁，直接雙擊 HTML 無法載入 PDF 讀取模組。');
+                let importTimer;
+                let extractFiles;
+                try {
+                    ({ extractFiles } = await Promise.race([
+                        import('./js/document-metadata.mjs?v=scope-24'),
+                        new Promise((_, reject) => { importTimer = setTimeout(() => reject(new Error('PDF 讀取模組載入逾時，請按 Ctrl+Shift+R 重新整理後再試。')), 15000); })
+                    ]));
+                } finally { clearTimeout(importTimer); }
+                const result = await extractFiles(Array.from(appraisalFile.files), message => {
+                    if (version === extractionVersion) extractionStatus.textContent = message;
+                });
+                if (version !== extractionVersion) return;
+                if (!result.records.length) {
+                    metadataRecords = [];
+                    extractionStatus.className = 'extraction-status';
+                    extractionStatus.textContent = result.warnings.join('；') || '未找到可讀取的勘查表，請重新選取檔案。';
+                    submitBtn.disabled = true;
                     return;
                 }
-
-                if (mode === 'mock') {
-                    await new Promise(resolve => setTimeout(resolve, 650));
-                    if (version !== extractionVersion) return;
-                    applyExtractedMetadata({
-                        case_no: '1140901-99-001',
-                        segment_code: 'P002-00',
-                        district: '金山區',
-                        land_use_type: '商業用地',
-                        segment_scope: 'Mock Golden Case：正式版將從查估書表自動擷取此欄位。'
+                applyExtractedMetadata(result.data);
+                metadataRecords = result.records;
+                metadataSource.replaceChildren();
+                if (result.records.length > 1) {
+                    result.records.forEach((record, index) => {
+                        const option = document.createElement('option');
+                        option.value = index;
+                        option.textContent = record.source + ' · ' + record.district + ' ' + record.segment_code;
+                        metadataSource.append(option);
                     });
-                    return;
+                    metadataSource.hidden = false;
+                    applyExtractedMetadata(result.records[0]);
                 }
-
-                extractionStatus.className = 'extraction-status';
-                extractionStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i><span>文件擷取 API 尚未串接，請先由後端提供 extractCaseMetadata。</span>';
+                const missing = Object.values(result.data).some(value => !value);
+                extractionStatus.textContent = result.warnings.length
+                    ? result.warnings.join('；')
+                    : '已讀取 PDF；' + (missing ? '未載明的欄位請補填，年期不會當成案號。' : '請確認擷取結果。');
+                if (!criteriaFile.files.length) extractionStatus.textContent += ' 請再選取評價基準明細表。';
+                if (result.records.length > 1) extractionStatus.textContent = '此批檔案含 ' + result.records.length + ' 張勘查表，已填入第一張；可在下方切換，未載明欄位請補填。';
             } catch (error) {
                 if (version !== extractionVersion) return;
                 extractionStatus.className = 'extraction-status';
-                extractionStatus.innerHTML = '<i class="fa-solid fa-circle-xmark"></i><span>文件擷取失敗，請重新上傳或稍後再試。</span>';
+                extractionStatus.textContent = '文件擷取失敗：' + (error.message || '請重新上傳或稍後再試。');
             }
         }
 
@@ -569,7 +606,11 @@
             input.value = '';
             if (input === appraisalFile) selectedAppraisals = [];
             setUploadState(input, boxId, fileNameId);
-            extractWhenReady();
+            if (input === criteriaFile) {
+                submitBtn.disabled = true;
+            } else {
+                extractWhenReady();
+            }
             input.focus();
         }
 
@@ -584,7 +625,11 @@
             selectedAppraisals = Array.from(combined.files);
             extractWhenReady();
         });
-        criteriaFile.addEventListener('change', extractWhenReady);
+        criteriaFile.addEventListener('change', () => {
+            setUploadState(criteriaFile, 'criteriaUploadBox', 'criteriaFileName');
+            submitBtn.disabled = !criteriaFile.files.length || !appraisalFile.files.length
+                || !metadataRecords.length || extractionStatus.classList.contains('loading');
+        });
 
         document.getElementById('clearAppraisalFile').addEventListener('click', (event) => {
             clearFileSelection(event, appraisalFile, 'appraisalUploadBox', 'appraisalFileName');
