@@ -2,7 +2,7 @@
 
 `.env.shared.example` 是會提交到 Git 的非機密預設值。主程式、RAG 及 artifact 上傳 CLI 都會載入它，再讀取專案根目錄的 `.env`。優先序為：終端機環境變數 > `.env` > 共用範本。檔案只支援 `KEY=value`，不執行 shell 指令或變數展開。
 
-1. 複製 `.env.example` 為 `.env`，補上已核發的值。
+1. 執行 `python scripts/setup_environment.py` 建立完整 `.env` 並產生本機 RAG token；重複執行會保留現有值、補齊缺少的欄位。再補上已核發的 AWS/NLSC 憑證及正式 bucket/API 網址。`.env.example` 包含主程式、AWS、artifact、RAG、地籍/GIS 快照與快取路徑，公開 API 端點附在檔尾供對照。
 2. 主程式使用 `start-app.ps1` 或 `python scripts/serve_app.py --port 8124`。
 3. RAG 安裝 `backend/rag_service/requirements.txt`，設定自行產生的 `RAG_API_TOKEN`，執行 `python -m backend.rag_service.server`。`RAG_MODE=bedrock` 才會使用 AWS 模型；需具有模型權限的 `AWS_PROFILE` 與正確 `BEDROCK_MODEL_ID`。
 4. Artifact 安裝 `services/artifact-import/requirements.txt`，執行 `python services/artifact-import/client.py --bundle <輸出的JSON> --result <結果JSON路徑>`。CLI 會讀取共用端點，使用 AWS credential chain 做 SigV4 簽章；可用 `--profile` 指定帳號。實際上傳會建立雲端資料。

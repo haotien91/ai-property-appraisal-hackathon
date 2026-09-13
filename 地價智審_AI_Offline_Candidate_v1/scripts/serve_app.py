@@ -23,12 +23,16 @@ FRONTEND = ROOT / "frontend" / "app"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from backend.runtime_env import load_environment, frontend_config
+
+# Handlers capture bucket/table/model settings at import time.
+load_environment()
+
 from backend.local_workflow_service import (  # noqa: E402
     LocalWorkflowError,
     LocalWorkflowService,
     extract_case_metadata,
 )
-from backend.runtime_env import load_environment, frontend_config
 
 MAX_BODY_BYTES = 120 * 1024 * 1024
 # case-library.js shows its demo list unless MODE is production; the local
@@ -308,7 +312,6 @@ class AppHandler(SimpleHTTPRequestHandler):
 
 
 def main():
-    load_environment()
     frontend_config()  # Fail before starting if production configuration is incomplete.
     parser = argparse.ArgumentParser(description="地價智審本機應用程式")
     parser.add_argument("--host", default="127.0.0.1")
