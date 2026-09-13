@@ -3,6 +3,7 @@
 1. [地段地號怎麼抓](#一地段地號怎麼抓)
 2. [區段範圍怎麼決定](#二區段範圍怎麼決定)
 3. [界線路名怎麼標](#三界線路名怎麼標)
+3.2. [預設路徑的資料流](#三之二預設路徑的資料流) ← 想先看全貌從這節開始
 4. [產圖的工具與順序](#四產圖的工具與順序)
 5. [Open data 與外部服務](#五open-data-與外部服務)
 6. [實測結果](#六實測結果)
@@ -251,6 +252,134 @@ if normal_x * radial_x + normal_y * radial_y < 0:  # 朝內就翻面
 
 ---
 
+## 三之二、預設路徑的資料流
+
+三個座標系，各有明確分工。搞清楚資料在哪個座標系，就能理解整條流程：
+
+| 座標系 | 用途 | 為什麼 |
+| --- | --- | --- |
+| EPSG:4326（WGS84 經緯度） | 對外 API 的輸入輸出 | NLSC、OSM 都用這個 |
+| EPSG:3826（TWD97 / TM2） | **所有幾何運算** | 單位是公尺，`polygon.area` 直接就是 m² |
+| 螢幕像素 | 只有繪圖 | Web Mercator 換算，畫布左上角為原點 |
+
+### 逐階段的輸入與輸出
+
+**A. 文字 → 識別碼**（不碰幾何）
+
+```
+"新北市樹林區太平段367、917地號"
+  └ parse_basic_info()        用 NLSC 官方名稱清單做最長前綴比對
+      → 縣市=新北市 / 行政區=樹林區 / 段名=太平段 / 地號=[367, 917]
+  └ resolve_section_by_name()
+      ├ data/land_sections.json（命中則 0 次網路請求）
+      └ 未命中 → ListCounty → ListTown → ListLandSection
+      → 段代碼 1921
+  └ LandParcel.parse("1921", "367")
+      → 4+8 碼 192103670000
+```
+
+**B. 識別碼 → 宗地位置**（EPSG:4326）
+
+```
+POST landmaps.nlsc.gov.tw/S_Maps/qryTileMapIndex
+  → ParcelInfo{
+        exists, section_name, land_office,
+        min/max_longitude, min/max_latitude,   ← 只有外接矩形
+        tint_image_png                          ← 真實形狀只存在於這張 PNG
+    }
+```
+
+**這裡有個關鍵限制：NLSC 不回傳向量輪廓。** 只給外接矩形加一張著色 PNG，
+所以宗地的真實形狀從頭到尾都是像素，不是多邊形。後面兩處要用到真實形狀時
+（填色、確認落在區段內）都得回頭讀這張 PNG。
+
+**C. 投影到公尺制**（EPSG:4326 → EPSG:3826）
+
+```
+parcel_polygon_3826(info)      外接矩形 → EPSG:3826 多邊形
+unary_union(所有宗地).centroid  → anchor（多筆比準地的共同形心）
+_TO_4326(anchor)               → anchor 的經緯度，供後續 API 查詢用
+```
+
+**D. 取邊界**（EPSG:3826，純向量，這是核心）
+
+```
+新北市使用分區.shp
+  └ geopandas.read_file() → 34,190 筆 GeoDataFrame（已 to_crs 3826）
+  └ extract_zoning_block(anchor)
+      ├ 篩 ZONE 符合 JSON 指定分區者
+      ├ geometry.contains(anchor) → 命中的多邊形
+      │   （宗地落在道路用地內時改取 60 m 內最近的符合者）
+      └ _same_zone_cluster()  以空間索引 BFS 併入相連的同分區多邊形
+  └ 多筆比準地各自跑一遍 → unary_union
+      → boundary_3826
+```
+
+**E. 檢核與補齊**（EPSG:3826）
+
+```
+Overpass way["highway"]["name"]
+  └ road_cache 網格快取 → RoadFeature（幾何已投影到 3826）
+  └ audit_directions(boundary_3826, roads)   → {north_of: True, …}
+
+parcel_shape_points_3826(info)   從 tint PNG 取樣真實輪廓的點
+  └ parcel_inside_ratio(boundary_3826, points)
+      └ < 99.9% 時 parcel_polygon_from_tint() → union 進 boundary_3826
+```
+
+**F. 換算到畫布**（EPSG:3826 → 4326 → 螢幕像素）
+
+```
+boundary_4326 = shapely_transform(_TO_4326, boundary_3826)
+bbox = boundary_4326.bounds
+bbox 四邊各外擴 span × padding_ratio(0.45)      留邊，讓界線道路都看得到
+_fit_zoom(撐大後的 bbox, 1400, 1000)
+    由 z20 往下試，找第一個能把 bbox 放進畫布的層級  → zoom
+lonlat_to_pixel(bbox 中心, zoom) → (center_x, center_y)
+left = center_x - width/2   top = center_y - height/2
+_ring_to_screen(ring, zoom, left, top)          → 畫布座標
+```
+
+`left/top` 是由**中心點**回推的，不是直接取撐大後 bbox 的左上角 ——
+`_fit_zoom` 選的層級通常讓內容小於畫布，從中心回推才會置中。
+
+**G. 疊圖**
+
+```
+每個圖層 → _fetch_layer_image()
+    ├ 算出覆蓋視野的圖磚範圍
+    ├ 每張圖磚先查磁碟快取，未命中才向 WMTS 抓（4 執行緒並行）
+    └ Pillow 拼接成整張圖層
+  → alpha_composite 依序疊上：EMAP16 → DMAPS → LANDSECT → EMAP12
+tint PNG → 依 min/max 經緯度縮放到對應像素尺寸 → paste
+```
+
+**H. 標註**（螢幕像素）
+
+```
+_boundary_sides(boundary_screen)
+    ├ simplify(10px) 去掉鋸齒（388 頂點 → 主要轉折）
+    ├ 合併方向接近的連續線段
+    └ 每條邊算真實垂直外法向量
+_assign_relations_to_sides()   列舉排列取總吻合度最大的一對一指派
+_draw_road_labels()            旋轉描邊文字，避開 occupied 與宗地保護區
+_find_clear_spot()             標註框放在區段外且不與既有文字重疊
+```
+
+### 外部依賴各自負責什麼
+
+| 來源 | 提供 | 缺了會怎樣 |
+| --- | --- | --- |
+| 使用分區 shapefile | **區段邊界** | 無法出圖 |
+| `qryTileMapIndex` | 宗地位置與著色圖 | 無法出圖 |
+| `ListLandSection`／本地索引 | 段代碼 | 有座標時可繞過 |
+| WMTS 圖磚 | 底圖與地籍線 | 圖面空白但邊界仍正確 |
+| Overpass | 方位檢核、其他路名 | 只影響檢核結果與非界線路名，界線文字位置不受影響 |
+
+最後一列是刻意的設計：**界線文字的位置由區段邊界的幾何決定，不依賴 OSM**。
+所以 OSM 缺漏巷弄（實測樹德段 1415 的 `啟智街187巷24弄` 在 OSM 完全不存在）
+不會讓圖標錯，只是方位檢核那欄會顯示未通過。
+
 ## 四、產圖的工具與順序
 
 ### 用了哪些套件、各自負責什麼
@@ -291,8 +420,9 @@ Overpass 查詢「畫面內有哪些路」。
 
 ### 縮放層級怎麼決定
 
-`_fit_zoom_for_viewport()` 從 z20 往下試，找出第一個能把「區段範圍 × padding」
-放進 1400×1000 畫布的層級。`padding_ratio` 預設 0.45。
+先把區段的經緯度 bbox 四邊各外擴 `span × padding_ratio`（預設 0.45），
+再由 `_fit_zoom()` 從 z20 往下試，取第一個能把撐大後的 bbox 放進
+1400×1000 畫布的層級。
 
 上限鎖在 `MAX_SAFE_ZOOM = 20`：實測 z21 起 NLSC 所有圖磚都回 0 位元組。
 
