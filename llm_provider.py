@@ -60,11 +60,104 @@ import logging
 import os
 import random
 import time
+from pathlib import Path
 from typing import Callable
 
 logger = logging.getLogger("llm_provider")
 
 LlmCallable = Callable[[str], str]
+
+
+# ---------------------------------------------------------------------------
+# .env 載入
+#
+# os.environ 只看得到 OS／shell 已經注入行程的變數，讀不到 .env 檔案，
+# 所以必須自己解析並注入。這裡手寫三十行而不引入 python-dotenv，
+# 是因為只需要覆蓋兩個關鍵語意：
+#
+#   1. 預設不覆寫已存在的環境變數。容器裡由 ECS task definition 注入的值
+#      必須勝過映像內殘留的 .env，否則部署設定會被開發用設定蓋掉。
+#   2. 找不到 .env 不是錯誤。正式部署本來就不該有 .env，
+#      所有設定都來自 task definition 與 task role。
+# ---------------------------------------------------------------------------
+
+DEFAULT_ENV_PATH = Path(__file__).parent / ".env"
+
+# 這些鍵屬機密，回報載入結果時只顯示鍵名不顯示值，避免寫進日誌。
+_SECRET_HINTS = ("KEY", "SECRET", "TOKEN", "PASSWORD", "CREDENTIAL")
+
+
+def is_secret(key: str) -> bool:
+    return any(hint in key.upper() for hint in _SECRET_HINTS)
+
+
+def parse_env_text(text: str) -> dict[str, str]:
+    """解析 .env 內容。支援 # 註解、export 前綴、單雙引號。"""
+
+    values: dict[str, str] = {}
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("export "):
+            line = line[len("export ") :].strip()
+        if "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.strip()
+        value = value.strip()
+        # 先處理引號：引號內的 # 不算註解。
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+            value = value[1:-1]
+        else:
+            hash_at = value.find(" #")
+            if hash_at >= 0:
+                value = value[:hash_at].rstrip()
+        if key:
+            values[key] = value
+    return values
+
+
+def load_env_file(
+    path: str | Path | None = None,
+    *,
+    override: bool = False,
+) -> list[str]:
+    """把 .env 的內容放進 os.environ，回傳實際套用的鍵名清單。
+
+    找不到檔案時回空清單而非拋錯，因為正式部署不該有 .env。
+    """
+
+    target = Path(path) if path else DEFAULT_ENV_PATH
+    if not target.exists():
+        return []
+    try:
+        text = target.read_text(encoding="utf-8")
+    except OSError:
+        return []
+
+    applied: list[str] = []
+    for key, value in parse_env_text(text).items():
+        if not override and key in os.environ:
+            continue
+        os.environ[key] = value
+        applied.append(key)
+    return applied
+
+
+def describe_loaded(keys: list[str]) -> str:
+    """載入結果的一行摘要；機密只顯示鍵名不顯示值。"""
+
+    if not keys:
+        return "未載入 .env（檔案不存在或所有鍵已由環境變數提供）"
+    secret = sorted(k for k in keys if is_secret(k))
+    plain = sorted(k for k in keys if not is_secret(k))
+    parts = []
+    if plain:
+        parts.append("設定 " + "、".join(plain))
+    if secret:
+        parts.append(f"機密 {len(secret)} 項（{'、'.join(secret)}）")
+    return "已從 .env 載入：" + "；".join(parts)
 
 # 出圖流程對 LLM 的要求：只輸出 JSON、不要多話。
 DEFAULT_SYSTEM_PROMPT = (
@@ -402,9 +495,12 @@ if __name__ == "__main__":
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
+    print("=== .env ===")
+    print(f"  {describe_loaded(load_env_file())}")
+
     region_env = os.environ.get("AWS_REGION")
     model_env = os.environ.get("BEDROCK_MODEL_ID")
-    print("=== 設定 ===")
+    print("\n=== 設定 ===")
     print(f"  AWS_REGION       = {region_env}")
     print(f"  BEDROCK_MODEL_ID = {model_env}")
 

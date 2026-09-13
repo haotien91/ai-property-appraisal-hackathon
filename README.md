@@ -180,13 +180,88 @@ uvicorn zone_map_api:app --host 0.0.0.0 --port 8080 --workers 1
 170 MB。要擴充請水平加容器。
 
 ```
-POST /zone-map          → image/png，摘要放在 X-Zone-Map-* 標頭
-POST /zone-map/summary  → JSON 摘要
-GET  /healthz           → 就緒狀態與快取統計
+GET  /segments                    列出 local_cases 裡可出圖的區段
+POST /zone-map/from-description   由中文區段描述出圖（需 LLM）→ image/png
+POST /zone-map                    已有結構化條件時的入口 → image/png
+POST /zone-map/summary            同上但回 JSON 摘要
+GET  /healthz                     就緒狀態與快取統計
 ```
+
+摘要（面積、LLM 拆出的條件、方位檢核、校正紀錄、留檔路徑）放在
+`X-Zone-Map-Summary` 標頭。
+
+**描述入口**是給人用的：呼叫方不必自己把中文敘述拆成四個方位欄位。
+最小請求只要一個欄位，其餘從 local_cases 讀：
+
+```json
+{ "segment_code": "P004-00" }
+```
+
+也可以完全指定，不碰 local_cases：
+
+```json
+{
+  "basic_info": "新北市樹林區文林段317地號",
+  "section_description": "沿潭興街以西、潭興街107巷21弄以東及以北、潭興街91巷以南之第一種住宅區",
+  "zone_code": "P004-00"
+}
+```
+
+兩者都給時以明確提供的值優先。每次請求都會留檔到 `artifacts/`（可用
+`"archive": false` 關閉）。
+
+LLM 未就緒時服務仍可啟動 —— 只有描述入口需要模型，缺憑證時回 503 並
+說明該檢查什麼，`/zone-map` 與 `/healthz` 不受影響。
 
 對外部署務必設定 `ZONE_MAP_API_KEYS`，否則不做驗證，等於把你的 IP
 借給任何人去打 NLSC。
+
+## 案件資料來源
+
+出圖需要的兩個輸入都在地價智審的 workflow bundle 裡，不必人工轉抄：
+
+```
+bundle.segments.{區段編號}.request.base_parcel_id   完整地段地號
+bundle.segments.{區段編號}.request.segment_scope    區段範圍描述
+```
+
+預設讀 `地價智審_AI_Offline_Candidate_v1/data/local_cases/*.json`，
+可用 `LOCAL_CASES_DIR` 覆寫。同一區段出現在多個檔案時取 `created_at` 較晚者。
+
+```python
+from getSectionCode import get_segment, load_segments
+
+load_segments()              # {區段編號: SegmentRequest}
+get_segment("P004-00")       # .basic_info / .section_description
+```
+
+## 段籍索引（免每次查 API）
+
+段代碼幾乎不變，但每次出圖都打 `ListLandSection` 很浪費：新北市 29 個
+行政區、1,350 個地段，全查一輪要三十秒以上，還多一個對外失敗點。
+
+```powershell
+python getSectionCode.py build-index --county 新北市
+```
+
+產出 `data/land_sections.json`（165 KB）。實測索引命中時**零次網路請求、
+0.6 毫秒**完成六次查詢。索引只是加速用的快取，查不到會自動回退 API，
+檔案不存在也只印一行提示。
+
+## 座標是選用的
+
+座標在整條流程只用於「查段代碼」，之後所有幾何都以 NLSC 依地號回傳的
+實際範圍為準。所以只要有完整地段地號就能出圖：
+
+```powershell
+python getSectionCode.py run `
+  --basic-info "新北市樹林區太平段367、917地號" `
+  --description "沿東榮街以北、鎮前街411巷1弄以南、東榮街88巷以東、鎮前街367巷以西之第一種住宅區" `
+  --zone-code P003-00 --llm bedrock
+```
+
+一個限制：**段名跨行政區會重複**（新北市 1,218 種段名中有 72 種，例如
+太平段在新店區是 0797、樹林區是 1921），所以縣市＋行政區＋段名三者都要給。
 
 ## 條件 JSON 格式
 
@@ -239,6 +314,7 @@ GET  /healthz           → 就緒狀態與快取統計
 | `BEDROCK_MODEL_ID` | 無 | Bedrock model id |
 | `LLM_PROVIDER` | `bedrock` | `bedrock` 或 `echo`（測試用，不連網） |
 | `AWS_PROFILE` | 無 | 本機開發用的 `~/.aws` profile；正式環境不要設 |
+| `LOCAL_CASES_DIR` | `地價智審_.../data/local_cases` | 案件 workflow JSON 目錄 |
 
 以上都是**非機密設定**，可以放環境變數或 `.env`（見 `.env.example`）。
 AWS 憑證不在此列，見 [docs/CREDENTIALS.md](docs/CREDENTIALS.md)。
@@ -285,5 +361,7 @@ AWS 憑證不在此列，見 [docs/CREDENTIALS.md](docs/CREDENTIALS.md)。
 | `zone_map_api.py` | FastAPI 服務 |
 | `prewarm_tiles.py` | 圖磚與路網預熱 |
 | `nlsc_http.py` | NLSC 的 TLS 相容 adapter 與 Overpass 請求標頭 |
-| `llm_provider.py` | Amazon Bedrock Converse API 呼叫與重試策略 |
+| `llm_provider.py` | Bedrock Converse 呼叫、重試策略、`.env` 載入 |
+| `test.py` | 八層整合測試（會呼叫真實服務，非 pytest） |
+| `data/land_sections.json` | 新北市 1,350 個地段的代碼索引 |
 | `boundary_core/` | 路名正規化、道路解析、方位檢核的底層工具 |

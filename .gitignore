@@ -54,3 +54,7 @@ dbg_*.png
 *.pdf
 *.docx
 *.xlsx
+
+# 在工作區內另外 clone 的團隊 repo，不屬於本專案
+ai-property-appraisal-hackathon/
+地價智審_AI_Offline_Candidate_v1/

@@ -22,6 +22,7 @@ import time
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Iterable
 
 import requests
 import urllib3
@@ -46,9 +47,17 @@ _PROMPT_TEMPLATE = """基本資料：{basic_info}
 1. 只輸出 JSON，不要加說明文字或 markdown 標記。
 2. 一律輸出陣列。基本資料有幾個地號就有幾個元素，每個元素的 constraints 完全相同。
 3. 「沿A以北」代表區段在 A 之北 → north_of 填 A，其餘方位同理。
-4. 一個方位含多個路段時只保留第一段（例："東榮街、東華街" 取 "東榮街"）。
-5. section.name 與 section.code 填上面給定的值；parcel 只填數字，不含「地號」。
-6. zone 填分區名稱，例："第一種住宅區"。
+4. 一個方位含多個路段時只保留第一段。
+   例：「東榮街及未開闢計畫道路以南」→ south_of 填「東榮街」。
+5. 一條路可以同時是多個方位的界線（L 形轉折的路很常見）。
+   看到「以X及以Y」就要把該路填進兩個欄位。
+   例：「潭興街107巷21弄以東及以北」
+       → east_of 與 north_of 都填「潭興街107巷21弄」。
+6. 四個方位欄位都必須有值，不可留空或省略。
+   描述只提到三個方位時，代表其中一條路兼任兩個方位，請依規則 5 判斷。
+7. section.name 與 section.code 填上面給定的值；parcel 只填數字，不含「地號」。
+8. zone 填分區名稱。括號內的補充說明要保留，例
+   「捷運開發區(變更前為第一種住宅區)」照原樣填入。
 
 輸出格式：
 [
@@ -71,10 +80,17 @@ _RELATIONS = ("north_of", "west_of", "south_of", "east_of")
 
 @dataclass(frozen=True)
 class SectionContext:
-    """NLSC TownVillagePointQuery 的完整回傳。"""
+    """段籍識別資料。
 
-    longitude: float
-    latitude: float
+    可由兩條路徑取得，欄位相同：
+      resolve_section(lon, lat)                    座標 → TownVillagePointQuery
+      resolve_section_by_name(county, town, name)  文字 → ListLandSection
+
+    座標路徑會多回傳村里；文字路徑沒有村里資訊，該欄位為空字串。
+    座標與村里都只是附帶資訊，出圖不會用到 —— 所有幾何都以 NLSC 依
+    地號回傳的實際範圍為準。
+    """
+
     county_code: str
     county_name: str
     town_code: str
@@ -83,14 +99,17 @@ class SectionContext:
     office_name: str
     section_code: str
     section_name: str
-    village_name: str
+    village_name: str = ""
+    longitude: float | None = None
+    latitude: float | None = None
+    source: str = "point"
 
     @property
     def summary(self) -> str:
+        extra = f"，{self.village_name}" if self.village_name else ""
         return (
             f"{self.county_name}{self.town_name}{self.section_name}"
-            f"（段代碼 {self.section_code}，{self.office_name}地政，"
-            f"{self.village_name}）"
+            f"（段代碼 {self.section_code}，{self.office_name}地政{extra}）"
         )
 
 
@@ -128,7 +147,375 @@ def resolve_section(longitude: float | str, latitude: float | str) -> SectionCon
         section_code=field("sectCode"),
         section_name=field("sectName"),
         village_name=field("villageName"),
+        source="point",
     )
+
+
+# ---------------------------------------------------------------------------
+# 純文字的段籍查詢：不需要座標
+#
+# 座標在整個 pipeline 裡只用於「查段代碼」這一件事，之後所有幾何都改用
+# NLSC 依地號回傳的實際範圍。因此只要能從文字拿到段代碼，座標就不必要。
+#
+# 三支清單 API 就夠：
+#   ListCounty                        縣市名 → 縣市代碼
+#   ListTown/{縣市}                   行政區名 → 行政區代碼
+#   ListLandSection/{縣市}/{行政區}    段名 → 段代碼
+#
+# 注意段名會跨行政區重複（實測新北市 1,218 種段名中有 72 種重複，
+# 例如太平段在新店區是 0797、樹林區是 1921），所以行政區是必要條件，
+# 不能只給段名。
+# ---------------------------------------------------------------------------
+
+LIST_COUNTY_API = "https://api.nlsc.gov.tw/other/ListCounty"
+LIST_TOWN_API = "https://api.nlsc.gov.tw/other/ListTown"
+LIST_SECTION_API = "https://api.nlsc.gov.tw/other/ListLandSection"
+
+# 段籍索引檔。段代碼幾乎不變（新設地段是罕見事件），每次出圖都去打
+# ListLandSection 是浪費：新北市有 29 個行政區、1,218 種段名，
+# 全查一輪要三十秒以上，而且多一個對外服務的失敗點。
+# 先查本地索引，查不到才回頭問 API。
+SECTION_INDEX_PATH = Path(__file__).parent / "data" / "land_sections.json"
+
+_county_cache: dict[str, str] | None = None
+_town_cache: dict[str, dict[str, str]] = {}
+_section_cache: dict[tuple[str, str], list[tuple[str, str, str, str]]] = {}
+_index_cache: dict | None = None
+_index_missing_logged = False
+
+
+def _fetch_xml(url: str):
+    response = requests.get(url, verify=False, timeout=25)
+    response.raise_for_status()
+    try:
+        return ET.fromstring(response.content)
+    except ET.ParseError as exc:
+        raise ValueError(f"NLSC 回傳的 XML 無法解析（{url}）：{exc}") from exc
+
+
+def list_counties() -> dict[str, str]:
+    """縣市名 → 縣市代碼。結果快取，一個行程只查一次。"""
+
+    global _county_cache
+    if _county_cache is None:
+        _county_cache = {
+            element.findtext("countyname"): element.findtext("countycode")
+            for element in _fetch_xml(LIST_COUNTY_API)
+            if element.findtext("countyname") and element.findtext("countycode")
+        }
+    return _county_cache
+
+
+def list_towns(county_code: str) -> dict[str, str]:
+    """行政區名 → 行政區代碼（例 樹林區 → F17）。"""
+
+    if county_code not in _town_cache:
+        _town_cache[county_code] = {
+            element.findtext("townname"): element.findtext("towncode")
+            for element in _fetch_xml(f"{LIST_TOWN_API}/{county_code}")
+            if element.findtext("townname") and element.findtext("towncode")
+        }
+    return _town_cache[county_code]
+
+
+def load_section_index(path: str | Path | None = None) -> dict:
+    """載入本地段籍索引；不存在時回空 dict 而非拋錯。
+
+    索引只是加速用的快取，缺了仍可走 API，因此不該讓它成為硬相依。
+    """
+
+    global _index_cache, _index_missing_logged
+    if _index_cache is not None and path is None:
+        return _index_cache
+
+    target = Path(path) if path else SECTION_INDEX_PATH
+    if not target.exists():
+        if not _index_missing_logged and path is None:
+            _index_missing_logged = True
+            print(
+                f"（無段籍索引 {target.name}，改用 NLSC API；"
+                "可執行 `python getSectionCode.py build-index` 建立）",
+                file=sys.stderr,
+            )
+        index: dict = {}
+    else:
+        try:
+            index = json.loads(target.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as exc:
+            print(f"（段籍索引讀取失敗，改用 API：{exc}）", file=sys.stderr)
+            index = {}
+
+    if path is None:
+        _index_cache = index
+    return index
+
+
+def _sections_from_index(county_name: str, town_name: str):
+    """從本地索引取某行政區的地段清單；查不到回 None。"""
+
+    index = load_section_index()
+    county = (index.get("counties") or {}).get(county_name)
+    if not county:
+        return None
+    town = (county.get("towns") or {}).get(town_name)
+    if not town:
+        return None
+    return [
+        (
+            entry["code"],
+            name,
+            entry.get("office_code", ""),
+            entry.get("office_name", ""),
+        )
+        for name, entry in (town.get("sections") or {}).items()
+    ]
+
+
+def list_sections(county_code: str, town_code: str):
+    """回傳 [(段代碼, 段名, 事務所代碼, 事務所名)]，直接打 API。"""
+
+    key = (county_code, town_code)
+    if key not in _section_cache:
+        root = _fetch_xml(f"{LIST_SECTION_API}/{county_code}/{town_code}")
+        _section_cache[key] = [
+            (
+                element.findtext("sectcode") or "",
+                element.findtext("sectstr") or "",
+                element.findtext("office") or "",
+                element.findtext("officestr") or "",
+            )
+            for element in root
+        ]
+    return _section_cache[key]
+
+
+def build_section_index(
+    county_names: Iterable[str] = ("新北市",),
+    path: str | Path | None = None,
+) -> Path:
+    """把指定縣市的所有地段抓下來寫成 JSON 索引。
+
+    段代碼幾乎不變，所以這是一次性作業，產物可以進版控。
+    """
+
+    target = Path(path) if path else SECTION_INDEX_PATH
+    target.parent.mkdir(parents=True, exist_ok=True)
+
+    counties = list_counties()
+    payload: dict = {
+        "version": 1,
+        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "source": "https://api.nlsc.gov.tw/other/ListLandSection",
+        "counties": {},
+    }
+
+    for county_name in county_names:
+        resolved_name, county_code = _pick(county_name, counties, "縣市")
+        towns = list_towns(county_code)
+        print(f"{resolved_name}（{county_code}）：{len(towns)} 個行政區")
+
+        county_entry: dict = {"county_code": county_code, "towns": {}}
+        total = 0
+        for index, (town_name, town_code) in enumerate(
+            sorted(towns.items()), start=1
+        ):
+            try:
+                rows = list_sections(county_code, town_code)
+            except (requests.RequestException, ValueError) as exc:
+                print(f"  [{index}/{len(towns)}] {town_name} 查詢失敗：{exc}")
+                continue
+            sections = {
+                name: {
+                    "code": code,
+                    "office_code": office_code,
+                    "office_name": office_name,
+                }
+                for code, name, office_code, office_name in rows
+                if name and code
+            }
+            county_entry["towns"][town_name] = {
+                "town_code": town_code,
+                "sections": sections,
+            }
+            total += len(sections)
+            print(f"  [{index}/{len(towns)}] {town_name:8s} {len(sections):5d} 個地段")
+
+        county_entry["section_count"] = total
+        payload["counties"][resolved_name] = county_entry
+        print(f"  合計 {total:,} 個地段")
+
+    target.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=1) + "\n",
+        encoding="utf-8",
+    )
+    print(f"\n已寫出 {target}（{target.stat().st_size / 1024:,.0f} KB）")
+    return target
+
+
+def _pick(name: str, table: dict[str, str], label: str) -> tuple[str, str]:
+    """在名稱表裡找 name；找不到時列出接近的候選幫助排查。"""
+
+    if name in table:
+        return name, table[name]
+    # 容忍「臺／台」互換，官方資料用「臺」。
+    swapped = name.replace("台", "臺")
+    if swapped in table:
+        return swapped, table[swapped]
+    similar = [key for key in table if name in key or key in name]
+    hint = f"；接近的有 {'、'.join(similar[:5])}" if similar else ""
+    raise ValueError(f"找不到{label}「{name}」{hint}")
+
+
+def resolve_section_by_name(
+    county_name: str,
+    town_name: str,
+    section_name: str,
+) -> SectionContext:
+    """由「縣市＋行政區＋段名」查段代碼，不需要座標。
+
+    段名會跨行政區重複，所以三者都要給。段名支援小段
+    （例如「石灰坑段石灰坑小段」）。
+    """
+
+    county_name = county_name.replace("台", "臺")
+    town_name = town_name.replace("台", "臺")
+
+    # 先查本地索引，命中就完全不碰網路。
+    sections = _sections_from_index(county_name, town_name)
+    if sections is not None:
+        index = load_section_index()
+        county_code = index["counties"][county_name]["county_code"]
+        town_code = index["counties"][county_name]["towns"][town_name]["town_code"]
+        lookup_source = "index"
+    else:
+        counties = list_counties()
+        county_name, county_code = _pick(county_name, counties, "縣市")
+        towns = list_towns(county_code)
+        town_name, town_code = _pick(town_name, towns, "行政區")
+        sections = list_sections(county_code, town_code)
+        lookup_source = "api"
+
+    wanted = section_name.strip()
+    exact = [row for row in sections if row[1] == wanted]
+    if not exact:
+        # 使用者可能只寫大段名而資料是「大段＋小段」，或反之。
+        loose = [row for row in sections if wanted and wanted in row[1]]
+        if len(loose) == 1:
+            exact = loose
+        elif len(loose) > 1:
+            names = "、".join(f"{row[1]}({row[0]})" for row in loose[:8])
+            raise ValueError(
+                f"{county_name}{town_name}有多個段名包含「{wanted}」：{names}；"
+                "請提供完整段名"
+            )
+        else:
+            available = "、".join(row[1] for row in sections[:10])
+            raise ValueError(
+                f"{county_name}{town_name}找不到段名「{wanted}」；"
+                f"該區共 {len(sections)} 個地段，前幾個為 {available}"
+            )
+
+    section_code, resolved_name, office_code, office_name = exact[0]
+    return SectionContext(
+        county_code=county_code,
+        county_name=county_name,
+        town_code=town_code,
+        town_name=town_name,
+        office_code=office_code,
+        office_name=office_name,
+        section_code=section_code,
+        section_name=resolved_name,
+        source=f"name/{lookup_source}",
+    )
+
+
+# 基本資料的格式：{縣市}{行政區}{段名}{地號}[、{地號}…]地號
+# 例：新北市樹林區太平段367、917地號
+_PARCEL_TAIL = re.compile(r"([0-9\-]+(?:\s*[、,，]\s*[0-9\-]+)*)\s*地號\s*$")
+
+
+def parse_basic_info(text: str) -> dict:
+    """從基本資料文字拆出縣市、行政區、段名與地號清單。
+
+    不用正則猜縣市與行政區，而是拿 NLSC 的官方清單做最長前綴比對 ——
+    「新北市」「新莊區」這類名稱用正則很容易切錯。
+    """
+
+    # 官方資料一律用「臺」，但使用者常打「台」，先正規化再比對。
+    cleaned = re.sub(r"\s+", "", text).replace("台", "臺").strip()
+    if not cleaned:
+        raise ValueError("基本資料為空")
+
+    # 縣市與行政區的名稱表優先取自本地索引，索引沒有才問 API。
+    index = load_section_index()
+    indexed_counties = index.get("counties") or {}
+
+    counties = dict.fromkeys(indexed_counties) or None
+    county_name = max(
+        (name for name in indexed_counties if cleaned.startswith(name)),
+        key=len,
+        default=None,
+    )
+    if county_name is None:
+        counties = list_counties()
+        county_name = max(
+            (name for name in counties if cleaned.startswith(name)),
+            key=len,
+            default=None,
+        )
+    if county_name is None:
+        raise ValueError(
+            f"基本資料開頭不是已知縣市：「{cleaned[:12]}…」；"
+            "格式應為「新北市樹林區太平段367、917地號」"
+        )
+    rest = cleaned[len(county_name) :]
+
+    indexed_towns = (indexed_counties.get(county_name) or {}).get("towns") or {}
+    town_name = max(
+        (name for name in indexed_towns if rest.startswith(name)),
+        key=len,
+        default=None,
+    )
+    if town_name is None:
+        county_code = (
+            indexed_counties.get(county_name, {}).get("county_code")
+            or list_counties()[county_name]
+        )
+        towns = list_towns(county_code)
+        town_name = max(
+            (name for name in towns if rest.startswith(name)),
+            key=len,
+            default=None,
+        )
+    if town_name is None:
+        raise ValueError(
+            f"「{county_name}」之後不是已知行政區：「{rest[:12]}…」"
+        )
+    rest = rest[len(town_name) :]
+
+    match = _PARCEL_TAIL.search(rest)
+    if not match:
+        raise ValueError(
+            f"找不到地號部分：「{rest}」；結尾應為「367、917地號」這種格式"
+        )
+    section_name = rest[: match.start()].strip()
+    if not section_name:
+        raise ValueError(f"找不到段名：「{rest}」")
+
+    parcels = [
+        token.strip()
+        for token in re.split(r"[、,，]", match.group(1))
+        if token.strip()
+    ]
+    if not parcels:
+        raise ValueError(f"找不到地號：「{rest}」")
+
+    return {
+        "county_name": county_name,
+        "town_name": town_name,
+        "section_name": section_name,
+        "parcels": parcels,
+    }
 
 
 def get_sect_code(lon, lat):
@@ -170,6 +557,16 @@ def getJson(sectionCode, BasicInfo, SectionDes):
         section_name="（依基本資料）",
         section_code=sectionCode,
     )
+
+
+def _normalize_for_compare(text: str) -> str:
+    """比對分區名稱時去掉括號補充與空白。
+
+    「捷運開發區(變更前為第一種住宅區)」與「捷運開發區」應視為相同 ——
+    出圖端的 _normalize_zone_name 也是這樣處理。
+    """
+
+    return re.sub(r"[（(].*?[）)]|\s+", "", str(text))
 
 
 def parse_ai_json(text: str) -> list[dict]:
@@ -304,6 +701,117 @@ def render_case_json(
     )
 
 
+# ---------------------------------------------------------------------------
+# 案件資料來源：地價智審 workflow bundle
+#
+# 出圖需要的兩個輸入都在 bundle 裡，不必人工轉抄：
+#   bundle.segments.{區段編號}.request.base_parcel_id  完整地段地號
+#   bundle.segments.{區段編號}.request.segment_scope   區段範圍描述
+# ---------------------------------------------------------------------------
+
+LOCAL_CASES_DIR = Path(
+    os.environ.get(
+        "LOCAL_CASES_DIR",
+        str(Path(__file__).parent / "地價智審_AI_Offline_Candidate_v1" / "data" / "local_cases"),
+    )
+)
+
+_segments_cache: dict[str, dict] | None = None
+
+
+@dataclass(frozen=True)
+class SegmentRequest:
+    """一個區段的出圖輸入。"""
+
+    segment_code: str
+    basic_info: str
+    section_description: str
+    zone_from_factor: str | None = None
+    case_no: str | None = None
+    source_file: str | None = None
+
+    @property
+    def summary(self) -> str:
+        return f"{self.segment_code}｜{self.basic_info}｜{self.section_description}"
+
+
+def load_segments(
+    directory: str | Path | None = None,
+    *,
+    refresh: bool = False,
+) -> dict[str, SegmentRequest]:
+    """掃描 local_cases 的 workflow JSON，回傳 {區段編號: SegmentRequest}。
+
+    同一個區段編號出現在多個檔案時，以較晚的 created_at 為準 ——
+    重跑產生的新 bundle 應該覆蓋舊的。
+    """
+
+    global _segments_cache
+    if _segments_cache is not None and directory is None and not refresh:
+        return _segments_cache
+
+    root = Path(directory) if directory else LOCAL_CASES_DIR
+    found: dict[str, tuple[str, SegmentRequest]] = {}
+
+    if root.exists():
+        for path in sorted(root.glob("*.json")):
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            created = str(data.get("created_at") or "")
+            case_no = data.get("case_no")
+            segments = (data.get("bundle") or {}).get("segments") or {}
+            for code, segment in segments.items():
+                request = (segment or {}).get("request") or {}
+                parcel = (request.get("base_parcel_id") or "").strip()
+                scope = (request.get("segment_scope") or "").strip()
+                if not parcel or not scope:
+                    continue
+                zone = None
+                for factor in request.get("competition_provided_factors") or []:
+                    if "使用分區" in str(factor.get("factor", "")):
+                        zone = factor.get("raw_value")
+                        break
+                entry = SegmentRequest(
+                    segment_code=str(code),
+                    basic_info=parcel,
+                    section_description=scope,
+                    zone_from_factor=zone,
+                    case_no=case_no,
+                    source_file=path.name,
+                )
+                previous = found.get(str(code))
+                if previous is None or created >= previous[0]:
+                    found[str(code)] = (created, entry)
+
+    result = {code: entry for code, (_, entry) in found.items()}
+    if directory is None:
+        _segments_cache = result
+    return result
+
+
+def get_segment(
+    segment_code: str,
+    directory: str | Path | None = None,
+) -> SegmentRequest:
+    """取單一區段的出圖輸入；找不到時列出可用編號。"""
+
+    segments = load_segments(directory)
+    if segment_code in segments:
+        return segments[segment_code]
+    if not segments:
+        raise ValueError(
+            f"在 {Path(directory) if directory else LOCAL_CASES_DIR} 找不到任何"
+            "含 base_parcel_id 與 segment_scope 的 workflow JSON；"
+            "可用環境變數 LOCAL_CASES_DIR 指定目錄"
+        )
+    raise ValueError(
+        f"找不到區段編號「{segment_code}」；可用的有 "
+        f"{'、'.join(sorted(segments))}"
+    )
+
+
 @dataclass
 class PipelineResult:
     """一次完整出圖的產出位置與摘要。"""
@@ -326,12 +834,34 @@ class PipelineResult:
 ARCHIVE_ROOT = os.environ.get("ZONE_MAP_ARCHIVE", "artifacts")
 
 
+def resolve_context(
+    basic_info: str,
+    *,
+    longitude: float | str | None = None,
+    latitude: float | str | None = None,
+) -> SectionContext:
+    """取得段籍資料。有座標就用座標，沒有就從基本資料文字查。
+
+    兩條路徑得到的段代碼應該一致；座標只是另一種輸入方式，
+    不是必要條件。實務上評價基準明細表給的是地段地號而非座標，
+    所以文字路徑才是主要入口。
+    """
+
+    if longitude is not None and latitude is not None:
+        return resolve_section(longitude, latitude)
+
+    parsed = parse_basic_info(basic_info)
+    return resolve_section_by_name(
+        parsed["county_name"], parsed["town_name"], parsed["section_name"]
+    )
+
+
 def run_pipeline(
-    longitude: float | str,
-    latitude: float | str,
     basic_info: str,
     section_description: str,
     *,
+    longitude: float | str | None = None,
+    latitude: float | str | None = None,
     zone_code: str | None = None,
     llm=None,
     llm_response: str | None = None,
@@ -360,7 +890,9 @@ def run_pipeline(
     if llm is None and llm_response is None:
         raise ValueError("必須提供 llm 函式或 llm_response 內容")
 
-    context = resolve_section(longitude, latitude)
+    context = resolve_context(
+        basic_info, longitude=longitude, latitude=latitude
+    )
     prompt = build_prompt(context, basic_info, section_description)
     raw = llm_response if llm_response is not None else llm(prompt)
 
@@ -388,13 +920,15 @@ def run_pipeline(
     dump(
         "request.json",
         {
-            "longitude": float(longitude),
-            "latitude": float(latitude),
             "basic_info": basic_info,
             "section_description": section_description,
             "zone_code": zone_code,
             "county": county,
             "district": district,
+            # 座標為選用輸入；未提供時段籍由基本資料文字查得。
+            "longitude": float(longitude) if longitude is not None else None,
+            "latitude": float(latitude) if latitude is not None else None,
+            "section_source": context.source,
             "created_at": stamp,
         },
     )
@@ -470,12 +1004,15 @@ def _read_text(value: str | None, path: str | None, label: str) -> str:
 
 
 def _command_prompt(args: argparse.Namespace) -> int:
-    context = resolve_section(args.lon, args.lat)
-    print(f"段籍查詢結果：{context.summary}")
+    basic_info = _read_text(args.basic_info, args.basic_info_file, "--basic-info")
+    context = resolve_context(
+        basic_info, longitude=args.lon, latitude=args.lat
+    )
+    print(f"段籍查詢結果：{context.summary}（來源：{context.source}）")
     print("-" * 60)
     prompt = build_prompt(
         context,
-        _read_text(args.basic_info, args.basic_info_file, "--basic-info"),
+        basic_info,
         _read_text(args.description, args.description_file, "--description"),
     )
     print("【產生的 Prompt 如下】\n")
@@ -537,8 +1074,10 @@ def _command_run(args: argparse.Namespace) -> int:
     if llm_response is None and llm is None:
         # 兩者都沒給時只印 prompt，讓使用者手動貼去問模型，再用
         # --llm-response-file 回來跑完後半段。
-        context = resolve_section(args.lon, args.lat)
-        print(f"段籍查詢結果：{context.summary}")
+        context = resolve_context(
+            basic_info, longitude=args.lon, latitude=args.lat
+        )
+        print(f"段籍查詢結果：{context.summary}（來源：{context.source}）")
         print("\n未指定 --llm 也未提供 --llm-response-file，只產生 prompt。")
         print("接 Bedrock 請加 --llm bedrock，或把模型回覆存檔後用")
         print("  --llm-response-file <回覆檔> 重跑本指令完成出圖。\n")
@@ -546,10 +1085,10 @@ def _command_run(args: argparse.Namespace) -> int:
         return 0
 
     result = run_pipeline(
-        args.lon,
-        args.lat,
         basic_info,
         description,
+        longitude=args.lon,
+        latitude=args.lat,
         zone_code=args.zone_code,
         llm=llm,
         llm_response=llm_response,
@@ -578,6 +1117,11 @@ def _command_run(args: argparse.Namespace) -> int:
     return 0
 
 
+def _command_build_index(args: argparse.Namespace) -> int:
+    build_section_index(args.county or ("新北市",), args.output)
+    return 0
+
+
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="getSectionCode.py",
@@ -588,8 +1132,10 @@ def build_arg_parser() -> argparse.ArgumentParser:
     prompt_parser = subparsers.add_parser(
         "prompt", help="查段籍並印出給 LLM 的 prompt"
     )
-    prompt_parser.add_argument("--lon", required=True, help="經度（WGS84）")
-    prompt_parser.add_argument("--lat", required=True, help="緯度（WGS84）")
+    prompt_parser.add_argument(
+        "--lon", help="經度（WGS84）。選用：未給時段代碼由基本資料文字查得"
+    )
+    prompt_parser.add_argument("--lat", help="緯度（WGS84）。選用，同 --lon")
     prompt_parser.add_argument("--basic-info", help="基本資料，例：新北市樹林區太平段367、917地號")
     prompt_parser.add_argument("--basic-info-file", help="基本資料改由檔案讀入，- 為 stdin")
     prompt_parser.add_argument("--description", help="區段範圍描述")
@@ -615,13 +1161,37 @@ def build_arg_parser() -> argparse.ArgumentParser:
     render_parser.add_argument("--district", help="行政區名，預設由 NLSC 段籍推得")
     render_parser.set_defaults(func=_command_render)
 
+    index_parser = subparsers.add_parser(
+        "build-index",
+        help="把縣市的所有地段抓成本地 JSON 索引，之後不必每次查 API",
+    )
+    index_parser.add_argument(
+        "--county",
+        action="append",
+        default=None,
+        help="縣市名，可重複指定；預設只抓新北市",
+    )
+    index_parser.add_argument(
+        "-o",
+        "--output",
+        default=None,
+        help=f"輸出路徑，預設 {SECTION_INDEX_PATH.relative_to(Path(__file__).parent)}",
+    )
+    index_parser.set_defaults(func=_command_build_index)
+
     run_parser = subparsers.add_parser(
         "run",
         help="端到端：座標+基本資料+描述 → 條件 JSON → 區段圖，並完整留檔",
     )
-    run_parser.add_argument("--lon", required=True, help="經度（WGS84）")
-    run_parser.add_argument("--lat", required=True, help="緯度（WGS84）")
-    run_parser.add_argument("--basic-info", help="基本資料")
+    run_parser.add_argument(
+        "--lon",
+        help="經度（WGS84）。選用：未給時段代碼由 --basic-info 的文字查得",
+    )
+    run_parser.add_argument("--lat", help="緯度（WGS84）。選用，同 --lon")
+    run_parser.add_argument(
+        "--basic-info",
+        help="基本資料，例：新北市樹林區太平段367、917地號",
+    )
     run_parser.add_argument("--basic-info-file", help="基本資料檔案，- 為 stdin")
     run_parser.add_argument("--description", help="區段範圍描述")
     run_parser.add_argument("--description-file", help="描述檔案，- 為 stdin")
@@ -656,6 +1226,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # 先載入 .env，讓 --llm bedrock 能取到憑證與 model id。
+    # 已存在的環境變數優先，部署時注入的設定不會被 .env 蓋掉。
+    from llm_provider import load_env_file
+
+    load_env_file()
+
     args = build_arg_parser().parse_args(argv)
     try:
         return args.func(args)

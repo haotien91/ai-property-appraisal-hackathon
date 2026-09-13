@@ -1,0 +1,6908 @@
+{
+ "version": 1,
+ "generated_at": "2026-09-13T02:53:02Z",
+ "source": "https://api.nlsc.gov.tw/other/ListLandSection",
+ "counties": {
+  "新北市": {
+   "county_code": "F",
+   "towns": {
+    "三峽區": {
+     "town_code": "F15",
+     "sections": {
+      "白雞段白雞小段": {
+       "code": "0039",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "白雞段烏才頭小段": {
+       "code": "0041",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "十三添段犁舌尾小段": {
+       "code": "0042",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "十三添段打鐵坑小段": {
+       "code": "0043",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "十三添段十三添小段": {
+       "code": "0044",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "礁溪段": {
+       "code": "0045",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "公館後段劉厝埔小段": {
+       "code": "0047",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "成福段成福小段": {
+       "code": "0049",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "成福段小暗坑小段": {
+       "code": "0050",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "麥子園段劉厝埔小段": {
+       "code": "0051",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "麥子園段麥子園小段": {
+       "code": "0052",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "山員潭子段": {
+       "code": "0053",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大埔段大埔小段": {
+       "code": "0059",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大埔段柑子樹腳小段": {
+       "code": "0060",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大埔段圳子頭小段": {
+       "code": "0061",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大埔段二鬮小段": {
+       "code": "0062",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大埔段十八份小段": {
+       "code": "0063",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大埔段五鬮小段": {
+       "code": "0064",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "鳶山段": {
+       "code": "0065",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "中埔段": {
+       "code": "0066",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "劉厝埔段": {
+       "code": "0067",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "隆恩埔段": {
+       "code": "0068",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東眼段東麓小段": {
+       "code": "0069",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東眼段金敏子小段": {
+       "code": "0070",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "茅埔段": {
+       "code": "0071",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "福德坑段": {
+       "code": "0077",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "八張段坡子墘小段": {
+       "code": "0081",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "五寮段五寮小段": {
+       "code": "0082",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "五寮段菜園地小段": {
+       "code": "0083",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "五寮段詩朗小段": {
+       "code": "0084",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "插角段熊空小段": {
+       "code": "0085",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "插角段有木小段": {
+       "code": "0086",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "插角段外插角小段": {
+       "code": "0087",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "介壽段": {
+       "code": "1909",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東眼段東眼小段": {
+       "code": "1910",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "民權段": {
+       "code": "1911",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "民生段": {
+       "code": "1912",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "仁愛段": {
+       "code": "1913",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "和平段": {
+       "code": "1914",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "國光段": {
+       "code": "1915",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "文化段": {
+       "code": "1916",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "隆恩段": {
+       "code": "1917",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大仁段": {
+       "code": "1918",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大學段一小段": {
+       "code": "1932",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "民族段": {
+       "code": "1934",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "中園段": {
+       "code": "1935",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "湊合段": {
+       "code": "1943",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "佳興段": {
+       "code": "1965",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "長泰段": {
+       "code": "1966",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "安溪段": {
+       "code": "1967",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "永安段": {
+       "code": "1968",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "正義段": {
+       "code": "1969",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "龍福段": {
+       "code": "1970",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "溪北段": {
+       "code": "1983",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "溪東段": {
+       "code": "1984",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "溪南段": {
+       "code": "1985",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "麻園段": {
+       "code": "1986",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大埔一段": {
+       "code": "1987",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "十三添一段": {
+       "code": "1988",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "成福一段": {
+       "code": "1992",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "成福二段": {
+       "code": "1996",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "紫微一段": {
+       "code": "1999",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "紫微二段": {
+       "code": "2400",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "建安段": {
+       "code": "2401",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "竹崙一段": {
+       "code": "2402",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "竹崙二段": {
+       "code": "2403",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "插角一段": {
+       "code": "2404",
+       "office_code": "FI",
+       "office_name": "樹林"
+      }
+     }
+    },
+    "三芝區": {
+     "town_code": "F30",
+     "sections": {
+      "新小基隆段二坪頂小段": {
+       "code": "1203",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段三板橋小段": {
+       "code": "1215",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段大水堀小段": {
+       "code": "1216",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段木屐寮小段": {
+       "code": "1217",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段五腳松小段": {
+       "code": "1218",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段員山子頂小段": {
+       "code": "1219",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段芋尾崙小段": {
+       "code": "1220",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段內柑宅小段": {
+       "code": "1221",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段石曹子坑小段": {
+       "code": "1222",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段八連溪頭小段": {
+       "code": "1223",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段大湖小段": {
+       "code": "1224",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段土地公埔小段": {
+       "code": "1225",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "土地公埔段埔尾小段": {
+       "code": "1226",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "舊小基隆段八連溪小段": {
+       "code": "1231",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "錫板段梀板頭小段": {
+       "code": "1233",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "錫板段小坑子小段": {
+       "code": "1237",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "北新庄子段店子小段": {
+       "code": "1240",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "北新庄子段菜公坑小段": {
+       "code": "1242",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "烘爐段": {
+       "code": "1288",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "箭竹段": {
+       "code": "1299",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "埔頭段": {
+       "code": "1330",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "埔坪段": {
+       "code": "1331",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "芝柏段": {
+       "code": "1332",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "茂長段": {
+       "code": "1333",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大湖段": {
+       "code": "1351",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "福海段": {
+       "code": "1352",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "芝蘭段": {
+       "code": "1353",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "榆林段": {
+       "code": "1354",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "古庄段": {
+       "code": "1359",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "新庄段": {
+       "code": "1360",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大坑段": {
+       "code": "1361",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "橫山段": {
+       "code": "1362",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大屯段": {
+       "code": "1363",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "田心段": {
+       "code": "1364",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "車埕段": {
+       "code": "1365",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "巴拉卡段": {
+       "code": "1366",
+       "office_code": "FE",
+       "office_name": "淡水"
+      }
+     }
+    },
+    "三重區": {
+     "town_code": "F05",
+     "sections": {
+      "重新段壹小段": {
+       "code": "1717",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "幸福段": {
+       "code": "1724",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "永安段": {
+       "code": "1725",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "仁愛段": {
+       "code": "1726",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "仁義段": {
+       "code": "1727",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "五華段": {
+       "code": "1728",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "碧華段": {
+       "code": "1729",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "新海段": {
+       "code": "1730",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "永德段": {
+       "code": "1731",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "忠孝段": {
+       "code": "1732",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "仁興段": {
+       "code": "1733",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "龍濱段": {
+       "code": "1736",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "龍門段": {
+       "code": "1737",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "三和段": {
+       "code": "1738",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "正義段": {
+       "code": "1739",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "安慶段": {
+       "code": "1740",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "大智段": {
+       "code": "1741",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "光榮段": {
+       "code": "1760",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "長樂段": {
+       "code": "1761",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "正義北段": {
+       "code": "1763",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "長壽段": {
+       "code": "1764",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "文化北段": {
+       "code": "1765",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "福德北段": {
+       "code": "1766",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "大同南段": {
+       "code": "1767",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "光興段": {
+       "code": "1768",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "福德南段": {
+       "code": "1769",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "富貴段": {
+       "code": "1770",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "大仁段": {
+       "code": "1771",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "正民段": {
+       "code": "1772",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "明志段": {
+       "code": "1773",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "德新段": {
+       "code": "1774",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "雙園段": {
+       "code": "1775",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "三民段": {
+       "code": "1776",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "錦田段": {
+       "code": "1777",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "田安段": {
+       "code": "1778",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "中華段": {
+       "code": "1779",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "興華段": {
+       "code": "1780",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "過田段": {
+       "code": "1781",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "菜寮段": {
+       "code": "1782",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "中民段": {
+       "code": "1783",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "大安段": {
+       "code": "1784",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "集美段": {
+       "code": "1785",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "大有段": {
+       "code": "1786",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "二重段": {
+       "code": "1787",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "成功段": {
+       "code": "1788",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "疏洪段": {
+       "code": "1789",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "頂崁段": {
+       "code": "1790",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "興德段": {
+       "code": "1791",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "中興段": {
+       "code": "1792",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "五谷王一段": {
+       "code": "1793",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "三重段": {
+       "code": "1794",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "五谷王段": {
+       "code": "1795",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "仁信段": {
+       "code": "1796",
+       "office_code": "FG",
+       "office_name": "三重"
+      }
+     }
+    },
+    "中和區": {
+     "town_code": "F18",
+     "sections": {
+      "景福段": {
+       "code": "1857",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "大智段": {
+       "code": "1858",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "秀峰段": {
+       "code": "1859",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "大仁段": {
+       "code": "1860",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "秀山段": {
+       "code": "1861",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "景新段": {
+       "code": "1862",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "景平段": {
+       "code": "1863",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "中安段": {
+       "code": "1864",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "公園段": {
+       "code": "1865",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "保健段": {
+       "code": "1866",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "安平段": {
+       "code": "1867",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "大華段": {
+       "code": "1868",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "捷運段": {
+       "code": "1869",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "新和段": {
+       "code": "1870",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "景華段": {
+       "code": "1871",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "南山段": {
+       "code": "1872",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "大同段": {
+       "code": "1873",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "復興段": {
+       "code": "1874",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "中和段": {
+       "code": "1875",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "連城段": {
+       "code": "1876",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "南工段": {
+       "code": "1877",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "信和段": {
+       "code": "1878",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "仁和段": {
+       "code": "1879",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "民樂段": {
+       "code": "1880",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "健康段": {
+       "code": "1881",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "安邦段": {
+       "code": "1882",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "台貿段": {
+       "code": "1883",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "光復段": {
+       "code": "1884",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "中原段": {
+       "code": "1885",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "板南段": {
+       "code": "1886",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "橋和段": {
+       "code": "1887",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "福祥段": {
+       "code": "1888",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "福美段": {
+       "code": "1889",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "莊敬段": {
+       "code": "1890",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "廟美段": {
+       "code": "1891",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "瓦磘段": {
+       "code": "1892",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "錦和段": {
+       "code": "1893",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "圓通段": {
+       "code": "1894",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "烘爐地段": {
+       "code": "1895",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "南勢段": {
+       "code": "1896",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "正南段": {
+       "code": "1897",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "東南段": {
+       "code": "1898",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "興南段": {
+       "code": "1899",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "華新段": {
+       "code": "2000",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "光環段": {
+       "code": "2001",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "新民段": {
+       "code": "2002",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "民富段": {
+       "code": "2003",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "員山段": {
+       "code": "2004",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "民有段": {
+       "code": "2005",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "三民段": {
+       "code": "2006",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "德光段": {
+       "code": "2007",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "莒光段": {
+       "code": "2008",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "自強段": {
+       "code": "2009",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "華福段": {
+       "code": "2010",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "民利段": {
+       "code": "2011",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "國道段": {
+       "code": "2012",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "灰磘段": {
+       "code": "2013",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "盛昌段": {
+       "code": "2014",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "橫路段": {
+       "code": "2015",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "華中段": {
+       "code": "2016",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "尖山腳段": {
+       "code": "2017",
+       "office_code": "FH",
+       "office_name": "中和"
+      }
+     }
+    },
+    "五股區": {
+     "town_code": "F03",
+     "sections": {
+      "五股坑段五股坑小段": {
+       "code": "0352",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "水碓段水碓小段": {
+       "code": "0355",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "水碓段塭底小段": {
+       "code": "0357",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "石土地公段石土地公小段": {
+       "code": "0358",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "更寮段更寮小段": {
+       "code": "0361",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "更寮段褒子寮小段": {
+       "code": "0362",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "更寮段洲子尾小段": {
+       "code": "0363",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "更寮段鴨母港小段": {
+       "code": "0364",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "更寮段下竹圍小段": {
+       "code": "0365",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "更寮段樹林頭小段": {
+       "code": "0366",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "更寮段羅古小段": {
+       "code": "0367",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "洲子段洲子小段": {
+       "code": "0368",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新塭段新塭小段": {
+       "code": "0370",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "五工段": {
+       "code": "0413",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "石德段": {
+       "code": "0425",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "御史段": {
+       "code": "0492",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "成功段": {
+       "code": "0493",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "成州段": {
+       "code": "2208",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "芳洲段": {
+       "code": "2209",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "德音段": {
+       "code": "2217",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "登林段": {
+       "code": "2218",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "陸光段": {
+       "code": "2219",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "五股段": {
+       "code": "2220",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "成蘆段": {
+       "code": "2222",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "成福段": {
+       "code": "2223",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "成泰段": {
+       "code": "2224",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中興段": {
+       "code": "2225",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "成子寮段": {
+       "code": "2239",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "觀音東段": {
+       "code": "2240",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "觀音西段": {
+       "code": "2241",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "五股坑一段": {
+       "code": "2242",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "五股坑二段": {
+       "code": "2243",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "五股坑三段": {
+       "code": "2244",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "福德段": {
+       "code": "2245",
+       "office_code": "FB",
+       "office_name": "新莊"
+      }
+     }
+    },
+    "八里區": {
+     "town_code": "F32",
+     "sections": {
+      "小八里坌段楓櫃斗湖小段": {
+       "code": "1272",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "小八里坌段荖阡坑小段": {
+       "code": "1273",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "小八里坌段舊城小段": {
+       "code": "1274",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "小八里坌段中小段": {
+       "code": "1276",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "小八里坌段挖子尾小段": {
+       "code": "1277",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "小八里坌段埤子頭小段": {
+       "code": "1278",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "小八里坌段松子腳小段": {
+       "code": "1279",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "小八里坌段十三行小段": {
+       "code": "1280",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "小八里坌段訊塘埔小段": {
+       "code": "1281",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下罟子段下罟子小段": {
+       "code": "1282",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大崁段": {
+       "code": "1300",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大堀段": {
+       "code": "1301",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "埤頭段": {
+       "code": "1302",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "頂罟段": {
+       "code": "1303",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "商港段": {
+       "code": "1306",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "中庄段": {
+       "code": "1320",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "臺北港段": {
+       "code": "1321",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "訊塘段": {
+       "code": "1322",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "龍米段": {
+       "code": "1323",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "米倉段": {
+       "code": "1324",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "中山段": {
+       "code": "1325",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "長坑段": {
+       "code": "1326",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下罟段": {
+       "code": "1327",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "楓林段": {
+       "code": "1328",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "荖阡段": {
+       "code": "1329",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "楓櫃段": {
+       "code": "1347",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大堀湖段": {
+       "code": "1348",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "龍形段": {
+       "code": "1349",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "龍源段": {
+       "code": "1350",
+       "office_code": "FE",
+       "office_name": "淡水"
+      }
+     }
+    },
+    "土城區": {
+     "town_code": "F19",
+     "sections": {
+      "柑林埤段": {
+       "code": "0136",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "清水坑段外冷水坑小段": {
+       "code": "0137",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "瑞興段": {
+       "code": "0178",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "頂新段": {
+       "code": "0179",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "頂福段": {
+       "code": "0180",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "土城段": {
+       "code": "0181",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "大安段": {
+       "code": "0182",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "員仁段": {
+       "code": "0183",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "永和段": {
+       "code": "0184",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "大巒段": {
+       "code": "0185",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "運校段": {
+       "code": "0186",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "永寧段": {
+       "code": "0187",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "員和段": {
+       "code": "0189",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "員福段": {
+       "code": "0190",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "城林段": {
+       "code": "0191",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "沛陂段": {
+       "code": "0192",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "中華段": {
+       "code": "0193",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "學成段": {
+       "code": "0194",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "樂利段": {
+       "code": "0195",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "學林段": {
+       "code": "0196",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "板院段": {
+       "code": "0197",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "安和段": {
+       "code": "0199",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "延和段": {
+       "code": "0200",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "延吉段": {
+       "code": "0201",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "廷寮段": {
+       "code": "0202",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "金城段": {
+       "code": "0203",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "清水段": {
+       "code": "0204",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "冷水段": {
+       "code": "0205",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "青雲段": {
+       "code": "0206",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "永豐段": {
+       "code": "0207",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "尖山段": {
+       "code": "0208",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "石門段": {
+       "code": "0209",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "清化段": {
+       "code": "0210",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "柑林段": {
+       "code": "0211",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "忠義段": {
+       "code": "0212",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "南天母段": {
+       "code": "0213",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "建安段": {
+       "code": "0214",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "祖田段": {
+       "code": "0215",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "福華段": {
+       "code": "0219",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "明德段": {
+       "code": "0224",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "永福段": {
+       "code": "0225",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "永寧一段": {
+       "code": "0226",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "司法段": {
+       "code": "0227",
+       "office_code": "FA",
+       "office_name": "板橋"
+      }
+     }
+    },
+    "坪林區": {
+     "town_code": "F10",
+     "sections": {
+      "坪林段水柳腳小段": {
+       "code": "0697",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坪林段黃舉皮寮小段": {
+       "code": "0698",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坪林段烏窟子小段": {
+       "code": "0699",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坪林段嶺腳坑小段": {
+       "code": "0700",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "九芎林段九芎林小段": {
+       "code": "0701",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "九芎林段鶯子瀨小段": {
+       "code": "0702",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "九芎林段石𥕢小段": {
+       "code": "0703",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "九芎林段尖山湖小段": {
+       "code": "0704",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "九芎林段刣牛寮小段": {
+       "code": "0705",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "九芎林段倒吊子小段": {
+       "code": "0706",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "𩻸魚堀段仁里坂小段": {
+       "code": "0709",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "灣潭段灣潭小段": {
+       "code": "0710",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "灣潭段幼瀨小段": {
+       "code": "0711",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "灣潭段石硿子小段": {
+       "code": "0712",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "灣潭段粗窟小段": {
+       "code": "0713",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坑子口段桶盤嶼小段": {
+       "code": "0714",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坑子口段崩山坑小段": {
+       "code": "0715",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坑子口段竹子易小段": {
+       "code": "0716",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坑子口段樹梅嶺小段": {
+       "code": "0717",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坑子口段上坑子口小段": {
+       "code": "0718",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坑子口段下坑子口小段": {
+       "code": "0719",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "水聳凄坑段水聳凄坑小段": {
+       "code": "0720",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "水聳凄坑段大湖尾小段": {
+       "code": "0721",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "水聳凄坑段磨壁潭小段": {
+       "code": "0722",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "水聳凄坑段苦苓腳小段": {
+       "code": "0723",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "厚德岡坑段厚德岡坑小段": {
+       "code": "0724",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "厚德岡坑段東坑小段": {
+       "code": "0725",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "厚德岡坑段籐寮坑小段": {
+       "code": "0726",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "厚德岡坑段大湖尾坑小段": {
+       "code": "0727",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大粗坑段大粗坑小段": {
+       "code": "0728",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大粗坑段九芎坑小段": {
+       "code": "0729",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大粗坑段虎寮潭小段": {
+       "code": "0730",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大舌湖段乾溪小段": {
+       "code": "0733",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大舌湖段粗石斛小段": {
+       "code": "0734",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "楣子寮段楣子寮小段": {
+       "code": "0735",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "楣子寮段小粗坑小段": {
+       "code": "0736",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "闊瀨段闊瀨小段": {
+       "code": "0737",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "闊瀨段枋山坑小段": {
+       "code": "0738",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "闊瀨段豹子厨小段": {
+       "code": "0739",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "柑腳坑段柑腳坑小段": {
+       "code": "0740",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "鷺鶿岫段鷺鶿岫小段": {
+       "code": "0741",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "鷺鶿岫段中心崙小段": {
+       "code": "0742",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "姑婆寮段": {
+       "code": "0743",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "金瓜寮段": {
+       "code": "0744",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "鹿寮段": {
+       "code": "0814",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "姑婆寮西段": {
+       "code": "0815",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "姑婆寮東段": {
+       "code": "0816",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "坪堵段": {
+       "code": "0817",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "水鴨嶺段": {
+       "code": "0818",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "碧湖段": {
+       "code": "0819",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "保坪段": {
+       "code": "0864",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大林段": {
+       "code": "0865",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "漁光段": {
+       "code": "0878",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新昇段": {
+       "code": "0879",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "慶林段": {
+       "code": "0880",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "保安段": {
+       "code": "0881",
+       "office_code": "FC",
+       "office_name": "新店"
+      }
+     }
+    },
+    "平溪區": {
+     "town_code": "F22",
+     "sections": {
+      "十分寮段望古坑小段": {
+       "code": "1439",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段頂寮子小段": {
+       "code": "1440",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段粗坑小段": {
+       "code": "1441",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段平溪子小段": {
+       "code": "1442",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段幼坑小段": {
+       "code": "1443",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段南山坪小段": {
+       "code": "1444",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段六分小段": {
+       "code": "1445",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段十分寮小段": {
+       "code": "1446",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段月桃寮小段": {
+       "code": "1447",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段五分寮小段": {
+       "code": "1448",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段新寮小段": {
+       "code": "1449",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段番子坑小段": {
+       "code": "1450",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段石灼坑小段": {
+       "code": "1451",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段乾坑小段": {
+       "code": "1452",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段石硿子小段": {
+       "code": "1453",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分寮段大湖小段": {
+       "code": "1454",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段白石腳小段": {
+       "code": "1455",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段薯榔寮小段": {
+       "code": "1456",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段番子坑小段": {
+       "code": "1457",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段竿蓁林小段": {
+       "code": "1458",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段火燒寮小段": {
+       "code": "1459",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段冬瓜寮坑小段": {
+       "code": "1460",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段柴橋坑小段": {
+       "code": "1461",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段平溪子小段": {
+       "code": "1462",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段竿蓁坑小段": {
+       "code": "1463",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段菁桐坑小段": {
+       "code": "1464",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段石笋尖小段": {
+       "code": "1465",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段嶺腳寮小段": {
+       "code": "1466",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段石底小段": {
+       "code": "1467",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底段東勢格小段": {
+       "code": "1468",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "東平段": {
+       "code": "1577",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "十分段": {
+       "code": "1585",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "南山一段": {
+       "code": "1586",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "南山二段": {
+       "code": "1587",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平溪段": {
+       "code": "1588",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石底一段": {
+       "code": "1589",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "菁桐段": {
+       "code": "1590",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "白石段": {
+       "code": "1591",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      }
+     }
+    },
+    "新店區": {
+     "town_code": "F07",
+     "sections": {
+      "直潭段直潭小段": {
+       "code": "0542",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "直潭段灣潭小段": {
+       "code": "0543",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "直潭段過橋坑小段": {
+       "code": "0545",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "直潭段蘆竹濫小段": {
+       "code": "0546",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "直潭段赤皮湖小段": {
+       "code": "0548",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "直潭段屈尺小段": {
+       "code": "0549",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "直潭段猴湖小段": {
+       "code": "0553",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "直潭段磺窟小段": {
+       "code": "0554",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "直潭段中溪洲小段": {
+       "code": "0557",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段蕃薯寮小段": {
+       "code": "0559",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段楣子寮小段": {
+       "code": "0560",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段六分小段": {
+       "code": "0561",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段十分小段": {
+       "code": "0562",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段十二分小段": {
+       "code": "0563",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段四十分小段": {
+       "code": "0564",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段十六分小段": {
+       "code": "0565",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段油車坑小段": {
+       "code": "0568",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段湖閃坑小段": {
+       "code": "0569",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段雙坑小段": {
+       "code": "0570",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段磜子頭小段": {
+       "code": "0571",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段大崎腳小段": {
+       "code": "0572",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段土崎頭小段": {
+       "code": "0573",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段德高嶺小段": {
+       "code": "0574",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青潭段青潭小段": {
+       "code": "0576",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "平廣段": {
+       "code": "0577",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "龜山段龜山小段": {
+       "code": "0578",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "龜山段大粗坑小段": {
+       "code": "0579",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "秀岡段": {
+       "code": "0756",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "華城一段": {
+       "code": "0757",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "華城二段": {
+       "code": "0758",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "中正段": {
+       "code": "0761",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "中華段": {
+       "code": "0762",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "民權段": {
+       "code": "0763",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大豐段": {
+       "code": "0764",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "建國段": {
+       "code": "0765",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "明德段": {
+       "code": "0766",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "中央段": {
+       "code": "0767",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "莊敬段": {
+       "code": "0768",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "復興段": {
+       "code": "0769",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "順安段": {
+       "code": "0770",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "寶元段": {
+       "code": "0771",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "禾豐一段": {
+       "code": "0772",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "禾豐二段": {
+       "code": "0773",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "福園段": {
+       "code": "0775",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "環河段": {
+       "code": "0776",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "北新段": {
+       "code": "0777",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "北宜段": {
+       "code": "0778",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "碧潭段": {
+       "code": "0779",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "寶強段": {
+       "code": "0780",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "寶橋段": {
+       "code": "0781",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "寶興段": {
+       "code": "0782",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "五峰段": {
+       "code": "0783",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "惠國段": {
+       "code": "0784",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "秀岡一段": {
+       "code": "0785",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "秀岡三段": {
+       "code": "0787",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "秀岡四段": {
+       "code": "0788",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "行政段": {
+       "code": "0789",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "光明段": {
+       "code": "0790",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "文山段": {
+       "code": "0791",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新坡段": {
+       "code": "0792",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "廣明段": {
+       "code": "0793",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "太平段": {
+       "code": "0797",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "永業段": {
+       "code": "0798",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新和段": {
+       "code": "0799",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "安和段": {
+       "code": "0800",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "安德段": {
+       "code": "0801",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "民安段": {
+       "code": "0802",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "栗子園段": {
+       "code": "0826",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "安康段": {
+       "code": "0833",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "安華段": {
+       "code": "0834",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "陽光段": {
+       "code": "0835",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "黎明段": {
+       "code": "0836",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小城段": {
+       "code": "0837",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "玫瑰段": {
+       "code": "0838",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "安豐段": {
+       "code": "0839",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "蘭溪段": {
+       "code": "0840",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "香坡段": {
+       "code": "0841",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "雙城段": {
+       "code": "0842",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "安泰段": {
+       "code": "0843",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "錦秀段": {
+       "code": "0844",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "秀水段": {
+       "code": "0845",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "竹林段": {
+       "code": "0846",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "安興段": {
+       "code": "0847",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "祥和段": {
+       "code": "0848",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "安城段": {
+       "code": "0849",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "濛濛谷段": {
+       "code": "0850",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "櫻花段": {
+       "code": "0851",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "梅花湖段": {
+       "code": "0852",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "斯馨段": {
+       "code": "0853",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新烏段": {
+       "code": "0854",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新龜山段": {
+       "code": "0857",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "松林段": {
+       "code": "0858",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "雙溪口段": {
+       "code": "0859",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "長福段": {
+       "code": "0860",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新小坑段": {
+       "code": "0861",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "日興段": {
+       "code": "0871",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "達觀段": {
+       "code": "0872",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "青山段": {
+       "code": "0873",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "思源段": {
+       "code": "0874",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新潭段": {
+       "code": "0875",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "永興段": {
+       "code": "0876",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "永福段": {
+       "code": "0877",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "長春段": {
+       "code": "0882",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新安段": {
+       "code": "0889",
+       "office_code": "FC",
+       "office_name": "新店"
+      }
+     }
+    },
+    "新莊區": {
+     "town_code": "F01",
+     "sections": {
+      "海山頭段三角子小段": {
+       "code": "0307",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "海山頭段石龜小段": {
+       "code": "0308",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中港厝段": {
+       "code": "0316",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中正段": {
+       "code": "0403",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "輔大段": {
+       "code": "0404",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "思賢段": {
+       "code": "0406",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "自立段": {
+       "code": "0407",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中誠段": {
+       "code": "0408",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中泰段": {
+       "code": "0409",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "自強段": {
+       "code": "0410",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "復興段": {
+       "code": "0411",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "思源段": {
+       "code": "0412",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新工段一小段": {
+       "code": "0414",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新工段二小段": {
+       "code": "0415",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "文明段": {
+       "code": "0416",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "化成段": {
+       "code": "0417",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "鴻福段": {
+       "code": "0418",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "恒安段": {
+       "code": "0419",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "立德段": {
+       "code": "0420",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "文德段": {
+       "code": "0421",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "全安段": {
+       "code": "0422",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "忠孝段": {
+       "code": "0423",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "榮和段": {
+       "code": "0424",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "瓊林段": {
+       "code": "0426",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "建國段": {
+       "code": "0427",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "民安段": {
+       "code": "0428",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "光明段": {
+       "code": "0429",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "光榮段": {
+       "code": "0430",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "公正段": {
+       "code": "0431",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "公館段": {
+       "code": "0432",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "光華段": {
+       "code": "0433",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新樹段": {
+       "code": "0434",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "豐年段": {
+       "code": "0435",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "瓊泰段": {
+       "code": "0436",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "後港段": {
+       "code": "0437",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "富國段": {
+       "code": "0438",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "福營段": {
+       "code": "0439",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "四維段": {
+       "code": "0440",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "立言段": {
+       "code": "0441",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "安泰段": {
+       "code": "0443",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "安和段": {
+       "code": "0444",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "裕民段": {
+       "code": "0445",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "龍鳳段": {
+       "code": "0446",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "合鳳段": {
+       "code": "0447",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "丹鳳段": {
+       "code": "0448",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "雙鳳段": {
+       "code": "0449",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "興化段": {
+       "code": "0450",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "福基段": {
+       "code": "0451",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "頭興段": {
+       "code": "0452",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "幸福段": {
+       "code": "0453",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "昌隆段": {
+       "code": "0454",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "和平段": {
+       "code": "0455",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "榮富段": {
+       "code": "0456",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "景德段": {
+       "code": "0491",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中原段": {
+       "code": "0494",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段一小段": {
+       "code": "0495",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "信華段二小段": {
+       "code": "0498",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段三小段": {
+       "code": "0499",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段四小段": {
+       "code": "2200",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段五小段": {
+       "code": "2201",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段六小段": {
+       "code": "2202",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段七小段": {
+       "code": "2203",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段八小段": {
+       "code": "2204",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段九小段": {
+       "code": "2205",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中原段一小段": {
+       "code": "2206",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中原段二小段": {
+       "code": "2207",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新豐段": {
+       "code": "2210",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新知段": {
+       "code": "2221",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中環段": {
+       "code": "2226",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "信華段三小段": {
+       "code": "2227",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "壽山段": {
+       "code": "2237",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "青山段": {
+       "code": "2238",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "營盤段": {
+       "code": "2262",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "莊福段": {
+       "code": "2266",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新輔段": {
+       "code": "2267",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "福泰段": {
+       "code": "2268",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "環漢段": {
+       "code": "2269",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "環河段": {
+       "code": "2270",
+       "office_code": "FB",
+       "office_name": "新莊"
+      }
+     }
+    },
+    "板橋區": {
+     "town_code": "F14",
+     "sections": {
+      "忠孝段": {
+       "code": "0001",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "仁愛段": {
+       "code": "0002",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "信義段": {
+       "code": "0003",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "和平段": {
+       "code": "0004",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "重慶段": {
+       "code": "0005",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "府中段": {
+       "code": "0006",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "民族段": {
+       "code": "0007",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "民權段": {
+       "code": "0008",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "中山段": {
+       "code": "0009",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "介壽段": {
+       "code": "0010",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "海山段": {
+       "code": "0011",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "國光段": {
+       "code": "0012",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "光仁段": {
+       "code": "0013",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "光華段": {
+       "code": "0014",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "大庭段": {
+       "code": "0015",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "文化段": {
+       "code": "0016",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "公館段": {
+       "code": "0017",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "幸福段": {
+       "code": "0018",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "埔墘段": {
+       "code": "0021",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "港子嘴段": {
+       "code": "0022",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江子翠段第一崁小段": {
+       "code": "0023",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江子翠段第二崁小段": {
+       "code": "0024",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江子翠段第三崁小段": {
+       "code": "0025",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江子翠段第四崁小段": {
+       "code": "0026",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江子翠段新埔小段": {
+       "code": "0027",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江子翠段溪頭小段": {
+       "code": "0028",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江子翠段大埔尾小段": {
+       "code": "0029",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江子翠段中洲小段": {
+       "code": "0030",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "新興段": {
+       "code": "0160",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "亞東段": {
+       "code": "0161",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "新雅段": {
+       "code": "0162",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "僑中段": {
+       "code": "0163",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "大觀段": {
+       "code": "0164",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "力行段": {
+       "code": "0165",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "福安段": {
+       "code": "0166",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "大同段": {
+       "code": "0167",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "篤行段": {
+       "code": "0168",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "民生段": {
+       "code": "0169",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "中正段": {
+       "code": "0170",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "中興段": {
+       "code": "0171",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "成功段": {
+       "code": "0172",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "振興段": {
+       "code": "0173",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "永安段": {
+       "code": "0174",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "龍安段": {
+       "code": "0175",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "新板段一小段": {
+       "code": "0176",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "新板段二小段": {
+       "code": "0177",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "新板段三小段": {
+       "code": "0188",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "五權段": {
+       "code": "0198",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "光環段": {
+       "code": "0216",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "大豐段": {
+       "code": "0217",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "新都段": {
+       "code": "0218",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "永翠段": {
+       "code": "0220",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "江翠段": {
+       "code": "0221",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "板翠段": {
+       "code": "0222",
+       "office_code": "FA",
+       "office_name": "板橋"
+      },
+      "環翠段": {
+       "code": "0223",
+       "office_code": "FA",
+       "office_name": "板橋"
+      }
+     }
+    },
+    "林口區": {
+     "town_code": "F02",
+     "sections": {
+      "南勢埔段頭湖小段": {
+       "code": "0323",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "南勢埔段員崛子小段": {
+       "code": "0325",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "菁埔段樹林口小段": {
+       "code": "0334",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "菁埔段東湖小段": {
+       "code": "0335",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "菁埔段新寮小段": {
+       "code": "0340",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "工二段": {
+       "code": "0351",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "國宅段": {
+       "code": "0405",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "麗林段": {
+       "code": "0465",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "力行段": {
+       "code": "0466",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "建林段": {
+       "code": "0467",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段": {
+       "code": "0468",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "林口段": {
+       "code": "2211",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "行政段": {
+       "code": "2212",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "麗林一段": {
+       "code": "2213",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "麗林二段": {
+       "code": "2214",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "竹林段": {
+       "code": "2215",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "佳林段": {
+       "code": "2216",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "東林段": {
+       "code": "2246",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "湖北段": {
+       "code": "2247",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中湖段": {
+       "code": "2248",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "瑞平段": {
+       "code": "2249",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "太平一段": {
+       "code": "2250",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "太平二段": {
+       "code": "2251",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "嘉寶一段": {
+       "code": "2252",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新頭湖段": {
+       "code": "2253",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "嘉寶二段": {
+       "code": "2254",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "嘉寶三段": {
+       "code": "2255",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "寶林段": {
+       "code": "2256",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "忠福段": {
+       "code": "2257",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "頂福段": {
+       "code": "2258",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "南勢段": {
+       "code": "2259",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "興福段": {
+       "code": "2260",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "下福段": {
+       "code": "2261",
+       "office_code": "FB",
+       "office_name": "新莊"
+      }
+     }
+    },
+    "樹林區": {
+     "town_code": "F17",
+     "sections": {
+      "石灰坑段石灰坑小段": {
+       "code": "0106",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "石灰坑段風爐坑小段": {
+       "code": "0107",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "石灰坑段上斗門頭小段": {
+       "code": "0108",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "彭福段彭厝小段": {
+       "code": "0117",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "山子腳段山子腳小段": {
+       "code": "0128",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "博愛段": {
+       "code": "1900",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "復興段": {
+       "code": "1901",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "樹德段": {
+       "code": "1902",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "育英段": {
+       "code": "1903",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大同段": {
+       "code": "1904",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東昇段": {
+       "code": "1919",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "鎮前段": {
+       "code": "1920",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "太平段": {
+       "code": "1921",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "中華段": {
+       "code": "1922",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "水源段": {
+       "code": "1923",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "慈恩段": {
+       "code": "1924",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東豐段": {
+       "code": "1925",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "樂山段": {
+       "code": "1926",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東山段": {
+       "code": "1927",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "味王段": {
+       "code": "1928",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "新興段": {
+       "code": "1929",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "山佳段": {
+       "code": "1930",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "佳園段": {
+       "code": "1931",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大學段二小段": {
+       "code": "1933",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "樹新段": {
+       "code": "1936",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "文林段": {
+       "code": "1937",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大安段": {
+       "code": "1938",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "光武段": {
+       "code": "1939",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "三福段": {
+       "code": "1940",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "武林段": {
+       "code": "1941",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "備內段": {
+       "code": "1942",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "三龍段": {
+       "code": "1948",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "三多段": {
+       "code": "1949",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "圳生段": {
+       "code": "1950",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "圳德段": {
+       "code": "1951",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "圳民段": {
+       "code": "1953",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "圳福段": {
+       "code": "1954",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "福興段": {
+       "code": "1964",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "北園段": {
+       "code": "1973",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "西園段": {
+       "code": "1974",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "南園段": {
+       "code": "1975",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東園段": {
+       "code": "1976",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "圳安段": {
+       "code": "1989",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "三興段": {
+       "code": "1994",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "光興段": {
+       "code": "1995",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "民和段": {
+       "code": "1997",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東和段": {
+       "code": "1998",
+       "office_code": "FI",
+       "office_name": "樹林"
+      }
+     }
+    },
+    "永和區": {
+     "town_code": "F33",
+     "sections": {
+      "福和段": {
+       "code": "1822",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "永利段": {
+       "code": "1823",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "得和段": {
+       "code": "1824",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "中正段": {
+       "code": "1825",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "竹林段": {
+       "code": "1826",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "永福段": {
+       "code": "1827",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "文化段": {
+       "code": "1828",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "及人段": {
+       "code": "1829",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "頂溪段": {
+       "code": "1830",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "信義段": {
+       "code": "1831",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "仁愛段": {
+       "code": "1832",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "中信段": {
+       "code": "1833",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "民權段": {
+       "code": "1839",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "民治段": {
+       "code": "1840",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "安樂段": {
+       "code": "1841",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "永安段": {
+       "code": "1842",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "大新段": {
+       "code": "1843",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "國光段": {
+       "code": "1844",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "中興段": {
+       "code": "1845",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "保福段": {
+       "code": "1846",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "保生段": {
+       "code": "1847",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "永平段": {
+       "code": "1848",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "保平段": {
+       "code": "1849",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "樂華段": {
+       "code": "1850",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "水源段": {
+       "code": "1851",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "雙和段": {
+       "code": "1852",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "長堤段": {
+       "code": "1853",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "林森段": {
+       "code": "1854",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "得林段": {
+       "code": "1855",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "四維段": {
+       "code": "1856",
+       "office_code": "FH",
+       "office_name": "中和"
+      },
+      "永成段": {
+       "code": "2018",
+       "office_code": "FH",
+       "office_name": "中和"
+      }
+     }
+    },
+    "汐止區": {
+     "town_code": "F28",
+     "sections": {
+      "汐止段汐止小段": {
+       "code": "0974",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "汐止段下寮小段": {
+       "code": "0976",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "茄苳腳段": {
+       "code": "0977",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "保長坑段保長坑小段": {
+       "code": "0978",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "保長坑段石門小段": {
+       "code": "0980",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "鄉長厝段鄉長厝小段": {
+       "code": "0981",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "北港段烘內小段": {
+       "code": "0991",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "北港段新山小段": {
+       "code": "0992",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "北港段五指山小段": {
+       "code": "0993",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "北港段柯子林小段": {
+       "code": "0994",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "叭嗹港段車坪寮小段": {
+       "code": "0996",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "叭嗹港段烘內小段": {
+       "code": "0997",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "叭嗹港段小溪小段": {
+       "code": "0998",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "叭嗹港段雙溪小段": {
+       "code": "0999",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "康誥坑段": {
+       "code": "1000",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "十三分段": {
+       "code": "1002",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "姜子寮段姜子寮小段": {
+       "code": "1003",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "姜子寮段石壁子小段": {
+       "code": "1004",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "石硿子段作坡內小段": {
+       "code": "1006",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "鵠鵠崙段鵠鵠崙小段": {
+       "code": "1007",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "鵠鵠崙段小坑小段": {
+       "code": "1008",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中正段": {
+       "code": "1009",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "智興段": {
+       "code": "1010",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "新峰段": {
+       "code": "1011",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "同新段": {
+       "code": "1030",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "工建段": {
+       "code": "1031",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "大同段": {
+       "code": "1032",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "厚德段": {
+       "code": "1033",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "昊天段": {
+       "code": "1034",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "建成段": {
+       "code": "1035",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "長安段": {
+       "code": "1036",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "保長段": {
+       "code": "1037",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "保安段": {
+       "code": "1038",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "崇德段": {
+       "code": "1039",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "水源段": {
+       "code": "1040",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "金龍段": {
+       "code": "1041",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "福德段": {
+       "code": "1042",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "環河段": {
+       "code": "1043",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "北山段": {
+       "code": "1044",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "江北段": {
+       "code": "1045",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "福興段": {
+       "code": "1046",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "東勢段": {
+       "code": "1047",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "長青段": {
+       "code": "1051",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "北峰段": {
+       "code": "1052",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "八連段": {
+       "code": "1053",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "拱北段": {
+       "code": "1054",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "秀山段": {
+       "code": "1055",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "白雲段": {
+       "code": "1056",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "白匏段": {
+       "code": "1057",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "汐碇段": {
+       "code": "1058",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "烘內一段": {
+       "code": "1066",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "東山段": {
+       "code": "1071",
+       "office_code": "FD",
+       "office_name": "汐止"
+      }
+     }
+    },
+    "泰山區": {
+     "town_code": "F06",
+     "sections": {
+      "泰山段一小段": {
+       "code": "0382",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "泰山段二小段": {
+       "code": "0383",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "泰山段三小段": {
+       "code": "0384",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "楓樹腳段楓樹腳小段": {
+       "code": "0391",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "貴子坑段": {
+       "code": "0392",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "山腳段大窠口小段": {
+       "code": "0400",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "楓江段": {
+       "code": "0457",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "同興段": {
+       "code": "0458",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "泰林段": {
+       "code": "0459",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "黎明段": {
+       "code": "0460",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "同榮段": {
+       "code": "0461",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "南林段": {
+       "code": "0462",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "明志段": {
+       "code": "0463",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "中山段": {
+       "code": "0464",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段一小段": {
+       "code": "0469",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段二小段": {
+       "code": "0470",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段三小段": {
+       "code": "0471",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段四小段": {
+       "code": "0472",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段五小段": {
+       "code": "0473",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段六小段": {
+       "code": "0474",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段七小段": {
+       "code": "0475",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段八小段": {
+       "code": "0476",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段九小段": {
+       "code": "0477",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十小段": {
+       "code": "0478",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十一小段": {
+       "code": "0479",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十二小段": {
+       "code": "0480",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十三小段": {
+       "code": "0481",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十四小段": {
+       "code": "0482",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十五小段": {
+       "code": "0483",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十六小段": {
+       "code": "0484",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十七小段": {
+       "code": "0485",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十八小段": {
+       "code": "0486",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段十九小段": {
+       "code": "0487",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段二十小段": {
+       "code": "0488",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段二一小段": {
+       "code": "0489",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新林段二二小段": {
+       "code": "0490",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "副都心段二小段": {
+       "code": "0496",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "信華段一小段": {
+       "code": "0497",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "信華段五小段": {
+       "code": "2228",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "福興段": {
+       "code": "2229",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "同興一段": {
+       "code": "2230",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "文程段": {
+       "code": "2231",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "貴和段": {
+       "code": "2232",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新泰段": {
+       "code": "2233",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "橫窠段": {
+       "code": "2234",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "大窠段": {
+       "code": "2235",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "自強段": {
+       "code": "2236",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "興仁段": {
+       "code": "2263",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "貴仁段": {
+       "code": "2264",
+       "office_code": "FB",
+       "office_name": "新莊"
+      },
+      "新貴段": {
+       "code": "2265",
+       "office_code": "FB",
+       "office_name": "新莊"
+      }
+     }
+    },
+    "淡水區": {
+     "town_code": "F27",
+     "sections": {
+      "庄子內段": {
+       "code": "1126",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大庄埔段": {
+       "code": "1133",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水碓子段": {
+       "code": "1134",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "北投子段": {
+       "code": "1135",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段百六戛小段": {
+       "code": "1142",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段社厝坑小段": {
+       "code": "1143",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段瓦磘坑小段": {
+       "code": "1144",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段鄒厝崙小段": {
+       "code": "1145",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段山子頂小段": {
+       "code": "1146",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段山子邊小段": {
+       "code": "1147",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段破布子腳小段": {
+       "code": "1148",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段大溪小段": {
+       "code": "1149",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段楓樹湖小段": {
+       "code": "1150",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水梘頭段白石腳小段": {
+       "code": "1152",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "頂圭柔山段番子厝小段": {
+       "code": "1165",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "頂圭柔山段後坑子小段": {
+       "code": "1166",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "林子段": {
+       "code": "1180",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下圭柔山段": {
+       "code": "1181",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "興化店段前洲子小段": {
+       "code": "1182",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "興化店段牛埔子小段": {
+       "code": "1183",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "興化店段下田寮小段": {
+       "code": "1186",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "灰磘子段石頭埔小段": {
+       "code": "1190",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "灰磘子段後洲子小段": {
+       "code": "1194",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "灰磘子段新埔子小段": {
+       "code": "1195",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "仁愛段": {
+       "code": "1286",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "草麓段": {
+       "code": "1287",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "學府段": {
+       "code": "1289",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "米蘭段": {
+       "code": "1290",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "海鷗段": {
+       "code": "1291",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "海天段": {
+       "code": "1292",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水仙段": {
+       "code": "1293",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "馬偕段": {
+       "code": "1294",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "竹圍段": {
+       "code": "1295",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "飛歌段": {
+       "code": "1296",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "關渡段": {
+       "code": "1297",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大竿段": {
+       "code": "1298",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "淡海段": {
+       "code": "1304",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "新市段": {
+       "code": "1305",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "望高樓段": {
+       "code": "1307",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "沙崙段": {
+       "code": "1308",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "公司田段": {
+       "code": "1309",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "正德段": {
+       "code": "1310",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "中興段": {
+       "code": "1311",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "鄧公段": {
+       "code": "1312",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "長興段": {
+       "code": "1313",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "滬尾段": {
+       "code": "1314",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "中正段": {
+       "code": "1315",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "紅毛城段": {
+       "code": "1316",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "大義段": {
+       "code": "1317",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "新興段": {
+       "code": "1318",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "天生段": {
+       "code": "1319",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "樹梅段": {
+       "code": "1334",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "坪頂段": {
+       "code": "1335",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "樹興段": {
+       "code": "1336",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "水源段": {
+       "code": "1337",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "忠山段": {
+       "code": "1338",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "蕃薯段": {
+       "code": "1339",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "興仁段": {
+       "code": "1340",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "賢孝段": {
+       "code": "1341",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "忠寮段": {
+       "code": "1342",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "忠源段": {
+       "code": "1343",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "天元段": {
+       "code": "1344",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "屯山段": {
+       "code": "1345",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "中和段": {
+       "code": "1346",
+       "office_code": "FE",
+       "office_name": "淡水"
+      }
+     }
+    },
+    "深坑區": {
+     "town_code": "F09",
+     "sections": {
+      "深坑子段深坑子小段": {
+       "code": "0665",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "深坑子段新埤內小段": {
+       "code": "0666",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "深坑子段半山小段": {
+       "code": "0670",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "萬順寮段萬順寮小段": {
+       "code": "0671",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "萬順寮段圳古後小段": {
+       "code": "0672",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "萬順寮段大坑外股小段": {
+       "code": "0673",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "萬順寮段大坑小段": {
+       "code": "0674",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "萬順寮段三腳木小段": {
+       "code": "0675",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏月段烏月小段": {
+       "code": "0677",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏月段旺躭小段": {
+       "code": "0678",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "升高坑段升高坑小段": {
+       "code": "0679",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "升高坑段炙子頭小段": {
+       "code": "0680",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "土庫段崩山小段": {
+       "code": "0682",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "阿柔坑段向天湖小段": {
+       "code": "0688",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "阿柔坑段土巷小段": {
+       "code": "0689",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "阿柔坑段南邦寮小段": {
+       "code": "0690",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "阿柔坑段王軍寮小段": {
+       "code": "0691",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "阿柔坑段大崙尾小段": {
+       "code": "0692",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "阿柔坑段炮子崙小段": {
+       "code": "0693",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "永安段": {
+       "code": "0820",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "埔新段": {
+       "code": "0821",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新永安段": {
+       "code": "0866",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "文山段": {
+       "code": "0867",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "昇高段": {
+       "code": "0868",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "賴仲段": {
+       "code": "0869",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新土庫段": {
+       "code": "0870",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "阿柔段": {
+       "code": "0883",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "土庫岳段": {
+       "code": "0884",
+       "office_code": "FC",
+       "office_name": "新店"
+      }
+     }
+    },
+    "烏來區": {
+     "town_code": "F11",
+     "sections": {
+      "信賢段": {
+       "code": "0747",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "福山段": {
+       "code": "0748",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "哪哮段": {
+       "code": "0749",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "屯鹿段": {
+       "code": "0750",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "啦卡段": {
+       "code": "0751",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小寮段": {
+       "code": "0752",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "水源段": {
+       "code": "0794",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "達棒段": {
+       "code": "0795",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "哈盆段": {
+       "code": "0796",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "羅宏段": {
+       "code": "0803",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "桶后段": {
+       "code": "0804",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "東坑段": {
+       "code": "0805",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "模古段": {
+       "code": "0806",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "拳頭母段": {
+       "code": "0807",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "馬萬段": {
+       "code": "0808",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "茶墾段": {
+       "code": "0809",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "檜山段": {
+       "code": "0810",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "馬岸段": {
+       "code": "0811",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大桶山段": {
+       "code": "0822",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏沙段": {
+       "code": "0823",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "羅培段": {
+       "code": "0824",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "羅蘭段": {
+       "code": "0825",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "南勢段": {
+       "code": "0827",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "環山段": {
+       "code": "0828",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "西羅岸段": {
+       "code": "0829",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "西坑段": {
+       "code": "0830",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "內洞段": {
+       "code": "0831",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "波露段": {
+       "code": "0832",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "嘎佑段": {
+       "code": "0855",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "堰堤段": {
+       "code": "0856",
+       "office_code": "FC",
+       "office_name": "新店"
+      }
+     }
+    },
+    "瑞芳區": {
+     "town_code": "F21",
+     "sections": {
+      "柑子瀨段苧子潭小段": {
+       "code": "1401",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "四腳亭段楓子瀨小段": {
+       "code": "1406",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "四腳亭段粗坑口小段": {
+       "code": "1407",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "草山段石梯坑小段": {
+       "code": "1409",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "草山段苦苓嶺小段": {
+       "code": "1410",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "草山段草山小段": {
+       "code": "1411",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "鼻頭段": {
+       "code": "1412",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "南子吝段南子吝小段": {
+       "code": "1413",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "南子吝段哩咾小段": {
+       "code": "1414",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "深澳段": {
+       "code": "1418",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段蛇子形小段": {
+       "code": "1419",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段員山子小段": {
+       "code": "1420",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段中坑小段": {
+       "code": "1421",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段烏塗窟小段": {
+       "code": "1422",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段坪林小段": {
+       "code": "1423",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段柴寮子小段": {
+       "code": "1425",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段魚寮子小段": {
+       "code": "1426",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段新路尾小段": {
+       "code": "1427",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三爪子段三爪子坑小段": {
+       "code": "1428",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "龍潭堵段": {
+       "code": "1429",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "(魚桀)魚坑段尪子上天小段": {
+       "code": "1431",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "(魚桀)魚坑段八分寮小段": {
+       "code": "1432",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "(魚桀)魚坑段大寮小段": {
+       "code": "1434",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "(魚桀)魚坑段頂坪小段": {
+       "code": "1435",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "(魚桀)魚坑段滴水子小段": {
+       "code": "1436",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "(魚桀)魚坑段(魚桀)魚坑小段": {
+       "code": "1437",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "瑞芳段": {
+       "code": "1568",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "明燈段": {
+       "code": "1569",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "逢甲段": {
+       "code": "1570",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "東和段": {
+       "code": "1571",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "爪峰段": {
+       "code": "1572",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "吉慶段": {
+       "code": "1574",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "吉安段": {
+       "code": "1575",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "瑞亭段": {
+       "code": "1576",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "新猴硐段": {
+       "code": "1592",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "深澳新段": {
+       "code": "1596",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "黃金段": {
+       "code": "1601",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "九份段": {
+       "code": "1602",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "傑魚段": {
+       "code": "1607",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      }
+     }
+    },
+    "石碇區": {
+     "town_code": "F08",
+     "sections": {
+      "大溪墘段大溪墘小段": {
+       "code": "0580",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大溪墘段大湖格小段": {
+       "code": "0581",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大溪墘段籐寮坑小段": {
+       "code": "0582",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大溪墘段下紙寮坑小段": {
+       "code": "0583",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "大溪墘段蚯蚓坑小段": {
+       "code": "0584",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "蓬菜寮段蓬菜寮小段": {
+       "code": "0588",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "蓬菜寮段蕃薯寮小段": {
+       "code": "0589",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "蓬菜寮段半路店小段": {
+       "code": "0590",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "蓬菜寮段湳子小段": {
+       "code": "0591",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "蓬菜寮段小粗坑小段": {
+       "code": "0592",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段烏塗窟小段": {
+       "code": "0593",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段摸乳巷小段": {
+       "code": "0594",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段溪邊寮小段": {
+       "code": "0595",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段員山子小段": {
+       "code": "0596",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段蛇舌子小段": {
+       "code": "0597",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段橫坪小段": {
+       "code": "0598",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段四分子小段": {
+       "code": "0599",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段樟空子小段": {
+       "code": "0600",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段月扇湖小段": {
+       "code": "0601",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "烏塗窟段大格門小段": {
+       "code": "0602",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段小格頭小段": {
+       "code": "0603",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段內楒子腳小段": {
+       "code": "0604",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段外楒子腳小段": {
+       "code": "0605",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段楠枋寮小段": {
+       "code": "0606",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段中楒子腳小段": {
+       "code": "0607",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段崙尾寮小段": {
+       "code": "0608",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段五郎寮小段": {
+       "code": "0609",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段塗潭小段": {
+       "code": "0610",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段荖寮小段": {
+       "code": "0611",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段車閂寮小段": {
+       "code": "0612",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段十股寮小段": {
+       "code": "0613",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段水底寮小段": {
+       "code": "0614",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段直潭小段": {
+       "code": "0615",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段潭腰小段": {
+       "code": "0616",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段竹坑小段": {
+       "code": "0617",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段獅子頭坑小段": {
+       "code": "0618",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段坑內小段": {
+       "code": "0619",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段石崁頭小段": {
+       "code": "0620",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段十三股小段": {
+       "code": "0621",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段濕水子小段": {
+       "code": "0622",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段土巷小段": {
+       "code": "0623",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段大湖小段": {
+       "code": "0624",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段火燒樟小段": {
+       "code": "0625",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段雷公坡小段": {
+       "code": "0626",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段二格小段": {
+       "code": "0627",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段小金瓜寮小段": {
+       "code": "0628",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "小格頭段柑腳坂小段": {
+       "code": "0629",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "排寮段番子坑小段": {
+       "code": "0636",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "松柏崎段九橧坪小段": {
+       "code": "0637",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "松柏崎段頂紙寮坑小段": {
+       "code": "0638",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "松柏崎段耳空龜小段": {
+       "code": "0639",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "松柏崎段松柏崎小段": {
+       "code": "0640",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "乾溝段乾溝小段": {
+       "code": "0641",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "乾溝段後坑子小段": {
+       "code": "0642",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "乾溝段石硿子小段": {
+       "code": "0643",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "石碇段石碇小段": {
+       "code": "0644",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "火燒樟段": {
+       "code": "0645",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "員潭子坑段員潭子坑小段": {
+       "code": "0646",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "員潭子坑段九寮子埔小段": {
+       "code": "0647",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "員潭子坑段小粗坑小段": {
+       "code": "0650",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "員潭子坑段上橫坪小段": {
+       "code": "0651",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "員潭子坑段下橫坪小段": {
+       "code": "0653",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "崩山段崩山小段": {
+       "code": "0654",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "崩山段大崙小段": {
+       "code": "0655",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "崩山段磨石坑小段": {
+       "code": "0656",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "玉桂嶺段玉桂嶺小段": {
+       "code": "0657",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "玉桂嶺段西勢坑小段": {
+       "code": "0658",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "玉桂嶺段九芎坑小段": {
+       "code": "0659",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "玉桂嶺段峰頭小段": {
+       "code": "0660",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "玉桂嶺段南勢坑小段": {
+       "code": "0661",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "鹿窟段鹿窟小段": {
+       "code": "0664",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "玉豐段": {
+       "code": "0812",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "桶後北段": {
+       "code": "0813",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "豐林段": {
+       "code": "0862",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "淡蘭段": {
+       "code": "0863",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "隆盛段": {
+       "code": "0885",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "新興段": {
+       "code": "0886",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "雙十段": {
+       "code": "0887",
+       "office_code": "FC",
+       "office_name": "新店"
+      },
+      "中民段": {
+       "code": "0888",
+       "office_code": "FC",
+       "office_name": "新店"
+      }
+     }
+    },
+    "石門區": {
+     "town_code": "F31",
+     "sections": {
+      "石門段石門小段": {
+       "code": "1244",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "石門段石崩山小段": {
+       "code": "1245",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段竹子湖小段": {
+       "code": "1246",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段五爪崙小段": {
+       "code": "1247",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段石門小段": {
+       "code": "1248",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段草埔尾小段": {
+       "code": "1249",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段坪林小段": {
+       "code": "1250",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段小坑小段": {
+       "code": "1251",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段尖子鹿小段": {
+       "code": "1252",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段阿里荖小段": {
+       "code": "1253",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "下角段阿里磅小段": {
+       "code": "1254",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "老梅段老崩山小段": {
+       "code": "1259",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "老梅段九芎林小段": {
+       "code": "1262",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "老梅段尖山湖小段": {
+       "code": "1263",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "老梅段大丘田小段": {
+       "code": "1265",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "老梅段公地小段": {
+       "code": "1266",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "白沙灣段": {
+       "code": "1355",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "富貴角段": {
+       "code": "1356",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "梅山段": {
+       "code": "1357",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "石門洞段": {
+       "code": "1358",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "梅山一段": {
+       "code": "1367",
+       "office_code": "FE",
+       "office_name": "淡水"
+      },
+      "富德段": {
+       "code": "1368",
+       "office_code": "FE",
+       "office_name": "淡水"
+      }
+     }
+    },
+    "萬里區": {
+     "town_code": "F26",
+     "sections": {
+      "頂萬里加投段大坪崙子小段": {
+       "code": "0938",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂萬里加投段土地公坑小段": {
+       "code": "0939",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂萬里加投段苦苓坪小段": {
+       "code": "0940",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂萬里加投段大尖山小段": {
+       "code": "0941",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂萬里加投段鹿堀坪小段": {
+       "code": "0942",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂萬里加投段烏塗炭小段": {
+       "code": "0943",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂萬里加投段冷水堀小段": {
+       "code": "0944",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂萬里加投段溪底小段": {
+       "code": "0946",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中萬里加投段麻斯廩小段": {
+       "code": "0949",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中萬里加投段荖寮湖小段": {
+       "code": "0951",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中萬里加投段粗坑子小段": {
+       "code": "0952",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中萬里加投段湳子小段": {
+       "code": "0953",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中萬里加投段二坪小段": {
+       "code": "0955",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中萬里加投段大坪小段": {
+       "code": "0956",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段八斗坑內小段": {
+       "code": "0959",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段尪子上天小段": {
+       "code": "0960",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段萬里加投小段": {
+       "code": "0961",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段七甲尾小段": {
+       "code": "0962",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段芎蕉坪小段": {
+       "code": "0963",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段公館崙小段": {
+       "code": "0964",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段磺溪子小段": {
+       "code": "0965",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段員潭子小段": {
+       "code": "0966",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段國聖埔小段": {
+       "code": "0967",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段清水溪小段": {
+       "code": "0968",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段八斗子小段": {
+       "code": "0969",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段坑頭小段": {
+       "code": "0970",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段頂寮小段": {
+       "code": "0971",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "下萬里加投段焿子坪頂小段": {
+       "code": "0973",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "北基段": {
+       "code": "1020",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "萬里段": {
+       "code": "1021",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "翡翠段": {
+       "code": "1022",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "海洋段": {
+       "code": "1023",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "大鵬段": {
+       "code": "1029",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中幅段": {
+       "code": "1067",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "崁腳段": {
+       "code": "1068",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "大坪段": {
+       "code": "1069",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "瑪鋉段": {
+       "code": "1070",
+       "office_code": "FD",
+       "office_name": "汐止"
+      }
+     }
+    },
+    "蘆洲區": {
+     "town_code": "F04",
+     "sections": {
+      "光華段": {
+       "code": "1734",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "重陽段": {
+       "code": "1735",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "復興段": {
+       "code": "1742",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "民族段": {
+       "code": "1743",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "民權段": {
+       "code": "1744",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "民生段": {
+       "code": "1745",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "保新段": {
+       "code": "1746",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "保佑段": {
+       "code": "1747",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "保和段": {
+       "code": "1748",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "集賢段": {
+       "code": "1749",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "鷺江段": {
+       "code": "1750",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "信義段": {
+       "code": "1751",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "成功段": {
+       "code": "1752",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "和平段": {
+       "code": "1753",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "民義段": {
+       "code": "1754",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "樹德段": {
+       "code": "1755",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "中山段": {
+       "code": "1756",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "中原段": {
+       "code": "1757",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "光明段": {
+       "code": "1758",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "九芎段": {
+       "code": "1759",
+       "office_code": "FG",
+       "office_name": "三重"
+      },
+      "正義段": {
+       "code": "1762",
+       "office_code": "FG",
+       "office_name": "三重"
+      }
+     }
+    },
+    "貢寮區": {
+     "town_code": "F24",
+     "sections": {
+      "貢寮段內寮小段": {
+       "code": "1532",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "丹裡段內寮小段": {
+       "code": "1534",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "丹裡段文秀坑小段": {
+       "code": "1535",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "丹裡段尖山腳小段": {
+       "code": "1536",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "丹裡段鹽寮小段": {
+       "code": "1537",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "田寮洋段新社田寮小段": {
+       "code": "1539",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "田寮洋段中心崙小段": {
+       "code": "1540",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "田寮洋段龜媽坑小段": {
+       "code": "1541",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "社里段水返港小段": {
+       "code": "1550",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "長潭段": {
+       "code": "1551",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "遠望坑段遠望坑小段": {
+       "code": "1552",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "遠望坑段草嶺頂小段": {
+       "code": "1553",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "撈洞段撈洞小段": {
+       "code": "1554",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "撈洞段蚊子坑小段": {
+       "code": "1555",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "撈洞段南勢坑小段": {
+       "code": "1556",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "撈洞段北勢坑小段": {
+       "code": "1557",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "大石壁坑段": {
+       "code": "1561",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "枋腳段": {
+       "code": "1562",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "雞母嶺段巫里岸小段": {
+       "code": "1563",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "雞母嶺段雞母嶺小段": {
+       "code": "1564",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "雞母嶺段土地公嶺小段": {
+       "code": "1565",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "下雙溪段下雙溪小段": {
+       "code": "1566",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "下雙溪段坑子內小段": {
+       "code": "1567",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "坪溪段": {
+       "code": "1580",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "真美段": {
+       "code": "1581",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "新港段": {
+       "code": "1582",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "仁里段": {
+       "code": "1583",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "仁和段": {
+       "code": "1584",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "朝陽段": {
+       "code": "1597",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "龍崗段": {
+       "code": "1598",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "福隆段": {
+       "code": "1599",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "舊社段": {
+       "code": "1600",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "卯澳段": {
+       "code": "1603",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "入桂段": {
+       "code": "1604",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "萊萊段": {
+       "code": "1605",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "嶐嶐段": {
+       "code": "1606",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      }
+     }
+    },
+    "金山區": {
+     "town_code": "F25",
+     "sections": {
+      "頂中股段三重橋小段": {
+       "code": "0901",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂角段三界壇小段": {
+       "code": "0918",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂角段葵扇湖小段": {
+       "code": "0919",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂角段磺溪頭小段": {
+       "code": "0920",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂角段馬鞍格小段": {
+       "code": "0922",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂角段竹子山腳小段": {
+       "code": "0923",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂角段倒照湖小段": {
+       "code": "0926",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂角段半嶺子小段": {
+       "code": "0927",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中角段大水堀小段": {
+       "code": "0933",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中角段西勢湖小段": {
+       "code": "0934",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "頂角段頂角小段": {
+       "code": "1019",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "中興段": {
+       "code": "1024",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "文化段": {
+       "code": "1025",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "溫泉段": {
+       "code": "1026",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "金美段": {
+       "code": "1027",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "五福段": {
+       "code": "1028",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "永興段": {
+       "code": "1048",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "萬西段": {
+       "code": "1049",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "聖德段": {
+       "code": "1050",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "金山一段": {
+       "code": "1059",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "金山二段": {
+       "code": "1060",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "金山三段": {
+       "code": "1061",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "三和段": {
+       "code": "1062",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "山城段": {
+       "code": "1063",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "五湖段": {
+       "code": "1064",
+       "office_code": "FD",
+       "office_name": "汐止"
+      },
+      "陽金段": {
+       "code": "1065",
+       "office_code": "FD",
+       "office_name": "汐止"
+      }
+     }
+    },
+    "雙溪區": {
+     "town_code": "F23",
+     "sections": {
+      "平林段麻竹坑小段": {
+       "code": "1469",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平林段大瀨小段": {
+       "code": "1470",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平林段新寮子小段": {
+       "code": "1471",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平林段內平林小段": {
+       "code": "1472",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平林段後番子坑小段": {
+       "code": "1473",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平林段外平林小段": {
+       "code": "1474",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平林段竹寮坑小段": {
+       "code": "1475",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平林段下崁小段": {
+       "code": "1476",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "平林段艋舺崙小段": {
+       "code": "1478",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "武丹坑段武丹坑小段": {
+       "code": "1479",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "武丹坑段尪子崙坑小段": {
+       "code": "1480",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "武丹坑段五分小段": {
+       "code": "1481",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "武丹坑段頂坪小段": {
+       "code": "1482",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "武丹坑段下坑小段": {
+       "code": "1483",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "武丹坑段粗坑小段": {
+       "code": "1484",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "料角坑段戇子坑小段": {
+       "code": "1485",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "料角坑段畚箕湖小段": {
+       "code": "1486",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "料角坑段料角坑小段": {
+       "code": "1487",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "料角坑段保成坑小段": {
+       "code": "1488",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "柑腳段柑腳小段": {
+       "code": "1489",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "柑腳段外柑腳小段": {
+       "code": "1490",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "柑腳段盤山坑小段": {
+       "code": "1491",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "柑腳段中坑小段": {
+       "code": "1492",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "柑腳段下坑小段": {
+       "code": "1493",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "柑腳段崩山坑小段": {
+       "code": "1494",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "丁子蘭坑段": {
+       "code": "1495",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石壁坑段": {
+       "code": "1496",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "燦光寮段": {
+       "code": "1497",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "石笋段": {
+       "code": "1498",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "烏山段灣潭小段": {
+       "code": "1499",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "烏山段三分二小段": {
+       "code": "1500",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "烏山段烏山小段": {
+       "code": "1501",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "烏山段大湖尾小段": {
+       "code": "1502",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段頂坑小段": {
+       "code": "1503",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段礁溪子小段": {
+       "code": "1504",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段魚杭子小段": {
+       "code": "1505",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段乾溪子小段": {
+       "code": "1506",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段登子蘭坑口小段": {
+       "code": "1507",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段坑子內小段": {
+       "code": "1508",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段乾溪子口小段": {
+       "code": "1509",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段粗坑子小段": {
+       "code": "1510",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段八股小段": {
+       "code": "1511",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段頂坪小段": {
+       "code": "1513",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段公館小段": {
+       "code": "1514",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "魚行段內厝小段": {
+       "code": "1515",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "雙溪段九分坑小段": {
+       "code": "1517",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "雙溪段苕谷坑小段": {
+       "code": "1518",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "大平段大平小段": {
+       "code": "1520",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "大平段竹子山小段": {
+       "code": "1521",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "大平段破子寮小段": {
+       "code": "1522",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "大平段竿蓁坑小段": {
+       "code": "1523",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "大平段後寮子小段": {
+       "code": "1524",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "溪尾寮段溪尾寮小段": {
+       "code": "1525",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "溪尾寮段藤寮坑小段": {
+       "code": "1526",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三叉港段三叉港小段": {
+       "code": "1527",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三叉港段土地公嶺小段": {
+       "code": "1528",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三叉坑段三叉坑小段": {
+       "code": "1529",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三叉坑段四分子小段": {
+       "code": "1530",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "三叉坑段大埤小段": {
+       "code": "1531",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "南勢坑段": {
+       "code": "1573",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "雙柑段": {
+       "code": "1578",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "虎豹潭段": {
+       "code": "1579",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "新基段": {
+       "code": "1593",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "雙平段": {
+       "code": "1594",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      },
+      "泰和段": {
+       "code": "1595",
+       "office_code": "FF",
+       "office_name": "瑞芳"
+      }
+     }
+    },
+    "鶯歌區": {
+     "town_code": "F16",
+     "sections": {
+      "大湖段三界公坑小段": {
+       "code": "0093",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大湖段樟普坑小段": {
+       "code": "0094",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "鶯歌段牛灶坑小段": {
+       "code": "0096",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "大湖段中坑小段": {
+       "code": "0097",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "鶯歌段鶯歌小段": {
+       "code": "0101",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "阿南坑段阿南坑小段": {
+       "code": "0103",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "阿南坑段茶山小段": {
+       "code": "0104",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "阿南坑段阿四坑小段": {
+       "code": "0105",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "中山段": {
+       "code": "1905",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "中正段": {
+       "code": "1906",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "建國段": {
+       "code": "1907",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "國慶段": {
+       "code": "1908",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "陶瓷段": {
+       "code": "1944",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "國姓段": {
+       "code": "1945",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "昌福段": {
+       "code": "1946",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "永昌段": {
+       "code": "1947",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "鳳鳴段": {
+       "code": "1952",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "德昌段": {
+       "code": "1955",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "永吉段": {
+       "code": "1956",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "鳳福段": {
+       "code": "1957",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "福德段": {
+       "code": "1958",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "鳳祥段": {
+       "code": "1959",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "工藝段": {
+       "code": "1960",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "尖山堆段": {
+       "code": "1961",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "尖山腳段": {
+       "code": "1962",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "二橋段": {
+       "code": "1963",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "三鶯段": {
+       "code": "1971",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "南靖段": {
+       "code": "1972",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "二甲段": {
+       "code": "1977",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "橋子頭一段": {
+       "code": "1978",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "橋子頭二段": {
+       "code": "1979",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "橋子頭三段": {
+       "code": "1980",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "國際段": {
+       "code": "1981",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "西湖段": {
+       "code": "1982",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "東湖段": {
+       "code": "1990",
+       "office_code": "FI",
+       "office_name": "樹林"
+      },
+      "中湖段": {
+       "code": "1991",
+       "office_code": "FI",
+       "office_name": "樹林"
+      }
+     }
+    }
+   },
+   "section_count": 1350
+  }
+ }
+}

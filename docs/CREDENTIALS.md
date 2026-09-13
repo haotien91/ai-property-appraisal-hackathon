@@ -57,6 +57,11 @@ python llm_provider.py          # 煙霧測試
 
 ## ECS / Fargate（實際部署）
 
+> 本節描述目標部署形態。專案目前沒有 Dockerfile（曾有一版，已移除，
+> 可從 git history 取回：`git show 63b3c80:Dockerfile`）。
+> 容器化時記得兩件事：安裝 `fonts-noto-cjk`（否則中文變豆腐框），
+> 以及改用 `opencv-python-headless`。
+
 Task definition 有**兩個角色**，這是最常搞混的地方：
 
 | 欄位 | 誰在用 | 該給什麼權限 |
