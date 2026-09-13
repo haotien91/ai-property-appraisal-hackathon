@@ -442,7 +442,7 @@ Overpass 查詢「畫面內有哪些路」。
 5. `extract_zoning_block()` 取分區多邊形並合併相連同分區者 → 區段範圍
 6. `audit_directions()` 用 `_satisfies_direction()` 檢核方位是否成立
 7. `parcel_inside_ratio()` 確認宗地完整落在區段內；不足時以宗地真實輪廓補齊
-8. `_fit_zoom_for_viewport()` 決定層級與視野，算出 `(left, top)`
+8. `_fit_zoom()` 決定層級，再由 bbox 中心回推 `(left, top)`
 
 **繪製階段（由下往上疊，全部用 RGBA + `alpha_composite`）**
 
