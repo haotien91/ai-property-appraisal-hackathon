@@ -1,0 +1,14 @@
+{
+  "project_id": "demo-b",
+  "version": "mock-1",
+  "title": "示範案件 B（虛構資料）",
+  "is_mock": true,
+  "data": {
+    "region": "另一示範地區",
+    "land_use_type": "住宅用地",
+    "tables": {"table1": {"main_road_width": {"value": 12, "unit": "m", "status": "mock"}}},
+    "rules": [],
+    "missing": ["適用分級規則", "計算紀錄"],
+    "notice": "不得套用案件A的規則推斷本案等級。"
+  }
+}

@@ -49,6 +49,13 @@ def ddb_env(monkeypatch, tmp_path):
                                    {"AttributeName": "SK", "AttributeType": "S"}],
             BillingMode="PAY_PER_REQUEST",
         )
+        # STEP5 FINAL GATE Part A (docs/audit/STEP5_FINAL_GATE_REPORT.md):
+        # see tests/_aws_mock_reset.py's module docstring for the full
+        # root-cause writeup -- module-level table/bucket name constants
+        # must be reset here so an earlier test file's env vars never
+        # leak into this one.
+        from _aws_mock_reset import reset_cached_aws_module_state
+        reset_cached_aws_module_state()
         yield
 
 
@@ -780,6 +787,94 @@ class TestLandUseRatioProviderDrivenBackendE2E:
         assert bcr["explanation_data"]["check_type"] == "LAND_USE_RATIO_RULE_UNAVAILABLE"
         assert far["explanation_data"]["check_type"] == "LAND_USE_RATIO_RULE_UNAVAILABLE"
         assert bcr["issue_type"] == "Missing"
+
+
+class TestUrbanPlanIdSourceMismatchAudit:
+    """TEST 8 (this round's urban-plan-boundary integration): a human-
+    supplied plan_id that DISAGREES with what the submitted coordinate
+    itself auto-resolves to must still win (human override), but the
+    discrepancy must be visible in the persisted plan_identification block
+    -- never silently accepted as if both agreed. Stubs
+    RealUrbanPlanBoundaryProvider the same way TestLandUseRatioProvider
+    DrivenBackendE2E above stubs RealNtpcZoningProvider (offline, no
+    DatasetRegistry/filesystem touch)."""
+
+    def _reload_with_stubbed_urban_plan(self, monkeypatch, auto_status, auto_plan_id, auto_plan_name):
+        import importlib
+        monkeypatch.setenv("DATA_PROVIDER_MODE", "real")
+        import collect_data
+        importlib.reload(collect_data)
+        monkeypatch.setattr(collect_data, "ALL_PROVIDERS", [collect_data.RealLandUseProvider])
+
+        from domain.models import UrbanPlanBoundaryResult, UrbanPlanStatus
+
+        class _StubUrbanPlanBoundaryProvider:
+            def resolve_urban_plan(self, center):
+                return UrbanPlanBoundaryResult(
+                    urban_plan_status=UrbanPlanStatus(auto_status),
+                    plan_id=auto_plan_id, plan_name=auto_plan_name,
+                    source_code="64/28", source_version="test",
+                )
+
+        monkeypatch.setattr(collect_data, "RealUrbanPlanBoundaryProvider", _StubUrbanPlanBoundaryProvider)
+        return collect_data
+
+    def _seed(self, monkeypatch, case_no, human_plan_id, auto_status="INSIDE",
+              auto_plan_id="jinshan", auto_plan_name="金山都市計畫"):
+        import cases
+        import case_store
+
+        collect_data_module = self._reload_with_stubbed_urban_plan(
+            monkeypatch, auto_status, auto_plan_id, auto_plan_name
+        )
+        _make_case(cases, case_no)
+        body = {
+            "center_coordinate": {"latitude": 25.2214, "longitude": 121.6360},
+            "plan_id": human_plan_id,
+            "base_parcel_factors": [],
+            "comparable_factors": {"comp1": []},
+        }
+        resp = collect_data_module.collect_data(
+            {"pathParameters": {"id": case_no}, "body": json.dumps(body)}, None,
+        )
+        assert resp["statusCode"] == 200
+        return case_store.get_record(case_no, "FACTORS")["plan_identification"]
+
+    def test_conflicting_human_plan_id_flagged_not_silently_accepted(self, ddb_env, monkeypatch):
+        # human_plan_id is a DIFFERENT plan than what the coordinate itself
+        # resolves to (jinshan, per _seed's default auto_plan_id).
+        stored = self._seed(monkeypatch, "URBANPLAN-MISMATCH-001", human_plan_id="ntpc_plan_37_3")
+        # Human override still wins for the value actually used downstream...
+        assert stored["internal_plan_id"] == "ntpc_plan_37_3"
+        assert stored["plan_identification_source"] == "MANUAL_INPUT"
+        # ...but the disagreement with the coordinate's own resolution
+        # (jinshan) must be visible, not swallowed.
+        assert stored["plan_id_source_mismatch"] is True
+        assert stored["urban_plan_id"] == "jinshan"
+        assert stored["urban_plan_status"] == "INSIDE"
+
+    def test_agreeing_human_plan_id_is_not_flagged(self, ddb_env, monkeypatch):
+        stored = self._seed(monkeypatch, "URBANPLAN-AGREE-001", human_plan_id="jinshan")
+        assert stored["internal_plan_id"] == "jinshan"
+        assert stored["plan_id_source_mismatch"] is False
+
+    def test_no_human_plan_id_uses_auto_resolution_and_is_not_flagged_mismatch(self, ddb_env, monkeypatch):
+        stored = self._seed(monkeypatch, "URBANPLAN-AUTO-001", human_plan_id=None)
+        assert stored["internal_plan_id"] == "jinshan"
+        assert stored["plan_identification_source"] == "AUTO_COORDINATE_RESOLVED"
+        assert stored["plan_id_source_mismatch"] is False
+
+    def test_ambiguous_auto_resolution_never_supplies_a_plan_id(self, ddb_env, monkeypatch):
+        """When the coordinate itself is ambiguous/outside/unknown, no
+        plan_id may be silently guessed -- internal_plan_id stays None if
+        the human also supplied none."""
+        stored = self._seed(
+            monkeypatch, "URBANPLAN-AMBIGUOUS-001", human_plan_id=None,
+            auto_status="AMBIGUOUS", auto_plan_id=None, auto_plan_name=None,
+        )
+        assert stored["internal_plan_id"] is None
+        assert stored["plan_identification_source"] is None
+        assert stored["urban_plan_status"] == "AMBIGUOUS"
 
 
 class TestRoadWidthBackendE2E:

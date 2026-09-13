@@ -442,9 +442,18 @@ class TestDemoErrorCases:
         module docstring survey), this fixture injects no
         road_width_evidence, and RoadWidthResolver honestly reports
         UNAVAILABLE rather than fabricating a PASS -- see
-        TestRoadWidthWiringInAuditEngine below."""
+        TestRoadWidthWiringInAuditEngine below.
+
+        3 further non-Passed issues are ALSO expected (STEP5 §10 cross-form
+        checks: case_no_identity / comparable_id_set_identity /
+        base_parcel_comparison_price_subtotal, added in
+        engine/audit_engine.py's review()) -- this demo builder predates
+        those checks and never populates their SubmittedFormData fields, so
+        all 3 honestly resolve to MISSING (never a fabricated ERROR/
+        INCONSISTENT against absent data, per _field_pair_or_missing()),
+        exactly like the pre-existing road_width_gap case above."""
         non_passed = [i for i in audit_result.issues if i.issue_type != IssueType.PASSED]
-        assert len(non_passed) == 4
+        assert len(non_passed) == 7
         demo_error_fields = {
             "regional_main_road_width_adjustment_pct_溫泉段218地號",
             "individual_land_depth_differential_rate_溫泉段218地號",
@@ -455,6 +464,13 @@ class TestDemoErrorCases:
         road_width_gap = [i for i in non_passed if i.field == "main_road_width"]
         assert len(road_width_gap) == 1
         assert road_width_gap[0].explanation_data.check_type == CheckType.ROAD_WIDTH_UNAVAILABLE
+
+        step5_cross_form_fields = {
+            "case_no_identity", "comparable_id_set_identity", "base_parcel_comparison_price_subtotal",
+        }
+        step5_gaps = [i for i in non_passed if i.field in step5_cross_form_fields]
+        assert len(step5_gaps) == 3
+        assert all(i.issue_type == IssueType.MISSING for i in step5_gaps)
 
     def test_all_three_demo_errors_are_critical_severity(self, audit_result):
         """All three demo errors propagate to base_parcel_comparison_price,

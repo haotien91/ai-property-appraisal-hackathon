@@ -91,7 +91,7 @@ def _stub_official_success(monkeypatch, collect_data, *, latitude=24.142313, lon
     )
     monkeypatch.setattr(
         collect_data, "_resolve_nlsc_official_coordinate_evidence",
-        lambda case_no, meta: collect_data.to_target_coordinate_evidence(success_evidence),
+        lambda case_no, meta, segment=None: collect_data.to_target_coordinate_evidence(success_evidence),
     )
 
 
@@ -147,7 +147,7 @@ def test_submitted_does_not_block_official_lookup(tmp_path, monkeypatch):
 
     calls = []
 
-    def _spy(case_no, meta):
+    def _spy(case_no, meta, segment=None):
         calls.append((case_no, meta))
         return None  # AUTH_REQUIRED in this round's real environment
     monkeypatch.setattr(collect_data, "_resolve_nlsc_official_coordinate_evidence", _spy)
@@ -264,7 +264,7 @@ def test_analysis_coordinate_authoritative_status_matches_source(tmp_path, monke
     assert bundle["analysis_coordinate"].authoritative_status == CoordinateAuthoritativeStatus.OFFICIAL
 
     # (b) Submitted only -> EXTERNAL_UNVERIFIED, never OFFICIAL.
-    monkeypatch.setattr(collect_data, "_resolve_nlsc_official_coordinate_evidence", lambda case_no, meta: None)
+    monkeypatch.setattr(collect_data, "_resolve_nlsc_official_coordinate_evidence", lambda case_no, meta, segment=None: None)
     body = {"center_coordinate": {"latitude": 24.15, "longitude": 120.70}}
     bundle2 = collect_data._resolve_coordinate_evidence_bundle("CASE1", _meta(), body)
     assert bundle2["analysis_coordinate"].authoritative_status == CoordinateAuthoritativeStatus.EXTERNAL_UNVERIFIED

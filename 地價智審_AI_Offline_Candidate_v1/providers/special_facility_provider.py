@@ -15,11 +15,31 @@ SRC = "查估書表範本.pdf 表1（Golden Case，案號1140901-99-001）"
 class MockSpecialFacilityProvider(DataProvider):
     provider_name = "MockSpecialFacilityProvider"
 
+    # TABLE1-MOCK-SEMANTIC-CLEANUP: gas_tank_name was previously "中油
+    # 金山站" -- copied verbatim from 查估書表範本.pdf's own printed
+    # 表1 example (a real, government-provided competition document, not
+    # invented), but that string reads, on its own, like an ordinary
+    # vehicle fuel/gas STATION (中油 = CPC Corporation, Taiwan's
+    # petroleum company; "...站" colloquially means "station" in this
+    # context) -- not "瓦斯槽或儲油槽" (a gas tank/oil storage tank),
+    # which is what this field's own schema label (schemas/field_
+    # dictionary.json's gas_tank_name -> "瓦斯槽或儲油槽名稱") and the
+    # Real provider's now gasometer-only query (see RealSpecialFacility
+    # Provider.FACILITY_SPECS, TABLE1-UTILITY-SAFETY-GATE) both actually
+    # mean. Replaced with a value that (a) unambiguously reads as a gas
+    # storage facility, not a fuel station, (b) never uses a real
+    # company/institution name (so it can never be mistaken for genuine
+    # evidence about an actual real-world facility), and (c) carries an
+    # explicit "（測試）" marker baked directly into the string itself
+    # (kept short so it still fits the official PDF's own row-cell width,
+    # measured this round via fitz.Font.text_length), visible wherever
+    # this value is displayed (PDF/UI/logs), not only in the separate
+    # source_type="Mock" metadata field below.
     _KNOWN_VALUES = {
         "substation_name": ("金山變電所", None),
         "substation_within_segment": (False, None),
         "substation_distance_m": (700, "M"),
-        "gas_tank_name": ("中油金山站", None),
+        "gas_tank_name": ("金山瓦斯槽（測試）", None),
         "gas_tank_within_segment": (False, None),
         "gas_tank_distance_m": (440, "M"),
         "cemetery_name": ("金山第1公墓", None),
@@ -72,7 +92,26 @@ class RealSpecialFacilityProvider(RealFacilityProviderBase):
     # a 2000M radius (an earlier, un-sourced guess) would have missed it.
     FACILITY_SPECS = [
         FacilitySpec("substation", ["power=substation"], radius_m=3000),
-        FacilitySpec("gas_tank", ["amenity=fuel", "man_made=gasometer"], radius_m=3000),
+        # TABLE1-UTILITY-SAFETY-GATE: "amenity=fuel" (an ordinary vehicle
+        # fuel/gas STATION, e.g. a 中油/台塑 pump station where cars
+        # refuel) was previously OR'd in here alongside "man_made=
+        # gasometer" (a real gas storage tank/gas holder). The two are NOT
+        # the same facility type -- a fuel station is a small, extremely
+        # common retail dispensing point, never itself "瓦斯槽或儲油槽"
+        # (a gas tank/oil storage tank) as officially meant on 表1. Since
+        # a fuel station is far more common in OSM data than an actual
+        # gasometer, "amenity=fuel" would routinely win the "nearest"
+        # comparison in find_nearest_facility and get reported under the
+        # gas_tank field-prefix as if it were a storage tank -- a real
+        # false-positive risk once this field is rendered onto the
+        # official form (see TABLE1-SAFE-WIRING-1). "man_made=gasometer"
+        # is the only tag among the two that directly and specifically
+        # supports the official label; kept alone. No replacement tag for
+        # "儲油槽" (oil storage tank) is added -- this repo has no
+        # evidenced OSM tag for that specifically, so that half of the
+        # official label stays genuinely unsupported (MANUAL_REVIEW_
+        # REQUIRED) rather than guessed.
+        FacilitySpec("gas_tank", ["man_made=gasometer"], radius_m=3000),
         FacilitySpec("cemetery", ["landuse=cemetery", "amenity=grave_yard"], radius_m=3000),
         FacilitySpec("funeral_home", ["amenity=funeral_hall"], radius_m=3000),
         FacilitySpec("crematorium", ["amenity=crematorium"], radius_m=3000),

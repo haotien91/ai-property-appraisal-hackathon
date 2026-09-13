@@ -29,12 +29,21 @@ sys.path.insert(0, "/opt/python")
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, _ROOT)
 
-from common import response, error_response, timed_step  # noqa: E402
+from common import response, error_response, parse_body, timed_step  # noqa: E402
 import case_store  # noqa: E402
 import boto3  # noqa: E402
 
 DOCUMENT_BUCKET = os.environ.get("DOCUMENT_BUCKET_NAME", "ai-valuation-documents")
 UPLOAD_URL_EXPIRES_IN = int(os.environ.get("DOCUMENT_UPLOAD_URL_EXPIRES_IN", "3600"))
+
+# STEP5 §1 dual-input contract: an uploaded document may OPTIONALLY declare
+# which pipeline it belongs to. Optional (not required) so every pre-STEP5
+# caller that never set this keeps working unchanged -- document_extract.py
+# / evaluation_standard.py only ENFORCE a mismatch when document_type was
+# actually declared (see their own "wrong document type" guards); an
+# undeclared document is never blocked, only unprotected against the
+# specific mix-up §1 describes.
+_VALID_DOCUMENT_TYPES = ("APPRAISAL_FORM", "EVALUATION_STANDARD")
 
 _s3 = None
 
@@ -57,6 +66,14 @@ def request_upload(event, context):
         if meta is None:
             return error_response(404, "CASE_NOT_FOUND", f"找不到案件 {case_no}")
 
+        document_type = parse_body(event).get("document_type")
+        if document_type is not None and document_type not in _VALID_DOCUMENT_TYPES:
+            return error_response(
+                400, "VALIDATION_ERROR",
+                f"document_type 必須為 {_VALID_DOCUMENT_TYPES} 之一或省略，收到：{document_type!r}",
+                field_id="document_type",
+            )
+
         document_id = str(uuid.uuid4())
         s3_key = _document_s3_key(case_no, document_id)
 
@@ -71,6 +88,7 @@ def request_upload(event, context):
         # S3 HeadObject is the real, later verification point.
         case_store.put_record(case_no, case_store.document_sk(document_id), {
             "document_id": document_id, "s3_key": s3_key, "upload_status": "PENDING",
+            "document_type": document_type,
             "created_at": datetime.now(timezone.utc).isoformat(),
         })
 

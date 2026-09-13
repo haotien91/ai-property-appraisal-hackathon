@@ -89,6 +89,10 @@
   $('cl-district-select').addEventListener('change',e=>choose(e.target.value));
   $('cl-search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render();});
   function enterGroup(groupId){
+    if (active.localBackend) {
+      window.location.href='pdf-preview.html?case='+encodeURIComponent(active.number);
+      return;
+    }
     if($('cl-dialog').open)$('cl-dialog').close();
     window.GroupWorkspace.open(active,groupId,()=>{(root.querySelector(`[data-case="${active.id}"]`)||opener)?.focus({preventScroll:true});});
   }
@@ -148,4 +152,33 @@
   window.addEventListener('blur',endDrag);
   setSplit(32);
   render();
+  if (window.APP_CONFIG?.LOCAL_BACKEND) {
+    cases.splice(0);
+    const refreshLocal = () => {
+      root.querySelectorAll('[data-district]').forEach(el => {
+        const name=el.dataset.district;
+        el.classList.toggle('has-cases',count(name)>0);
+        el.setAttribute('aria-label',name+'，'+(count(name)?'有案件':'尚無案件'));
+        const title=el.querySelector('title');
+        if(title)title.textContent=el.getAttribute('aria-label');
+      });
+      Array.from($('cl-district-select').options).forEach(option=>{
+        if(option.value)option.textContent=option.value+(count(option.value)?' · 有案件':'');
+      });
+      render();
+    };
+    refreshLocal();
+    Api.listCases().then(data=>{
+      (data.cases||[]).forEach(c=>cases.push({
+        id:c.case_no,number:c.case_no,name:c.case_no,district:c.district,
+        localBackend:true,
+        groups:[{id:'official',name:'官方六頁書表',section:c.segment_code||'',
+          sections:Object.keys(c.segments||{}),landUse:c.land_use_type||''}]
+      }));
+      refreshLocal();
+    }).catch(()=>{
+      $('cl-toast').textContent='無法讀取本機案件，請確認後端服務仍在執行。';
+      $('cl-toast').hidden=false;
+    });
+  }
 })();

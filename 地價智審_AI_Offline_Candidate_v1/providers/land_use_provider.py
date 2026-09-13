@@ -242,10 +242,20 @@ class RealLandUseProvider(DataProvider):
             )
 
         if plan_id is None:
+            # plan_id reaching this function as None means: no human
+            # override, AND coordinate-based auto-resolution (backend/
+            # handlers/collect_data.py's _resolve_urban_plan_result ->
+            # providers/urban_plan_boundary_provider.py) either wasn't
+            # attempted (Mock mode / no coordinate) or did not resolve to
+            # exactly one 都市計畫 (OUTSIDE/AMBIGUOUS/UNKNOWN/PLAN_MAPPING_
+            # UNAVAILABLE) -- this note deliberately does not repeat the
+            # older "本系統無法自動由座標判定" claim, which is no longer
+            # accurate in general (see providers/base.py's ProviderContext
+            # docstring for the full history).
             zoning_note = (
-                f"官方分區名稱「{official_raw_zone_name}」；未提供plan_id（本系統無法自動由座標"
-                "判定所屬都市計畫——新北市都市計畫範圍圖資之計畫名稱欄位於來源端已損毀，"
-                "詳見providers/base.py ProviderContext文件），需人工提供plan_id或逕行人工查詢"
+                f"官方分區名稱「{official_raw_zone_name}」；未提供plan_id，且無法由座標自動判定"
+                "所屬唯一都市計畫（可能為Mock模式無座標、座標落在都市計畫外、"
+                "無法唯一判定，或資料集尚未同步），需人工提供plan_id或逕行人工查詢"
                 "該分區實際所屬都市計畫之容積率規定"
             )
         else:

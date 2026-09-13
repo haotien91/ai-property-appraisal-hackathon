@@ -56,9 +56,12 @@ runtime_paths.bootstrap()
 
 from common import response, error_response, parse_body, timed_step  # noqa: E402
 import case_store  # noqa: E402
+import competition_segments  # noqa: E402
+from competition_segments import InvalidSegmentCodeError  # noqa: E402
 
 from base import ProviderContext  # noqa: E402
 from land_use_provider import MockLandUseProvider, RealLandUseProvider  # noqa: E402
+from urban_plan_boundary_provider import RealUrbanPlanBoundaryProvider  # noqa: E402
 from road_provider import MockRoadProvider, RealRoadProvider  # noqa: E402
 from transportation_provider import MockTransportationProvider, RealTransportationProvider  # noqa: E402
 from public_facility_provider import MockPublicFacilityProvider, RealPublicFacilityProvider  # noqa: E402
@@ -70,7 +73,7 @@ from commercial_activity_provider import (  # noqa: E402
 from osm_facility_lookup import geocode  # noqa: E402
 from domain.models import (  # noqa: E402
     Coordinate, FacilityType, TargetCoordinateEvidence, CoordinateSourceType, CoordinateAuthoritativeStatus,
-    CoordinateComparisonEvidence, CoordinateComparisonStatus,
+    CoordinateComparisonEvidence, CoordinateComparisonStatus, UrbanPlanStatus,
 )
 from engine.geo_distance_engine import GeoDistanceEngine  # noqa: E402
 
@@ -100,6 +103,15 @@ from land_price_provider import MockLandPriceProvider, RealLandPriceProvider  # 
 # constructs CadastralDatasetCache and reads CADASTRAL_DATASET_CACHE_
 # DB_PATH; this import/call is purely additive plumbing in front of them.
 import cadastral_snapshot_bootstrap  # noqa: E402
+
+# 2026-09-09 (URBAN_PLAN_BOUNDARY_SNAPSHOT_NOT_PACKAGED, see docs/backlog.md):
+# same rationale as cadastral_snapshot_bootstrap.py above, independently
+# re-applied to a different, disjoint dataset family (新北市使用分區 /
+# 新北市都市計畫範圍 -- see gis_snapshot_bootstrap.py's own module
+# docstring for why these could not simply be baked into EngineLayer like
+# data/nlsc_code_cache.sqlite3 was). No-op outside Lambda -- see that
+# module's ensure_gis_snapshots().
+import gis_snapshot_bootstrap  # noqa: E402
 
 # Phase API-2 (Official Facility Evidence, additive per §11 of that round's
 # audit): OfficialFacilityProvider's fetch() answers official_facility_
@@ -219,7 +231,9 @@ def _resolve_submitted_coordinate_evidence(body: dict) -> "TargetCoordinateEvide
     )
 
 
-def _resolve_nlsc_official_coordinate_evidence(case_no: str, meta: dict) -> "TargetCoordinateEvidence | None":
+def _resolve_nlsc_official_coordinate_evidence(
+    case_no: str, meta: dict, segment=None,
+) -> "TargetCoordinateEvidence | None":
     """Phase API-2.3F §3: OFFICIAL_PARCEL_COORDINATE_EVIDENCE -- ALWAYS
     attempted in real mode (see _resolve_coordinate_evidence_bundle),
     regardless of whether a submitted coordinate also exists for this
@@ -238,11 +252,26 @@ def _resolve_nlsc_official_coordinate_evidence(case_no: str, meta: dict) -> "Tar
     RealOfficialParcelCoordinateProvider itself (NLSC_CAD_API_ENABLED and
     CAD001_AUTH_CONTRACT_STATUS both default closed) -- so with this
     round's actual environment (no real NLSC credential, auth contract
-    still UNCONFIRMED), this function always returns None."""
+    still UNCONFIRMED), this function always returns None regardless of
+    the ctx it queries with.
+
+    COMPETITION-DOMAIN-MULTI-SEGMENT-B1-FINAL-GATE-1 Task 3/5: `segment`
+    is an EXPLICIT, OPTIONAL CompetitionSegment. None (every legacy caller)
+    -> byte-identical to before (case-level meta's own district/segment_
+    code/base_parcel_id). A real segment -> THIS segment's own district
+    and its own parcel_ids[0] (never the case-level base_parcel_id) feed
+    the CAD_001 query's ctx, so P001-00/P002-00/P003-00/P004-00 each query
+    NLSC under their OWN parcel identity, never all sharing the base
+    parcel's -- see NLSC_REQUEST_USES_SEGMENT_IDENTITY in this round's
+    docs/tests (an architecture proof via a monkeypatched provider, not a
+    live NLSC call -- NLSC_CAD_API_ENABLED stays closed)."""
     provider = RealOfficialParcelCoordinateProvider()
+    district = segment.district if segment else meta["district"]
+    segment_code = segment.segment_code if segment else meta["segment_code"]
+    parcel_id = (segment.parcel_ids[0] if segment and segment.parcel_ids else meta.get("base_parcel_id"))
     ctx = ProviderContext(
-        case_no=case_no, city=meta.get("city", ""), district=meta["district"],
-        segment_code=meta["segment_code"], parcel_id=meta.get("base_parcel_id"),
+        case_no=case_no, city=meta.get("city", ""), district=district,
+        segment_code=segment_code, parcel_id=parcel_id,
     )
     evidence = provider.query_parcel_coordinate(ctx)
     if evidence.status != ParcelCoordinateStatus.SUCCESS:
@@ -250,7 +279,7 @@ def _resolve_nlsc_official_coordinate_evidence(case_no: str, meta: dict) -> "Tar
     return to_target_coordinate_evidence(evidence)
 
 
-def _resolve_nominatim_coordinate_evidence(meta: dict) -> "TargetCoordinateEvidence | None":
+def _resolve_nominatim_coordinate_evidence(meta: dict, segment=None) -> "TargetCoordinateEvidence | None":
     """REFERENCE_ONLY geocode fallback -- tagged NOMINATIM_EXTERNAL,
     authoritative_status EXTERNAL_UNVERIFIED (this round's explicit
     prohibition, §4: "禁止 Nominatim -> OFFICIAL"), precision_level
@@ -258,8 +287,16 @@ def _resolve_nominatim_coordinate_evidence(meta: dict) -> "TargetCoordinateEvide
     parcel-precise). Real mode only; only ever consulted by
     _resolve_coordinate_evidence_bundle when NEITHER an official NLSC
     coordinate NOR a submitted coordinate is available, so a case that
-    already has either never triggers this network call."""
-    place = " ".join(filter(None, [meta.get("city", ""), meta.get("district", ""), meta.get("segment_scope", "")]))
+    already has either never triggers this network call.
+
+    `segment` (Task 3): EXPLICIT, OPTIONAL. None -> case-level meta's own
+    district/segment_scope, unchanged. A real segment -> its OWN district
+    replaces the case-level one in the geocoded place string (segment_
+    scope has no per-segment equivalent in CompetitionSegment yet, so that
+    part of the string still comes from meta -- a documented, narrow known
+    limitation, not a silent regression)."""
+    district = segment.district if segment else meta.get("district", "")
+    place = " ".join(filter(None, [meta.get("city", ""), district, meta.get("segment_scope", "")]))
     if not place.strip():
         return None
     coord = geocode(place)
@@ -365,7 +402,7 @@ def _compute_coordinate_comparison(
     )
 
 
-def _resolve_coordinate_evidence_bundle(case_no: str, meta: dict, body: dict) -> dict:
+def _resolve_coordinate_evidence_bundle(case_no: str, meta: dict, body: dict, segment=None) -> dict:
     """Phase API-2.3F §3/§4/§5 orchestrator -- the single place all
     coordinate-related evidence is assembled. Returns:
     {
@@ -378,16 +415,25 @@ def _resolve_coordinate_evidence_bundle(case_no: str, meta: dict, body: dict) ->
     Mock mode: `submitted` may still be populated (reading body needs no
     network/DB), but `official_parcel`/`nominatim_reference` are always
     None (Mock mode never touches NLSC or Nominatim -- unchanged
-    invariant from every prior round)."""
+    invariant from every prior round).
+
+    `segment` (COMPETITION-DOMAIN-MULTI-SEGMENT-B1-FINAL-GATE-1 Task 3):
+    EXPLICIT, OPTIONAL CompetitionSegment, threaded through to both the
+    NLSC and Nominatim resolvers below. `submitted` itself needs no
+    threading at all -- it already reads only THIS call's own `body`,
+    so P001-00/P002-00/P003-00/P004-00 each submitting a different
+    center_coordinate in their own collect_data() call already produces
+    a genuinely different `submitted` evidence per segment, with no
+    change needed here."""
     submitted = _resolve_submitted_coordinate_evidence(body)
 
     official = None
     if DATA_PROVIDER_MODE == "real":
-        official = _resolve_nlsc_official_coordinate_evidence(case_no, meta)
+        official = _resolve_nlsc_official_coordinate_evidence(case_no, meta, segment=segment)
 
     nominatim = None
     if DATA_PROVIDER_MODE == "real" and official is None and submitted is None:
-        nominatim = _resolve_nominatim_coordinate_evidence(meta)
+        nominatim = _resolve_nominatim_coordinate_evidence(meta, segment=segment)
 
     analysis_coordinate = _select_analysis_coordinate(submitted, official, nominatim)
     comparison = _compute_coordinate_comparison(submitted, official)
@@ -398,22 +444,24 @@ def _resolve_coordinate_evidence_bundle(case_no: str, meta: dict, body: dict) ->
     }
 
 
-def _resolve_center_coordinate_evidence(case_no: str, meta: dict, body: dict) -> "TargetCoordinateEvidence | None":
+def _resolve_center_coordinate_evidence(
+    case_no: str, meta: dict, body: dict, segment=None,
+) -> "TargetCoordinateEvidence | None":
     """Thin backward-compatible accessor: the single ANALYSIS coordinate
     evidence (see _select_analysis_coordinate) that feeds `ProviderContext.
     center_coordinate`/`center_coordinate_evidence`. Callers needing the
     full set of independently-preserved evidences (submitted/official/
     nominatim/comparison) should call _resolve_coordinate_evidence_bundle
     directly instead (see collect_data() below, which does exactly that)."""
-    return _resolve_coordinate_evidence_bundle(case_no, meta, body)["analysis_coordinate"]
+    return _resolve_coordinate_evidence_bundle(case_no, meta, body, segment=segment)["analysis_coordinate"]
 
 
-def _resolve_center_coordinate(case_no: str, meta: dict, body: dict) -> "Coordinate | None":
+def _resolve_center_coordinate(case_no: str, meta: dict, body: dict, segment=None) -> "Coordinate | None":
     """Backward-compatible Coordinate-only accessor, now implemented in
     terms of `_resolve_center_coordinate_evidence()` so both stay in sync
     (same resolution order, same single source of truth) rather than
     re-implementing the branching twice."""
-    evidence = _resolve_center_coordinate_evidence(case_no, meta, body)
+    evidence = _resolve_center_coordinate_evidence(case_no, meta, body, segment=segment)
     if evidence is None:
         return None
     return Coordinate(latitude=evidence.latitude, longitude=evidence.longitude)
@@ -469,15 +517,36 @@ def _to_regional_factor(point: dict) -> "dict | None":
 
 
 def _resolve_plan_id(body: dict) -> "str | None":
-    """plan_id (data/rules/plan_zone_floor_area_ratios.json's internal
-    identifier, e.g. "jinshan") is ALWAYS human-supplied via the request
-    body -- never derived from center_coordinate, district, or segment_scope.
-    Automatic coordinate->都市計畫 resolution was investigated and found
-    infeasible (see providers/base.py's ProviderContext docstring for the
-    verified root cause) and this function must not attempt to guess a
-    replacement for it."""
+    """Reads ONLY the caller's explicit override of plan_id
+    (data/rules/plan_zone_floor_area_ratios.json's internal identifier,
+    e.g. "jinshan") from the request body -- never derived from
+    center_coordinate, district, or segment_scope inside this function.
+
+    Update: automatic coordinate->都市計畫 resolution, once investigated and
+    found infeasible (the "新北市都市計畫範圍" dataset's Name/LblName fields
+    are corrupted at the source -- see providers/base.py's ProviderContext
+    docstring), is now possible via a separate manually-derived key/SDF_ID
+    fix-up table (providers/urban_plan_boundary_provider.py,
+    data/rules/urban_plan_id_registry.json). See `_resolve_urban_plan_
+    result` below and its call site in `collect_data()`: a human-supplied
+    plan_id from THIS function always takes precedence over that
+    auto-resolution when both are present."""
     plan_id = body.get("plan_id")
     return plan_id.strip() if isinstance(plan_id, str) and plan_id.strip() else None
+
+
+def _resolve_urban_plan_result(center_coordinate: "Coordinate | None"):
+    """Auto-derives which 新北市都市計畫 (if any) `center_coordinate` falls
+    in, via providers/urban_plan_boundary_provider.py's point-in-polygon
+    query -- so plan_id need not always be typed by hand. Only attempted in
+    real mode with a coordinate present (Mock mode's Golden Case has no
+    coordinate at all, and there is nothing to query without one). Never
+    raises -- RealUrbanPlanBoundaryProvider.resolve_urban_plan() itself
+    degrades to an honest UNKNOWN/PLAN_MAPPING_UNAVAILABLE/AMBIGUOUS result
+    rather than throwing, matching every other Real provider's contract."""
+    if DATA_PROVIDER_MODE != "real" or center_coordinate is None:
+        return None
+    return RealUrbanPlanBoundaryProvider().resolve_urban_plan(center_coordinate)
 
 
 def _resolve_road_width_evidence(ctx: ProviderContext) -> list:
@@ -548,21 +617,117 @@ def _resolve_official_facility_evidence(ctx: ProviderContext) -> "dict | None":
 
 def collect_data(event, context):
     case_no = event.get("pathParameters", {}).get("id")
+    # COMPETITION-DOMAIN-MULTI-SEGMENT-B1 Task 3/12/16: EXPLICIT, OPTIONAL
+    # path parameter. Omitted (every existing legacy Jinshan caller, and
+    # every frontend that has not yet been updated -- Task 16) -> byte-
+    # identical to pre-B1 behavior: meta's own case-level district/
+    # segment_code and the bare "FACTORS" SK, exactly as before. Supplied
+    # -> this ONE segment's own district (from its CompetitionSegmentMap
+    # entry, never the case-level meta) feeds ProviderContext, and FACTORS
+    # is stored under its OWN "FACTORS#<segment_code>" item -- so P001-00/
+    # P002-00/P003-00/P004-00 can never overwrite each other (Task 10).
+    segment_code = event.get("pathParameters", {}).get("segment_code")
     with timed_step(case_no, "collect_data"):
         meta = case_store.get_case_meta(case_no)
         if meta is None:
             return error_response(404, "CASE_NOT_FOUND", f"找不到案件 {case_no}")
 
+        segment = None
+        if segment_code:
+            try:
+                segment = competition_segments.resolve_segment(case_no, segment_code)
+            except InvalidSegmentCodeError as e:
+                return error_response(400, "INVALID_SEGMENT_CODE", str(e))
+        effective_district = segment.district if segment else meta["district"]
+        effective_segment_code = segment.segment_code if segment else meta["segment_code"]
+        # Task 3/5: this segment's OWN parcel identity (never the case-
+        # level base_parcel_id) once a real segment is given -- feeds both
+        # the main ProviderContext below AND the NLSC/Nominatim resolvers
+        # (via _resolve_coordinate_evidence_bundle(segment=segment)).
+        effective_parcel_id = (
+            segment.parcel_ids[0] if segment and segment.parcel_ids else meta.get("base_parcel_id")
+        )
+        factors_sk = competition_segments.factors_sk(segment_code)
+
         body = parse_body(event)
+        if isinstance(body, dict) and body.get("acquisition_strategy") == "public":
+            from providers.public_data_collector import PublicDataCollector
+            from providers.public_http import PublicHttpClient
+            import tempfile
+            previous = case_store.get_record(case_no, factors_sk) or {}
+            request = {**meta, **body, "case_no": case_no,
+                       "district": effective_district, "segment_code": effective_segment_code,
+                       "base_parcel_id": effective_parcel_id}
+            request["competition_provided_factors"] = body.get(
+                "competition_provided_factors", previous.get("competition_provided_factors", []),
+            )
+            try:
+                result = PublicDataCollector(PublicHttpClient(
+                    cache_dir=os.path.join(tempfile.gettempdir(), "valuation-public-data"))).collect(request)
+            except (ValueError, TypeError) as exc:
+                return error_response(400, "VALIDATION_ERROR", str(exc))
+            # Preserve prior user/fixed/transaction evidence. Reference-only spatial
+            # estimates are exported as draft fields, never promoted to grades.
+            record = {**previous, "segment_code": segment_code, "public_data_draft": result,
+                      "points": result["points"]}
+            for key in ("competition_provided_factors", "competition_provided_individual_factors",
+                        "competition_provided_transaction", "user_submitted_factors"):
+                if key in body:
+                    record[key] = body[key]
+            case_store.put_record(case_no, factors_sk, record)
+            return response(200, result)
         # Phase API-2.3F §3: submitted/official/nominatim are three
         # INDEPENDENT evidences (none overwrites another) computed once
         # here and persisted in full below; `analysis_coordinate` is the
         # single one of them that actually feeds ctx.center_coordinate.
-        coordinate_bundle = _resolve_coordinate_evidence_bundle(case_no, meta, body)
+        coordinate_bundle = _resolve_coordinate_evidence_bundle(case_no, meta, body, segment=segment)
         center_coordinate_evidence = coordinate_bundle["analysis_coordinate"]
+        analysis_coordinate = (
+            Coordinate(latitude=center_coordinate_evidence.latitude, longitude=center_coordinate_evidence.longitude)
+            if center_coordinate_evidence else None
+        )
+
+        # Must run BEFORE RealUrbanPlanBoundaryProvider/RealNtpcZoningProvider
+        # are ever queried below (via _resolve_urban_plan_result and the
+        # ALL_PROVIDERS loop) -- mirrors cadastral_snapshot_bootstrap's own
+        # call site pattern above. No-op in Mock mode or outside Lambda; a
+        # partial/total bootstrap failure here simply means those two
+        # providers find no registered snapshot and take their own already-
+        # established UNKNOWN degradation path, exactly as if neither
+        # dataset had ever been synced.
+        if DATA_PROVIDER_MODE == "real":
+            gis_snapshot_bootstrap.ensure_gis_snapshots()
+
+        # Urban-plan-boundary auto-resolution (see _resolve_urban_plan_result
+        # and _resolve_plan_id's docstrings): a human-supplied plan_id always
+        # wins; auto-resolution only fills the gap when the caller didn't
+        # supply one AND the coordinate resolves unambiguously to exactly
+        # one 都市計畫 (urban_plan_status == INSIDE). AMBIGUOUS/OUTSIDE/
+        # UNKNOWN/PLAN_MAPPING_UNAVAILABLE never produce a plan_id -- never
+        # a guess, per this round's "查不到時必須UNKNOWN/MANUAL_REVIEW_
+        # REQUIRED，不得猜" instruction.
+        human_plan_id = _resolve_plan_id(body)
+        urban_plan_result = _resolve_urban_plan_result(analysis_coordinate)
+        auto_plan_id = (
+            urban_plan_result.plan_id
+            if urban_plan_result and urban_plan_result.urban_plan_status == UrbanPlanStatus.INSIDE
+            else None
+        )
+        effective_plan_id = human_plan_id or auto_plan_id
+        # A human-supplied plan_id still always WINS as the value actually
+        # used for calculation (see above) -- but if it disagrees with what
+        # the submitted coordinate itself resolves to, that discrepancy must
+        # stay visible in plan_identification below, never be silently
+        # swallowed by the override. Same "never silently pick one" principle
+        # already applied to submitted-vs-official coordinates (see
+        # _compute_coordinate_comparison).
+        plan_id_source_mismatch = bool(
+            human_plan_id and auto_plan_id and human_plan_id != auto_plan_id
+        )
+
         ctx = ProviderContext(
-            case_no=case_no, city=meta.get("city", ""), district=meta["district"],
-            segment_code=meta["segment_code"],
+            case_no=case_no, city=meta.get("city", ""), district=effective_district,
+            segment_code=effective_segment_code,
             # parcel_id (比準地地號/land_no) -- previously never passed here
             # even though ProviderContext has carried this slot since Phase
             # 5 (see providers/base.py); ExpropriationCaseProvider/
@@ -571,13 +736,12 @@ def collect_data(event, context):
             # defaults to the literal string "TBD" at case creation
             # (backend/handlers/cases.py) when not supplied -- both new
             # providers treat "TBD" the same as missing, never as a real
-            # land number to query with.
-            parcel_id=meta.get("base_parcel_id"),
-            center_coordinate=(
-                Coordinate(latitude=center_coordinate_evidence.latitude, longitude=center_coordinate_evidence.longitude)
-                if center_coordinate_evidence else None
-            ),
-            plan_id=_resolve_plan_id(body),
+            # land number to query with. A real `segment` (Task 3/5) uses
+            # THAT segment's own parcel_ids[0] instead -- never the case-
+            # level base_parcel_id once segment-scoped.
+            parcel_id=effective_parcel_id,
+            center_coordinate=analysis_coordinate,
+            plan_id=effective_plan_id,
             # Phase API-2.1: carries WHERE center_coordinate came from
             # (SUBMITTED_BY_CALLER/NOMINATIM_EXTERNAL/None), so
             # OfficialFacilityProvider can tell an official coordinate apart
@@ -639,12 +803,44 @@ def collect_data(event, context):
         land_price_evidence = _resolve_land_price_evidence(ctx)
         official_facility_evidence = _resolve_official_facility_evidence(ctx)
 
-        case_store.put_record(case_no, "FACTORS", {
+        case_store.put_record(case_no, factors_sk, {
+            # COMPETITION-DOMAIN-MULTI-SEGMENT-B1 Task 11: explicit on the
+            # record itself (None for every legacy/non-segmented case), so
+            # a reader of this ONE FACTORS/FACTORS#<segment_code> item can
+            # always tell which segment (if any) it belongs to without
+            # having to infer it from the SK string.
+            "segment_code": segment_code,
             "points": all_points,
             "user_submitted_factors": {
                 "base_parcel_factors": body.get("base_parcel_factors", []),
                 "comparable_factors": body.get("comparable_factors", {}),
             },
+            # COMPETITION-DOMAIN-MULTI-SEGMENT-B1 Task 4/11: the 表3 地價
+            # 區段勘查表 facts 題目.pdf already fixed for THIS segment (e.g.
+            # P001-00's 建蔽率=50%/容積率=260%/主要道路寬度=28M) -- an
+            # explicit, separate bucket from `regional_base_factors` below
+            # (which is exclusively Provider-derived). A caller is expected
+            # to tag each entry's evidence.source_type as
+            # COMPETITION_PROVIDED_FIXED; this handler never overwrites or
+            # merges this bucket with anything Provider-sourced -- a
+            # differing Provider point for the same field_id simply lands
+            # in regional_base_factors/points as ordinary REFERENCE
+            # evidence, side by side, never replacing this one.
+            "competition_provided_factors": body.get("competition_provided_factors", []),
+            # TABLE4-THREE-COMPARABLE-D1 Task 2/10: the INDIVIDUAL-factor
+            # (表4 個別因素) counterpart of the bucket above -- same
+            # precedence discipline (case_reconstruction.py::
+            # apply_competition_provided_individual_precedence()), applied
+            # on top of user_submitted_factors.base_parcel_factors /
+            # comparable_factors instead of regional_base_factors.
+            "competition_provided_individual_factors": body.get("competition_provided_individual_factors", []),
+            # TABLE4-THREE-COMPARABLE-D1 Task 2: this segment's own 表4
+            # "0基本資料" transaction block (交易日期/土地正常單價/調整百分率/
+            # 調整至估價基準日單價), if this segment IS a comparable with a
+            # real transaction (never present for a base/比準地 segment,
+            # which has no transaction of its own) -- COMPETITION_PROVIDED_
+            # FIXED, read verbatim from 題目.pdf, never recomputed here.
+            "competition_provided_transaction": body.get("competition_provided_transaction"),
             "regional_base_factors": regional_base_factors,
             "road_width_evidence": road_width_evidence,
             "expropriation_case_evidence": expropriation_case_evidence,
@@ -681,19 +877,40 @@ def collect_data(event, context):
             "road_width_submission": {
                 "submitted_main_road_width": body.get("submitted_main_road_width"),
             },
-            # plan_id is always human-supplied (see _resolve_plan_id above);
-            # persisted here so review.py -- a later, separate request --
-            # can read it back. Previously computed into `ctx` and then
-            # silently dropped once this handler returned.
+            # ctx.plan_id is human-supplied (_resolve_plan_id) OR, when
+            # absent, auto-resolved from the coordinate via
+            # _resolve_urban_plan_result -- persisted here so review.py --
+            # a later, separate request -- can read it back. Previously
+            # computed into `ctx` and then silently dropped once this
+            # handler returned. urban_plan_* fields surface the FULL
+            # auto-resolution result (status/name/source/manual-review flag)
+            # even when a human-supplied plan_id ultimately won, so a
+            # reviewer can see what the coordinate alone would have implied.
             "plan_identification": {
                 "internal_plan_id": ctx.plan_id,
                 "confirmed_plan_name": body.get("confirmed_plan_name"),
-                "plan_identification_source": "MANUAL_INPUT" if ctx.plan_id else None,
+                "plan_identification_source": (
+                    "MANUAL_INPUT" if human_plan_id
+                    else ("AUTO_COORDINATE_RESOLVED" if ctx.plan_id else None)
+                ),
+                "urban_plan_status": urban_plan_result.urban_plan_status.value if urban_plan_result else None,
+                "urban_plan_name": urban_plan_result.plan_name if urban_plan_result else None,
+                "urban_plan_id": urban_plan_result.plan_id if urban_plan_result else None,
+                "urban_plan_source": urban_plan_result.source_dataset if urban_plan_result else None,
+                "urban_plan_requires_manual_review": (
+                    urban_plan_result.requires_manual_review if urban_plan_result else None
+                ),
+                # True when a human-supplied plan_id disagrees with what the
+                # submitted coordinate itself auto-resolves to -- the human
+                # value still wins for calculation (see effective_plan_id
+                # above), but this flag makes that override visible for
+                # audit rather than silently accepted.
+                "plan_id_source_mismatch": plan_id_source_mismatch,
             },
         })
 
         return response(200, {
-            "case_no": case_no, "collected_field_count": collected,
+            "case_no": case_no, "segment_code": segment_code, "collected_field_count": collected,
             "missing_field_ids": missing,
             "status": "PARTIAL" if missing else "COMPLETE",
         })

@@ -451,7 +451,8 @@
 
     <script>
         const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
-        document.getElementById('modeIndicator').textContent = mode;
+        document.getElementById('modeIndicator').textContent = window.APP_CONFIG.LOCAL_BACKEND ? '本機後端' : mode;
+        document.getElementById('backendNotice').hidden = !window.APP_CONFIG.LOCAL_BACKEND;
         CaseContext.applyCaseQueryToLinks();
 
 

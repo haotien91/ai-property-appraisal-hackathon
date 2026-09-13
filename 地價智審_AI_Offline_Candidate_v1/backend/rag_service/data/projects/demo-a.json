@@ -1,0 +1,20 @@
+{
+  "project_id": "demo-a",
+  "version": "mock-1",
+  "title": "示範案件 A（虛構資料）",
+  "is_mock": true,
+  "notice": "所有數值與規則均為軟體串接示範，非官方估價資料，不可用於正式查估。",
+  "data": {
+    "region": "示範地區",
+    "land_use_type": "商業用地",
+    "tables": {
+      "table1": {"main_road_width": {"value": 18, "unit": "m", "status": "mock"}},
+      "table5": {"main_road_width": {"base_grade": "普通", "comparable_grade": "普通", "adjustment_pct": 0, "rule_id": "mock-road"}},
+      "table4": {"comparison_price": {"value": null, "unit": "元/m²", "status": "not_computed"}}
+    },
+    "rules": [{"id": "mock-road", "scope": "區域因素", "condition": "本示範將15m以上、未滿20m列為普通", "source": "人工建立的虛構規則，非官方規則"}],
+    "calculation_traces": [{"field": "table5.main_road_width", "inputs": {"base_grade": "普通", "comparable_grade": "普通"}, "result": 0, "explanation": "示範矩陣同級格為0；未計算最終價格。"}],
+    "selection_records": [],
+    "missing": ["正式規則來源", "比較標的篩選理由", "最終價格計算"]
+  }
+}

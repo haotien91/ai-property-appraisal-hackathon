@@ -118,7 +118,7 @@
 
             <div id="content" style="display:none;">
                 <div class="result-hero">
-                    <p class="section-text mb-1">比準地比較價格</p>
+                    <p id="priceLabel" class="section-text mb-1">比準地比較價格</p>
                     <div id="finalPrice" class="field-value-final">-</div>
                     <p id="statusLine" class="result-meta mt-2 mb-0"></p>
                 </div>
@@ -150,8 +150,12 @@
     <script src="js/main.js"></script>
 
     <script>
-        document.getElementById('modeIndicator').textContent = (window.APP_CONFIG || {}).MODE || 'unknown';
+        document.getElementById('modeIndicator').textContent = window.APP_CONFIG.LOCAL_BACKEND ? '本機後端' : (window.APP_CONFIG.MODE || 'unknown');
         CaseContext.applyCaseQueryToLinks();
+        if (window.APP_CONFIG.LOCAL_BACKEND) {
+            document.getElementById('priceLabel').textContent = '指定案例試算價格（待人工確認）';
+            document.querySelector('.section-text.mb-4').textContent = '採用樹林住宅內建案例與規則試算；請核對來源、缺漏及待確認項目。';
+        }
 
         (async () => {
             const caseNo = CaseContext.currentCaseNo();
@@ -184,7 +188,7 @@
                 const rs = d.review_summary || {};
                 document.getElementById('reviewSummary').innerHTML = Object.entries(labels).map(([key, label]) => `
                     <div class="summary-card">
-                        <strong>${rs[key] ?? 0}</strong>
+                        <strong>${rs[key] ?? '待確認'}</strong>
                         <span>${label}</span>
                     </div>
                 `).join('');

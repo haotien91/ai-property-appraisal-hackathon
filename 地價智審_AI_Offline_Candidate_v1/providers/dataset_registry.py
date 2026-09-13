@@ -153,13 +153,28 @@ class DatasetRegistry:
         return DatasetSnapshotInfo(
             dataset_id=row["dataset_id"], source_name=row["source_name"],
             source_agency=row["source_agency"], source_url=row["source_url"],
-            local_snapshot_version=row["local_snapshot_version"], local_path=row["local_path"],
+            local_snapshot_version=row["local_snapshot_version"], local_path=self._portable_snapshot_path(row),
             checksum=row["checksum"], license=row["license"], refresh_policy=row["refresh_policy"],
             last_synced_at=datetime.fromisoformat(row["last_synced_at"]),
             source_last_modified=datetime.fromisoformat(row["source_last_modified"])
             if row["source_last_modified"] else None,
             record_count=row["record_count"], notes=row["notes"],
         )
+
+    @staticmethod
+    def _portable_snapshot_path(row) -> str:
+        """Relocated checkouts may use the identical, checksum-verified snapshot.
+
+        Do not rewrite the registry or select a different dataset version.
+        """
+        original = row["local_path"]
+        if os.path.isfile(original):
+            return original
+        basename = original.replace("\\", "/").rsplit("/", 1)[-1]
+        candidate = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "snapshots", basename)
+        if os.path.isfile(candidate) and compute_file_checksum(candidate) == row["checksum"]:
+            return candidate
+        return original
 
     def check_staleness(self, dataset_id: str, now: Optional[datetime] = None) -> DatasetSnapshotStatus:
         """Never synced (or the local file has vanished since) ->

@@ -13,11 +13,23 @@ from __future__ import annotations
 import sys
 import os
 from datetime import datetime
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from typing import List, Dict, Any
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from domain.models import CompetitionCase, AuditIssue, ReviewResult  # noqa: E402
+from domain.models import (  # noqa: E402
+    CompetitionCase, AuditIssue, ReviewResult, CheckType, Severity, IssueType,
+    ExplanationData, RecommendationData,
+)
+
+
+def _d0(value) -> "Decimal | None":
+    if value is None:
+        return None
+    try:
+        return Decimal(str(value))
+    except (InvalidOperation, TypeError):
+        return None
 from engine.rule_validator import RuleValidator  # noqa: E402
 from engine.calculation_validator import CalculationValidator  # noqa: E402
 from engine.cross_form_validation_engine import CrossFormValidationEngine  # noqa: E402
@@ -71,6 +83,37 @@ class SubmittedFormData:
         # RoadWidthResolver resolves from the road_width_evidence passed
         # into AuditEngine.review(), never against this field itself.
         self.submitted_main_road_width: Any = None
+
+        # ---- STEP 5 §10 cross-form identity/subtotal fields (optional,
+        # backward-compatible -- all default to None/empty so existing
+        # callers that never set them simply get IssueType.MISSING for
+        # these specific checks, same convention as every other optional
+        # field above) ----
+        # case identity: two INDEPENDENTLY-populated case_no reads --
+        # form_case_no comes from the already-stored FORM_COMPLETION
+        # record's own stamped case_no (written by FormCompletionEngine at
+        # complete_form time); AuditEngine.review()'s `case.case_no`
+        # argument is reconstructed fresh from the case META record at
+        # review time. A mismatch means the two records disagree about
+        # which case they belong to.
+        self.submitted_case_no: Any = None
+        # comparable identity: the comparable_id SET actually present in
+        # 表5-2's own field namespace (regional_total_adjustment_{cid})
+        # versus 表4's own field namespace (region_adjustment_rate_{cid});
+        # these are two independently-emitted sets of field_ids, not one
+        # list read twice -- a comparable dropped from one table's fields
+        # while still present in the other's is a real integration defect.
+        self.submitted_comparable_ids_table5_2: Any = None  # sorted comma-joined str, or None
+        self.submitted_comparable_ids_table4: Any = None
+        # price/subtotal/final trial price: per-comparable 表4 trial_price
+        # + comparable_weight fields (each its own independently-stored
+        # FieldCompletion) versus the final base_parcel_comparison_price
+        # field's own stored RAW (pre-rounding) result -- checks that the
+        # final weighted total is actually internally consistent with the
+        # subtotals it claims to be built from.
+        self.submitted_trial_prices: Dict[str, Any] = {}
+        self.submitted_comparable_weights: Dict[str, Any] = {}
+        self.submitted_base_parcel_comparison_price_raw: Any = None
 
 
 class AuditEngine:
@@ -128,6 +171,29 @@ class AuditEngine:
         issues.append(self._road_width_validator.validate_main_road_width(
             self._next_issue_id(), road_width_resolution, submitted.submitted_main_road_width,
         ))
+
+        # ---- STEP 5 §10 case-level cross-form checks (case identity,
+        # comparable identity, price/subtotal/final trial price). All three
+        # are OPTIONAL SubmittedFormData fields (default None/empty) so a
+        # caller that predates STEP5 (or the DOCUMENT submission path,
+        # which does not yet populate them) gets an honest MISSING issue
+        # here, never a fabricated INCONSISTENT from comparing a real value
+        # against an absent one (Three-State Verification Outcome
+        # Semantics -- "cannot verify" must never look like "confirmed
+        # mismatch").
+        issues.append(self._field_pair_or_missing(
+            source_form="表4+表5-2", field_id="case_no_identity", label="案件編號（跨表一致性）",
+            value_a=case.case_no, value_b=submitted.submitted_case_no,
+            rule_citation="STEP5 §10 case identity",
+        ))
+        issues.append(self._field_pair_or_missing(
+            source_form="表4", field_id="comparable_id_set_identity",
+            label="比較標的清單（表5-2 vs 表4 一致性）",
+            value_a=submitted.submitted_comparable_ids_table5_2,
+            value_b=submitted.submitted_comparable_ids_table4,
+            rule_citation="STEP5 §10 comparable identity",
+        ))
+        issues.append(self._review_final_trial_price_subtotal(submitted))
 
         return ReviewResult(
             case_no=case.case_no, issues=issues, generated_at=datetime.now(),
@@ -215,6 +281,55 @@ class AuditEngine:
             if fi.field_id == field_id:
                 return fi.raw_value
         return None
+
+    def _field_pair_or_missing(
+        self, source_form: str, field_id: str, label: str, value_a, value_b, rule_citation: str,
+    ) -> AuditIssue:
+        """Wraps CrossFormValidationEngine.validate_field_pair() with a
+        MISSING short-circuit when either side is None -- that generic
+        comparator has no concept of "not yet populated" (it stringifies
+        whatever it's given), so an optional field neither side has filled
+        in yet must never reach it directly, or "None" == "None" (both
+        sides absent) would read as a spurious PASSED, and one side absent
+        would read as a spurious INCONSISTENT."""
+        if value_a is None or value_b is None:
+            return AuditIssue(
+                issue_id=self._next_issue_id(), severity=Severity.MEDIUM, issue_type=IssueType.MISSING,
+                source_form=source_form, field=field_id, label=label,
+                submitted_value=value_b, expected_value=value_a, rule_id=None,
+                source="CrossFormValidationEngine",
+                explanation_data=ExplanationData(
+                    summary=f"{label} 缺少可比對之兩方資料，無法執行跨表一致性檢查", check_type=CheckType.MISSING,
+                ),
+                recommendation_data=RecommendationData(action="請確認雙方欄位皆已填寫", requires_human_review=True),
+                downstream_impact=[],
+            )
+        return self._cross_form.validate_field_pair(
+            issue_id=self._next_issue_id(), source_form=source_form, field_id=field_id, label=label,
+            value_a=value_a, value_b=value_b, rule_citation=rule_citation,
+        )
+
+    def _review_final_trial_price_subtotal(self, submitted) -> AuditIssue:
+        """STEP5 §10 price/subtotal/final trial price check: the final
+        比準地比較價格 (base_parcel_comparison_price) must equal
+        sum(trial_price[cid] * weight[cid] / 100) over the SAME per-
+        comparable fields FormCompletionEngine separately stored earlier
+        in its own pipeline (trial_price_{cid} / comparable_weight_{cid}) --
+        reusing CalculationValidator.validate_sum() (already used for the
+        regional/individual subtotal checks), never a second calculator."""
+        cids = sorted(set(submitted.submitted_trial_prices) & set(submitted.submitted_comparable_weights))
+        components = []
+        for cid in cids:
+            tp = _d0(submitted.submitted_trial_prices.get(cid))
+            wt = _d0(submitted.submitted_comparable_weights.get(cid))
+            if tp is not None and wt is not None:
+                components.append(tp * wt / Decimal("100"))
+        return self._calc_validator.validate_sum(
+            issue_id=self._next_issue_id(), source_form="表4", field_id="base_parcel_comparison_price_subtotal",
+            label="比準地比較價格（加權合計，跨表一致性）", component_values=components,
+            submitted_total=submitted.submitted_base_parcel_comparison_price_raw,
+            check_type=CheckType.CROSS_FORM_INCONSISTENT,
+        )
 
     def _review_cross_form_regional_total(self, case, comparable_id, submitted) -> AuditIssue:
         table5_2_total = submitted.submitted_totals.get(f"regional_total_{comparable_id}")

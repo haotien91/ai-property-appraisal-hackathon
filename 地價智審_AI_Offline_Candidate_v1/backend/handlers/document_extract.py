@@ -75,6 +75,19 @@ def extract_document(event, context):
         if doc_meta is None:
             return error_response(404, "DOCUMENT_NOT_FOUND", f"找不到文件 {document_id}")
 
+        # STEP5 §1 dual-input contract: only enforced when the upload
+        # actually declared a document_type (see document_upload.py) --
+        # an undeclared/pre-STEP5 document is not blocked, only a
+        # document EXPLICITLY tagged EVALUATION_STANDARD is refused here,
+        # so it can never be silently misrouted into the generic appraisal-
+        # form OCR pipeline.
+        doc_type = doc_meta.get("document_type")
+        if doc_type is not None and doc_type != "APPRAISAL_FORM":
+            return error_response(
+                400, "WRONG_DOCUMENT_TYPE",
+                f"此文件已標記為 {doc_type}，非查估書表，不可送入書表擷取流程",
+            )
+
         s3 = _s3_client()
         s3_key = doc_meta["s3_key"]
 

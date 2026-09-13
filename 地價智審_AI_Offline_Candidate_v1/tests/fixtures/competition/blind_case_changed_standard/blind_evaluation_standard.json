@@ -1,0 +1,321 @@
+{
+  "metadata": {
+    "TEST_ONLY": true,
+    "NON_OFFICIAL": true,
+    "BLIND_CASE_RULE": true,
+    "description": "STEP5 §14 Blind Case changed Evaluation Standard fixture -- a genuinely different 主要道路寬度 grade banding + adjustment matrix from the real static baseline, used ONLY by tests/test_competition_blind_case.py via the real CaseRulePackage/confirmation pipeline. Never loaded by production code."
+  },
+  "regional_rules": [
+    {
+      "rule_id": "REG-BLIND_MAIN_ROAD_WIDTH-01",
+      "version": "TEST_ONLY-blind-v1",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "道路條件(1)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 30,
+      "upper_bound": null,
+      "lower_inclusive": true,
+      "upper_inclusive": null,
+      "grade": "優",
+      "grade_code": 1,
+      "grade_label": "30m以上",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 4,
+          "3": 8,
+          "4": 12,
+          "5": 16
+        },
+        "2": {
+          "1": -4,
+          "2": 0,
+          "3": 4,
+          "4": 8,
+          "5": 12
+        },
+        "3": {
+          "1": -8,
+          "2": -4,
+          "3": 0,
+          "4": 4,
+          "5": 8
+        },
+        "4": {
+          "1": -12,
+          "2": -8,
+          "3": -4,
+          "4": 0,
+          "5": 4
+        },
+        "5": {
+          "1": -16,
+          "2": -12,
+          "3": -8,
+          "4": -4,
+          "5": 0
+        }
+      },
+      "max_adjustment": 16,
+      "effective_date": "TEST_ONLY",
+      "source_document": "tests/fixtures/competition/blind_case_changed_standard/blind_evaluation_standard.json",
+      "source_page": "TEST_ONLY",
+      "source_note": "STEP5 §14 Blind Case fixture -- TEST_ONLY / NON_OFFICIAL / BLIND_CASE_RULE. NOT an official evaluation standard; deliberately different grade bands and adjustment matrix (step=4, max=16) from the real static 主要道路寬度 rule (data/rules/regional_rules.json, step=3.75, max=15), used only to prove a CONFIRMED Case Rule genuinely changes both Grade and Adjustment Rate for the SAME 18m raw value (18m: static->普通/grade3, blind->稍優/grade2).",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BLIND_MAIN_ROAD_WIDTH-02",
+      "version": "TEST_ONLY-blind-v1",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "道路條件(1)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 15,
+      "upper_bound": 30,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍優",
+      "grade_code": 2,
+      "grade_label": "15m以上未滿30m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 4,
+          "3": 8,
+          "4": 12,
+          "5": 16
+        },
+        "2": {
+          "1": -4,
+          "2": 0,
+          "3": 4,
+          "4": 8,
+          "5": 12
+        },
+        "3": {
+          "1": -8,
+          "2": -4,
+          "3": 0,
+          "4": 4,
+          "5": 8
+        },
+        "4": {
+          "1": -12,
+          "2": -8,
+          "3": -4,
+          "4": 0,
+          "5": 4
+        },
+        "5": {
+          "1": -16,
+          "2": -12,
+          "3": -8,
+          "4": -4,
+          "5": 0
+        }
+      },
+      "max_adjustment": 16,
+      "effective_date": "TEST_ONLY",
+      "source_document": "tests/fixtures/competition/blind_case_changed_standard/blind_evaluation_standard.json",
+      "source_page": "TEST_ONLY",
+      "source_note": "STEP5 §14 Blind Case fixture -- TEST_ONLY / NON_OFFICIAL / BLIND_CASE_RULE. NOT an official evaluation standard; deliberately different grade bands and adjustment matrix (step=4, max=16) from the real static 主要道路寬度 rule (data/rules/regional_rules.json, step=3.75, max=15), used only to prove a CONFIRMED Case Rule genuinely changes both Grade and Adjustment Rate for the SAME 18m raw value (18m: static->普通/grade3, blind->稍優/grade2).",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BLIND_MAIN_ROAD_WIDTH-03",
+      "version": "TEST_ONLY-blind-v1",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "道路條件(1)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 10,
+      "upper_bound": 15,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "普通",
+      "grade_code": 3,
+      "grade_label": "10m以上未滿15m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 4,
+          "3": 8,
+          "4": 12,
+          "5": 16
+        },
+        "2": {
+          "1": -4,
+          "2": 0,
+          "3": 4,
+          "4": 8,
+          "5": 12
+        },
+        "3": {
+          "1": -8,
+          "2": -4,
+          "3": 0,
+          "4": 4,
+          "5": 8
+        },
+        "4": {
+          "1": -12,
+          "2": -8,
+          "3": -4,
+          "4": 0,
+          "5": 4
+        },
+        "5": {
+          "1": -16,
+          "2": -12,
+          "3": -8,
+          "4": -4,
+          "5": 0
+        }
+      },
+      "max_adjustment": 16,
+      "effective_date": "TEST_ONLY",
+      "source_document": "tests/fixtures/competition/blind_case_changed_standard/blind_evaluation_standard.json",
+      "source_page": "TEST_ONLY",
+      "source_note": "STEP5 §14 Blind Case fixture -- TEST_ONLY / NON_OFFICIAL / BLIND_CASE_RULE. NOT an official evaluation standard; deliberately different grade bands and adjustment matrix (step=4, max=16) from the real static 主要道路寬度 rule (data/rules/regional_rules.json, step=3.75, max=15), used only to prove a CONFIRMED Case Rule genuinely changes both Grade and Adjustment Rate for the SAME 18m raw value (18m: static->普通/grade3, blind->稍優/grade2).",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BLIND_MAIN_ROAD_WIDTH-04",
+      "version": "TEST_ONLY-blind-v1",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "道路條件(1)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": 5,
+      "upper_bound": 10,
+      "lower_inclusive": true,
+      "upper_inclusive": false,
+      "grade": "稍劣",
+      "grade_code": 4,
+      "grade_label": "5m以上未滿10m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 4,
+          "3": 8,
+          "4": 12,
+          "5": 16
+        },
+        "2": {
+          "1": -4,
+          "2": 0,
+          "3": 4,
+          "4": 8,
+          "5": 12
+        },
+        "3": {
+          "1": -8,
+          "2": -4,
+          "3": 0,
+          "4": 4,
+          "5": 8
+        },
+        "4": {
+          "1": -12,
+          "2": -8,
+          "3": -4,
+          "4": 0,
+          "5": 4
+        },
+        "5": {
+          "1": -16,
+          "2": -12,
+          "3": -8,
+          "4": -4,
+          "5": 0
+        }
+      },
+      "max_adjustment": 16,
+      "effective_date": "TEST_ONLY",
+      "source_document": "tests/fixtures/competition/blind_case_changed_standard/blind_evaluation_standard.json",
+      "source_page": "TEST_ONLY",
+      "source_note": "STEP5 §14 Blind Case fixture -- TEST_ONLY / NON_OFFICIAL / BLIND_CASE_RULE. NOT an official evaluation standard; deliberately different grade bands and adjustment matrix (step=4, max=16) from the real static 主要道路寬度 rule (data/rules/regional_rules.json, step=3.75, max=15), used only to prove a CONFIRMED Case Rule genuinely changes both Grade and Adjustment Rate for the SAME 18m raw value (18m: static->普通/grade3, blind->稍優/grade2).",
+      "anomaly_flag": null
+    },
+    {
+      "rule_id": "REG-BLIND_MAIN_ROAD_WIDTH-05",
+      "version": "TEST_ONLY-blind-v1",
+      "city": "新北市",
+      "district": "金山區",
+      "land_use_type": "商業用地",
+      "category": "道路條件(1)",
+      "factor": "主要道路寬度",
+      "value_type": "numeric_range",
+      "unit": "M",
+      "direction": "positive",
+      "lower_bound": null,
+      "upper_bound": 5,
+      "lower_inclusive": null,
+      "upper_inclusive": false,
+      "grade": "劣",
+      "grade_code": 5,
+      "grade_label": "未滿5m",
+      "adjustment_matrix": {
+        "1": {
+          "1": 0,
+          "2": 4,
+          "3": 8,
+          "4": 12,
+          "5": 16
+        },
+        "2": {
+          "1": -4,
+          "2": 0,
+          "3": 4,
+          "4": 8,
+          "5": 12
+        },
+        "3": {
+          "1": -8,
+          "2": -4,
+          "3": 0,
+          "4": 4,
+          "5": 8
+        },
+        "4": {
+          "1": -12,
+          "2": -8,
+          "3": -4,
+          "4": 0,
+          "5": 4
+        },
+        "5": {
+          "1": -16,
+          "2": -12,
+          "3": -8,
+          "4": -4,
+          "5": 0
+        }
+      },
+      "max_adjustment": 16,
+      "effective_date": "TEST_ONLY",
+      "source_document": "tests/fixtures/competition/blind_case_changed_standard/blind_evaluation_standard.json",
+      "source_page": "TEST_ONLY",
+      "source_note": "STEP5 §14 Blind Case fixture -- TEST_ONLY / NON_OFFICIAL / BLIND_CASE_RULE. NOT an official evaluation standard; deliberately different grade bands and adjustment matrix (step=4, max=16) from the real static 主要道路寬度 rule (data/rules/regional_rules.json, step=3.75, max=15), used only to prove a CONFIRMED Case Rule genuinely changes both Grade and Adjustment Rate for the SAME 18m raw value (18m: static->普通/grade3, blind->稍優/grade2).",
+      "anomaly_flag": null
+    }
+  ],
+  "individual_rules": []
+}

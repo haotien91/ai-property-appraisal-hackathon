@@ -160,12 +160,15 @@ class RealNtpcZoningProvider(DataProvider):
                 notes=f"座標同時落在{len(matches)}個分區圖徵內（{names}），需人工確認正確分區{stale_note}",
             )
 
+        base_notes = (NOT_MOCK_NOTE + stale_note) if not is_stale else (NOT_MOCK_NOTE + " " + stale_note)
+        plan_name_note = matches[0].get("plan_name_note")
+        notes = f"{base_notes}；{plan_name_note}" if plan_name_note else base_notes
         return ZoningQueryResult(
             zone_name=matches[0]["zone_name"], plan_name=matches[0]["plan_name"],
             matched_polygon_count=1,
             dataset_id=DATASET_ID, dataset_version=snapshot.local_snapshot_version,
-            requires_manual_review=is_stale,
-            notes=(NOT_MOCK_NOTE + stale_note) if not is_stale else (NOT_MOCK_NOTE + " " + stale_note),
+            requires_manual_review=is_stale or bool(plan_name_note),
+            notes=notes,
         )
 
     def _query_local_snapshot(self, db_path: str, center: Coordinate) -> List[dict]:
@@ -177,15 +180,17 @@ class RealNtpcZoningProvider(DataProvider):
         conn = sqlite3.connect(db_path)
         try:
             rows = conn.execute(
-                """SELECT zone_name, plan_name, geometry_wkb FROM zoning_polygons
+                """SELECT zone_name, plan_name, plan_name_note, geometry_wkb FROM zoning_polygons
                    WHERE min_lon <= ? AND max_lon >= ? AND min_lat <= ? AND max_lat >= ?""",
                 (center.longitude, center.longitude, center.latitude, center.latitude),
             ).fetchall()
         finally:
             conn.close()
 
-        for zone_name, plan_name, geometry_wkb in rows:
+        for zone_name, plan_name, plan_name_note, geometry_wkb in rows:
             polygon = shapely_wkb.loads(geometry_wkb)
             if polygon.contains(pt):
-                matches.append({"zone_name": zone_name, "plan_name": plan_name})
+                matches.append({
+                    "zone_name": zone_name, "plan_name": plan_name, "plan_name_note": plan_name_note,
+                })
         return matches

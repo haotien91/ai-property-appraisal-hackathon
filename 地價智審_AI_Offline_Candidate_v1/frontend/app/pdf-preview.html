@@ -314,6 +314,17 @@
             .page-actions .btn { font-size: .72rem; padding: 5px 10px; }
             .pdf-workspace-page .mode-badge { display: none; }
         }
+        .document-toolbar { min-width: 0; }
+        .pdf-switcher { min-width: 0; overflow-x: auto; scrollbar-width: thin; scrollbar-color: #555 #19191c; }
+        .pdf-switch-btn { flex-shrink: 0; white-space: nowrap; }
+        .map-preview { position: relative; flex: 1; min-height: 0; height: 520px; background: #262626; }
+        .map-preview[hidden], #pdfViewer[hidden] { display: none !important; }
+        .map-preview img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .map-original { position: absolute; right: 12px; bottom: 12px; padding: 7px 12px; border: 1px solid var(--ai-border); border-radius: 5px; color: #fff; background: #19191ce8; font-size: .8rem; }
+        @media (min-width: 992px) {
+            .map-preview { height: 0; }
+            .pdf-switch-btn { padding: 8px; font-size: .76rem; }
+        }
     </style>
 
     <script src="js/config.js"></script>
@@ -355,6 +366,10 @@
 
                         <div class="document-toolbar"><div id="previewTabs" class="pdf-switcher"></div><details class="document-downloads"><summary>下載書表</summary><div id="downloadLinks" class="download-row"></div></details></div>
                         <iframe id="pdfViewer" class="pdf-viewer-frame" title="查估書表 PDF 預覽"></iframe>
+                        <div id="mapPreview" class="map-preview" hidden>
+                            <img id="mapPreviewImage" alt="">
+                            <a id="mapOriginal" class="map-original" target="_blank" rel="noopener">另開原圖</a>
+                        </div>
 
                     </section>
 
@@ -401,7 +416,7 @@
 
     <script>
         const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
-        document.getElementById('modeIndicator').textContent = mode;
+        document.getElementById('modeIndicator').textContent = window.APP_CONFIG.LOCAL_BACKEND ? '本機後端' : mode;
         CaseContext.applyCaseQueryToLinks();
 
         const FORM_DEFS = [
@@ -411,6 +426,10 @@
         ];
 
         let activeFormKey = 'table1';
+        const IMAGE_DEFS = ['P001', 'P002', 'P003', 'P004'].map(code => ({
+            key: code.toLowerCase(), label: `${code}區段圖`, icon: 'fa-map-location-dot',
+            url: `img/${code}.jpg`, image: true,
+        }));
         let activeFormLabel = FORM_DEFS[0].label;
 
         function cleanFormName(value) {
@@ -474,8 +493,17 @@
                     table4: { ...FORM_DEFS[2], url: exactTable4 ? exactTable4.url : (combined45 ? combined45.url : null) },
                 };
 
+                if (d.official_pdf_url) {
+                    [1, 5, 6].forEach((page, index) => {
+                        const form = forms[FORM_DEFS[index].key];
+                        form.url = d.official_pdf_url;
+                        form.page = page;
+                    });
+                }
+
                 const tabs = document.getElementById('previewTabs');
-                tabs.innerHTML = FORM_DEFS.map((def, index) => {
+                IMAGE_DEFS.forEach(def => { forms[def.key] = def; });
+                tabs.innerHTML = [...FORM_DEFS, ...IMAGE_DEFS].map((def, index) => {
                     const f = forms[def.key];
                     return `<button type="button" class="pdf-switch-btn${index === 0 ? ' active' : ''}" data-form-key="${def.key}" ${!f.url ? 'disabled' : ''}>
                         <i class="fa-solid ${def.icon} me-1"></i>${def.label}
@@ -489,6 +517,30 @@
         : `<button class="btn btn-download" disabled>${def.label}</button>`;
 }).join('');
 
+                if (d.official_pdf_url && window.APP_CONFIG.LOCAL_BACKEND) {
+                    const downloads = document.getElementById('downloadLinks');
+                    downloads.replaceChildren();
+                    const addDownload = (label, url) => {
+                        const link = document.createElement('a');
+                        link.className = 'btn btn-download';
+                        link.textContent = label;
+                        link.href = url;
+                        link.target = '_blank';
+                        link.rel = 'noopener';
+                        downloads.appendChild(link);
+                    };
+                    addDownload('下載完整六頁 PDF', d.official_pdf_url);
+                    Promise.all([Api.getExportExcel(caseNo), Api.getExportBundle(caseNo)])
+                        .then(([excel, bundle]) => {
+                            addDownload('下載 Excel', excel.excel_zip_url);
+                            addDownload('下載全部書表與 JSON', bundle.bundle_zip_url);
+                        }).catch(() => {
+                            const notice = document.createElement('span');
+                            notice.textContent = '補充匯出尚未就緒';
+                            downloads.appendChild(notice);
+                        });
+                }
+
 
                 function selectForm(key) {
                     const form = forms[key];
@@ -497,9 +549,20 @@
                     activeFormLabel = form.label;
                     document.querySelectorAll('.pdf-switch-btn').forEach(btn => {
                         btn.classList.toggle('active', btn.dataset.formKey === key);
+                        btn.setAttribute('aria-pressed', String(btn.dataset.formKey === key));
                     });
                     document.getElementById('activeFormTitle').textContent = form.label;
-                    document.getElementById('pdfViewer').src = `${form.url}#toolbar=1&navpanes=0&view=FitH`;
+                    const pdfViewer = document.getElementById('pdfViewer');
+                    pdfViewer.hidden = Boolean(form.image);
+                    document.getElementById('mapPreview').hidden = !form.image;
+                    if (form.image) {
+                        const previewImage = document.getElementById('mapPreviewImage');
+                        previewImage.src = form.url;
+                        previewImage.alt = `${form.label} 區段位置圖`;
+                        document.getElementById('mapOriginal').href = form.url;
+                    } else {
+                        pdfViewer.src = `${form.url}#page=${form.page || 1}&toolbar=1&navpanes=0&view=FitH`;
+                    }
                     document.getElementById('openCurrentPdf').href = form.url;
                     document.getElementById('chatContext').textContent = `目前檢視：${form.label}`;
                 }

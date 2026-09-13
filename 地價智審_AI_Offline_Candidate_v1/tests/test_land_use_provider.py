@@ -241,6 +241,7 @@ class TestGisEvidenceTraceabilityToDatasetRegistry:
         conn.execute(
             """CREATE TABLE zoning_polygons (
                 id INTEGER PRIMARY KEY AUTOINCREMENT, zone_name TEXT NOT NULL, plan_name TEXT,
+                plan_name_note TEXT,
                 geometry_wkb BLOB NOT NULL, min_lon REAL NOT NULL, max_lon REAL NOT NULL,
                 min_lat REAL NOT NULL, max_lat REAL NOT NULL
             )"""
@@ -249,8 +250,9 @@ class TestGisEvidenceTraceabilityToDatasetRegistry:
         # than large enough to contain it with no ambiguity.
         poly_wkb = box(121.0, 24.5, 122.0, 25.5).wkb
         conn.execute(
-            "INSERT INTO zoning_polygons (zone_name, plan_name, geometry_wkb, min_lon, max_lon, min_lat, max_lat) "
-            "VALUES (?, NULL, ?, 121.0, 122.0, 24.5, 25.5)",
+            "INSERT INTO zoning_polygons "
+            "(zone_name, plan_name, plan_name_note, geometry_wkb, min_lon, max_lon, min_lat, max_lat) "
+            "VALUES (?, NULL, NULL, ?, 121.0, 122.0, 24.5, 25.5)",
             (zone_name, poly_wkb),
         )
         conn.commit()

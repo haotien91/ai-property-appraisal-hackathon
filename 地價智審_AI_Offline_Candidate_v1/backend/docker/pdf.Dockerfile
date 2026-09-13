@@ -17,11 +17,31 @@ RUN pip install -r ${LAMBDA_TASK_ROOT}/requirements.txt --target ${LAMBDA_TASK_R
 
 # 共用引擎程式碼（與EngineLayer內容相同，Container Image路徑無法掛載zip Layer，
 # 故此處改為直接COPY進image）
+# FRONTEND-UNIFIED-EXPORT-WIRING-F2: `providers` was missing from this
+# COPY list entirely -- undetected until this round's real `sam local
+# start-api` end-to-end run (every prior round only ever called handler
+# functions directly in-process, which never exercises a genuine Lambda
+# cold start's actual import path). pdf_handler.py now transitively needs
+# it (via shulin_official_pdf_handler.py -> rule_engine_factory.py ->
+# providers/semantic_rule_mapping_provider.py) -- this bug would have
+# broken the ALREADY-PASSED E1 Official PDF endpoint in a real AWS
+# deployment too, not just the new F2 export routes. See backend/handlers/
+# runtime_paths.py's matching fix (adds these same 2 directories to
+# sys.path for the Container Image branch, previously only `pdf` was
+# added there).
 COPY domain ${LAMBDA_TASK_ROOT}/domain
 COPY engine ${LAMBDA_TASK_ROOT}/engine
+COPY providers ${LAMBDA_TASK_ROOT}/providers
 COPY pdf ${LAMBDA_TASK_ROOT}/pdf
 COPY data ${LAMBDA_TASK_ROOT}/data
 COPY schemas ${LAMBDA_TASK_ROOT}/schemas
+COPY export ${LAMBDA_TASK_ROOT}/export
 COPY backend/handlers ${LAMBDA_TASK_ROOT}/
 
+# SUPPLEMENTAL-JSON-EXCEL-EXPORT-H1: this SAME image is reused (via each
+# function's own ImageConfig.Command override in infra/template.yaml, NOT
+# a separate Dockerfile) for GetExportJsonFunction/GetExportExcelFunction/
+# GetExportBundleFunction -- openpyxl is added here for their Excel export
+# path; export/ is COPYed above for the same reason. This CMD remains
+# PdfFunction's own default entrypoint.
 CMD ["pdf_handler.get_pdf"]

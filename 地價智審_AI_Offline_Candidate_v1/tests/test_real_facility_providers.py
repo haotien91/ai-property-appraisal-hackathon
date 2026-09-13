@@ -202,6 +202,139 @@ class TestQtyField:
         assert "cemetery_qty" not in points
 
 
+class TestMockUtilityFixtureSemanticCleanup:
+    """TABLE1-MOCK-SEMANTIC-CLEANUP: MockSpecialFacilityProvider's
+    gas_tank_name must read unambiguously as a gas storage facility (not
+    an ordinary vehicle fuel/gas station), must never use a real company/
+    institution name, and must carry an explicit test-data marker in the
+    value itself. substation_name is unaffected (already unambiguous) --
+    audited here too, per Task 1, and confirmed unchanged/still safe."""
+
+    def test_gas_tank_fixture_no_longer_reads_as_a_fuel_station(self):
+        points = {p.field: p for p in special_facility_provider.MockSpecialFacilityProvider().fetch(CTX_WITH_COORD)}
+        value = points["gas_tank_name"].value
+        assert value != "中油金山站"
+        assert "中油" not in value  # no real petroleum company name
+        assert "站" not in value    # avoids the "...station" reading entirely
+        assert "瓦斯槽" in value or "儲油槽" in value  # unambiguously a tank, matching the official label
+        assert "測試" in value  # explicit test-data marker baked into the value itself
+
+    def test_gas_tank_fixture_marked_as_mock_not_official(self):
+        points = {p.field: p for p in special_facility_provider.MockSpecialFacilityProvider().fetch(CTX_WITH_COORD)}
+        assert points["gas_tank_name"].source_type == "Mock"
+        assert points["substation_name"].source_type == "Mock"
+
+    def test_substation_fixture_still_unambiguous_and_unchanged(self):
+        points = {p.field: p for p in special_facility_provider.MockSpecialFacilityProvider().fetch(CTX_WITH_COORD)}
+        assert points["substation_name"].value == "金山變電所"
+
+
+class TestNoFabricatedHighVoltageTowerOrOilStorageTankSource:
+    """TABLE1-MOCK-SEMANTIC-CLEANUP Task 4 #4: 表1's single "電業設施"
+    row combines TWO official sub-labels each (變電所"或"高壓鐵塔;
+    瓦斯槽"或"儲油槽) -- this codebase only ever sources the FIRST half
+    of each pair (變電所 via power=substation; 瓦斯槽 via man_made=
+    gasometer). There must be no code path anywhere that could report a
+    match specifically identified as "高壓鐵塔" (high-voltage tower) or
+    "儲油槽" (oil storage tank) -- neither has a verified OSM tag in this
+    provider, and none may ever be silently fabricated."""
+
+    def test_no_facility_spec_targets_high_voltage_tower_or_oil_tank_tags(self):
+        all_selectors = [
+            sel for spec in special_facility_provider.RealSpecialFacilityProvider.FACILITY_SPECS
+            for sel in spec.overpass_selectors
+        ]
+        # power=tower / power=line are OSM's actual tags for transmission
+        # towers/lines -- confirming neither is queried (no fabricated
+        # 高壓鐵塔 signal exists to begin with).
+        assert not any("tower" in sel for sel in all_selectors)
+        assert not any(sel.startswith("power=line") for sel in all_selectors)
+        # No oil-storage-tank-specific tag (e.g. man_made=storage_tank)
+        # is queried either -- 儲油槽 has no source at all, by design.
+        assert not any("storage_tank" in sel for sel in all_selectors)
+
+    def test_gas_tank_field_prefix_has_no_separate_oil_tank_identity(self):
+        """There is exactly ONE FacilitySpec for the combined "瓦斯槽或
+        儲油槽" row (field_prefix="gas_tank") -- confirming this round's
+        audit didn't leave behind a second, separate field/spec that
+        could be mistaken for a genuine "儲油槽"-specific source."""
+        prefixes = [s.field_prefix for s in special_facility_provider.RealSpecialFacilityProvider.FACILITY_SPECS]
+        assert prefixes.count("gas_tank") == 1
+        assert prefixes.count("substation") == 1
+        assert not any("oil" in p or "tower" in p for p in prefixes)
+
+
+class TestGasTankOsmTagSemanticSafety:
+    """TABLE1-UTILITY-SAFETY-GATE: gas_tank's OSM query must never be able
+    to match an ordinary vehicle fuel/gas STATION (amenity=fuel) and
+    report it under the official "瓦斯槽或儲油槽" (gas tank/oil storage
+    tank) label -- the two are not the same facility type, and a fuel
+    station is common enough in OSM data that it would routinely win the
+    "nearest" comparison over a genuine, much rarer gasometer."""
+
+    def test_gas_tank_spec_no_longer_queries_amenity_fuel(self):
+        specs = {s.field_prefix: s for s in special_facility_provider.RealSpecialFacilityProvider.FACILITY_SPECS}
+        assert "gas_tank" in specs
+        assert "amenity=fuel" not in specs["gas_tank"].overpass_selectors
+        assert list(specs["gas_tank"].overpass_selectors) == ["man_made=gasometer"]
+
+    def test_gas_tank_lookup_only_ever_requests_the_safe_tag(self, monkeypatch):
+        """Spies on the actual selectors passed to find_nearest_facility
+        for every FacilitySpec this provider fetches -- confirms the fix
+        is live in the real call path, not just declared in the spec
+        list (which could theoretically be overridden elsewhere)."""
+        calls = []
+
+        def fake(center, overpass_selectors, radius_m, **kwargs):
+            calls.append(list(overpass_selectors))
+            return FOUND_RESULT
+
+        monkeypatch.setattr(real_facility_provider_base, "find_nearest_facility", fake)
+        monkeypatch.setattr(real_facility_provider_base.time, "sleep", lambda s: None)
+        special_facility_provider.RealSpecialFacilityProvider().fetch(CTX_WITH_COORD)
+
+        gas_tank_index = [s.field_prefix for s in
+                           special_facility_provider.RealSpecialFacilityProvider.FACILITY_SPECS].index("gas_tank")
+        assert "amenity=fuel" not in calls[gas_tank_index]
+        assert calls[gas_tank_index] == ["man_made=gasometer"]
+
+    def test_ordinary_fuel_station_result_is_never_reported_as_gas_tank(self, monkeypatch):
+        """Simulates the exact false-positive scenario: an ordinary gas
+        station found nearby (this is what an amenity=fuel-only match
+        would have looked like before the fix). Since the provider no
+        longer sends amenity=fuel to Overpass at all, the mocked lookup
+        here stands in for "whatever Overpass legitimately returns for
+        the now-narrower man_made=gasometer-only query" -- a real fuel
+        station can no longer be the source of this value, because the
+        query that could have matched it no longer exists. This test
+        exists to catch a regression if amenity=fuel is ever re-added."""
+        specs = {s.field_prefix: s for s in special_facility_provider.RealSpecialFacilityProvider.FACILITY_SPECS}
+        assert all(sel != "amenity=fuel" for sel in specs["gas_tank"].overpass_selectors), (
+            "amenity=fuel must never be part of gas_tank's OSM query -- "
+            "it identifies an ordinary vehicle fuel station, not a gas "
+            "tank/oil storage tank, and is common enough to routinely "
+            "false-positive against a genuine (much rarer) gasometer."
+        )
+
+    def test_subtype_never_derived_from_name_text_containing_gas_or_tank_words(self, monkeypatch):
+        """Task 6 #5: even when a facility IS found (via the safe
+        man_made=gasometer query), the provider must report it purely by
+        field-prefix identity -- it must never additionally inspect the
+        facility's own name string for "瓦斯"/"油槽"-like substrings to
+        decide whether to accept/reject it. Verified here by confirming
+        gas_tank_name is populated unconditionally from whatever
+        find_nearest_facility returns, with no name-content filtering
+        logic in the provider at all (RealFacilityProviderBase._facility_
+        datapoints has no such check -- see real_facility_provider_base.py)."""
+        arbitrary_name_result = FOUND_RESULT  # facility.name == "測試設施", contains neither "瓦斯" nor "油槽"
+        monkeypatch.setattr(real_facility_provider_base, "find_nearest_facility", lambda *a, **k: arbitrary_name_result)
+        monkeypatch.setattr(real_facility_provider_base.time, "sleep", lambda s: None)
+        points = _by_field(special_facility_provider.RealSpecialFacilityProvider().fetch(CTX_WITH_COORD))
+        # Reported anyway -- identity comes from WHICH query matched
+        # (man_made=gasometer), never from parsing the returned name text.
+        assert points["gas_tank_name"].value == "測試設施"
+
+
 class TestReq010DistanceMethodSelection:
     """Phase 1 REQ-010: convenience-type (distance_positive) facilities use
     walking ROUTE distance; nuisance-type (distance_negative) facilities

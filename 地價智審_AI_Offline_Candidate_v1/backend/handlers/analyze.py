@@ -6,8 +6,6 @@ Calculation step)."""
 from __future__ import annotations
 
 import sys
-import os
-import json
 
 import runtime_paths  # noqa: E402
 runtime_paths.bootstrap()
@@ -15,24 +13,11 @@ runtime_paths.bootstrap()
 from common import response, error_response, timed_step  # noqa: E402
 import case_store  # noqa: E402
 
-from rule_engine import RuleEngine  # noqa: E402
 from grade_engine import GradeEngine, GradeEngineError  # noqa: E402
 from adjustment_engine import AdjustmentEngine  # noqa: E402
 from domain.models import FactorInput, Evidence, SourceType, PartyRole  # noqa: E402
-
-_RULE_ENGINE = None
-
-
-def _load_rule_engine():
-    global _RULE_ENGINE
-    if _RULE_ENGINE is None:
-        data_dir = runtime_paths.data_dir()
-        with open(os.path.join(data_dir, "rules", "regional_rules.json"), encoding="utf-8") as f:
-            reg = json.load(f)["rules"]
-        with open(os.path.join(data_dir, "rules", "individual_rules.json"), encoding="utf-8") as f:
-            ind = json.load(f)["rules"]
-        _RULE_ENGINE = RuleEngine(reg + ind)
-    return _RULE_ENGINE
+from rule_engine_factory import build_rule_engine_for_case, RuleProfileNotReadyError  # noqa: E402
+from case_rule_repository import CaseRulePackageInvalidError  # noqa: E402
 
 
 def analyze(event, context):
@@ -43,7 +28,14 @@ def analyze(event, context):
         if meta is None or factors_record is None:
             return error_response(404, "CASE_NOT_FOUND", f"案件 {case_no} 尚未收集資料")
 
-        rule_engine = _load_rule_engine()
+        try:
+            rule_engine, rule_resolution = build_rule_engine_for_case(
+                case_no, rule_profile_id=meta.get("rule_profile_id"),
+            )
+        except RuleProfileNotReadyError as e:
+            return error_response(409, "RULE_PROFILE_NOT_READY", str(e))
+        except CaseRulePackageInvalidError as e:
+            return error_response(409, "CASE_RULE_INVALID", f"{e}. MANUAL_REVIEW_REQUIRED")
         grade_engine = GradeEngine(rule_engine)
         adjustment_engine = AdjustmentEngine(rule_engine)
 
@@ -76,14 +68,26 @@ def analyze(event, context):
                                                          field_id, comp_fi, PartyRole.COMPARABLE, comparable_id,
                                                          rule_set=rule_set)
                     adj = adjustment_engine.compute_adjustment(base_g, comp_g)
+                    trace = rule_resolution.trace_by_rule_id.get(base_g.rule_result.rule_id)
                     grades.append({"field_id": field_id, "factor": b["factor"],
                                     "grade": f"base={base_g.rule_result.grade}, comp={comp_g.rule_result.grade}",
-                                    "rule_id": base_g.rule_result.rule_id})
+                                    "rule_id": base_g.rule_result.rule_id,
+                                    "rule_source_type": trace.rule_source_type.value if trace else None})
                     adjustments.append({"field_id": field_id, "factor": b["factor"],
-                                         "adjustment_pct": str(adj.adjustment_pct), "rule_id": adj.rule_id})
+                                         "adjustment_pct": str(adj.adjustment_pct), "rule_id": adj.rule_id,
+                                         "rule_source_type": trace.rule_source_type.value if trace else None})
                 except GradeEngineError as e:
                     unresolved.append({"field_id": field_id, "reason": "RULE_NOT_FOUND", "factor": b.get("factor", "")})
 
-        case_store.put_record(case_no, "ANALYSIS", {"grades": grades, "adjustments": adjustments})
+        analysis_record = {
+            "grades": grades, "adjustments": adjustments,
+            "rule_resolution_status": rule_resolution.resolution_status,
+            "rule_package_id": rule_resolution.package_id,
+            "rule_resolution_warnings": rule_resolution.warnings,
+        }
+        case_store.put_record(case_no, "ANALYSIS", analysis_record)
         return response(200, {"case_no": case_no, "grades": grades, "adjustments": adjustments,
-                               "unresolved_factors": unresolved})
+                               "unresolved_factors": unresolved,
+                               "rule_resolution_status": rule_resolution.resolution_status,
+                               "rule_package_id": rule_resolution.package_id,
+                               "rule_resolution_warnings": rule_resolution.warnings})

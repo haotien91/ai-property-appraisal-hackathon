@@ -29,11 +29,17 @@ from domain.models import (  # noqa: E402
     AdjustmentResult, GradeResult, RuleResult, Evidence, SourceType, PartyRole,
     CompetitionCase, FieldStatus,
 )
-from engine.grade_engine import GradeEngine  # noqa: E402
-from engine.adjustment_engine import AdjustmentEngine  # noqa: E402
-from engine.calculation_engine import CalculationEngine  # noqa: E402
-from engine.comparable_selection_engine import ComparableSelectionEngine  # noqa: E402
-from engine.form_completion_engine import FormCompletionEngine  # noqa: E402
+# SHULIN-COMPETITION-RULE-PACK-A2-FINAL-GATE-1 Task 4 fix: bare imports (not
+# "engine.xxx"), matching form_completion_engine.py's own internal imports
+# (changed in the same round for the same reason -- see that module's
+# import-block comment) so this test's directly-constructed instances share
+# ONE canonical module identity with the ones FormCompletionEngine builds
+# internally, rather than two distinct classes of the same name.
+from grade_engine import GradeEngine  # noqa: E402
+from adjustment_engine import AdjustmentEngine  # noqa: E402
+from calculation_engine import CalculationEngine  # noqa: E402
+from comparable_selection_engine import ComparableSelectionEngine  # noqa: E402
+from form_completion_engine import FormCompletionEngine  # noqa: E402
 from golden_case_input import case as GOLDEN_CASE, BASE_REGIONAL, COMP_REGIONAL  # noqa: E402
 
 

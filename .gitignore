@@ -30,6 +30,8 @@ __pycache__/
 .ruff_cache/
 .tox/
 .nox/
+地價智審_AI_Offline_Candidate_v1/data/local_cases/
+地價智審_AI_Offline_Candidate_v1/data/public_data_cache/
 .aws-sam/
 coverage/
 .coverage
