@@ -650,6 +650,32 @@ def collect_data(event, context):
         factors_sk = competition_segments.factors_sk(segment_code)
 
         body = parse_body(event)
+        if isinstance(body, dict) and body.get("acquisition_strategy") == "public":
+            from providers.public_data_collector import PublicDataCollector
+            from providers.public_http import PublicHttpClient
+            import tempfile
+            previous = case_store.get_record(case_no, factors_sk) or {}
+            request = {**meta, **body, "case_no": case_no,
+                       "district": effective_district, "segment_code": effective_segment_code,
+                       "base_parcel_id": effective_parcel_id}
+            request["competition_provided_factors"] = body.get(
+                "competition_provided_factors", previous.get("competition_provided_factors", []),
+            )
+            try:
+                result = PublicDataCollector(PublicHttpClient(
+                    cache_dir=os.path.join(tempfile.gettempdir(), "valuation-public-data"))).collect(request)
+            except (ValueError, TypeError) as exc:
+                return error_response(400, "VALIDATION_ERROR", str(exc))
+            # Preserve prior user/fixed/transaction evidence. Reference-only spatial
+            # estimates are exported as draft fields, never promoted to grades.
+            record = {**previous, "segment_code": segment_code, "public_data_draft": result,
+                      "points": result["points"]}
+            for key in ("competition_provided_factors", "competition_provided_individual_factors",
+                        "competition_provided_transaction", "user_submitted_factors"):
+                if key in body:
+                    record[key] = body[key]
+            case_store.put_record(case_no, factors_sk, record)
+            return response(200, result)
         # Phase API-2.3F §3: submitted/official/nominatim are three
         # INDEPENDENT evidences (none overwrites another) computed once
         # here and persisted in full below; `analysis_coordinate` is the

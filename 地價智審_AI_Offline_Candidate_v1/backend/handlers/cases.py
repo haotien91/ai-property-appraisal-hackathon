@@ -102,6 +102,9 @@ def create_case(event, context):
 
         meta = {
             "case_no": case.case_no, "segment_code": case.segment_code,
+            "appraisal_period": case.appraisal_period,
+            "appraisal_base_date": case.appraisal_base_date,
+            "base_parcel_id": case.base_parcel_id, "comparable_ids": case.comparable_ids,
             "district": case.district, "status": "IN_PROGRESS",
             # city/segment_scope: needed by collect_data.py to geocode a
             # center coordinate for the Real*Provider (OSM) path when

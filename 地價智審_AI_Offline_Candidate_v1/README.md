@@ -1,5 +1,17 @@
 # 地價智審 AI
 
+## 原始簡化流程＋後端自動產表
+
+前端維持原本的簡化工作流程。使用者在 `case-new.html` 上傳查估書與評價基準明細表後，後端會從文件及公開資料源補齊有證據的資料，套用既有規則引擎，產生表 3、表 5-1、表 4 的六頁正式 PDF。
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r backend\requirements-local-app.txt
+powershell -ExecutionPolicy Bypass -File .\start-app.ps1
+```
+
+啟動後開啟 `http://127.0.0.1:8000/case-new.html`。資料來源、欄位狀態與限制見 [`docs/automatic_data_pipeline.md`](docs/automatic_data_pipeline.md)。
+
 **AI 輔助不動產估價案件審查系統**｜2026 新北市 AI 智慧城市黑客松・地政局組
 
 > 「以前」：人工查資料 → 人工查規則 → 人工計算 → 人工填表 → 人工跨表比對

@@ -184,6 +184,9 @@ def export_table51_excel(bundle: CaseExportBundle, out_path: str) -> None:
 
         _write(ws, mapping.get(f"grand_total.{slot}_pct"), comp.get("total_adjustment_pct"))
 
+    for key, text in (t51.get("remarks") or {}).items():
+        _write(ws, mapping.get(f"remarks.{key}"), text)
+
     wb.save(out_path)
     after_sha = _sha256(TABLE51_SOURCE_XLSX)
     if before_sha != after_sha:
@@ -216,9 +219,11 @@ def export_table4_excel(bundle: CaseExportBundle, out_path: str) -> None:
             _write(ws, mapping.get(f"{slot}.{suffix}"), comp.get(suffix))
         _write(ws, mapping.get(f"{slot}.segment_code"), comp.get("comparable_segment_code"))
 
-        # Task 10: weight stays blank unless HUMAN_CONFIRMED (structurally
-        # true today -- D1 never produces that status).
-        if comp.get("weight_status") == "HUMAN_CONFIRMED":
+        # Task 10: weight stays blank unless HUMAN_CONFIRMED, or a disclosed
+        # SYSTEM_AUXILIARY suggestion on an opt-in PARTIAL_DRAFT analysis.
+        draft_weight = (t4.get("calculation_mode") == "PARTIAL_DRAFT"
+                        and comp.get("weight_status") == "SYSTEM_AUXILIARY_SUGGESTION")
+        if comp.get("weight_status") == "HUMAN_CONFIRMED" or draft_weight:
             _write(ws, mapping.get(f"{slot}.weight_pct"), comp.get("weight_pct"))
 
         for fr in comp.get("individual_factor_results", []):
@@ -226,8 +231,11 @@ def export_table4_excel(bundle: CaseExportBundle, out_path: str) -> None:
             _write(ws, mapping.get(f"individual.{fr['field_id']}.{slot}_raw"), fr.get("comparable_raw_value"))
             _write(ws, mapping.get(f"individual.{fr['field_id']}.{slot}_pct"), fr.get("adjustment_pct"))
 
-    # base_comparison_price: Table4Analysis carries no such field at all
-    # (Task 11) -- nothing to read, nothing written, structurally blank.
+    # base_comparison_price: only PARTIAL_DRAFT analyses carry one; strict
+    # D1 analyses leave it None, so the cell stays blank for them.
+    _write(ws, mapping.get("base_comparison_price"), t4.get("base_comparison_price"))
+    for key, text in (t4.get("remarks") or {}).items():
+        _write(ws, mapping.get(f"remarks.{key}"), text)
 
     wb.save(out_path)
     after_sha = _sha256(TABLE4_SOURCE_XLSX)

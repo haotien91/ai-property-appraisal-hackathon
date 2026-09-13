@@ -95,11 +95,15 @@ def extract_individual_rule_records(rule_engine) -> List[dict]:
 
 class Table4AnalysisEngine:
     def __init__(self, grade_engine: GradeEngine, adjustment_engine: AdjustmentEngine,
-                 calculation_engine: CalculationEngine, individual_rule_records: List[dict]):
+                 calculation_engine: CalculationEngine, individual_rule_records: List[dict],
+                 allow_partial: bool = False):
         self._grade = grade_engine
         self._adjustment = adjustment_engine
         self._calc = calculation_engine
         self._catalog = build_individual_factor_catalog(individual_rule_records)
+        # Opt-in draft mode for the public-data auto-fill pipeline. FAR has no
+        # rule record, so a strict comparison can never produce a total.
+        self._allow_partial = allow_partial
 
     @property
     def factor_count(self) -> int:
@@ -238,10 +242,11 @@ class Table4AnalysisEngine:
             base_individual_factors, comparable_individual_factors,
         )
         any_individual_manual_review = any(r.requires_manual_review for r in factor_results)
-        individual_total = (
-            None if any_individual_manual_review
-            else self._calc.individual_adjustment_total(adjustments).raw_result
-        )
+        excluded = [r.field_id for r in factor_results if r.requires_manual_review] if self._allow_partial else []
+        if any_individual_manual_review and not (self._allow_partial and adjustments):
+            individual_total = None
+        else:
+            individual_total = self._calc.individual_adjustment_total(adjustments).raw_result
 
         regional_pct = regional_comparison.total_adjustment_pct
         regional_manual_review = regional_comparison.requires_manual_review
@@ -273,7 +278,11 @@ class Table4AnalysisEngine:
                 reasons.append("Table5-1 區域因素修正未完全解析")
             if adjusted_price is None:
                 reasons.append("缺少調整至估價基準日單價（題目固定值）")
+            if excluded:
+                names = [r.factor_name for r in factor_results if r.field_id in excluded]
+                reasons.append("PARTIAL_DRAFT 試算未納入之個別因素：" + "、".join(names))
             reason = "；".join(reasons) if reasons else None
+        partial = self._allow_partial and bool(excluded or regional_comparison.calculation_mode == "PARTIAL_DRAFT")
 
         return Table4Comparison(
             comparable_segment_code=comparable_segment_code, comparison_index=comparison_index,
@@ -300,6 +309,8 @@ class Table4AnalysisEngine:
             status=FieldStatus.MANUAL_REVIEW_REQUIRED if overall_manual_review else FieldStatus.COMPLETED,
             requires_manual_review=overall_manual_review,
             reason=reason,
+            calculation_mode="PARTIAL_DRAFT" if partial else None,
+            excluded_factor_ids=excluded,
         )
 
     def build_analysis(
@@ -310,3 +321,31 @@ class Table4AnalysisEngine:
             case_id=case_id, base_segment_code=base_segment_code,
             rule_profile_id=rule_profile_id, comparisons=comparisons,
         )
+
+    def apply_suggested_weights(self, analysis: Table4Analysis) -> Table4Analysis:
+        """PARTIAL_DRAFT only: attaches ComparableSelectionEngine's disclosed,
+        non-statutory inverse-adjustment weights (still flagged for human
+        confirmation) and the resulting draft base comparison price. Returns
+        the analysis unchanged unless every comparable has a trial price."""
+        from comparable_selection_engine import ComparableSelectionEngine
+        comparisons = analysis.comparisons
+        if not self._allow_partial or not comparisons or any(
+                c.trial_price is None or c.adjustment_abs_sum is None for c in comparisons):
+            return analysis
+        suggestions = ComparableSelectionEngine().suggest_weights(
+            {c.comparable_segment_code: c.adjustment_abs_sum for c in comparisons})
+        basis = ("SYSTEM_AUXILIARY：依各比較標的調整百分率絕對值加總之反比例（1/(|調整|+1)）正規化至100%，"
+                 "非不動產估價技術規則§27法定公式，需人工確認")
+        weighted = [c.model_copy(update={
+            "weight_pct": suggestions[c.comparable_segment_code].suggested_weight_pct,
+            "weight_status": Table4WeightStatus.SYSTEM_AUXILIARY_SUGGESTION,
+            "weight_requires_human_confirmation": True, "weight_basis": basis,
+        }) for c in comparisons]
+        price = self._calc.base_parcel_comparison_price(
+            {c.comparable_segment_code: c.trial_price for c in weighted},
+            {c.comparable_segment_code: c.weight_pct for c in weighted})
+        return analysis.model_copy(update={
+            "comparisons": weighted, "calculation_mode": "PARTIAL_DRAFT",
+            "base_comparison_price": price.rounded_result,
+            "base_comparison_price_basis": "PARTIAL_DRAFT：試算價格依系統建議權重加權平均，四捨五入至個位數；需人工複核",
+        })

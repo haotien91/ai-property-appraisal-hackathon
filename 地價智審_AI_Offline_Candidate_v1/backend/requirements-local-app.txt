@@ -1,0 +1,5 @@
+# Install in the project-root virtual environment.
+pydantic>=2,<3
+shapely>=2,<3
+pymupdf>=1.24,<2
+openpyxl>=3.1,<4

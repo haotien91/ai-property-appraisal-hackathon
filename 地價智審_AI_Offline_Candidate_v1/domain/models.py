@@ -535,6 +535,10 @@ class Table51Comparison(BaseModel):
     total_adjustment_pct: Optional[Decimal] = None
     status: FieldStatus
     requires_manual_review: bool = False
+    calculation_mode: Optional[str] = Field(
+        None, description="None = fail-closed totals; PARTIAL_DRAFT = totals over resolved factors only")
+    excluded_factor_ids: List[str] = Field(
+        default_factory=list, description="PARTIAL_DRAFT only: factors left out of subtotals/total")
 
 
 class Table51Analysis(BaseModel):
@@ -547,6 +551,8 @@ class Table51Analysis(BaseModel):
     base_segment_code: str
     rule_profile_id: Optional[str] = None
     comparisons: List[Table51Comparison] = Field(default_factory=list)
+    remarks: Dict[str, str] = Field(
+        default_factory=dict, description="備註欄 text keyed base/comp1/comp2/comp3/whole_case")
 
 
 # ---------------------------------------------------------------------------
@@ -657,6 +663,9 @@ class Table4Comparison(BaseModel):
     status: FieldStatus
     requires_manual_review: bool = False
     reason: Optional[str] = None
+    calculation_mode: Optional[str] = Field(
+        None, description="None = fail-closed; PARTIAL_DRAFT = trial price over resolved factors only")
+    excluded_factor_ids: List[str] = Field(default_factory=list)
 
 
 class Table4Analysis(BaseModel):
@@ -668,6 +677,12 @@ class Table4Analysis(BaseModel):
     base_segment_code: str
     rule_profile_id: Optional[str] = None
     comparisons: List[Table4Comparison] = Field(default_factory=list)
+    calculation_mode: Optional[str] = None
+    base_comparison_price: Optional[Decimal] = Field(
+        None, description="PARTIAL_DRAFT only: weighted by SYSTEM_AUXILIARY weights, still needs human review")
+    base_comparison_price_basis: Optional[str] = None
+    remarks: Dict[str, str] = Field(
+        default_factory=dict, description="備註欄 text keyed base/comp1/comp2/comp3/whole_case")
 
 
 # ---------------------------------------------------------------------------

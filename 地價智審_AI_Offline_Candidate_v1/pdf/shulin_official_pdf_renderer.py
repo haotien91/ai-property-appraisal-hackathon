@@ -247,7 +247,13 @@ class _Overlay:
         # also never silently discard a REAL computed value merely for
         # being long).
         padded_rect = fitz.Rect(rect.x0 + left_margin, rect.y0, rect.x1 - right_margin, rect.y1)
-        page.insert_textbox(padded_rect, text, fontname="cjk", fontsize=min_size, align=align)
+        size = min_size
+        # insert_textbox() writes nothing when text overflows its box, so keep
+        # shrinking a little further instead of silently dropping the value.
+        while size >= 3.5:
+            if page.insert_textbox(padded_rect, text, fontname="cjk", fontsize=size, align=align) >= 0:
+                return
+            size -= 0.5
 
 
 # ---------------------------------------------------------------------------
@@ -255,6 +261,100 @@ class _Overlay:
 # ONLY that segment's own raw regional-factor data (never shared across
 # segments -- TASK 4's "no cross-contamination" requirement).
 # ---------------------------------------------------------------------------
+
+# 表3 prints one ○本區段內/○本區段外 pair per facility line. The rows are found
+# on the template's own text layer (pinned by sha256) and matched in form order.
+_TABLE3_LEFT_ROWS = (
+    "major_station_hsr", "major_station_train", "major_station_bus", "major_station_mrt", "bus_stop", "interchange",
+    "school_elementary", "school_junior_high", "school_senior_high", "school_college",
+    "market", "market_2", "market_3", "park", "park_2", "park_3",
+)
+_TABLE3_RIGHT_ROWS = (
+    "tourism_facility", "parking_lot", "service_facility", "substation", "gas_tank",
+    "cemetery", "funeral_home", "crematorium", "columbarium", "sewage_plant", "landfill", "incinerator",
+    "water_pollution", "noise_pollution", "air_pollution", "waste_pollution", "other_pollution",
+    "department_store", "financial_institution", "entertainment_facility", "exhibition_hotel",
+)
+_TABLE3_LEADING_MARK_ROWS = {
+    "major_station_hsr", "major_station_train", "major_station_bus", "major_station_mrt",
+    "school_elementary", "school_junior_high", "school_senior_high", "school_college", "market", "park",
+    "cemetery", "funeral_home", "crematorium", "columbarium", "sewage_plant", "landfill", "incinerator",
+    "water_pollution", "noise_pollution", "air_pollution", "waste_pollution", "other_pollution",
+}
+_TABLE3_STATION_LABELS = {"major_station_hsr": "高鐵站", "major_station_train": "火車站",
+                          "major_station_bus": "客運站", "major_station_mrt": "捷運站"}
+# Only used when no segment polygon exists: a distance from one representative
+# point cannot prove which side of the boundary a facility lies on.
+_TABLE3_INSIDE_FALLBACK_M = 150.0
+
+
+def _center_y(rect) -> float:
+    return (rect.y0 + rect.y1) / 2
+
+
+def _table3_row_anchors(page: "fitz.Page") -> Dict[str, dict]:
+    circles = page.search_for("○")
+    units = page.search_for("M)")
+    outside_hits = page.search_for("本區段外")
+
+    def glyph_before(text_rect):
+        if text_rect is None:
+            return None
+        found = [c for c in circles
+                 if abs(_center_y(c) - _center_y(text_rect)) <= 3 and -1.0 <= text_rect.x0 - c.x1 <= 3.0]
+        return max(found, key=lambda c: c.x1, default=None)
+
+    rows = []
+    for inside_text in page.search_for("本區段內"):
+        cy = _center_y(inside_text)
+        outside_text = min((o for o in outside_hits if abs(_center_y(o) - cy) <= 3 and o.x0 > inside_text.x0),
+                           key=lambda o: o.x0, default=None)
+        inside, outside = glyph_before(inside_text), glyph_before(outside_text)
+        if inside is None or outside is None:
+            continue
+        side_min = 60.0 if inside.x0 < 300 else 300.0
+        lead = max((c for c in circles if abs(_center_y(c) - cy) <= 4 and c.x0 >= side_min and c.x1 < inside.x0 - 40),
+                   key=lambda c: c.x0, default=None)
+        unit = min((u for u in units if abs(_center_y(u) - cy) <= 4 and u.x0 > outside_text.x1),
+                   key=lambda u: u.x0, default=None)
+        rows.append({"left": inside.x0 < 300, "cy": cy, "inside": inside, "outside": outside, "lead": lead,
+                     "outside_text": outside_text, "unit": unit})
+    anchors: Dict[str, dict] = {}
+    for is_left, names in ((True, _TABLE3_LEFT_ROWS), (False, _TABLE3_RIGHT_ROWS)):
+        side_rows = sorted((r for r in rows if r["left"] == is_left), key=lambda r: r["cy"])
+        if len(side_rows) == len(names):
+            anchors.update(zip(names, side_rows))
+    return anchors
+
+
+def _mark(page: "fitz.Page", glyph) -> None:
+    radius = min(glyph.width, glyph.height) * 0.3
+    page.draw_circle(fitz.Point((glyph.x0 + glyph.x1) / 2, _center_y(glyph)), radius,
+                     color=(0, 0, 0), fill=(0, 0, 0), width=0.5)
+
+
+def _draw_table3_facility_marks(overlay: _Overlay, page: "fitz.Page", raw_values: Dict[str, Any]) -> None:
+    for prefix, row in _table3_row_anchors(page).items():
+        name = raw_values.get(f"{prefix}_name")
+        distance = raw_values.get(f"{prefix}_distance_m")
+        within = raw_values.get(f"{prefix}_within_segment")
+        if prefix in _TABLE3_STATION_LABELS:
+            label = page.search_for(_TABLE3_STATION_LABELS[prefix])
+            label_x0 = label[0].x0 if label else row["inside"].x0 - 20
+            name_x0 = (row["lead"].x1 if row["lead"] is not None else row["inside"].x0 - 80) + 2
+            y0, y1 = row["cy"] - 5.5, row["cy"] + 4.5
+            overlay.write(page, {"rect": [name_x0, y0, label_x0 - 2, y1], "font_size": 6.5, "min_font_size": 4.5}, name)
+            if row["unit"] is not None:
+                overlay.write(page, {"rect": [row["outside_text"].x1 + 9, y0, row["unit"].x0 - 1, y1],
+                                     "align": "right", "formatter": "int_no_unit", "font_size": 7}, distance)
+        if within is None and distance is None:
+            continue
+        if within is None:
+            within = float(distance) <= _TABLE3_INSIDE_FALLBACK_M
+        _mark(page, row["inside"] if within else row["outside"])
+        if prefix in _TABLE3_LEADING_MARK_ROWS and row["lead"] is not None:
+            _mark(page, row["lead"])
+
 
 def build_table3_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.Page", segment_code: str,
                        raw_values: Dict[str, Any]) -> None:
@@ -265,7 +365,22 @@ def build_table3_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.P
         entry = mapping.get(field_id)
         if entry is None:
             continue  # no coordinate known for this field -- never guessed
+        if entry.get("kind") == "checkbox_multiselect" and field_id == "land_use_status":
+            selected = {str(item) for item in (value if isinstance(value, (list, tuple, set)) else [value])}
+            # The ○ printed immediately left of each label on the template's
+            # own 土地利用現況 row (lowest hit, so 表頭 text never matches).
+            circles = page.search_for("○")
+            for label in selected:
+                hits = sorted(page.search_for(label), key=lambda r: r.y0)
+                label_rect = hits[-1] if hits else None
+                glyph = label_rect and max(
+                    (c for c in circles if abs(_center_y(c) - _center_y(label_rect)) <= 3
+                     and -1.0 <= label_rect.x0 - c.x1 <= 3.0), key=lambda c: c.x1, default=None)
+                if glyph:
+                    _mark(page, glyph)
+            continue
         overlay.write(page, entry, value)
+    _draw_table3_facility_marks(overlay, page, raw_values)
 
 
 # ---------------------------------------------------------------------------
@@ -313,6 +428,11 @@ def build_table51_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.
         if grand_entry is not None:
             overlay.write(page, grand_entry, comparison.total_adjustment_pct)
 
+    for key, text in (getattr(table51_analysis, "remarks", None) or {}).items():
+        entry = mapping.get(f"remarks.{key}")
+        if entry is not None:
+            overlay.write(page, entry, text)
+
 
 # ---------------------------------------------------------------------------
 # TABLE4 -- directly from the already-computed Table4Analysis (D1 runtime
@@ -359,7 +479,9 @@ def build_table4_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.P
         # written -- SYSTEM_AUXILIARY_SUGGESTION/MANUAL_REVIEW_REQUIRED
         # (the only statuses D1 can currently produce) leave this blank.
         weight_entry = mapping.get(f"{slot}.weight_pct")
-        if weight_entry is not None and comparison.weight_status == "HUMAN_CONFIRMED":
+        draft_weight = (getattr(table4_analysis, "calculation_mode", None) == "PARTIAL_DRAFT"
+                        and comparison.weight_status == "SYSTEM_AUXILIARY_SUGGESTION")
+        if weight_entry is not None and (comparison.weight_status == "HUMAN_CONFIRMED" or draft_weight):
             overlay.write(page, weight_entry, comparison.weight_pct)
 
         for fr in comparison.individual_factor_results:
@@ -373,11 +495,15 @@ def build_table4_page(overlay: _Overlay, mapping: Dict[str, dict], page: "fitz.P
             if comp_pct_entry is not None:
                 overlay.write(page, comp_pct_entry, fr.adjustment_pct)
 
-    # base_comparison_price: Table4Analysis has no such field at all (D1
-    # never computes a final weighted base-comparison price) -- there is
-    # nothing to read, so this is never written. Task 8's "no fabricated
-    # base comparison price" is satisfied structurally, not by a runtime
-    # check, since the data simply does not exist.
+    # base_comparison_price: only the opt-in PARTIAL_DRAFT pipeline sets it;
+    # strict D1 analyses leave it None, so nothing is written for them.
+    price = getattr(table4_analysis, "base_comparison_price", None)
+    if price is not None and "base_comparison_price" in mapping:
+        overlay.write(page, mapping["base_comparison_price"], price)
+    for key, text in (getattr(table4_analysis, "remarks", None) or {}).items():
+        entry = mapping.get(f"remarks.{key}")
+        if entry is not None:
+            overlay.write(page, entry, text)
 
 
 # ---------------------------------------------------------------------------

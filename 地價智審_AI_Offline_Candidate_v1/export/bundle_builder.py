@@ -52,6 +52,9 @@ import table4_analysis as table4_analysis_handler  # noqa: E402
 from domain.models import Table4Analysis  # noqa: E402
 
 from export.models import CaseExportBundle, ManualReviewItem, SCHEMA_VERSION  # noqa: E402
+from export.manual_review_items import (  # noqa: E402,F401  (re-exported for existing imports)
+    _far_manual_review_items, _table4_manual_review_items, _table51_manual_review_items, _weight_manual_review_items,
+)
 
 
 class CaseNotFoundError(Exception):
@@ -62,56 +65,6 @@ class SegmentMapRequiredForExportError(Exception):
     """H1's export bundle is only defined for segment-scoped (Shulin-style)
     cases this round -- a legacy Jinshan case has no Table51Analysis/
     Table4Analysis at all, so there is nothing to export via this path."""
-
-
-def _far_manual_review_items(table4_analysis_dict: dict) -> List[ManualReviewItem]:
-    items = []
-    for comp in table4_analysis_dict.get("comparisons", []):
-        for fr in comp.get("individual_factor_results", []):
-            if fr.get("is_far_special_policy"):
-                items.append(ManualReviewItem(
-                    source="table4_far", segment_code=comp.get("comparable_segment_code"),
-                    field_id=fr.get("field_id"), factor_name=fr.get("factor_name"),
-                    reason=fr.get("reason") or "LAND_DEVELOPMENT_ANALYSIS_REQUIRED",
-                ))
-    return items
-
-
-def _weight_manual_review_items(table4_analysis_dict: dict) -> List[ManualReviewItem]:
-    items = []
-    for comp in table4_analysis_dict.get("comparisons", []):
-        if comp.get("weight_status") != "HUMAN_CONFIRMED":
-            items.append(ManualReviewItem(
-                source="table4_weight", segment_code=comp.get("comparable_segment_code"),
-                reason=f"WEIGHT_NOT_HUMAN_CONFIRMED (status={comp.get('weight_status')})",
-            ))
-    return items
-
-
-def _table51_manual_review_items(table51_analysis_dict: dict) -> List[ManualReviewItem]:
-    items = []
-    for comp in table51_analysis_dict.get("comparisons", []):
-        seg = comp.get("comparable_segment_code")
-        for fr in comp.get("factor_results", []):
-            if fr.get("requires_manual_review"):
-                items.append(ManualReviewItem(
-                    source="table51_factor", segment_code=seg, field_id=fr.get("field_id"),
-                    factor_name=fr.get("factor_name"), reason=fr.get("reason") or "MANUAL_REVIEW_REQUIRED",
-                ))
-    return items
-
-
-def _table4_manual_review_items(table4_analysis_dict: dict) -> List[ManualReviewItem]:
-    items = []
-    for comp in table4_analysis_dict.get("comparisons", []):
-        seg = comp.get("comparable_segment_code")
-        for fr in comp.get("individual_factor_results", []):
-            if fr.get("requires_manual_review") and not fr.get("is_far_special_policy"):
-                items.append(ManualReviewItem(
-                    source="table4_factor", segment_code=seg, field_id=fr.get("field_id"),
-                    factor_name=fr.get("factor_name"), reason=fr.get("reason") or "MANUAL_REVIEW_REQUIRED",
-                ))
-    return items
 
 
 def build_case_export_bundle(case_no: str) -> CaseExportBundle:
@@ -148,6 +101,9 @@ def build_case_export_bundle(case_no: str) -> CaseExportBundle:
             "segment_code": seg.segment_code,
             "factors": [json.loads(fi.model_dump_json()) for fi in (factors or [])],
         }
+        record = case_store.get_record(case_no, competition_segments.factors_sk(seg.segment_code)) or {}
+        if record.get("public_data_draft"):
+            table3[seg.segment_code]["public_data_draft"] = record["public_data_draft"]
 
     manual_review_items: List[ManualReviewItem] = []
     manual_review_items += _table51_manual_review_items(table51_dict)

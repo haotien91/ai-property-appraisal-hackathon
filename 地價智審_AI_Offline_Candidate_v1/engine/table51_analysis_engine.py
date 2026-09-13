@@ -113,10 +113,13 @@ def extract_regional_rule_records(rule_engine) -> List[dict]:
 
 class Table51AnalysisEngine:
     def __init__(self, grade_engine: GradeEngine, adjustment_engine: AdjustmentEngine,
-                 regional_rule_records: List[dict]):
+                 regional_rule_records: List[dict], allow_partial: bool = False):
         self._grade = grade_engine
         self._adjustment = adjustment_engine
         self._catalog = build_regional_factor_catalog(regional_rule_records)
+        # Opt-in draft mode for the public-data auto-fill pipeline: totals are
+        # summed over resolved factors and every excluded factor is listed.
+        self._allow_partial = allow_partial
 
     @property
     def factor_count(self) -> int:
@@ -213,39 +216,49 @@ class Table51AnalysisEngine:
                     reason=str(e),
                 ))
 
-        category_subtotals = self._build_category_subtotals(factor_results)
-        total = self._build_grand_total(category_subtotals)
+        category_subtotals = self._build_category_subtotals(factor_results, self._allow_partial)
+        total = self._build_grand_total(category_subtotals, self._allow_partial)
         any_manual_review = any(r.requires_manual_review for r in factor_results)
+        excluded = [r.field_id for r in factor_results if r.requires_manual_review] if self._allow_partial else []
         return Table51Comparison(
             comparable_segment_code=comparable_segment_code, comparison_index=comparison_index,
             factor_results=factor_results, category_subtotals=category_subtotals,
             total_adjustment_pct=total,
             status=FieldStatus.MANUAL_REVIEW_REQUIRED if any_manual_review else FieldStatus.COMPLETED,
             requires_manual_review=any_manual_review,
+            calculation_mode="PARTIAL_DRAFT" if excluded else None,
+            excluded_factor_ids=excluded,
         )
 
     @staticmethod
-    def _build_category_subtotals(factor_results: List[Table51FactorResult]) -> List[Table51CategorySubtotal]:
+    def _build_category_subtotals(factor_results: List[Table51FactorResult],
+                                  allow_partial: bool = False) -> List[Table51CategorySubtotal]:
         by_category: "OrderedDict[str, List[Table51FactorResult]]" = OrderedDict()
         for r in factor_results:
             by_category.setdefault(r.category, []).append(r)
         subtotals = []
         for category, results in by_category.items():
-            if any(r.requires_manual_review for r in results):
+            resolved = [r for r in results if not r.requires_manual_review]
+            has_unresolved = len(resolved) != len(results)
+            if has_unresolved and not (allow_partial and resolved):
                 subtotals.append(Table51CategorySubtotal(
                     category=category, category_index=_category_index(category),
                     subtotal_pct=None, requires_manual_review=True,
                 ))
             else:
-                total = sum((r.adjustment_pct for r in results), Decimal("0"))
+                total = sum((r.adjustment_pct for r in resolved), Decimal("0"))
                 subtotals.append(Table51CategorySubtotal(
                     category=category, category_index=_category_index(category),
-                    subtotal_pct=total, requires_manual_review=False,
+                    subtotal_pct=total, requires_manual_review=has_unresolved,
                 ))
         return subtotals
 
     @staticmethod
-    def _build_grand_total(category_subtotals: List[Table51CategorySubtotal]) -> Optional[Decimal]:
+    def _build_grand_total(category_subtotals: List[Table51CategorySubtotal],
+                           allow_partial: bool = False) -> Optional[Decimal]:
+        if allow_partial:
+            values = [s.subtotal_pct for s in category_subtotals if s.subtotal_pct is not None]
+            return sum(values, Decimal("0")) if values else None
         if any(s.requires_manual_review for s in category_subtotals):
             return None
         return sum((s.subtotal_pct for s in category_subtotals), Decimal("0"))

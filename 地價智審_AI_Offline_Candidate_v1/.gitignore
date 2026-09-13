@@ -19,6 +19,9 @@ __pycache__/
 *.pyo
 .pytest_cache/
 .venv/
+.local-runtime/
+data/public_data_cache/
+data/local_cases/
 venv/
 *.egg-info/
 .coverage
