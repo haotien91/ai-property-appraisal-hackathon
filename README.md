@@ -210,6 +210,11 @@ GET  /healthz           → 就緒狀態與快取統計
 | P003 | 樹德段 1415 | 1,906 m² | 3/4（OSM 缺路） | 8 條 |
 | P004 | 文林段 317 | 4,283 m² | 2/4（OSM 缺 L 形） | 5 條 |
 
+## 運作原理
+
+地段地號怎麼抓、區段範圍怎麼決定、界線路名怎麼標、用了哪些 open data，
+以及過程中踩過的坑，都寫在 [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)。
+
 ## 主要檔案
 
 | 檔案 | 用途 |
@@ -224,3 +229,5 @@ GET  /healthz           → 就緒狀態與快取統計
 | `block_extract.py` | 由電子地圖萃取街廓（`boundary_source=cadastral`） |
 | `zone_map_api.py` | FastAPI 服務 |
 | `prewarm_tiles.py` | 圖磚與路網預熱 |
+| `nlsc_http.py` | NLSC 的 TLS 相容 adapter 與 Overpass 請求標頭 |
+| `boundary_core/` | 路名正規化、道路解析、方位檢核的底層工具 |

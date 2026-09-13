@@ -44,7 +44,7 @@ from typing import Any, Iterable
 
 import requests
 
-from getFacility import NlscSSLAdapter
+from nlsc_http import NlscSSLAdapter
 from nlsc_map_url import (
     BaseMap,
     CountyCode,

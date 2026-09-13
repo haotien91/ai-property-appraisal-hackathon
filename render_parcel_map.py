@@ -33,8 +33,7 @@ from typing import Iterable
 import requests
 from PIL import Image, ImageDraw, ImageFont
 
-from facility_distance import OVERPASS_ENDPOINT, OVERPASS_HEADERS
-from getFacility import NlscSSLAdapter
+from nlsc_http import OVERPASS_ENDPOINT, OVERPASS_HEADERS, NlscSSLAdapter
 from nlsc_map_url import BaseMap, CountyCode, ExtraLayer, LandParcel
 from nlsc_parcel_map import (
     CADASTRAL_TILE_REFERER,

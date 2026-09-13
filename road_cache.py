@@ -43,19 +43,10 @@ from pathlib import Path
 
 import requests
 
-from facility_distance import OVERPASS_ENDPOINT, OVERPASS_HEADERS
+from nlsc_http import OVERPASS_ENDPOINT, OVERPASS_HEADERS
 
-# 不能依賴 render_zone_boundary 先被 import：本模組可能先載入
-# （zone_map_api 的 import 順序就是如此），因此自行把 POC 根目錄
-# 放進 sys.path，否則 src.normalize 會 ImportError。
-_POC_ROOT = (
-    Path(__file__).parent / "ntpc_boundary_poc_work_ready" / "ntpc_boundary_poc"
-)
-if str(_POC_ROOT) not in sys.path:
-    sys.path.insert(0, str(_POC_ROOT))
-
-from src.normalize import normalize_name  # noqa: E402
-from src.roads import _TO_3826, RoadFeature, _project_lonlat  # noqa: E402
+from boundary_core.normalize import normalize_name
+from boundary_core.roads import _TO_3826, RoadFeature, _project_lonlat
 
 CELL_DEGREES = float(os.environ.get("ROAD_CACHE_CELL_DEGREES", "0.02"))
 DEFAULT_CACHE_DIR = os.environ.get("ROAD_CACHE_DIR", "_road_cache")

@@ -29,7 +29,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # 程式碼
 COPY *.py /app/
-COPY ntpc_boundary_poc_work_ready /app/ntpc_boundary_poc_work_ready
+COPY boundary_core /app/boundary_core
 
 # 唯讀參考資料：使用分區圖
 COPY ["新北市使用分區", "/app/新北市使用分區"]

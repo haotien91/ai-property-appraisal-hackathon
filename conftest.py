@@ -1,12 +1,10 @@
 """pytest 共用設定。
 
-test.py 是手動執行的整合腳本（import 時即呼叫真實 API 並 assert），
-不是 pytest 測試模組，必須排除以免收集階段就發出網路請求。
+預設只跑不連網的邏輯測試；標記 live 的測試會呼叫真實 NLSC／OSM API，
+需加 --live 才執行。
 """
 
 import pytest
-
-collect_ignore = ["test.py"]
 
 
 def pytest_addoption(parser):

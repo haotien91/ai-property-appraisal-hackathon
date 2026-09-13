@@ -50,7 +50,7 @@ from shapely.prepared import prep
 from shapely.ops import transform as shapely_transform
 
 from block_extract import BlockExtractionError, extract_block
-from facility_distance import OVERPASS_HEADERS
+from nlsc_http import OVERPASS_HEADERS
 from nlsc_map_url import (
     BaseMap,
     CountyCode,
@@ -72,20 +72,13 @@ from render_parcel_map import (
     pixel_to_lonlat,
 )
 
-# POC 的 roads/partition 只依賴 requests/pyproj/shapely，可直接重用。
-_POC_ROOT = (
-    Path(__file__).parent / "ntpc_boundary_poc_work_ready" / "ntpc_boundary_poc"
-)
-if str(_POC_ROOT) not in sys.path:
-    sys.path.insert(0, str(_POC_ROOT))
-
-from src.normalize import first_explicit_road  # noqa: E402
-from src.partition import (  # noqa: E402
+from boundary_core.normalize import first_explicit_road
+from boundary_core.partition import (
     _satisfies_direction,
     build_barriers,
     partition_roi,
 )
-from src.roads import RoadFeature, fetch_roads, resolve_road  # noqa: E402
+from boundary_core.roads import RoadFeature, fetch_roads, resolve_road
 
 _TO_3826 = Transformer.from_crs("EPSG:4326", "EPSG:3826", always_xy=True).transform
 _TO_4326 = Transformer.from_crs("EPSG:3826", "EPSG:4326", always_xy=True).transform
@@ -2248,9 +2241,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "input",
-        nargs="?",
-        default=str(_POC_ROOT / "input.example.json"),
-        help="條件 JSON，預設為 POC 的 input.example.json",
+        help="條件 JSON，例：P001.json（單筆或多筆比準地的陣列）",
     )
     parser.add_argument(
         "-o",
