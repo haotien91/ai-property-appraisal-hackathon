@@ -1,3 +1,5 @@
+> 來源撤回：本文件使用的會議錄影、逐字稿及視覺時間軸已移除。相關推論尚未重新以正式書面資料驗證，不可再視為官方依據。
+
 # Phase 2 — Form Dependency（表單依存關係）
 
 > 依主專案指示第13-14節（Cross-Form Engine / Dependency Impact Analysis）要求，

@@ -129,51 +129,6 @@
       "notes": "Rule Engine評價基準規則（優劣等級/調整百分比）之範例格式與數值來源"
     },
     {
-      "source_id": "competition_transcript",
-      "title": "完整逐字稿（黑客松命題說明會議）",
-      "issuing_agency": "新北市政府地政局（會議逐字稿）",
-      "source_type": "COMPETITION_PROVIDED_TEXT",
-      "source_url": null,
-      "local_snapshot_path": "data/sources/competition/完整逐字稿.txt",
-      "original_filename": "完整逐字稿.txt",
-      "retrieved_at": "2026-08-31T13:54:17+08:00",
-      "retrieved_at_basis": "使用者提供檔案之本機檔案系統時間戳記",
-      "sha256": "b99cc23ce7b1ee7636282b1477481d39eedf0586b7a00c788c7fb55863db7190",
-      "byte_size": 52061,
-      "legal_status": "COMPETITION_SUPPORTING_MATERIAL",
-      "usage_status": "SUPPORTING_USED",
-      "used_by": [
-        "docs/phase1/evidence_matrix.md（REQ-027/028，ASR錯字訂正）",
-        "docs/phase1/glossary.md"
-      ],
-      "articles_or_sections_used": null,
-      "dataset_id": null,
-      "dataset_version": null,
-      "notes": "語音辨識逐字稿，含已知ASR錯字（如「地震局」應為「地政局」），僅作輔助佐證，非法規/規則之主要依據"
-    },
-    {
-      "source_id": "competition_video_timeline",
-      "title": "影片視覺時間軸",
-      "issuing_agency": "新北市政府地政局（會議錄影視覺時間軸）",
-      "source_type": "COMPETITION_PROVIDED_PDF",
-      "source_url": null,
-      "local_snapshot_path": "data/sources/competition/影片視覺時間軸.pdf",
-      "original_filename": "影片視覺時間軸.pdf",
-      "retrieved_at": "2026-08-31T13:54:14+08:00",
-      "retrieved_at_basis": "使用者提供檔案之本機檔案系統時間戳記",
-      "sha256": "4f01a745cc627fe1d16d0d025136362bf9970023b05558400dceda1ae6186c6b",
-      "byte_size": 9847529,
-      "legal_status": "COMPETITION_SUPPORTING_MATERIAL",
-      "usage_status": "SUPPORTING_USED",
-      "used_by": [
-        "docs/phase1/evidence_matrix.md（REQ-027畫面比對，如Teams參與者列表確認「地政局」正確名稱）"
-      ],
-      "articles_or_sections_used": null,
-      "dataset_id": null,
-      "dataset_version": null,
-      "notes": "用於視覺比對逐字稿之ASR錯字（如透過畫面確認正確機關名稱），非法規/規則之主要依據"
-    },
-    {
       "source_id": "law_estate_valuation_technical_rules",
       "title": "不動產估價技術規則",
       "issuing_agency": "內政部",

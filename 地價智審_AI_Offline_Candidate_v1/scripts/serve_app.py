@@ -28,6 +28,7 @@ from backend.local_workflow_service import (  # noqa: E402
     LocalWorkflowService,
     extract_case_metadata,
 )
+from backend.runtime_env import load_environment, frontend_config
 
 MAX_BODY_BYTES = 120 * 1024 * 1024
 # case-library.js shows its demo list unless MODE is production; the local
@@ -201,7 +202,14 @@ class AppHandler(SimpleHTTPRequestHandler):
                 self.end_headers()
                 return
             if path == "/js/api.js":
-                source = (FRONTEND / "js/api.js").read_text("utf-8") + API_BRIDGE
+                source = (FRONTEND / "js/api.js").read_text("utf-8")
+                if frontend_config()["LOCAL_BACKEND"]:
+                    source += API_BRIDGE
+                self._bytes(source.encode("utf-8"), "text/javascript; charset=utf-8")
+                return
+            if path == "/js/config.js":
+                source = (FRONTEND / "js/config.js").read_text("utf-8")
+                source += "\nObject.assign(window.APP_CONFIG, " + json.dumps(frontend_config()) + ");\n"
                 self._bytes(source.encode("utf-8"), "text/javascript; charset=utf-8")
                 return
             if path == "/js/case-library.js":
@@ -300,6 +308,8 @@ class AppHandler(SimpleHTTPRequestHandler):
 
 
 def main():
+    load_environment()
+    frontend_config()  # Fail before starting if production configuration is incomplete.
     parser = argparse.ArgumentParser(description="地價智審本機應用程式")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)

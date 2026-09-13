@@ -201,34 +201,6 @@
 - **legal_status**：PROVENANCE_UNCERTAIN_BUT_CONTENT_VERIFIED_IDENTICAL
 - **notes**：此為獨立佐證記錄，非額外文件：證明比賽單位提供之作業手冊與（推測為）另一政府網站流通版本checksum完全一致，增加對competition_valuation_manual內容未被竄改/未被誤傳之信心，但不將其視為獨立來源（下載URL不確定，不得冒充官方確認來源）
 
-### 完整逐字稿（黑客松命題說明會議）
-
-- **source_id**：`competition_transcript`
-- **issuing_agency**：新北市政府地政局（會議逐字稿）
-- **source_type**：COMPETITION_PROVIDED_TEXT
-- **local_snapshot_path**：`data/sources/competition/完整逐字稿.txt`
-- **original_filename**：完整逐字稿.txt
-- **retrieved_at**：2026-08-31T13:54:17+08:00 —— 使用者提供檔案之本機檔案系統時間戳記
-- **sha256**：`b99cc23ce7b1ee7636282b1477481d39eedf0586b7a00c788c7fb55863db7190`
-- **byte_size**：52,061
-- **legal_status**：COMPETITION_SUPPORTING_MATERIAL
-- **used_by**：docs/phase1/evidence_matrix.md（REQ-027/028，ASR錯字訂正）; docs/phase1/glossary.md
-- **notes**：語音辨識逐字稿，含已知ASR錯字（如「地震局」應為「地政局」），僅作輔助佐證，非法規/規則之主要依據
-
-### 影片視覺時間軸
-
-- **source_id**：`competition_video_timeline`
-- **issuing_agency**：新北市政府地政局（會議錄影視覺時間軸）
-- **source_type**：COMPETITION_PROVIDED_PDF
-- **local_snapshot_path**：`data/sources/competition/影片視覺時間軸.pdf`
-- **original_filename**：影片視覺時間軸.pdf
-- **retrieved_at**：2026-08-31T13:54:14+08:00 —— 使用者提供檔案之本機檔案系統時間戳記
-- **sha256**：`4f01a745cc627fe1d16d0d025136362bf9970023b05558400dceda1ae6186c6b`
-- **byte_size**：9,847,529
-- **legal_status**：COMPETITION_SUPPORTING_MATERIAL
-- **used_by**：docs/phase1/evidence_matrix.md（REQ-027畫面比對，如Teams參與者列表確認「地政局」正確名稱）
-- **notes**：用於視覺比對逐字稿之ASR錯字（如透過畫面確認正確機關名稱），非法規/規則之主要依據
-
 ### 不動產估價技術規則 第27條 單頁快照（補充驗證，非獨立法源）
 
 - **source_id**：`law_estate_valuation_technical_rules_art27_single_page`

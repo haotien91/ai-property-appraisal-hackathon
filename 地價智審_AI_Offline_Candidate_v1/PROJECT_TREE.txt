@@ -57,8 +57,6 @@ data
     competition
       【命題文件】地政局-新北市政府AI黑客松競賽.pdf
       土地徵收補償市價查估作業手冊.pdf
-      完整逐字稿.txt
-      影片視覺時間軸.pdf
       查估書表範本.pdf
       評價基準明細表範例.pdf
     gis

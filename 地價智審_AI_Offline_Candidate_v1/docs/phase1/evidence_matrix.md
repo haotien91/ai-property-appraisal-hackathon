@@ -1,3 +1,5 @@
+> 來源撤回：本文件使用的會議錄影、逐字稿及視覺時間軸已移除。相關推論尚未重新以正式書面資料驗證，不可再視為官方依據。
+
 # Phase 1 — Evidence Matrix
 
 本表為 Phase 1 所有重要結論的證據追溯表。每筆結論皆標示 Evidence Classification，

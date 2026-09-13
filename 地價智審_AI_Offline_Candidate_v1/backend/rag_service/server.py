@@ -132,6 +132,8 @@ def make_handler(harness, token, allowed):
 
 
 def main():
+    from backend.runtime_env import load_environment
+    load_environment()
     token = os.environ.get("RAG_API_TOKEN")
     if not token:
         raise SystemExit("Set RAG_API_TOKEN before starting (single-user prototype credential).")

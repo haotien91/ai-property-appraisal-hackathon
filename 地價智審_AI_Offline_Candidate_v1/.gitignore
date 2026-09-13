@@ -39,3 +39,11 @@ Thumbs.db
 #   infra/template.yaml, infra/statemachine/*.json
 #   tests/**, docs/**
 # ---------------------------------------------------------------
+
+# Shared integration templates must remain available to teammates.
+!.env.*.example
+# Removed recording source material.
+完整逐字稿.txt
+影片視覺時間軸.pdf
+timeline.json
+Claude分析指示.txt
