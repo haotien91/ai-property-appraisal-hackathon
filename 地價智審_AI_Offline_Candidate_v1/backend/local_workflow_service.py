@@ -73,7 +73,8 @@ def extract_case_metadata(appraisal_documents, criteria_document=b""):
     compact = re.sub(r"[\s　]+", "", text)
     codes = ("P001-00", "P002-00", "P003-00", "P004-00")
     if "新北市樹林區" in compact and any(code in compact for code in codes):
-        from data.competition_cases.shulin_residential_2026 import segment_table3_fixtures as fx
+        from backend.competition_fixtures import load_table3
+        fx = load_table3()
         code = "P001-00" if "P001-00" in compact else next(c for c in codes if c in compact)
         case_match = re.search(r"\b\d{7,8}-\d{2}-(?:\d{3}|XXX)\b", text, re.I)
         return {
@@ -222,7 +223,8 @@ class LocalWorkflowService:
         }
 
     def _collect_all_segments(self, case_no):
-        from data.competition_cases.shulin_residential_2026 import segment_table3_fixtures as fx
+        from backend.competition_fixtures import load_table3
+        fx = load_table3()
         locations = {}
         for code, meta in fx.SEGMENT_META.items():
             request = prepare_request({"case_no": case_no, "segment_code": code,
@@ -244,7 +246,8 @@ class LocalWorkflowService:
 
     @staticmethod
     def _table3_data(bundle):
-        from data.competition_cases.shulin_residential_2026 import segment_table3_fixtures as fx
+        from backend.competition_fixtures import load_table3
+        fx = load_table3()
         output = {}
         for code, result in bundle["segments"].items():
             request = result.get("request", {})
@@ -329,7 +332,8 @@ class LocalWorkflowService:
     def export_bundle(self, case_no, record=None):
         """The shared CaseExportBundle contract (JSON/Excel/ZIP), built from
         the local workflow record instead of DynamoDB."""
-        from data.competition_cases.shulin_residential_2026 import segment_table3_fixtures as fx
+        from backend.competition_fixtures import load_table3
+        fx = load_table3()
         from export.manual_review_items import all_manual_review_items
         from export.models import CaseExportBundle, SCHEMA_VERSION
         record = record or self.load(case_no)

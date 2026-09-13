@@ -180,8 +180,10 @@ def draft_remarks(table51, table4, segments):
 
 
 def presets():
-    from data.competition_cases.shulin_residential_2026 import segment_table3_fixtures as fx
-    from data.competition_cases.shulin_residential_2026 import segment_table4_fixtures as fx4
+    from backend.competition_fixtures import load_table3
+    fx = load_table3()
+    from backend.competition_fixtures import load_table4
+    fx4 = load_table4()
     return {"profile_id": PROFILE, "source": "data/sources/competition/shulin_residential_2026/題目.pdf",
         "segments": [{**copy.deepcopy(meta), "city": fx.CITY, "appraisal_period": fx.APPRAISAL_PERIOD,
                        "appraisal_base_date": fx4.APPRAISAL_BASE_DATE,
@@ -200,8 +202,10 @@ def prepare_request(body):
     if request.get("use_project_source"):
         if request.get("profile_id") != PROFILE:
             raise ValueError("只有明確選擇樹林題目，才能套用該題目既有數值")
-        from data.competition_cases.shulin_residential_2026 import segment_table3_fixtures as fx
-        from data.competition_cases.shulin_residential_2026 import segment_table4_fixtures as fx4
+        from backend.competition_fixtures import load_table3
+        fx = load_table3()
+        from backend.competition_fixtures import load_table4
+        fx4 = load_table4()
         code = request["segment_code"]
         if code not in fx.SEGMENT_META:
             raise ValueError("區段不在所選題目中")
@@ -275,8 +279,10 @@ class PublicDataService:
     def bundle(self, case_no, profile_id=PROFILE):
         if profile_id != PROFILE:
             raise ValueError("跨區段規則分析目前支援明確選取的樹林題目；其他案件仍可收集與匯出勘查資料")
-        from data.competition_cases.shulin_residential_2026 import segment_table3_fixtures as fx
-        from data.competition_cases.shulin_residential_2026 import segment_table4_fixtures as fx4
+        from backend.competition_fixtures import load_table3
+        fx = load_table3()
+        from backend.competition_fixtures import load_table4
+        fx4 = load_table4()
         segments = {}
         for code in fx.SEGMENT_META:
             saved = self.load(case_no, code)

@@ -313,6 +313,8 @@ class AppHandler(SimpleHTTPRequestHandler):
 
 def main():
     frontend_config()  # Fail before starting if production configuration is incomplete.
+    from backend.competition_fixtures import check_required_fixtures
+    check_required_fixtures()
     parser = argparse.ArgumentParser(description="地價智審本機應用程式")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)
