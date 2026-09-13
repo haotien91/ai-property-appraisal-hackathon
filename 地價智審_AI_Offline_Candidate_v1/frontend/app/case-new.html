@@ -438,7 +438,6 @@
         </div>
     </section>
 
-    <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -451,7 +450,6 @@
 
     <script>
         const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
-        document.getElementById('modeIndicator').textContent = window.APP_CONFIG.LOCAL_BACKEND ? '本機後端' : mode;
         const backendNotice = document.getElementById('backendNotice');
         if (backendNotice) backendNotice.hidden = !window.APP_CONFIG.LOCAL_BACKEND;
         CaseContext.applyCaseQueryToLinks();

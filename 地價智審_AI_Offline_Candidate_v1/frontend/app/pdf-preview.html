@@ -408,7 +408,6 @@
     </section>
 
 
-    <div class="mode-badge"><i class="fa-solid fa-circle-info me-1"></i>Mode: <span id="modeIndicator">-</span></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -416,7 +415,6 @@
 
     <script>
         const mode = (window.APP_CONFIG || {}).MODE || 'unknown';
-        document.getElementById('modeIndicator').textContent = window.APP_CONFIG.LOCAL_BACKEND ? '本機後端' : mode;
         CaseContext.applyCaseQueryToLinks();
 
         const FORM_DEFS = [
@@ -561,7 +559,11 @@
                         previewImage.alt = `${form.label} 區段位置圖`;
                         document.getElementById('mapOriginal').href = form.url;
                     } else {
-                        pdfViewer.src = `${form.url}#page=${form.page || 1}&toolbar=1&navpanes=0&view=FitH`;
+                        // Native PDF viewers may ignore fragment-only updates on an existing frame.
+                        // A new browsing context applies the requested page even for the same PDF.
+                        const nextViewer = pdfViewer.cloneNode(false);
+                        nextViewer.src = `${form.url.split('#')[0]}#page=${form.page || 1}&toolbar=1&navpanes=0&view=FitH`;
+                        pdfViewer.replaceWith(nextViewer);
                     }
                     document.getElementById('openCurrentPdf').href = form.url;
                     document.getElementById('chatContext').textContent = `目前檢視：${form.label}`;
